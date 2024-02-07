@@ -81,28 +81,28 @@ export default function SignUpSignIn({lang}) {
                     })
                         .then(res => {
                             console.log(res.data)
+
+                            // SAVE THE TOKEN IN LOCAL STORAGE AND COOKIES
+                            localStorage.setItem('retweet-token', data.token);
+                            // SAVE THE USER ID IN LOCAL STORAGE AND COOKIES
+                            localStorage.setItem('retweet-user-id', data.user?._id);
+                            // SAVE THE USER EMAIL IN LOCAL STORAGE AND COOKIES
+                            localStorage.setItem('retweet-user-email', data.user?.email);
+                            // SAVE THE USER NAME IN LOCAL STORAGE AND COOKIES
+                            localStorage.setItem('retweet-user-name', data.user?.fullName);
+                            // SAVE THE USER PHONE IN LOCAL STORAGE AND COOKIES
+                            localStorage.setItem('retweet-user-phone', data.user?.phoneNumber);
+
+                            setTimeout(() => {
+                                // REDIRECT TO HOME AFTER 1 SECOND
+                                RedirectAndReload('/');
+                                // SHOW A SUCCESS MESSAGE
+                                toast.success('Logging you in...');
+                            }, 1000);
                         })
                         .catch(error => {
                             console.log(error);
                         })
-
-                    // SAVE THE TOKEN IN LOCAL STORAGE AND COOKIES
-                    localStorage.setItem('retweet-token', data.token);
-                    // SAVE THE USER ID IN LOCAL STORAGE AND COOKIES
-                    localStorage.setItem('retweet-user-id', data.user?._id);
-                    // SAVE THE USER EMAIL IN LOCAL STORAGE AND COOKIES
-                    localStorage.setItem('retweet-user-email', data.user?.email);
-                    // SAVE THE USER NAME IN LOCAL STORAGE AND COOKIES
-                    localStorage.setItem('retweet-user-name', data.user?.fullName);
-                    // SAVE THE USER PHONE IN LOCAL STORAGE AND COOKIES
-                    localStorage.setItem('retweet-user-phone', data.user?.phoneNumber);
-
-                    setTimeout(() => {
-                        // REDIRECT TO HOME AFTER 1 SECOND
-                        RedirectAndReload('/');
-                        // SHOW A SUCCESS MESSAGE
-                        toast.success('Logging you in...');
-                    }, 1000);
                 }
             })
             .catch(error => {
