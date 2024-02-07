@@ -1,0 +1,174 @@
+.Navbar {
+    background: #FFFFFF;
+    border-bottom: 1px solid rgba(237, 237, 237, 1);
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .Navbar__logo {
+    }
+
+    .Navbar__select__wrapper {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .Navbar__select {
+        width: 200px;
+        background: transparent;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        color: #000000;
+        cursor: pointer;
+        box-shadow: initial;
+
+        &:focus {
+            outline: none;
+        }
+
+        // RECOLOR THE ARROW
+        & svg[class="p-icon p-dropdown-trigger-icon p-clickable"] {
+            stroke: rgba(0, 172, 238, 1);
+
+            path {
+                stroke-width: .5px;
+            }
+        }
+    }
+
+    .Navbar__icons {
+        display: flex;
+        align-items: center;
+
+        .Navbar__icons__icon {
+            cursor: pointer;
+            background: #FFFFFF;
+            border: 0;
+            outline: none;
+            box-shadow: initial;
+            padding: 0;
+
+            &:hover {
+                box-shadow: initial;
+            }
+
+            &:focus {
+                box-shadow: initial;
+            }
+        }
+    }
+
+    .Navbar__breaker {
+        width: 1px;
+        height: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        background: rgba(237, 237, 237, 1);
+    }
+
+    .Navbar_group {
+        display: flex;
+    }
+
+    .Navbar__sign {
+
+        .Navbar__sign__btn {
+            background: #FFFFFF;
+            border: 0;
+            outline: none;
+            box-shadow: initial;
+            padding: 0;
+            cursor: pointer;
+            font-size: 16px;
+            color: rgba(102, 102, 102, 1);
+            font-weight: 500;
+            text-transform: capitalize;
+
+            &:hover {
+                box-shadow: initial;
+            }
+
+            &:focus {
+                box-shadow: initial;
+            }
+
+            img {
+                margin-right: 5px;
+            }
+
+            a {
+                text-decoration: none;
+                color: rgba(102, 102, 102, 1);
+            }
+        }
+    }
+
+    .Navbar__Add {
+
+        .Navbar__Add__btn {
+            max-width: 200px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            padding: 0 10px;
+            background: rgba(245, 169, 47, 1);
+            border: 0;
+            outline: none;
+            box-shadow: initial;
+            cursor: pointer;
+            font-size: 16px;
+            color: #FFFFFF;
+            font-weight: 500;
+            text-transform: capitalize;
+            transition: all 0.15s ease-in-out;
+
+            &:hover {
+                box-shadow: initial;
+                background: rgb(232, 162, 49);
+            }
+
+            &:focus {
+                box-shadow: 0 0 0 0.2rem rgba(245, 169, 47, 0.5);
+            }
+
+            &:active {
+                transform: scale(0.98);
+            }
+
+            img {
+                margin-right: 5px;
+            }
+        }
+    }
+
+    .Navbar__lang {
+        .Navbar__lang__select {
+            width: 140px;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: #000000;
+            cursor: pointer;
+            box-shadow: initial;
+
+            &:focus {
+                outline: none;
+            }
+
+            // RECOLOR THE ARROW
+            & svg[class="p-icon p-dropdown-trigger-icon p-clickable"] {
+                stroke: rgba(0, 172, 238, 1);
+
+                path {
+                    stroke-width: .5px;
+                }
+            }
+        }
+    }
+}
