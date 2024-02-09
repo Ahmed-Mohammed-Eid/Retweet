@@ -6,7 +6,6 @@ import {useState, useRef} from "react";
 import toast from "react-hot-toast";
 import {useRouter} from "next/navigation";
 import axios from "axios";
-import RedirectAndReload from "@/helpers/redirectAndReload";
 
 export default function SignUpSignIn({lang}) {
 
@@ -93,7 +92,7 @@ export default function SignUpSignIn({lang}) {
                             // SAVE THE USER PHONE IN LOCAL STORAGE AND COOKIES
                             localStorage.setItem('retweet-user-phone', data.user?.phoneNumber);
 
-                            RedirectAndReload('/');
+                            router.push('/?redirected=true');
                             // SHOW A SUCCESS MESSAGE
                             toast.success('Logging you in...');
 
@@ -297,7 +296,7 @@ export default function SignUpSignIn({lang}) {
                         onClick={onLoginClick}
                     >
                         <Image src="/assets/authentication/Google.png" width={20} height={20} alt="google"/>
-                        <span>Login with Google</span>
+                        <span>Sign Up with Google</span>
                     </button>
                 </div>
             </div>)}
