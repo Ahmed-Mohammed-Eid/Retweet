@@ -6,7 +6,7 @@ import AccountSettingsContent
 export default function AccountHome({lang, user}) {
     return (
         <div className={`w-full min-h-screen ${classes.AccountSettings}`}>
-            <ProfileNavigation lang={lang}/>
+            <ProfileNavigation lang={lang} user={user}/>
             {/*  CONTENT  */}
             <AccountSettingsContent lang={lang} user={user}/>
         </div>

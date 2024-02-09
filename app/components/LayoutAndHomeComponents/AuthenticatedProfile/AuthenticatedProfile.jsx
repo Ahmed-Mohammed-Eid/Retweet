@@ -7,7 +7,6 @@ import {Button} from "primereact/button";
 import Link from "next/link";
 import classes from "./AuthenticatedProfile.module.scss"
 import {useRouter} from "next/navigation";
-import RedirectAndReload from "@/helpers/redirectAndReload";
 
 
 export default function AuthenticatedProfile({lang}) {
@@ -37,8 +36,9 @@ export default function AuthenticatedProfile({lang}) {
         document.cookie = `retweet-user-email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
         document.cookie = `retweet-user-name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
         document.cookie = `retweet-user-phone=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+        document.cookie = `retweet-has-profile=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
         // REDIRECT TO HOME PAGE
-        RedirectAndReload('/');
+        router.push('/?redirected=true');
     }
 
     return (

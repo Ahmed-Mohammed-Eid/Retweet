@@ -2,12 +2,15 @@
 import classes from './ProfileNavigation.module.scss';
 import Image from "next/image";
 import Link from "next/link";
-import {usePathname} from "next/navigation";
+import {usePathname, useRouter} from "next/navigation";
 import RedirectAndReload from "@/helpers/redirectAndReload";
+import {router} from "next/client";
 
-export default function ProfileNavigation() {
+export default function ProfileNavigation({lang, user}) {
 
+    // ROUTER
     // INIT ROUTER
+    const router = useRouter();
     const path = usePathname();
     const pathnameWithoutEn = path.replace('/en', '');
     const pathnameWithoutAr = pathnameWithoutEn.replace('/ar', '');
@@ -25,15 +28,16 @@ export default function ProfileNavigation() {
         document.cookie = `retweet-user-email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
         document.cookie = `retweet-user-name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
         document.cookie = `retweet-user-phone=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+        document.cookie = `retweet-has-profile=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
         // REDIRECT TO HOME PAGE
-        RedirectAndReload('/');
+        router.push('/?redirected=true');
     }
     return (
         <div className={classes.ProfileNavigation}>
             <div className={classes.ProfileNavigation__header}>
                 <Image src={'/assets/home/userAccount.png'} width={90} height={90} alt={'Profile'}/>
-                <h2>yazan mohamed</h2>
-                <p>yazan mohamed253.@gmail.3com</p>
+                <h2>{user?.fullName || ''}</h2>
+                <p>{user?.email || ''}</p>
             </div>
             <div className={classes.ProfileNavigation__body}>
                 <Link href={'/profile/account'}

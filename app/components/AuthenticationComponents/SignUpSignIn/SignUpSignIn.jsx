@@ -93,12 +93,10 @@ export default function SignUpSignIn({lang}) {
                             // SAVE THE USER PHONE IN LOCAL STORAGE AND COOKIES
                             localStorage.setItem('retweet-user-phone', data.user?.phoneNumber);
 
-                            setTimeout(() => {
-                                // REDIRECT TO HOME AFTER 1 SECOND
-                                RedirectAndReload('/');
-                                // SHOW A SUCCESS MESSAGE
-                                toast.success('Logging you in...');
-                            }, 1000);
+                            RedirectAndReload('/');
+                            // SHOW A SUCCESS MESSAGE
+                            toast.success('Logging you in...');
+
                         })
                         .catch(error => {
                             console.log(error);
@@ -196,8 +194,8 @@ export default function SignUpSignIn({lang}) {
                 const data = response.data;
                 // CHECK IF THE REQUEST IS SUCCESSFUL
                 if (data?.success) {
-                    // OPEN THE LINK IN A NEW TAB
-                    window.open(data?.authUrl, '_blank');
+                    // OPEN THE LINK IN
+                    window.location.href = data?.authUrl;
                 }
             })
             .catch(error => {

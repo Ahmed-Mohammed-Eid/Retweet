@@ -3,11 +3,19 @@ import {useEffect} from "react";
 import {useRouter, useSearchParams} from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
+import RedirectAndReload from "@/helpers/redirectAndReload";
 
 export default function SaveGoogleToken() {
 
     const router = useRouter();
     const searchParams = useSearchParams();
+
+    useEffect(() => {
+        const redirected = searchParams.get('redirected');
+        if (redirected === 'true') {
+            window.location.href = '/';
+        }
+    }, [searchParams])
 
     useEffect(() => {
         const token = searchParams.get('token');
@@ -36,7 +44,6 @@ export default function SaveGoogleToken() {
                         .then(async response => {
                             // Handle the response here
                             const {data} = response;
-                            console.log(data);
                             // CHECK IF THE REQUEST IS SUCCESSFUL
                             if (data.success) {
                                 await axios.post(`/api/setLoginCookies`, {
@@ -59,10 +66,12 @@ export default function SaveGoogleToken() {
 
                                         setTimeout(() => {
                                             // REDIRECT TO HOME AFTER 1 SECOND
-                                            if (hasProfile === 'false') {
-                                                router.push('/profile/settings');
+                                            if (hasProfile === 'true') {
+                                                console.log('BEFORE REDIRECT TO HOME');
+                                                router.push('/?redirected=true');
                                             } else {
-                                                router.push('/');
+                                                console.log('BEFORE REDIRECT TO PROFILE');
+                                                router.push('/profile/settings?redirected=true');
                                             }
                                             // SHOW A SUCCESS MESSAGE
                                             toast.success('Logging you in...');
@@ -75,16 +84,13 @@ export default function SaveGoogleToken() {
                         })
                         .catch(error => {
                             console.log(error);
-                        });
+                        })
                 })
                 .catch(error => {
                     console.log(error);
                 })
         }
-
-
-        router.push('/');
-    }, [router, searchParams]);
+    }, [searchParams]);
 
     return null
 } 

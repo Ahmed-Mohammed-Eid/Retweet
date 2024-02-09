@@ -4,8 +4,12 @@ import Image from "next/image";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import {useSearchParams} from "next/navigation";
 
 export default function AccountSettingsContent({lang, user}) {
+
+    // SEARCH PARAMS
+    const searchParams = useSearchParams();
 
     const [file, setFile] = useState(null);
     const [imagePreviewUrl, setImagePreviewUrl] = useState(null);
@@ -29,6 +33,13 @@ export default function AccountSettingsContent({lang, user}) {
             gender: user?.gender,
         })
     }, [user]);
+
+    useEffect(() => {
+        const redirected = searchParams.get('redirected');
+        if (redirected === 'true') {
+            window.location.href = '/profile/settings';
+        }
+    }, [searchParams])
 
 
     // HANDLE THE IMAGE WHEN IT'S SELECTED TO PREVIEW IT IN THE IMAGE
@@ -78,6 +89,7 @@ export default function AccountSettingsContent({lang, user}) {
             .then(response => {
                 // Handle the response here
                 const {data} = response;
+                toast.success(data?.message || 'Profile updated successfully');
             })
             .catch(error => {
                 // Handle the error here
