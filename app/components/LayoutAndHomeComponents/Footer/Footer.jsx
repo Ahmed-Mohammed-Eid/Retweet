@@ -45,6 +45,12 @@ export default function Footer() {
                                 <a href="#" className="text-gray-500 no-underline hover:underline">Home</a>
                             </li>
                             <li className="inline-block py-2 px-1">
+                                <a href="/about" className="text-gray-500 no-underline hover:underline">About Us</a>
+                            </li>
+                            <li className="inline-block py-2 px-1">
+                                <a href="/contact" className="text-gray-500 no-underline hover:underline">Contact Us</a>
+                            </li>
+                            <li className="inline-block py-2 px-1">
                                 <a href="#" className="text-gray-500 no-underline hover:underline">Notification</a>
                             </li>
                             <li className="inline-block py-2 px-1">

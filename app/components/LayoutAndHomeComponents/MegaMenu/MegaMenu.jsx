@@ -1,239 +1,42 @@
 "use client";
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Menubar} from 'primereact/menubar';
 import classes from "./MegaMenu.module.scss";
-import Link from "next/link";
 import {useRouter} from "next/navigation";
+import axios from "axios";
 
 export default function MegaMenuComponent({lang}) {
+
+    // STATES
+    const [categories, setCategories] = useState([]);
+
+    // EFFECTS
+    useEffect(() => {
+        axios.get(`${process.env.BASE_URL}/home/categories`)
+            .then(response => {
+                setCategories(response.data?.categories || []);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }, []);
+
     const router = useRouter();
-    const items = [
-        {
-            label: 'Cars',
-            items: [
-                {
-                    label: 'New',
-                    icon: 'pi pi-fw pi-plus',
-                    items: [
-                        {
-                            label: 'BMW',
-                        },
-                        {
-                            label: 'MERCEDES',
-                        },
-                        {
-                            label: 'RENAULT',
+    const items = categories.map(category => {
+        return {
+            label: category.categoryName,
+            items: category.subCategories.map(subCategory => {
+                return {
+                    label: subCategory.subCategoryName,
+                    items: subCategory.items.map(subSubCategory => {
+                        return {
+                            label: subSubCategory.subSubCategoryName,
                         }
-                    ]
-                },
-                {
-                    label: 'Used',
-                    icon: 'pi pi-fw pi-trash',
-                    items: [
-                        {
-                            label: 'BMW',
-                        },
-                        {
-                            label: 'MERCEDES',
-                        },
-                        {
-                            label: 'RENAULT',
-                        }
-                    ]
-                },
-                {
-                    label: 'Rent',
-                    icon: 'pi pi-fw pi-refresh',
-                    items: [
-                        {
-                            label: 'BMW',
-                        },
-                        {
-                            label: 'MERCEDES',
-                        },
-                        {
-                            label: 'RENAULT',
-                        }
-                    ]
+                    })
                 }
-
-            ]
-        },
-        {
-            label: 'Bikes',
-            items: [
-                {
-                    label: 'New',
-                    icon: 'pi pi-fw pi-plus',
-                    items: [
-                        {
-                            label: 'BMW',
-                        },
-                        {
-                            label: 'MERCEDES',
-                        },
-                        {
-                            label: 'RENAULT',
-                        }
-                    ]
-                },
-                {
-                    label: 'Used',
-                    icon: 'pi pi-fw pi-trash',
-                    items: [
-                        {
-                            label: 'BMW',
-                        },
-                        {
-                            label: 'MERCEDES',
-                        },
-                        {
-                            label: 'RENAULT',
-                        }
-                    ]
-                },
-                {
-                    label: 'Rent',
-                    icon: 'pi pi-fw pi-refresh',
-                    items: [
-                        {
-                            label: 'BMW',
-                        },
-                        {
-                            label: 'MERCEDES',
-                        },
-                        {
-                            label: 'RENAULT',
-                        }
-                    ]
-                }
-
-            ]
-        },
-        {
-            label: 'Boats',
-            items: [
-                {
-                    label: 'New',
-                    icon: 'pi pi-fw pi-plus',
-                    items: [
-                        {
-                            label: 'BMW',
-                        },
-                        {
-                            label: 'MERCEDES',
-                        },
-                        {
-                            label: 'RENAULT',
-                        }
-                    ]
-                },
-                {
-                    label: 'Used',
-                    icon: 'pi pi-fw pi-trash',
-                    items: [
-                        {
-                            label: 'BMW',
-                        },
-                        {
-                            label: 'MERCEDES',
-                        },
-                        {
-                            label: 'RENAULT',
-                        }
-                    ]
-                },
-                {
-                    label: 'Rent',
-                    icon: 'pi pi-fw pi-refresh',
-                    items: [
-                        {
-                            label: 'BMW',
-                        },
-                        {
-                            label: 'MERCEDES',
-                        },
-                        {
-                            label: 'RENAULT',
-                        }
-                    ]
-                }
-
-            ]
-        },
-        {
-            label: 'Heavy Equipment',
-            items: [
-                {
-                    label: 'New',
-                    icon: 'pi pi-fw pi-plus',
-                    items: [
-                        {
-                            label: 'BMW',
-                        },
-                        {
-                            label: 'MERCEDES',
-                        },
-                        {
-                            label: 'RENAULT',
-                        }
-                    ]
-                },
-                {
-                    label: 'Used',
-                    icon: 'pi pi-fw pi-trash',
-                    items: [
-                        {
-                            label: 'BMW',
-                        },
-                        {
-                            label: 'MERCEDES',
-                        },
-                        {
-                            label: 'RENAULT',
-                        }
-                    ]
-                },
-                {
-                    label: 'Rent',
-                    icon: 'pi pi-fw pi-refresh',
-                    items: [
-                        {
-                            label: 'BMW',
-                        },
-                        {
-                            label: 'MERCEDES',
-                        },
-                        {
-                            label: 'RENAULT',
-                        }
-                    ]
-                }
-
-            ]
-        },
-        {
-            label: 'Trucks',
-            items: [
-                {
-                    label: 'New',
-                    icon: 'pi pi-fw pi-plus',
-                    items: [
-                        {
-                            label: 'BMW',
-                            command: () => router.push('/auth/login')
-                        },
-                        {
-                            label: 'MERCEDES',
-                        },
-                        {
-                            label: 'RENAULT',
-                        }
-                    ]
-                }
-            ]
+            })
         }
-    ];
+    });
     return (
         <Menubar
             model={items}
