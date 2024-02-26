@@ -1,8 +1,28 @@
+"use client";
+
+import React, {useEffect, useState} from 'react';
 import classes from "./HomeCategories.module.scss";
 import HomeCategory from "@/app/components/LayoutAndHomeComponents/HomeCategories/Category";
 import Image from "next/image";
+import axios from "axios";
 
-export default function HomeCategories() {
+export default function HomeCategories({dictionary, lang}) {
+
+    // STATES
+    const [categories, setCategories] = useState([]);
+
+
+    useEffect(() => {
+        axios.get(`${process.env.BASE_URL}/home/categories`)
+            .then(response => {
+                setCategories(response.data?.categories || []);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }, []);
+
+
     return (
         <section className={classes.HomeCategories}>
             <div className={classes.HomeCategories__Top}>
@@ -15,15 +35,9 @@ export default function HomeCategories() {
                 </div>
             </div>
             <div className={classes.HomeCategories__Container}>
-                <HomeCategory/>
-                <HomeCategory/>
-                <HomeCategory/>
-                <HomeCategory/>
-                <HomeCategory/>
-                <HomeCategory/>
-                <HomeCategory/>
-                <HomeCategory/>
-                <HomeCategory/>
+                {categories.slice(0, 14).map((category, index) => {
+                    return <HomeCategory key={index} category={category} lang={lang}/>
+                })}
             </div>
             <div className={classes.HomeCategories__Bottom}>
                 <div className={classes.HomeCategories__Bottom__Left}>

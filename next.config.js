@@ -6,6 +6,10 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: '**.placeholder.com',
             },
+            {
+                protocol: 'https',
+                hostname: 'api.retweet.com',
+            },
         ],
     },
     env: {

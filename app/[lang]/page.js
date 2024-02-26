@@ -16,11 +16,11 @@ export default async function Home({params: {lang}}) {
         <>
             <SaveGoogleToken/>
             <HomeSwiper/>
-            <HomeCategories dictionary={dictionary}/>
-            <LatestAds dictionary={dictionary}/>
-            <RealEstate dictionary={dictionary}/>
-            <CarsAndBikes dictionary={dictionary}/>
-            <SmartPhones dictionary={dictionary}/>
+            <HomeCategories dictionary={dictionary} lang={lang}/>
+            <LatestAds dictionary={dictionary} lang={lang}/>
+            <RealEstate dictionary={dictionary} lang={lang}/>
+            <CarsAndBikes dictionary={dictionary} lang={lang}/>
+            <SmartPhones dictionary={dictionary} lang={lang}/>
         </>
     );
 }

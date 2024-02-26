@@ -1,8 +1,13 @@
-import classes from "./LatestAds.module.scss";
-import Image from "next/image";
-import Card from "@/app/components/LayoutAndHomeComponents/Card/Card";
+"use client";
 
-export default function LatestAds({dictionary}) {
+import classes from "./LatestAds.module.scss";
+import Card from "@/app/components/LayoutAndHomeComponents/Card/Card";
+import {useEffect, useState} from "react";
+import axios from "axios";
+
+export default function LatestAds({dictionary, lang}) {
+
+    // Dummy data
     const data = [
         {
             img: '/assets/home/testImg.png',
@@ -46,6 +51,25 @@ export default function LatestAds({dictionary}) {
         },
     ];
 
+    // State
+    const [ads, setAds] = useState([]);
+
+    // Fetch latest ads from server
+    function getLatestAds() {
+        // Fetch data from server
+        axios.get(`${process.env.BASE_URL}/all/home/ads`)
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    // Fetch latest ads on component mount
+    useEffect(() => {
+        getLatestAds();
+    }, []);
 
     return (
         <section className={classes.LatestAds}>

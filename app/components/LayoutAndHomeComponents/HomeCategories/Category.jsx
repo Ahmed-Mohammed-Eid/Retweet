@@ -1,13 +1,14 @@
 import Image from "next/image";
+import Link from "next/link";
 import classes from './HomeCategory.module.scss'
 
-export default function HomeCategory() {
+export default function HomeCategory({category, lang}) {
     return (
-        <div className={classes.HomeCategory}>
+        <Link className={classes.HomeCategory} href={'#'}>
             <div className={classes.HomeCategory__Img}>
-                <Image src={'/assets/home/mobile.png'} alt={'category'} width={75} height={75}/>
+                <Image src={category.categoryImage} alt={'category'} width={75} height={75}/>
             </div>
-            <h1>Mobile</h1>
-        </div>
+            <h2>{lang === 'en'? category.categoryNameEn: category.categoryName}</h2>
+        </Link>
     )
 }
