@@ -1,5 +1,10 @@
+"use client"
+
 import classes from "./RealEstate.module.scss";
 import Card from "@/app/components/LayoutAndHomeComponents/Card/Card";
+import {useEffect, useState} from "react";
+import axios from "axios";
+import Image from "next/image";
 
 export default function RealEstate({dictionary}) {
     const data = [
@@ -24,6 +29,31 @@ export default function RealEstate({dictionary}) {
             price: '$500',
         },
     ];
+    // State
+    const [ads, setAds] = useState([]);
+
+    // Fetch latest ads from server
+    function getRealAds() {
+
+    }
+    function getBottomAd() {
+        // Fetch data from server
+        axios.get(`${process.env.BASE_URL}/all/home/ads`)
+            .then(response => {
+                const ads = response.data.homeAds.thirdAd;
+                setAds(ads);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    // Fetch latest ads on component mount
+    useEffect(() => {
+        getBottomAd();
+        getRealAds();
+    }, []);
+
 
 
     return (
@@ -46,6 +76,7 @@ export default function RealEstate({dictionary}) {
                 }
             </div>
             <div className={classes.RealEstate__Bottom}>
+                <Image src={ads} alt={'Ads Banner'} width={1920} height={300}/>
             </div>
         </section>
     )

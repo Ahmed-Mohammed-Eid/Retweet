@@ -4,6 +4,7 @@ import classes from "./LatestAds.module.scss";
 import Card from "@/app/components/LayoutAndHomeComponents/Card/Card";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import Image from "next/image";
 
 export default function LatestAds({dictionary, lang}) {
 
@@ -56,10 +57,14 @@ export default function LatestAds({dictionary, lang}) {
 
     // Fetch latest ads from server
     function getLatestAds() {
+
+    }
+    function getBottomAd() {
         // Fetch data from server
         axios.get(`${process.env.BASE_URL}/all/home/ads`)
             .then(response => {
-                console.log(response.data);
+                const ads = response.data.homeAds.secondAd;
+                setAds(ads);
             })
             .catch(error => {
                 console.log(error);
@@ -68,8 +73,10 @@ export default function LatestAds({dictionary, lang}) {
 
     // Fetch latest ads on component mount
     useEffect(() => {
+        getBottomAd();
         getLatestAds();
     }, []);
+
 
     return (
         <section className={classes.LatestAds}>
@@ -92,6 +99,7 @@ export default function LatestAds({dictionary, lang}) {
                 }
             </div>
             <div className={classes.LatestAds__Bottom}>
+                <Image src={ads} alt={'Ads Banner'} width={1920} height={300}/>
             </div>
         </section>
     )

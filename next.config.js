@@ -10,6 +10,10 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'api.retweet.com',
             },
+            {
+                protocol: 'http',
+                hostname: 'localhost',
+            },
         ],
     },
     env: {
