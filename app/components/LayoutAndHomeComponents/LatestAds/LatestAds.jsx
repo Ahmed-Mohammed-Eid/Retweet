@@ -8,56 +8,25 @@ import Image from "next/image";
 
 export default function LatestAds({dictionary, lang}) {
 
-    // Dummy data
-    const data = [
-        {
-            img: '/assets/home/testImg.png',
-            title: 'CANON EOS DSLR Camera',
-            price: '$500',
-        },
-        {
-            img: '/assets/home/testImg.png',
-            title: 'Lorem Ipsum',
-            price: '$500',
-        },
-        {
-            img: '/assets/home/testImg.png',
-            title: 'Lorem Ipsum',
-            price: '$500',
-        },
-        {
-            img: '/assets/home/testImg.png',
-            title: 'Lorem Ipsum',
-            price: '$500',
-        },
-        {
-            img: '/assets/home/testImg.png',
-            title: 'Lorem Ipsum',
-            price: '$500',
-        },
-        {
-            img: '/assets/home/testImg.png',
-            title: 'Lorem Ipsum',
-            price: '$500',
-        },
-        {
-            img: '/assets/home/testImg.png',
-            title: 'Lorem Ipsum',
-            price: '$500',
-        },
-        {
-            img: '/assets/home/testImg.png',
-            title: 'Lorem Ipsum',
-            price: '$500',
-        },
-    ];
-
     // State
     const [ads, setAds] = useState([]);
+    const [latestAds, setLatestAds] = useState([]); // [img, title, price
 
     // Fetch latest ads from server
     function getLatestAds() {
-
+        ///latest/listings
+        try {
+            axios.get(`${process.env.BASE_URL}/latest/listings`)
+                .then(response => {
+                    const data = response.data.latest;
+                    setLatestAds(data);
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        } catch (error) {
+            console.log(error);
+        }
     }
     function getBottomAd() {
         // Fetch data from server
@@ -91,9 +60,9 @@ export default function LatestAds({dictionary, lang}) {
             </div>
             <div className={classes.LatestAds__Container}>
                 {
-                    data.map((item, index) => {
+                    latestAds.map((item, index) => {
                         return (
-                            <Card key={index} dictionary={dictionary} data={item}/>
+                            <Card key={index} dictionary={dictionary} data={item} lang={lang} />
                         )
                     })
                 }

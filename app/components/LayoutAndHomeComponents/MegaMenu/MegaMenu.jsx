@@ -34,12 +34,21 @@ export default function MegaMenuComponent({lang}) {
                     items: lang === 'en' ? subCategory.itemsEn.map(item => {
                         return {
                             label: item,
+                            command: () => {
+                                router.push(`/listings?subcategoryId=${subCategory?._id}&item=${item}`);
+                            }
                         };
                     }) : subCategory.items.map(item => {
                         return {
                             label: item,
+                            command: () => {
+                                router.push(`/listings?subcategoryId=${subCategory?._id}&item=${item}`);
+                            }
                         };
                     }),
+                    command: () => {
+                        router.push(`/listings?subcategoryId=${subCategory?._id}`);
+                    }
                 };
             }),
         };
@@ -57,12 +66,21 @@ export default function MegaMenuComponent({lang}) {
                             items: lang === 'en' ? subCategory.itemsEn.map(item => {
                                 return {
                                     label: item,
+                                    command: () => {
+                                        router.push(`/listings?categoryId=${subCategory?._id}&item=${item}`);
+                                    }
                                 };
                             }) : subCategory.items.map(item => {
                                 return {
                                     label: item,
+                                    command: () => {
+                                        router.push(`/listings?categoryId=${subCategory?._id}&item=${item}`);
+                                    }
                                 }
                             }),
+                            command: () => {
+                                router.push(`/listings?categoryId=${subCategory?._id}`);
+                            }
                         };
                     }),
                 };

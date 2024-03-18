@@ -1,0 +1,14 @@
+.listingDescription{
+    // MAKE THE MAX HEIGHT 3 LINES
+    max-height: 3em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #4a4a4a;
+    font-weight: 400;
+}

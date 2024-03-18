@@ -10,6 +10,9 @@ import AuthenticatedProfile from "@/app/components/LayoutAndHomeComponents/Authe
 import {useRouter} from "next/navigation";
 
 function Navbar({lang, auth}) {
+
+    console.log('Navbar', lang, auth);
+
     const router = useRouter();
 
     return (
@@ -58,7 +61,9 @@ function Navbar({lang, auth}) {
             </div>
 
             <div className={classes.Navbar__Add}>
-                <Button className={classes.Navbar__Add__btn}>
+                <Button className={classes.Navbar__Add__btn} onClick={() => {
+                    auth ? router.push('/listings/select-category') : router.push('/auth/login')
+                }}>
                     <Image src={'/assets/home/solar_camera-add-bold.svg'} alt={'camera'} width={19} height={19}/>
                     <span>Add New Listing</span>
                 </Button>

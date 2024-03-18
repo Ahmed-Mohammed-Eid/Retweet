@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import classes from './SecondaryNavigation.module.scss';
@@ -12,6 +14,9 @@ export default function SecondaryNavigation({arrayOfLinks}) {
                             <>
                                 <Link
                                     href={link.href}
+                                    onClick={(e) => {
+                                        !link.arrow ? e.preventDefault() : '';
+                                    }}
                                     key={index}
                                     className={'flex justify-items-start items-center gap-1'}>
                                     {link.icon ? <Image src={link.icon} width={18} height={18} alt={'home'}/> : ''} {link.text || ''}

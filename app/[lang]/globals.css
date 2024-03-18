@@ -58,67 +58,6 @@ body::-webkit-scrollbar-track {
     }
 }
 
-/*RECOLOR THE MENU HOVER COLORS*/
-/*.p-menubar-root-list > li {*/
-/*    background: rgba(243, 249, 251, 1);*/
-/*    margin: 0 5px;*/
-/*    border-radius: 30px;*/
-/*}*/
-
-/*.p-menubar-root-list > li:first-child {*/
-/*    margin-left: 0;*/
-/*}*/
-
-/*.p-menubar-root-list > li > a {*/
-/*    background: rgba(243, 249, 251, 1);*/
-/*    margin: 0 5px;*/
-/*    border-radius: 30px;*/
-/*}*/
-
-/*.p-menubar-root-list > li:first-child > a {*/
-/*    margin-left: 0;*/
-/*}*/
-
-
-/*.p-menuitem-link:hover {*/
-/*    background-color: rgba(0, 172, 238, 1);*/
-/*    color: #FFFFFF;*/
-/*}*/
-
-/*.p-menuitem-link:hover .p-menuitem-text {*/
-/*    color: #FFFFFF;*/
-/*}*/
-
-/*.p-menuitem-link:hover .p-submenu-icon {*/
-/*    color: #FFFFFF;*/
-/*}*/
-
-/*.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link, .p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover {*/
-/*    background-color: rgba(0, 172, 238, 1);*/
-/*    color: #FFFFFF;*/
-/*}*/
-
-/*.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text, .p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {*/
-/*    color: #ffffff;*/
-/*}*/
-
-/*.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon, .p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {*/
-/*    color: #ffffff;*/
-/*}*/
-
-
-/*.p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link {*/
-/*    background-color: rgba(0, 172, 238, 1);*/
-/*}*/
-
-/*.p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text {*/
-/*    color: #FFFFFF;*/
-/*}*/
-
-/*.p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon, .p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon {*/
-/*    color: #ffffff;*/
-/*}*/
-
 /*SWIPER RESET*/
 .swiper {
     z-index: 0 !important;
@@ -148,3 +87,34 @@ body::-webkit-scrollbar-track {
     font-size: 18px !important;
     color: rgba(0, 142, 204, 1) !important;
 }
+
+/*BUTTON STYLE*/
+
+.button--effect{
+    transition: all 0.15s ease-in-out;
+
+    &:active{
+        transform: scale(0.95);
+    }
+}
+.button--effect-small{
+    transition: all 0.25s ease-in-out;
+
+    &:active{
+        transform: scale(0.99);
+    }
+}
+
+
+
+/* RESET THE DROPDOWN FOCUS*/
+.p-dropdown:not(.p-disabled).p-focus{
+    box-shadow: 0 0 3px rgba(0, 142, 204, 1);
+}
+
+.circle__white{
+    border-color: #fb923c;
+    border-width: 3px;
+    background: #FFFFFF;
+}
+
