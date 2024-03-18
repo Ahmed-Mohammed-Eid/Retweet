@@ -79,7 +79,7 @@ export default function SelectImages({lang}) {
             }
 
             // APPEND THE FILES
-            formData.append('files', files[i]);
+            formData.append('files', files[i]?.file);
         }
 
         formData.append('urls', JSON.stringify([]));

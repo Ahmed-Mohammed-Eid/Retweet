@@ -16,6 +16,7 @@
     "negotiator": "^0.6.3",
     "next": "14.0.3",
     "nextjs-progressbar": "^0.0.16",
+    "postcss-nested": "^6.0.1",
     "primereact": "^10.5.1",
     "react": "^18",
     "react-dom": "^18",

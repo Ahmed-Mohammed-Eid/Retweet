@@ -1,16 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import {useState, useEffect} from "react";
+import {useSearchParams} from "next/navigation";
 import RealEstateForm from "@/app/components/Listings/Forms/RealEstateForm/RealEstateForm";
 import classes from "./SelectSpecs.module.scss";
 import toast from "react-hot-toast";
 import axios from "axios";
 
-export default function SelectSpecs({ lang }) {
+export default function SelectSpecs({lang}) {
     // ROUTER
     const searchParams = useSearchParams();
-    
+
     // STATES
     const [selectedCategory, setSelectedCategory] = useState("");
     const [searchParamsValue, setSearchParamsValue] = useState({});
@@ -47,14 +47,16 @@ export default function SelectSpecs({ lang }) {
         subCategoryId,
         listingSpecs,
         listingCity,
+        listingNeighborhood,
         listingPrice,
+        currency,
         contactPhone,
         imagesId
     ) => {
 
         // GET THE TOKEN
         const token = localStorage.getItem("retweet-token");
-    
+
         // VALIDATE THE FORM
         if (
             !listingTitle ||
@@ -64,7 +66,9 @@ export default function SelectSpecs({ lang }) {
             !subCategoryId ||
             !listingSpecs ||
             !listingCity ||
+            !listingNeighborhood ||
             !listingPrice ||
+            !currency ||
             !contactPhone ||
             !imagesId
         ) {
@@ -78,22 +82,24 @@ export default function SelectSpecs({ lang }) {
         // SEND THE FORM
         axios
             .post(`${process.env.BASE_URL}/create/listing`, {
-                listingTitle,
-                listingItem,
-                listingDescription,
-                categoryId,
-                subCategoryId,
-                listingSpecs: JSON.stringify(listingSpecs),
-                listingCity,
-                listingPrice,
-                contactPhone,
-                imagesId,
-            },
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`,
+                    listingTitle,
+                    listingItem,
+                    listingDescription,
+                    categoryId,
+                    subCategoryId,
+                    listingSpecs: JSON.stringify(listingSpecs),
+                    listingCity,
+                    neighbourhood: listingNeighborhood,
+                    listingPrice,
+                    listingCurrency: currency,
+                    contactPhone,
+                    imagesId,
                 },
-            })
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                })
             .then((response) => {
                 if (response.data.success) {
                     toast.success(
@@ -129,6 +135,8 @@ export default function SelectSpecs({ lang }) {
                             values.listingDetails,
                             values.location.city,
                             values.location.neighborhood,
+                            values.price.price,
+                            values.price.currency,
                             values.contact.phone,
                             searchParamsValue.imagesId
                         );

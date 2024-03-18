@@ -2,9 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import ListingCard from "@/app/components/Listings/ListingCard/ListingCard";
 import { DataView, DataViewLayoutOptions } from 'primereact/dataview';
-import { useSearchParams } from 'next/navigation';
+import {useSearchParams} from 'next/navigation';
 import axios from 'axios';
-        
 
 
 export default function ListingsPartContent({lang}){
@@ -15,8 +14,6 @@ export default function ListingsPartContent({lang}){
 
     // SEARCH PARAMS
     const searchParams = useSearchParams();
-
-
 
 
     // HANDLERS TO GET THE DATA
@@ -30,8 +27,6 @@ export default function ListingsPartContent({lang}){
             console.log(error);
         });
     }
-
-
 
 
     useEffect(() => {

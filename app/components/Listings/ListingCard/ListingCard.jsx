@@ -10,14 +10,13 @@ function ListingCard({ product, lang }) {
     // STATES
     const [isFavourite, setIsFavourite] = useState(false);
 
-
     return (
         <article className="px-6 py-5 bg-white rounded-md border border-gray-200 border-solid max-md:pr-5">
             <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                 <div className="flex flex-col w-[26%] max-md:ml-0 max-md:w-full">
                     <Image
                         src={product?.listingImages[0] || "/assets/listings/no-image.jpeg"}
-                        alt={product?.listingDescription || lang === 'en' ? product?.listingTitleEn : product?.listingTitle}
+                        alt={product?.listingDescription || product?.listingTitle}
                         width={207}
                         height={201}
                         className="grow shrink-0 max-w-full border border-gray-400 border-solid aspect-[1.03] w-[207px] max-md:mt-10"
@@ -26,8 +25,8 @@ function ListingCard({ product, lang }) {
                 <div className="flex flex-col ml-5 w-[74%] max-md:ml-0 max-md:w-full">
                     <div className="flex flex-col self-stretch my-auto max-md:mt-10 max-md:max-w-full">
                         <div className="flex gap-5 text-xl font-medium leading-5 text-zinc-900 max-md:flex-wrap max-md:max-w-full">
-                            <h2 className="flex-auto max-md:max-w-full uppercase">
-                                {lang === 'en' ? product?.listingTitleEn : product?.listingTitle}
+                            <h2 className="flex-auto max-md:max-w-full uppercase mt-2">
+                                {product?.listingTitle}
                             </h2>
                             <svg
                                 width="30"
@@ -95,10 +94,10 @@ function ListingCard({ product, lang }) {
                             </svg>
                         </div>
                         <p className={`${classes.listingDescription} mt-2 text-sm capitalize font-medium leading-5 text-zinc-800 max-md:max-w-full`}>
-                            {lang === 'en' ? product?.listingDescriptionEn : product?.listingDescription}
+                            {product?.listingDescription}
                         </p>
                         <p className="mt-7 text-sm capitalize font-medium leading-5 text-zinc-600 max-md:max-w-full">
-                            {product?.listingCountry + ' - ' + product?.listingCity}
+                            {(product?.neighbourhood ? product?.neighbourhood + ' - ' : '' ) + product?.listingCity}
                         </p>
                         <div className="flex gap-5 justify-between mt-6 w-full max-md:flex-wrap max-md:max-w-full">
                             <div className="flex gap-5 text-xl font-medium leading-6 whitespace-nowrap">
@@ -106,7 +105,7 @@ function ListingCard({ product, lang }) {
                                 <ChatButton id={product?._id} />
                             </div>
                             <div className="my-auto text-xl font-bold leading-6 text-sky-500">
-                                {formatePrice(product?.listingPrice)}
+                                {product?.listingCurrency} {formatePrice(product?.listingPrice)}
                             </div>
                         </div>
                     </div>
