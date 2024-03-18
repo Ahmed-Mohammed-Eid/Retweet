@@ -60,7 +60,6 @@ export default function SelectSpecs({lang}) {
         // VALIDATE THE FORM
         if (
             !listingTitle ||
-            !listingItem ||
             !listingDescription ||
             !categoryId ||
             !subCategoryId ||
