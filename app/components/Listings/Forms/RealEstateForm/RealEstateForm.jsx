@@ -247,7 +247,7 @@ export default function RealEstateForm({lang, categoryName, subCategoryName, sub
                     </h3>
                     <div className={'grid grid-cols-4 gap-4 items-start'}>
                         <DropDown
-                            value={listingDetails?.surfaceAreaUnit || null}
+                            value={listingDetails?.surfaceAreaUnit || ''}
                             options={[
                                 {label: 'm²', value: 'm²'},
                                 {label: 'ft²', value: 'ft²'},
@@ -1370,7 +1370,7 @@ export default function RealEstateForm({lang, categoryName, subCategoryName, sub
                     <div className={'flex flex-col gap-2'}>
                         <label htmlFor={'currency'}>{lang === 'en' ? 'Currency' : 'عملة'}</label>
                         <DropDown
-                            value={price?.currency || 'KWD'}
+                            value={price?.currency || ''}
                             options={[
                                 {label: 'Kuwaiti Dinar', value: 'KWD'},
                                 {label: 'UAE Dirham', value: 'AED'},
