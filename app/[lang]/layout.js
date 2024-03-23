@@ -86,13 +86,12 @@ export default async function RootLayout({children, params: {lang}}) {
 
     // CHECK IF THE USER IS AUTHENTICATED
     const {authenticated, error, userData} = await useAuthentication(token);
-    const {country} = await useUserCountry();
 
     return (
         <html lang={lang || defaultLocale}>
         <body>
         <PrimeReactProvider>
-            <ClientLayout lang={lang} authenticated={authenticated} error={error} country={country} userData={userData}>
+            <ClientLayout lang={lang} authenticated={authenticated} error={error} userData={userData}>
                 {children}
             </ClientLayout>
             <Footer lang={lang}/>

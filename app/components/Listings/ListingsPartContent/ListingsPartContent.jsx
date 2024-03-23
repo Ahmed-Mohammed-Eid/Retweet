@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import ListingCard from "@/app/components/Listings/ListingCard/ListingCard";
 import { DataView, DataViewLayoutOptions } from 'primereact/dataview';
+import { Paginator } from 'primereact/paginator';
 import {useSearchParams} from 'next/navigation';
 import axios from 'axios';
 
@@ -65,6 +66,7 @@ export default function ListingsPartContent({lang}){
     return (
         <div className="card">
             <DataView value={products} listTemplate={listTemplate} layout={layout} header={header()} />
+            <Paginator first={1} totalRecords={120} rowsPerPageOptions={[10, 20, 30]} onPageChange={() => {}} />
         </div>
     );
 }
