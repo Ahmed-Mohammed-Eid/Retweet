@@ -1,30 +1,19 @@
 "use client";
 import Image from "next/image";
-import {Dropdown} from "primereact/dropdown";
 import React, {useState} from "react";
 
-export default function SelectedArea({className}) {
-    const [selectedCity, setSelectedCity] = useState({name: 'Kuwait- All Cites', code: 'Ku'});
-    const cities = [
-        {name: 'Kuwait- All Cites', code: 'Ku'},
-        {name: 'Rome', code: 'RM'},
-        {name: 'London', code: 'LDN'},
-        {name: 'Istanbul', code: 'IST'},
-        {name: 'Paris', code: 'PRS'}
-    ];
-
-
+export default function SelectedArea({className, country}) {
     return (
         <>
-            <Image src={'/assets/home/Location.svg'} alt={'location'} width={18} height={18}/>
-            <Dropdown
-                value={selectedCity}
-                onChange={(e) => setSelectedCity(e.value)}
-                options={cities}
-                optionLabel="name"
-                placeholder="Select a Place"
-                className={className}
-            />
+            {country && (
+                <>
+                    <Image src={'/assets/home/Location.svg'} alt={'location'} width={18} height={18}/>
+                    <div className={`${className} flex justify-start items-center gap-2 ml-2`}>
+                        {country && (<Image src={country?.flag} alt={'country flag'} width={18} height={18}/>)}
+                        <span>{country?.country}</span>
+                    </div>
+                </>
+            )}
         </>
-    );
+    )
 }

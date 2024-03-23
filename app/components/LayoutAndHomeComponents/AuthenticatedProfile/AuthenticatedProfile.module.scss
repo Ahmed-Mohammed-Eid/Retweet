@@ -19,6 +19,13 @@
         }
     }
 
+    .MainName{
+        // STOP BREAKING THE TEXT INTO MULTIPLE LINES AND MAKE IT SINGLE LINE TEXT IF IT OVERFLOWS THE CONTAINER WIDTH AND HIDE THE OVERFLOWING TEXT
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     &__Content {
         padding: 15px;
         width: 330px;

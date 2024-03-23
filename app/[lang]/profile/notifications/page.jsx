@@ -18,7 +18,9 @@ export default function Ads({params: {lang}}) {
                 },
             ]}/>
             {/*  CONTENT  */}
-            <AccountNotifications/>
+            <AccountNotifications
+                lang={lang}
+            />
         </div>
     )
 }

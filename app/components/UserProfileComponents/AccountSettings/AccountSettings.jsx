@@ -1,14 +1,23 @@
+"use client";
+
 import classes from './AccountSettings.module.scss'
 import ProfileNavigation from "@/app/components/UserProfileComponents/ProfileNavigation/ProfileNavigation";
 import AccountSettingsContent
     from "@/app/components/UserProfileComponents/AccountSettings/AccountSettingsContent/AccountSettingsContent";
 
-export default function AccountHome({lang, user}) {
+// REDUX
+import {useSelector} from "react-redux";
+
+export default function AccountHome({lang}) {
+
+    // REDUX
+    const userInformation = useSelector(state => state.mainLayout.userInformation)
+
     return (
         <div className={`w-full min-h-screen ${classes.AccountSettings}`}>
-            <ProfileNavigation lang={lang} user={user}/>
+            <ProfileNavigation lang={lang} user={userInformation}/>
             {/*  CONTENT  */}
-            <AccountSettingsContent lang={lang} user={user}/>
+            <AccountSettingsContent lang={lang} user={userInformation}/>
         </div>
     )
 }

@@ -2,7 +2,7 @@ import classes from "./AccountHomeContent.module.scss";
 import Image from "next/image";
 import PercentageCircle from "@/app/components/UserProfileComponents/Percentagecircle/PercentageCircle";
 
-export default function AccountHomeContent() {
+export default function AccountHomeContent({user, lang, dictionary}) {
     return (
         <div className={classes.AccountHomeContent}>
             <div className={classes.AccountHomeContent__Header}>
@@ -10,7 +10,7 @@ export default function AccountHomeContent() {
                     <Image width={250} height={250} src="/assets/profile/managementImage.png" alt="Management Image"/>
                 </div>
                 <div className={classes.AccountHomeContent__Header__Name}>
-                    <h3>Hi, Yazan Mohamed</h3>
+                    <h3>{user.fullName}</h3>
                     <h2>Welcome to Management</h2>
                     <p>Project activity will be updated here.</p>
                 </div>

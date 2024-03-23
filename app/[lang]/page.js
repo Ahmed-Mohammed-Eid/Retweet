@@ -7,6 +7,13 @@ import CarsAndBikes from "@/app/components/LayoutAndHomeComponents/CarsAndBikes/
 import SmartPhones from "@/app/components/LayoutAndHomeComponents/SmartPhones/SmartPhones";
 import SaveGoogleToken from "@/app/components/AuthenticationComponents/SaveGoogleToken/SaveGoogleToken";
 
+
+export const metadata = {
+    title: 'ريتويت : سوق : سيارات للبيع : عقارات : بيوت : للبيع : خدمات : وظائف',
+    description: 'ريتويت : سوق : سيارات للبيع : عقارات : بيوت : للبيع : خدمات : وظائف',
+    keywords: 'ريتويت : سوق : سيارات للبيع : عقارات : بيوت : للبيع : خدمات : وظائف, ريتويت, سوق, سيارات للبيع, عقارات, بيوت, للبيع, خدمات, وظائف',
+};
+
 export default async function Home({params: {lang}}) {
     const dictionary = await getDictionary(lang);
 

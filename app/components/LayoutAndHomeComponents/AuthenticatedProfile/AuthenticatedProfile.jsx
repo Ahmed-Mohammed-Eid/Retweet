@@ -1,5 +1,4 @@
 "use client";
-
 import {useRef} from "react";
 import {OverlayPanel} from 'primereact/overlaypanel';
 import Image from "next/image";
@@ -9,18 +8,13 @@ import classes from "./AuthenticatedProfile.module.scss"
 import {useRouter} from "next/navigation";
 
 
-export default function AuthenticatedProfile({lang}) {
+export default function AuthenticatedProfile({lang, userData}) {
 
     // ROUTER
     const router = useRouter();
 
     // INIT OVERLAY PANEL
     let op = useRef(null);
-
-    const user = {
-        image: '/assets/home/userAccount.png',
-        userId: 1,
-    }
 
     const onLogout = (event) => {
         // PREVENT DEFAULT
@@ -45,18 +39,20 @@ export default function AuthenticatedProfile({lang}) {
         <div>
             <Button className={classes.Navbar__sign__btn} onClick={(e) => op.toggle(e)}>
                 <div className={classes.Navbar__sign__btn__Image}>
-                    <Image src={'/assets/home/userAccount.png'} alt={'user'} width={22} height={22}/>
+                    <Image src={userData?.userImage} alt={'user'} width={22} height={22} style={{width: "22px", height: "22px", borderRadius: "50%", objectPosition: "center", objectFit: "cover"}}/>
                     <Image src={'/assets/home/ArrowDown.svg'} alt={'arrow '}
                            className={classes.Navbar__sign__btn__Image_Arrow} width={15} height={15}/>
                 </div>
-                <p>{user?.name || 'Ahmed'}</p>
+                <p className={classes.MainName}>{userData?.fullName || ''}</p>
             </Button>
             <OverlayPanel ref={(el) => op = el}>
                 <div className={classes.Navbar__sign__btn__Content}>
                     {/*  USER IMAGE + FULL NAME  */}
                     <div className={classes.Navbar__sign__btn__FullImage}>
-                        <Image src={'/assets/home/userAccount.png'} alt={'user'} width={50} height={50}/>
-                        <p>Yazan Ibrahem</p>
+                        <Image src={userData?.userImage} alt={'user'} width={50} height={50} style={{width: "50px", height: "50px", objectFit: 'cover', objectPosition: "center", borderRadius: "50%"}}/>
+                        <p>
+                            {userData?.fullName || ''}
+                        </p>
                     </div>
 
                     {/*  LINE TO SPLIT THE USER INFO  */}
@@ -67,7 +63,9 @@ export default function AuthenticatedProfile({lang}) {
                         <Link href={"/profile/account"} className={classes.Navbar__sign__btn__Links_Link}>
                             <span className={classes.Navbar__sign__btn__Links_Link__Left}>
                                 <Image src={'/assets/home/dashboard.svg'} alt={'dashboard'} width={20} height={20}/>
-                                <span>Dashboard</span>
+                                <span>
+                                    {lang === 'en' ? 'Dashboard' : 'لوحة التحكم'}
+                                </span>
                             </span>
                             <span>
                                 <Image src={'/assets/home/ArrowRight.svg'} alt={'ArrowRight'} width={15} height={15}/>
@@ -76,7 +74,9 @@ export default function AuthenticatedProfile({lang}) {
                         <Link href={"/profile/notifications"} className={classes.Navbar__sign__btn__Links_Link}>
                             <span className={classes.Navbar__sign__btn__Links_Link__Left}>
                                 <Image src={'/assets/home/notificationAuth.svg'} alt={'dashboard'} width={20} height={20}/>
-                                <span>Notification</span>
+                                <span>
+                                    {lang === 'en' ? 'Notifications' : 'الإشعارات'}
+                                </span>
                             </span>
                             <span>
                                 <Image src={'/assets/home/ArrowRight.svg'} alt={'ArrowRight'} width={15} height={15}/>
@@ -85,7 +85,9 @@ export default function AuthenticatedProfile({lang}) {
                         <Link href={"/profile/ads"} className={classes.Navbar__sign__btn__Links_Link}>
                             <span className={classes.Navbar__sign__btn__Links_Link__Left}>
                                 <Image src={'/assets/home/myAds.svg'} alt={'dashboard'} width={20} height={20}/>
-                                <span>My Ads</span>
+                                <span>
+                                    {lang === 'en' ? 'My Ads' : 'إعلاناتي'}
+                                </span>
                             </span>
                             <span>
                                 <Image src={'/assets/home/ArrowRight.svg'} alt={'ArrowRight'} width={15} height={15}/>
@@ -94,7 +96,9 @@ export default function AuthenticatedProfile({lang}) {
                         <Link href={"/profile/settings"} className={classes.Navbar__sign__btn__Links_Link}>
                             <span className={classes.Navbar__sign__btn__Links_Link__Left}>
                                 <Image src={'/assets/home/MyAccount.svg'} alt={'dashboard'} width={20} height={20}/>
-                                <span>My Account</span>
+                                <span>
+                                    {lang === 'en' ? 'Settings' : 'الإعدادات'}
+                                </span>
                             </span>
                             <span>
                                 <Image src={'/assets/home/ArrowRight.svg'} alt={'ArrowRight'} width={15} height={15}/>
@@ -107,7 +111,9 @@ export default function AuthenticatedProfile({lang}) {
                         <Link href={"#"} className={classes.Navbar__sign__btn__Links_Link} onClick={onLogout}>
                             <span className={classes.Navbar__sign__btn__Links_Link__Left}>
                                 <Image src={'/assets/home/Logout.svg'} alt={'dashboard'} width={20} height={20}/>
-                                <span>Logout</span>
+                                <span>
+                                    {lang === 'en' ? 'Logout' : 'تسجيل الخروج'}
+                                </span>
                             </span>
                         </Link>
                     </div>

@@ -67,13 +67,14 @@ export default function AccountSettingsContent({lang, user}) {
 
         const formData = new FormData();
         if (file) {
-            formData.append('image', file);
+            formData.append('files', file);
         }
         formData.append('fullName', form.name);
         formData.append('email', form.email);
         formData.append('phoneNumber', form.phone);
         formData.append('country', form.country);
         formData.append('gender', form.gender);
+
         if (form.password && form.confirmPassword) {
             formData.append('password', form.password);
             formData.append('confirmPassword', form.confirmPassword);
@@ -102,7 +103,7 @@ export default function AccountSettingsContent({lang, user}) {
         <form className={classes.AccountSettingsContent} onSubmit={onEditProfileSubmit}>
             <div className={classes.ProfileImage}>
                 <Image
-                    src={imagePreviewUrl || `/assets/home/userAccount.png`}
+                    src={imagePreviewUrl || user?.userImage || `/assets/home/userAccount.png`}
                     alt="Account Image"
                     width={400}
                     height={400}

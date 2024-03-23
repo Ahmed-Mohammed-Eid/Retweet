@@ -18,7 +18,7 @@ export default function Card({dictionary, data, lang}) {
                 </div>
             </div>
             <div className={classes.Card__Info}>
-                <h3>
+                <h3 title={lang === 'en' ? data.listingTitle : data.listingTitleEn}>
                     {lang === 'en' ? data.listingTitle : data.listingTitleEn}
                 </h3>
                 <p>{data?.listingPrice && formatePrice(data?.listingPrice || '')}</p>

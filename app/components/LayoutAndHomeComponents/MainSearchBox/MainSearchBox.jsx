@@ -4,8 +4,10 @@ import classes from "./MainSearchBox.module.scss"
 export default function MainSearchBox({lang}) {
     return (
         <div className={classes.SearchBox}>
-            <input type={'search'} placeholder={'Search in Retweet'} className={classes.SearchBox__input}/>
-            <Button className={classes.SearchBox__button}>Search</Button>
+            <input type={'search'} placeholder={lang === 'en' ? 'Search for anything' : 'ابحث عن أي شيء'} className={classes.SearchBox__input}/>
+            <Button className={classes.SearchBox__button}>
+                {lang === 'en' ? 'Search' : 'بحث'}
+            </Button>
         </div>
     );
 }

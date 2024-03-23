@@ -13,8 +13,8 @@ function LanguageSwitcher({className, lang}) {
 
     const [selectedLanguage, setSelectedLanguage] = useState();
     const languages = [
-        {name: 'Arabic', code: 'ar'},
-        {name: 'English', code: 'en'}
+        {name: 'عربي', nameEn: 'Arabic', code: 'ar'},
+        {name: 'إنجليزي', nameEn: 'English', code: 'en'}
     ];
 
     useEffect(() => {
@@ -26,7 +26,9 @@ function LanguageSwitcher({className, lang}) {
             return (
                 <div className="flex align-items-center" style={{display: "flex", alignItems: 'center', gap: '5px'}}>
                     <Image src={`/assets/home/${option.code}.svg`} alt={option.name} width={18} height={18}/>
-                    <div>{option.name}</div>
+                    <div>
+                        {lang === 'ar' ? option.name : option.nameEn}
+                    </div>
                 </div>
             );
         }
@@ -38,7 +40,9 @@ function LanguageSwitcher({className, lang}) {
         return (
             <div className="flex align-items-center" style={{display: "flex", alignItems: 'center', gap: "5px"}}>
                 <Image src={`/assets/home/${option.code}.svg`} alt={option.name} width={18} height={18}/>
-                <div>{option.name}</div>
+                <div>
+                    {lang === 'ar' ? option.name : option.nameEn}
+                </div>
             </div>
         );
     };

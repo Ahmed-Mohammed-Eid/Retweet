@@ -5,7 +5,6 @@ import { DataView, DataViewLayoutOptions } from 'primereact/dataview';
 import {useSearchParams} from 'next/navigation';
 import axios from 'axios';
 
-
 export default function ListingsPartContent({lang}){
 
     // STATES
@@ -15,13 +14,12 @@ export default function ListingsPartContent({lang}){
     // SEARCH PARAMS
     const searchParams = useSearchParams();
 
-
     // HANDLERS TO GET THE DATA
     function getListings(subCategoryId, item) {
         // GET THE DATA
         axios.get(`${process.env.BASE_URL}/item/listings?subCategoryId=${subCategoryId}&item=${item || ''}`)
         .then((response) => {
-            setProducts(response.data?.listings || []);
+            setProducts(response.data?.data?.listings || []);
         })
         .catch((error) => {
             console.log(error);
@@ -54,7 +52,12 @@ export default function ListingsPartContent({lang}){
     const header = () => {
         return (
             <div className="flex justify-content-end">
-                <DataViewLayoutOptions layout={layout} onChange={(e) => setLayout(e.value)} />
+                <DataViewLayoutOptions
+                    layout={layout}
+                    onChange={(e) => setLayout(e.value)}
+                    options={[{icon: 'pi pi-th-large', value: 'grid'}, {icon: 'pi pi-bars', value: 'list'}]}
+                    style={{marginLeft: 'auto'}}
+                />
             </div>
         );
     };

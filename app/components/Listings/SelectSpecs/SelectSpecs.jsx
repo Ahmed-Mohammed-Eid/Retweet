@@ -136,7 +136,7 @@ export default function SelectSpecs({lang}) {
                             values.location.neighborhood,
                             values.price.price,
                             values.price.currency,
-                            values.contact.phone,
+                            `${values.contact.code}${values.contact.phone}`,
                             searchParamsValue.imagesId
                         );
                     }}

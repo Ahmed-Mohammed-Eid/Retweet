@@ -3,6 +3,9 @@ import Negotiator from 'negotiator'
 import {cookies} from 'next/headers'
 
 
+const routes = [];
+
+
 export let defaultLocale = 'en'
 let locales = ['en', 'ar']
 
@@ -18,6 +21,9 @@ function getLocale(request) {
 export async function middleware(request) {
     // IF THE PATHNAME INCLUDES assets, DO NOT RUN THIS MIDDLEWARE
     if (request.nextUrl.pathname.includes('assets')) return;
+
+    // IF THE PATHNAME INCLUDES SITEMAP OR ROBOTS, DO NOT RUN THIS MIDDLEWARE
+    if (request.nextUrl.pathname.includes('sitemap') || request.nextUrl.pathname.includes('robots')) return;
 
     // IF THE PATHNAME INCLUDES api, DO NOT RUN THIS MIDDLEWARE
     if (request.nextUrl.pathname.includes('api')) return;

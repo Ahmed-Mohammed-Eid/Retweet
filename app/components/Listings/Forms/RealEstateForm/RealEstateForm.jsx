@@ -4,13 +4,24 @@ import Hint from "@/app/components/Listings/Hint/Hint";
 import RadioComponent from "@/app/components/Listings/RadioComponent/RadioComponent";
 import DropDown from "@/app/components/Listings/DropDown/DropDown";
 import CheckBoxComponent from "@/app/components/Listings/CheckBoxComponent/CheckBoxComponent";
+import Location from "@/app/components/Listings/Forms/Globals/Location";
+import Description from "@/app/components/Listings/Forms/Globals/Description";
 import {MultiSelect} from "primereact/multiselect";
 import {useState} from "react";
+import Price from "@/app/components/Listings/Forms/Globals/Price";
+import ContactInformation from "@/app/components/Listings/Forms/Globals/ContactInformation";
+import CategoryInfo from "@/app/components/Listings/Forms/Globals/CategoryInfo";
 
-export default function RealEstateForm({lang, categoryName, subCategoryName, submit = () => {}}) {
 
-    // STATES
-    const [files, setFiles] = useState([]);
+export default function RealEstateForm({
+                                           lang,
+                                           categoryName,
+                                           subCategoryName,
+                                           submit = () => {
+                                           }
+                                       }) {
+
+
     // LISTING DETAILS PART
     const [listingDetails, setListingDetails] = useState({
         rooms: null,
@@ -28,24 +39,24 @@ export default function RealEstateForm({lang, categoryName, subCategoryName, sub
     });
     // LOCATION PART
     const [location, setLocation] = useState({
-        city: null,
-        neighborhood: null,
+        city: '',
+        neighborhood: '',
     });
     // DESCRIPTION PART
     const [description, setDescription] = useState({
-        title: null,
-        description: null,
+        title: '',
+        description: '',
     });
     // PRICE
     const [price, setPrice] = useState({
-        price: null,
-        currency: null,
+        price: '',
+        currency: '',
     });
 
     // CONTACT PART
     const [contact, setContact] = useState({
-        code: null,
-        phone: null,
+        code: '',
+        phone: '',
     });
 
     // SUBMIT FUNCTION
@@ -62,15 +73,11 @@ export default function RealEstateForm({lang, categoryName, subCategoryName, sub
     return (
         <div className={`${classes.RealEstateForm} rounded p-4`}>
             {/*  CATEGORY  */}
-            <div className={`${classes.CategoryPart} p-12 rounded`}>
-                <h2>
-                    {lang === 'en' ? 'Category' : 'الفئة'}
-                </h2>
-                <p>
-                    <span>{lang === 'en' ? `You are adding a ${categoryName} in the ${subCategoryName} category` : `أنت تضيف ${categoryName} في فئة ${subCategoryName}`}</span>
-                    <span>{lang === 'en' ? 'Change' : 'تغيير'}</span>
-                </p>
-            </div>
+            <CategoryInfo
+                lang={lang}
+                categoryName={categoryName}
+                subCategoryName={subCategoryName}
+            />
 
             {/*  LISTING DETAILS  */}
             <div className={`${classes.ListingDetailsPart} p-6 rounded bg-white`}>
@@ -1271,205 +1278,40 @@ export default function RealEstateForm({lang, categoryName, subCategoryName, sub
             </div>
 
             {/*  LOCATION  */}
-            <div className={`${classes.LocationPart} p-12 rounded bg-white`}>
-                <h2>
-                    {lang === 'en' ? 'Location' : 'موقع'}
-                </h2>
-                <Hint
-                    texts={lang === 'en' ? ['Describe the listing in more details you want people to know', 'Details increase your chance of getting the right buyer'] : ['صف القائمة بمزيد من التفاصيل التي تريد أن يعرفها الناس', 'التفاصيل تزيد من فرصتك في الحصول على المشتري المناسب']}
-                />
-
-                {/*CITY*/}
-                <div className={`${classes.City} rounded bg-white flex flex-col gap-2 mt-8`}>
-                    <div className={'flex flex-col gap-2'}>
-                        <label htmlFor={'city'}>{lang === 'en' ? 'City' : 'مدينة'}</label>
-                        <input
-                            type="text" id={'city'}
-                            placeholder={lang === 'en' ? 'City' : 'مدينة'}
-                            value={location.city}
-                            onChange={(e) => {
-                                setLocation({
-                                    ...location,
-                                    city: e.target.value
-                                })
-                            }}
-                        />
-                    </div>
-                    <div className={'flex flex-col gap-2'}>
-                        <label htmlFor={'Neighborhood'}>{lang === 'en' ? 'Neighborhood' : 'حي'}</label>
-                        <input
-                            type="text"
-                            id={'Neighborhood'}
-                            placeholder={lang === 'en' ? 'Neighborhood' : 'حي'}
-                            value={location.neighborhood}
-                            onChange={(e) => {
-                                setLocation({
-                                    ...location,
-                                    neighborhood: e.target.value
-                                })
-                            }}
-                        />
-                    </div>
-                </div>
-            </div>
+            <Location
+                lang={lang}
+                setCity={(city) => setLocation({...location, city})}
+                setNeighborhood={(neighborhood) => setLocation({...location, neighborhood})}
+                city={location.city}
+                neighborhood={location.neighborhood}
+            />
 
             {/*  DESCRIPTION  */}
-            <div className={`${classes.DescriptionPart} p-12 rounded bg-white`}>
-                <h2>
-                    {lang === 'en' ? 'Description' : 'وصف'}
-                </h2>
-                <Hint
-                    texts={lang === 'en' ? ['Describe the listing in more details you want people to know', 'Details increase your chance of getting the right buyer'] : ['صف القائمة بمزيد من التفاصيل التي تريد أن يعرفها الناس', 'التفاصيل تزيد من فرصتك في الحصول على المشتري المناسب']}
-                />
-
-                <div className={'flex flex-col gap-2 mt-8'}>
-                    <div className={'flex flex-col gap-2'}>
-                        <label htmlFor={'title'}>{lang === 'en' ? 'Listing Title' : 'عنوان القائمة'}</label>
-                        <input
-                            type="text"
-                            id={'title'}
-                            placeholder={lang === 'en' ? 'Listing Title' : 'عنوان القائمة'}
-                            value={description.title}
-                            onChange={(e) => {
-                                setDescription({
-                                    ...description,
-                                    title: e.target.value
-                                })
-                            }}
-                        />
-                        <span className={'hint'}>0-100</span>
-                    </div>
-                    <div className={'flex flex-col gap-2'}>
-                        <label htmlFor={'description'}>{lang === 'en' ? 'Listing Description' : 'وصف القائمة'}</label>
-                        <textarea
-                            id={'description'}
-                            placeholder={lang === 'en' ? 'Listing Description' : 'وصف القائمة'}
-                            value={description.description}
-                            onChange={(e) => {
-                                setDescription({
-                                    ...description,
-                                    description: e.target.value
-                                })
-                            }}
-                        />
-                        <span className={'hint'}>0-5000</span>
-                    </div>
-                </div>
-            </div>
+            <Description
+                lang={lang}
+                title={description.title}
+                setTitle={(title) => setDescription({...description, title})}
+                description={description.description}
+                setDescription={(descriptionValue) => setDescription({...description, description: descriptionValue})}
+            />
 
             {/*  PRICE  */}
-            <div className={`${classes.PricePart} p-12 rounded bg-white`}>
-                <h2>
-                    {lang === 'en' ? 'Price' : 'السعر'}
-                </h2>
-                <Hint
-                    texts={lang === 'en' ? ['Set the price for your listing', 'Price should be reasonable'] : ['قم بتعيين السعر لقائمتك', 'يجب أن يكون السعر معقول']}
-                />
-
-                <div className={'grid grid-cols-4 gap-2 mt-8'}>
-                    <div className={'flex flex-col gap-2'}>
-                        <label htmlFor={'currency'}>{lang === 'en' ? 'Currency' : 'عملة'}</label>
-                        <DropDown
-                            value={price?.currency || ''}
-                            options={[
-                                {label: 'Kuwaiti Dinar', value: 'KWD'},
-                                {label: 'UAE Dirham', value: 'AED'},
-                                {label: 'Saudi Riyal', value: 'SAR'},
-                                {label: 'Qatari Riyal', value: 'QAR'},
-                                {label: 'Bahraini Dinar', value: 'BHD'},
-                                {label: 'Jordanian Dinar', value: 'JOD'},
-                                {label: 'Lebanese Pound', value: 'LBP'},
-                                {label: 'Syrian Pound', value: 'SYP'},
-                                {label: 'Yemeni Rial', value: 'YER'},
-                                {label: 'Iraqi Dinar', value: 'IQD'},
-                                {label: 'Libyan Dinar', value: 'LYD'},
-                                {label: 'Algerian Dinar', value: 'DZD'},
-                                {label: 'Tunisian Dinar', value: 'TND'},
-                                {label: 'Moroccan Dirham', value: 'MAD'},
-                                {label: 'Somali Shilling', value: 'SOS'},
-                                {label: 'Sudanese Pound', value: 'SDG'},
-                                {label: 'Mauritanian Ouguiya', value: 'MRU'},
-                                {label: 'Omani Rial', value: 'OMR'},
-                                {label: 'Egyptian Pound', value: 'EGP'},
-                                {label: 'Euro', value: 'EUR'},
-                                {label: 'US Dollar', value: 'USD'},
-                                {label: 'British Pound', value: 'GBP'},
-                                {label: 'Indian Rupee', value: 'INR'},
-                                {label: 'Pakistani Rupee', value: 'PKR'},
-                                {label: 'Bangladeshi Taka', value: 'BDT'},
-                                {label: 'Sri Lankan Rupee', value: 'LKR'},
-                                {label: 'Nepalese Rupee', value: 'NPR'},
-                                {label: 'Philippine Peso', value: 'PHP'},
-                                {label: 'Indonesian Rupiah', value: 'IDR'},
-                            ]}
-                            onChange={(e) => {
-                                setPrice({
-                                    ...price,
-                                    currency: e.target.value
-                                })
-                            }}
-                            placeholder={lang === 'en' ? 'Select Currency' : 'حدد العملة'}
-                        />
-                    </div>
-                    <div className={'flex flex-col gap-2 col-span-3'}>
-                        <label htmlFor={'price'}>{lang === 'en' ? 'Price' : 'السعر'}</label>
-                        <input
-                            type="number"
-                            id={'price'}
-                            placeholder={lang === 'en' ? 'Price' : 'السعر'}
-                            value={price.price}
-                            onChange={(e) => {
-                                setPrice({
-                                    ...price,
-                                    price: e.target.value
-                                })
-                            }}
-                        />
-                    </div>
-                </div>
-            </div>
+            <Price
+                lang={lang}
+                price={price.price}
+                setPrice={(priceValue) => setPrice({...price, price: priceValue})}
+                currency={price.currency}
+                setCurrency={(currency) => setPrice({...price, currency})}
+            />
 
             {/*  CONTACT INFORMATION  */}
-            <div className={`${classes.ContactInformationPart} p-12 rounded bg-white`}>
-                <h2>
-                    {lang === 'en' ? 'Contact Information' : 'معلومات الاتصال'}
-                </h2>
-                <Hint
-                    texts={lang === 'en' ? ['Set the contact information for your listing', 'Contact information should be accurate'] : ['قم بتعيين معلومات الاتصال لقائمتك', 'يجب أن تكون معلومات الاتصال دقيقة']}
-                />
-
-                <div className={'grid grid-cols-8 items-end gap-2 mt-8'}>
-                    <div className={'flex flex-col'}>
-                        <label htmlFor={'country_code'}>{lang === 'en' ? 'Country Code' : 'كود الدولة'}</label>
-                        <input
-                            type="text"
-                            id={'country_code'}
-                            value={contact.code}
-                            onChange={(e) => {
-                                setContact({
-                                    ...contact,
-                                    code: e.target.value
-                                })
-                            }}
-                        />
-                    </div>
-                    <div className={'flex flex-col col-span-7'}>
-                        <label htmlFor={'phone'}>{lang === 'en' ? 'Mobile number' : 'رقم الهاتف'}</label>
-                        <input
-                            type="text"
-                            id={'phone'}
-                            placeholder={lang === 'en' ? 'Mobile number' : 'رقم الهاتف'}
-                            value={contact.phone}
-                            onChange={(e) => {
-                                setContact({
-                                    ...contact,
-                                    phone: e.target.value
-                                })
-                            }}
-                        />
-                    </div>
-                </div>
-            </div>
+            <ContactInformation
+                lang={lang}
+                cuntryCode={contact.code}
+                setCountryCode={(code) => setContact({...contact, code})}
+                phoneNumber={contact.phone}
+                setPhoneNumber={(phoneNumber) => setContact({...contact, phone: phoneNumber})}
+            />
 
             {/*  SUBMIT  */}
             <div className={`${classes.SubmitPart} rounded`}>

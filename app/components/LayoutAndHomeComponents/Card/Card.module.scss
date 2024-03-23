@@ -59,6 +59,10 @@
             color: rgb(0, 0, 0);
             text-transform: uppercase;
 
+            // MAKE IT MAX 1 LINE
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         p{

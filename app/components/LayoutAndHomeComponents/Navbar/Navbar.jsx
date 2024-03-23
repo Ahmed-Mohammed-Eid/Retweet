@@ -9,11 +9,24 @@ import SelectedArea from "@/app/components/LayoutAndHomeComponents/SelectedArea/
 import AuthenticatedProfile from "@/app/components/LayoutAndHomeComponents/AuthenticatedProfile/AuthenticatedProfile";
 import {useRouter} from "next/navigation";
 
-function Navbar({lang, auth}) {
+// REDUX
+import {useSelector, useDispatch} from "react-redux";
+import {updateUserInformation, updateUserCountryInformation} from "@/redux/Slices/mainLayoutSlice";
 
-    console.log('Navbar', lang, auth);
+function Navbar({lang, auth, country, userData}) {
 
+    // ROUTER
     const router = useRouter();
+
+    // REDUX
+    const dispatch = useDispatch();
+
+    // UPDATE USER INFORMATION
+    dispatch(updateUserInformation(userData));
+
+    // UPDATE USER COUNTRY INFORMATION
+    dispatch(updateUserCountryInformation(country));
+
 
     return (
         <nav className={classes.Navbar}>
@@ -23,7 +36,7 @@ function Navbar({lang, auth}) {
                 </Link>
             </div>
             <div className={classes.Navbar__select__wrapper}>
-                <SelectedArea className={classes.Navbar__select}/>
+                <SelectedArea className={classes.Navbar__select} country={country || {}}/>
             </div>
             <div className={classes.Navbar_group}>
                 <div className={classes.Navbar__icons}>
@@ -54,9 +67,11 @@ function Navbar({lang, auth}) {
                 <div className={classes.Navbar__sign}>
                     {!auth && (<Button className={classes.Navbar__sign__btn}>
                         <Image src={'/assets/home/user.svg'} alt={'user'} width={19} height={19}/>
-                        <Link href={"/auth/login"}>Sign Up/Sign In</Link>
+                        <Link href={"/auth/login"}>
+                            <span>{lang === 'en' ? 'Sign Up/Sign In' : 'تسجيل الدخول/التسجيل'}</span>
+                        </Link>
                     </Button>)}
-                    {auth && <AuthenticatedProfile lang={lang}/>}
+                    {auth && <AuthenticatedProfile lang={lang} userData={userData}/>}
                 </div>
             </div>
 
@@ -65,7 +80,9 @@ function Navbar({lang, auth}) {
                     auth ? router.push('/listings/select-category') : router.push('/auth/login')
                 }}>
                     <Image src={'/assets/home/solar_camera-add-bold.svg'} alt={'camera'} width={19} height={19}/>
-                    <span>Add New Listing</span>
+                    <span>
+                        {lang === 'en' ? 'Add New Listing' : 'إضافة إعلان جديد'}
+                    </span>
                 </Button>
             </div>
 

@@ -1,10 +1,9 @@
 "use client";
+
 import classes from './ProfileNavigation.module.scss';
 import Image from "next/image";
 import Link from "next/link";
 import {usePathname, useRouter} from "next/navigation";
-import RedirectAndReload from "@/helpers/redirectAndReload";
-import {router} from "next/client";
 
 export default function ProfileNavigation({lang, user}) {
 
@@ -35,7 +34,7 @@ export default function ProfileNavigation({lang, user}) {
     return (
         <div className={classes.ProfileNavigation}>
             <div className={classes.ProfileNavigation__header}>
-                <Image src={'/assets/home/userAccount.png'} width={90} height={90} alt={'Profile'}/>
+                <Image src={user?.userImage} width={90} height={90} alt={'Profile'} style={{width: '90px', height: '90px', borderRadius: "50%", objectFit: 'cover', objectPosition: "center"}}/>
                 <h2>{user?.fullName || ''}</h2>
                 <p>{user?.email || ''}</p>
             </div>
