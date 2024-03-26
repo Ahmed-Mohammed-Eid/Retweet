@@ -12,7 +12,6 @@ import Footer from "@/app/components/LayoutAndHomeComponents/Footer/Footer";
 
 // CUSTOM HOOKS
 import useAuthentication from "@/hooks/useAuthentication";
-import useUserCountry from "@/hooks/useUserCountry";
 
 
 // METADATA

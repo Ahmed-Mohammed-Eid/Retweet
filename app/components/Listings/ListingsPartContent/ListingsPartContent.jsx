@@ -66,7 +66,7 @@ export default function ListingsPartContent({lang}){
     return (
         <div className="card">
             <DataView value={products} listTemplate={listTemplate} layout={layout} header={header()} />
-            <Paginator first={1} totalRecords={120} rowsPerPageOptions={[10, 20, 30]} onPageChange={() => {}} />
+            <Paginator  first={1} rows={20} totalRecords={120} rowsPerPageOptions={[20]} onPageChange={() => {}} />
         </div>
     );
 }

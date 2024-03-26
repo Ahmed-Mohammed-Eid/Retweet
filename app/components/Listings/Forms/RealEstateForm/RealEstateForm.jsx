@@ -24,18 +24,66 @@ export default function RealEstateForm({
 
     // LISTING DETAILS PART
     const [listingDetails, setListingDetails] = useState({
-        rooms: null,
-        bathrooms: null,
-        furnished: null,
-        surfaceArea: null,
-        surfaceAreaUnit: null,
-        floor: null,
-        buildingAge: null,
-        rentalPeriod: null,
-        mainAmenities: [],
-        additionalAmenities: [],
-        nearbyLocations: [],
-        facade: null,
+        rooms: {
+            labelAr: 'الغرف',
+            labelEn: 'Rooms',
+            value: '',
+        },
+        bathrooms: {
+            labelAr: 'الحمامات',
+            labelEn: 'Bathrooms',
+            value: '',
+        },
+        furnished: {
+            labelAr: 'مفروش/غير مفروش',
+            labelEn: 'Furnished/Unfurnished',
+            value: '',
+        },
+        surfaceArea: {
+            labelAr: 'مساحة السطح',
+            labelEn: 'Surface Area',
+            value: '',
+        },
+        surfaceAreaUnit: {
+            labelAr: 'وحدة السطح',
+            labelEn: 'Surface Area Unit',
+            value: '',
+        },
+        floor: {
+            labelAr: 'طابق',
+            labelEn: 'Floor',
+            value: '',
+        },
+        buildingAge: {
+            labelAr: 'عمر البناء',
+            labelEn: 'Building Age',
+            value: '',
+        },
+        rentalPeriod: {
+            labelAr: 'فترة الإيجار',
+            labelEn: 'Rental Period',
+            value: '',
+        },
+        mainAmenities: {
+            labelAr: 'المرافق الرئيسية',
+            labelEn: 'Main Amenities',
+            value: [],
+        },
+        additionalAmenities: {
+            labelAr: 'مرافق إضافية',
+            labelEn: 'Additional Amenities',
+            value: [],
+        },
+        nearbyLocations: {
+            labelAr: 'المواقع القريبة',
+            labelEn: 'Nearby Locations',
+            value: [],
+        },
+        facade: {
+            labelAr: 'واجهة',
+            labelEn: 'Facade',
+            value: '',
+        },
     });
     // LOCATION PART
     const [location, setLocation] = useState({
@@ -101,9 +149,9 @@ export default function RealEstateForm({
                             value={'studio'}
                             textEn={'Studio'}
                             textAr={'استديو'}
+                            checked={listingDetails.rooms.value === 'studio'}
                             onChange={(e) => {
-                                console.log(e);
-                                setListingDetails({...listingDetails, rooms: e.target.value});
+                                setListingDetails({...listingDetails, rooms: {...listingDetails.rooms, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -112,8 +160,9 @@ export default function RealEstateForm({
                             value={'1'}
                             textEn={'1'}
                             textAr={'1'}
+                            checked={listingDetails.rooms.value === '1'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, rooms: e.target.value});
+                                setListingDetails({...listingDetails, rooms: {...listingDetails.rooms, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -122,8 +171,9 @@ export default function RealEstateForm({
                             value={'2'}
                             textEn={'2'}
                             textAr={'2'}
+                            checked={listingDetails.rooms.value === '2'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, rooms: e.target.value});
+                                setListingDetails({...listingDetails, rooms: {...listingDetails.rooms, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -132,8 +182,9 @@ export default function RealEstateForm({
                             value={'3'}
                             textEn={'3'}
                             textAr={'3'}
+                            checked={listingDetails.rooms.value === '3'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, rooms: e.target.value});
+                                setListingDetails({...listingDetails, rooms: {...listingDetails.rooms, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -142,8 +193,9 @@ export default function RealEstateForm({
                             value={'4'}
                             textEn={'4'}
                             textAr={'4'}
+                            checked={listingDetails.rooms.value === '4'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, rooms: e.target.value});
+                                setListingDetails({...listingDetails, rooms: {...listingDetails.rooms, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -152,8 +204,9 @@ export default function RealEstateForm({
                             value={'5'}
                             textEn={'5'}
                             textAr={'5'}
+                            checked={listingDetails.rooms.value === '5'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, rooms: e.target.value});
+                                setListingDetails({...listingDetails, rooms: {...listingDetails.rooms, value: e.target.value}});
                             }}
                         />
                     </div>
@@ -171,8 +224,9 @@ export default function RealEstateForm({
                             value={'1'}
                             textEn={'1'}
                             textAr={'1'}
+                            checked={listingDetails.bathrooms.value === '1'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, bathrooms: e.target.value});
+                                setListingDetails({...listingDetails, bathrooms: {...listingDetails.bathrooms, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -181,8 +235,9 @@ export default function RealEstateForm({
                             value={'2'}
                             textEn={'2'}
                             textAr={'2'}
+                            checked={listingDetails.bathrooms.value === '2'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, bathrooms: e.target.value});
+                                setListingDetails({...listingDetails, bathrooms: {...listingDetails.bathrooms, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -191,8 +246,9 @@ export default function RealEstateForm({
                             value={'3'}
                             textEn={'3'}
                             textAr={'3'}
+                            checked={listingDetails.bathrooms.value === '3'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, bathrooms: e.target.value});
+                                setListingDetails({...listingDetails, bathrooms: {...listingDetails.bathrooms, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -201,8 +257,9 @@ export default function RealEstateForm({
                             value={'4'}
                             textEn={'4'}
                             textAr={'4'}
+                            checked={listingDetails.bathrooms.value === '4'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, bathrooms: e.target.value});
+                                setListingDetails({...listingDetails, bathrooms: {...listingDetails.bathrooms, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -211,8 +268,9 @@ export default function RealEstateForm({
                             value={'5'}
                             textEn={'5'}
                             textAr={'5'}
+                            checked={listingDetails.bathrooms.value === '5'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, bathrooms: e.target.value});
+                                setListingDetails({...listingDetails, bathrooms: {...listingDetails.bathrooms, value: e.target.value}});
                             }}
                         />
                     </div>
@@ -230,8 +288,9 @@ export default function RealEstateForm({
                             value={'furnished'}
                             textEn={'Furnished'}
                             textAr={'مفروش'}
+                            checked={listingDetails.furnished.value === 'furnished'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, furnished: e.target.value});
+                                setListingDetails({...listingDetails, furnished: {...listingDetails.furnished, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -240,8 +299,9 @@ export default function RealEstateForm({
                             value={'unfurnished'}
                             textEn={'Unfurnished'}
                             textAr={'غير مفروش'}
+                            checked={listingDetails.furnished.value === 'unfurnished'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, furnished: e.target.value});
+                                setListingDetails({...listingDetails, furnished: {...listingDetails.furnished, value: e.target.value}});
                             }}
                         />
                     </div>
@@ -254,24 +314,25 @@ export default function RealEstateForm({
                     </h3>
                     <div className={'grid grid-cols-4 gap-4 items-start'}>
                         <DropDown
-                            value={listingDetails?.surfaceAreaUnit || ''}
+                            value={listingDetails?.surfaceAreaUnit.value || ''}
                             options={[
                                 {label: 'm²', value: 'm²'},
                                 {label: 'ft²', value: 'ft²'},
                             ]}
-                            onChange={(e) => {
-                                setListingDetails({...listingDetails, surfaceAreaUnit: e.value})
-                            }}
                             placeholder={lang === 'en' ? 'Select Unit' : 'حدد الوحدة'}
+                            onChange={(e) => {
+                                setListingDetails({...listingDetails, surfaceAreaUnit: {...listingDetails.surfaceAreaUnit, value: e.value}});
+                            }}
                         />
                         <input
                             type="number"
                             placeholder={'Surface Area'}
                             className={'col-span-3'}
-                            value={listingDetails?.surfaceArea || ''}
+                            value={listingDetails?.surfaceArea.value || ''}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, surfaceArea: e.target.value})
+                                setListingDetails({...listingDetails, surfaceArea: {...listingDetails.surfaceArea, value: e.target.value}});
                             }}
+                            autoComplete={'off'}
                         />
                     </div>
                 </div>
@@ -288,8 +349,9 @@ export default function RealEstateForm({
                             value={'Basement Floor'}
                             textEn={'Basement Floor'}
                             textAr={'طابق القبو'}
+                            checked={listingDetails.floor.value === 'Basement Floor'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: e.target.value});
+                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -298,8 +360,9 @@ export default function RealEstateForm({
                             value={'Semi Ground Floor'}
                             textEn={'Semi Ground Floor'}
                             textAr={'طابق شبه الأرض'}
+                            checked={listingDetails.floor.value === 'Semi Ground Floor'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: e.target.value});
+                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -308,8 +371,9 @@ export default function RealEstateForm({
                             value={'Ground Floor'}
                             textEn={'Ground Floor'}
                             textAr={'الطابق الأرضي'}
+                            checked={listingDetails.floor.value === 'Ground Floor'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: e.target.value});
+                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -318,8 +382,9 @@ export default function RealEstateForm({
                             value={'1'}
                             textEn={'1'}
                             textAr={'1'}
+                            checked={listingDetails.floor.value === '1'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: e.target.value});
+                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -328,8 +393,9 @@ export default function RealEstateForm({
                             value={'2'}
                             textEn={'2'}
                             textAr={'2'}
+                            checked={listingDetails.floor.value === '2'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: e.target.value});
+                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -338,8 +404,9 @@ export default function RealEstateForm({
                             value={'3'}
                             textEn={'3'}
                             textAr={'3'}
+                            checked={listingDetails.floor.value === '3'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: e.target.value});
+                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -348,8 +415,9 @@ export default function RealEstateForm({
                             value={'4'}
                             textEn={'4'}
                             textAr={'4'}
+                            checked={listingDetails.floor.value === '4'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: e.target.value});
+                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -358,8 +426,9 @@ export default function RealEstateForm({
                             value={'5'}
                             textEn={'5'}
                             textAr={'5'}
+                            checked={listingDetails.floor.value === '5'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: e.target.value});
+                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -368,8 +437,9 @@ export default function RealEstateForm({
                             value={'6'}
                             textEn={'6'}
                             textAr={'6'}
+                            checked={listingDetails.floor.value === '6'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: e.target.value});
+                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -378,8 +448,9 @@ export default function RealEstateForm({
                             value={'7'}
                             textEn={'7'}
                             textAr={'7'}
+                            checked={listingDetails.floor.value === '7'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: e.target.value});
+                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -388,8 +459,9 @@ export default function RealEstateForm({
                             value={'8'}
                             textEn={'8'}
                             textAr={'8'}
+                            checked={listingDetails.floor.value === '8'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: e.target.value});
+                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -398,8 +470,9 @@ export default function RealEstateForm({
                             value={'Last Floor With Floor'}
                             textEn={'Last Floor With Floor'}
                             textAr={'الطابق الأخير مع الطابق'}
+                            checked={listingDetails.floor.value === 'Last Floor With Floor'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: e.target.value});
+                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
                             }}
                         />
                     </div>
@@ -417,28 +490,33 @@ export default function RealEstateForm({
                             value={'0-11 Months'}
                             textEn={'0-11 Months'}
                             textAr={'0-11 أشهر'}
+                            checked={listingDetails.buildingAge.value === '0-11 Months'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, buildingAge: e.target.value});
+                                setListingDetails({...listingDetails, buildingAge: {...listingDetails.buildingAge, value: e.target.value}});
                             }}
                         />
+
                         <RadioComponent
                             lang={lang}
                             name={'buildingAge'}
                             value={'1-5 Years'}
                             textEn={'1-5 Years'}
                             textAr={'1-5 سنوات'}
+                            checked={listingDetails.buildingAge.value === '1-5 Years'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, buildingAge: e.target.value});
+                                setListingDetails({...listingDetails, buildingAge: {...listingDetails.buildingAge, value: e.target.value}});
                             }}
                         />
+
                         <RadioComponent
                             lang={lang}
                             name={'buildingAge'}
                             value={'6-10 Years'}
                             textEn={'6-10 Years'}
                             textAr={'6-10 سنوات'}
+                            checked={listingDetails.buildingAge.value === '6-10 Years'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, buildingAge: e.target.value});
+                                setListingDetails({...listingDetails, buildingAge: {...listingDetails.buildingAge, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -447,8 +525,9 @@ export default function RealEstateForm({
                             value={'11-20 Years'}
                             textEn={'11-20 Years'}
                             textAr={'11-20 سنوات'}
+                            checked={listingDetails.buildingAge.value === '11-20 Years'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, buildingAge: e.target.value});
+                                setListingDetails({...listingDetails, buildingAge: {...listingDetails.buildingAge, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -457,8 +536,9 @@ export default function RealEstateForm({
                             value={'20+ Years'}
                             textEn={'20+ Years'}
                             textAr={'20+ سنوات'}
+                            checked={listingDetails.buildingAge.value === '20+ Years'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, buildingAge: e.target.value});
+                                setListingDetails({...listingDetails, buildingAge: {...listingDetails.buildingAge, value: e.target.value}});
                             }}
                         />
                     </div>
@@ -476,8 +556,9 @@ export default function RealEstateForm({
                             value={'Daily'}
                             textEn={'Daily'}
                             textAr={'يومي'}
+                            checked={listingDetails.rentalPeriod.value === 'Daily'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, rentalPeriod: e.target.value});
+                                setListingDetails({...listingDetails, rentalPeriod: {...listingDetails.rentalPeriod, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -486,8 +567,9 @@ export default function RealEstateForm({
                             value={'Weekly'}
                             textEn={'Weekly'}
                             textAr={'أسبوعي'}
+                            checked={listingDetails.rentalPeriod.value === 'Weekly'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, rentalPeriod: e.target.value});
+                                setListingDetails({...listingDetails, rentalPeriod: {...listingDetails.rentalPeriod, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -496,8 +578,9 @@ export default function RealEstateForm({
                             value={'Monthly'}
                             textEn={'Monthly'}
                             textAr={'شهري'}
+                            checked={listingDetails.rentalPeriod.value === 'Monthly'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, rentalPeriod: e.target.value});
+                                setListingDetails({...listingDetails, rentalPeriod: {...listingDetails.rentalPeriod, value: e.target.value}});
                             }}
                         />
                         <RadioComponent
@@ -506,8 +589,9 @@ export default function RealEstateForm({
                             value={'Yearly'}
                             textEn={'Yearly'}
                             textAr={'سنوي'}
+                            checked={listingDetails.rentalPeriod.value === 'Yearly'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, rentalPeriod: e.target.value});
+                                setListingDetails({...listingDetails, rentalPeriod: {...listingDetails.rentalPeriod, value: e.target.value}});
                             }}
                         />
                     </div>
@@ -520,9 +604,9 @@ export default function RealEstateForm({
                     </h3>
                     <div className={'flex justify-start gap-2 flex-wrap'}>
                         <MultiSelect
-                            value={listingDetails?.mainAmenities || []}
+                            value={listingDetails?.mainAmenities.value || []}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, mainAmenities: e.value});
+                                setListingDetails({...listingDetails, mainAmenities: {...listingDetails.mainAmenities, value: e.value}});
                             }}
                             options={[
                                 {name: lang === 'en' ? 'Air Conditioning' : 'تكييف', code: 'AC'},
@@ -614,18 +698,19 @@ export default function RealEstateForm({
                             value={'Air Conditioning'}
                             textEn={'Air Conditioning'}
                             textAr={'تكييف'}
+                            checked={listingDetails.additionalAmenities.value.includes('Air Conditioning')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: [...listingDetails.additionalAmenities, e.target.value]
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: listingDetails.additionalAmenities.filter((amenity) => amenity !== e.target.value)
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
                                     });
                                 }
                             }}
@@ -636,18 +721,19 @@ export default function RealEstateForm({
                             value={'Balcony'}
                             textEn={'Balcony'}
                             textAr={'شرفة'}
+                            checked={listingDetails.additionalAmenities.value.includes('Balcony')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: [...listingDetails.additionalAmenities, e.target.value]
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: listingDetails.additionalAmenities.filter((amenity) => amenity !== e.target.value)
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
                                     });
                                 }
                             }}
@@ -658,18 +744,19 @@ export default function RealEstateForm({
                             value={'Built in Wardrobes'}
                             textEn={'Built in Wardrobes'}
                             textAr={'خزائن مدمجة'}
+                            checked={listingDetails.additionalAmenities.value.includes('Built in Wardrobes')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: [...listingDetails.additionalAmenities, e.target.value]
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: listingDetails.additionalAmenities.filter((amenity) => amenity !== e.target.value)
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
                                     });
                                 }
                             }}
@@ -680,18 +767,19 @@ export default function RealEstateForm({
                             value={'Central A/C'}
                             textEn={'Central A/C'}
                             textAr={'تكييف مركزي'}
+                            checked={listingDetails.additionalAmenities.value.includes('Central A/C')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: [...listingDetails.additionalAmenities, e.target.value]
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: listingDetails.additionalAmenities.filter((amenity) => amenity !== e.target.value)
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
                                     });
                                 }
                             }}
@@ -702,18 +790,19 @@ export default function RealEstateForm({
                             value={'Concierge'}
                             textEn={'Concierge'}
                             textAr={'كونسيرج'}
+                            checked={listingDetails.additionalAmenities.value.includes('Concierge')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: [...listingDetails.additionalAmenities, e.target.value]
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: listingDetails.additionalAmenities.filter((amenity) => amenity !== e.target.value)
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
                                     });
                                 }
                             }}
@@ -724,18 +813,19 @@ export default function RealEstateForm({
                             value={'Covered Parking'}
                             textEn={'Covered Parking'}
                             textAr={'موقف سيارات مغطى'}
+                            checked={listingDetails.additionalAmenities.value.includes('Covered Parking')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: [...listingDetails.additionalAmenities, e.target.value]
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: listingDetails.additionalAmenities.filter((amenity) => amenity !== e.target.value)
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
                                     });
                                 }
                             }}
@@ -746,18 +836,19 @@ export default function RealEstateForm({
                             value={'Kitchen Appliances'}
                             textEn={'Kitchen Appliances'}
                             textAr={'أجهزة المطبخ'}
+                            checked={listingDetails.additionalAmenities.value.includes('Kitchen Appliances')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: [...listingDetails.additionalAmenities, e.target.value]
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: listingDetails.additionalAmenities.filter((amenity) => amenity !== e.target.value)
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
                                     });
                                 }
                             }}
@@ -768,18 +859,19 @@ export default function RealEstateForm({
                             value={'Maid Service'}
                             textEn={'Maid Service'}
                             textAr={'خدمة الغرف'}
+                            checked={listingDetails.additionalAmenities.value.includes('Maid Service')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: [...listingDetails.additionalAmenities, e.target.value]
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: listingDetails.additionalAmenities.filter((amenity) => amenity !== e.target.value)
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
                                     });
                                 }
                             }}
@@ -790,18 +882,19 @@ export default function RealEstateForm({
                             value={'Networked'}
                             textEn={'Networked'}
                             textAr={'متصل بالشبكة'}
+                            checked={listingDetails.additionalAmenities.value.includes('Networked')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: [...listingDetails.additionalAmenities, e.target.value]
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: listingDetails.additionalAmenities.filter((amenity) => amenity !== e.target.value)
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
                                     });
                                 }
                             }}
@@ -812,18 +905,19 @@ export default function RealEstateForm({
                             value={'Pets Allowed'}
                             textEn={'Pets Allowed'}
                             textAr={'يسمح بالحيوانات الأليفة'}
+                            checked={listingDetails.additionalAmenities.value.includes('Pets Allowed')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: [...listingDetails.additionalAmenities, e.target.value]
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: listingDetails.additionalAmenities.filter((amenity) => amenity !== e.target.value)
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
                                     });
                                 }
                             }}
@@ -834,18 +928,19 @@ export default function RealEstateForm({
                             value={'Security'}
                             textEn={'Security'}
                             textAr={'أمان'}
+                            checked={listingDetails.additionalAmenities.value.includes('Security')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: [...listingDetails.additionalAmenities, e.target.value]
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: listingDetails.additionalAmenities.filter((amenity) => amenity !== e.target.value)
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
                                     });
                                 }
                             }}
@@ -856,18 +951,19 @@ export default function RealEstateForm({
                             value={'Shared Gym'}
                             textEn={'Shared Gym'}
                             textAr={'صالة رياضية مشتركة'}
+                            checked={listingDetails.additionalAmenities.value.includes('Shared Gym')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: [...listingDetails.additionalAmenities, e.target.value]
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: listingDetails.additionalAmenities.filter((amenity) => amenity !== e.target.value)
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
                                     });
                                 }
                             }}
@@ -878,18 +974,19 @@ export default function RealEstateForm({
                             value={'Shared Pool'}
                             textEn={'Shared Pool'}
                             textAr={'حمام سباحة مشترك'}
+                            checked={listingDetails.additionalAmenities.value.includes('Shared Pool')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: [...listingDetails.additionalAmenities, e.target.value]
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: listingDetails.additionalAmenities.filter((amenity) => amenity !== e.target.value)
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
                                     });
                                 }
                             }}
@@ -900,18 +997,19 @@ export default function RealEstateForm({
                             value={'View of Landmark'}
                             textEn={'View of Landmark'}
                             textAr={'إطلالة على معلم'}
+                            checked={listingDetails.additionalAmenities.value.includes('View of Landmark')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: [...listingDetails.additionalAmenities, e.target.value]
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: listingDetails.additionalAmenities.filter((amenity) => amenity !== e.target.value)
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
                                     });
                                 }
                             }}
@@ -922,18 +1020,19 @@ export default function RealEstateForm({
                             value={'View of Water'}
                             textEn={'View of Water'}
                             textAr={'إطلالة على الماء'}
+                            checked={listingDetails.additionalAmenities.value.includes('View of Water')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: [...listingDetails.additionalAmenities, e.target.value]
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: listingDetails.additionalAmenities.filter((amenity) => amenity !== e.target.value)
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
                                     });
                                 }
                             }}
@@ -944,18 +1043,19 @@ export default function RealEstateForm({
                             value={'Walk-in Closet'}
                             textEn={'Walk-in Closet'}
                             textAr={'خزانة ملابس'}
+                            checked={listingDetails.additionalAmenities.value.includes('Walk-in Closet')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: [...listingDetails.additionalAmenities, e.target.value]
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: listingDetails.additionalAmenities.filter((amenity) => amenity !== e.target.value)
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
                                     });
                                 }
                             }}
@@ -966,18 +1066,19 @@ export default function RealEstateForm({
                             value={'Waste Disposal'}
                             textEn={'Waste Disposal'}
                             textAr={'تخلص من النفايات'}
+                            checked={listingDetails.additionalAmenities.value.includes('Waste Disposal')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: [...listingDetails.additionalAmenities, e.target.value]
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: listingDetails.additionalAmenities.filter((amenity) => amenity !== e.target.value)
+                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
                                     });
                                 }
                             }}
@@ -997,18 +1098,19 @@ export default function RealEstateForm({
                             value={'Airport'}
                             textEn={'Airport'}
                             textAr={'مطار'}
+                            checked={listingDetails.nearbyLocations.value.includes('Airport')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: [...listingDetails.nearbyLocations, e.target.value]
+                                        nearbyLocations: {...listingDetails.nearbyLocations, value: [...listingDetails.nearbyLocations.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: listingDetails.nearbyLocations.filter((location) => location !== e.target.value)
+                                        nearbyLocations: {...listingDetails.nearbyLocations, value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)}
                                     });
                                 }
                             }}
@@ -1019,18 +1121,19 @@ export default function RealEstateForm({
                             value={'Hospital'}
                             textEn={'Hospital'}
                             textAr={'مستشفى'}
+                            checked={listingDetails.nearbyLocations.value.includes('Hospital')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: [...listingDetails.nearbyLocations, e.target.value]
+                                        nearbyLocations: {...listingDetails.nearbyLocations, value: [...listingDetails.nearbyLocations.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: listingDetails.nearbyLocations.filter((location) => location !== e.target.value)
+                                        nearbyLocations: {...listingDetails.nearbyLocations, value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)}
                                     });
                                 }
                             }}
@@ -1041,18 +1144,19 @@ export default function RealEstateForm({
                             value={'Mall'}
                             textEn={'Mall'}
                             textAr={'مركز تجاري'}
+                            checked={listingDetails.nearbyLocations.value.includes('Mall')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: [...listingDetails.nearbyLocations, e.target.value]
+                                        nearbyLocations: {...listingDetails.nearbyLocations, value: [...listingDetails.nearbyLocations.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: listingDetails.nearbyLocations.filter((location) => location !== e.target.value)
+                                        nearbyLocations: {...listingDetails.nearbyLocations, value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)}
                                     });
                                 }
                             }}
@@ -1063,18 +1167,19 @@ export default function RealEstateForm({
                             value={'Metro'}
                             textEn={'Metro'}
                             textAr={'مترو'}
+                            checked={listingDetails.nearbyLocations.value.includes('Metro')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: [...listingDetails.nearbyLocations, e.target.value]
+                                        nearbyLocations: {...listingDetails.nearbyLocations, value: [...listingDetails.nearbyLocations.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: listingDetails.nearbyLocations.filter((location) => location !== e.target.value)
+                                        nearbyLocations: {...listingDetails.nearbyLocations, value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)}
                                     });
                                 }
                             }}
@@ -1085,18 +1190,19 @@ export default function RealEstateForm({
                             value={'Mosque'}
                             textEn={'Mosque'}
                             textAr={'مسجد'}
+                            checked={listingDetails.nearbyLocations.value.includes('Mosque')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: [...listingDetails.nearbyLocations, e.target.value]
+                                        nearbyLocations: {...listingDetails.nearbyLocations, value: [...listingDetails.nearbyLocations.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: listingDetails.nearbyLocations.filter((location) => location !== e.target.value)
+                                        nearbyLocations: {...listingDetails.nearbyLocations, value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)}
                                     });
                                 }
                             }}
@@ -1107,18 +1213,19 @@ export default function RealEstateForm({
                             value={'Park'}
                             textEn={'Park'}
                             textAr={'حديقة'}
+                            checked={listingDetails.nearbyLocations.value.includes('Park')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: [...listingDetails.nearbyLocations, e.target.value]
+                                        nearbyLocations: {...listingDetails.nearbyLocations, value: [...listingDetails.nearbyLocations.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: listingDetails.nearbyLocations.filter((location) => location !== e.target.value)
+                                        nearbyLocations: {...listingDetails.nearbyLocations, value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)}
                                     });
                                 }
                             }}
@@ -1129,18 +1236,19 @@ export default function RealEstateForm({
                             value={'Pharmacy'}
                             textEn={'Pharmacy'}
                             textAr={'صيدلية'}
+                            checked={listingDetails.nearbyLocations.value.includes('Pharmacy')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: [...listingDetails.nearbyLocations, e.target.value]
+                                        nearbyLocations: {...listingDetails.nearbyLocations, value: [...listingDetails.nearbyLocations.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: listingDetails.nearbyLocations.filter((location) => location !== e.target.value)
+                                        nearbyLocations: {...listingDetails.nearbyLocations, value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)}
                                     });
                                 }
                             }}
@@ -1151,18 +1259,19 @@ export default function RealEstateForm({
                             value={'Restaurants'}
                             textEn={'Restaurants'}
                             textAr={'مطاعم'}
+                            checked={listingDetails.nearbyLocations.value.includes('Restaurants')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: [...listingDetails.nearbyLocations, e.target.value]
+                                        nearbyLocations: {...listingDetails.nearbyLocations, value: [...listingDetails.nearbyLocations.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: listingDetails.nearbyLocations.filter((location) => location !== e.target.value)
+                                        nearbyLocations: {...listingDetails.nearbyLocations, value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)}
                                     });
                                 }
                             }}
@@ -1173,18 +1282,19 @@ export default function RealEstateForm({
                             value={'School'}
                             textEn={'School'}
                             textAr={'مدرسة'}
+                            checked={listingDetails.nearbyLocations.value.includes('School')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: [...listingDetails.nearbyLocations, e.target.value]
+                                        nearbyLocations: {...listingDetails.nearbyLocations, value: [...listingDetails.nearbyLocations.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: listingDetails.nearbyLocations.filter((location) => location !== e.target.value)
+                                        nearbyLocations: {...listingDetails.nearbyLocations, value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)}
                                     });
                                 }
                             }}
@@ -1195,18 +1305,19 @@ export default function RealEstateForm({
                             value={'Supermarket'}
                             textEn={'Supermarket'}
                             textAr={'سوبر ماركت'}
+                            checked={listingDetails.nearbyLocations.value.includes('Supermarket')}
                             onChange={(e) => {
                                 // CHECK IF THE CHECKBOX IS CHECKED ADD THE VALUE TO THE ARRAY ELSE REMOVE IT
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: [...listingDetails.nearbyLocations, e.target.value]
+                                        nearbyLocations: {...listingDetails.nearbyLocations, value: [...listingDetails.nearbyLocations.value, e.target.value]}
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: listingDetails.nearbyLocations.filter((location) => location !== e.target.value)
+                                        nearbyLocations: {...listingDetails.nearbyLocations, value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)}
                                     });
                                 }
                             }}
@@ -1227,12 +1338,14 @@ export default function RealEstateForm({
                             value={'North'}
                             textEn={'North'}
                             textAr={'شمال'}
+                            checked={listingDetails.facade.value === 'North'}
                             onChange={(e) => {
                                 setListingDetails({
                                     ...listingDetails,
-                                    facade: e.target.value
+                                    facade: {...listingDetails.facade, value: e.target.value}
                                 })
-                            }}
+                            }
+                            }
                         />
                         <RadioComponent
                             lang={lang}
@@ -1240,10 +1353,11 @@ export default function RealEstateForm({
                             value={'South'}
                             textEn={'South'}
                             textAr={'جنوب'}
+                            checked={listingDetails.facade.value === 'South'}
                             onChange={(e) => {
                                 setListingDetails({
                                     ...listingDetails,
-                                    facade: e.target.value
+                                    facade: {...listingDetails.facade, value: e.target.value}
                                 })
                             }}
                         />
@@ -1253,10 +1367,11 @@ export default function RealEstateForm({
                             value={'East'}
                             textEn={'East'}
                             textAr={'شرق'}
+                            checked={listingDetails.facade.value === 'East'}
                             onChange={(e) => {
                                 setListingDetails({
                                     ...listingDetails,
-                                    facade: e.target.value
+                                    facade: {...listingDetails.facade, value: e.target.value}
                                 })
                             }}
                         />
@@ -1266,10 +1381,11 @@ export default function RealEstateForm({
                             value={'West'}
                             textEn={'West'}
                             textAr={'غرب'}
+                            checked={listingDetails.facade.value === 'West'}
                             onChange={(e) => {
                                 setListingDetails({
                                     ...listingDetails,
-                                    facade: e.target.value
+                                    facade: {...listingDetails.facade, value: e.target.value}
                                 })
                             }}
                         />

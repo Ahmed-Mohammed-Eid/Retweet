@@ -1,4 +1,4 @@
-import classes from "@/app/components/Listings/Forms/RealEstateForm/RealEstateForm.module.scss";
+import classes from "./CategoryInfo.module.scss";
 import {useRouter} from "next/navigation";
 
 export default function CategoryInfo({

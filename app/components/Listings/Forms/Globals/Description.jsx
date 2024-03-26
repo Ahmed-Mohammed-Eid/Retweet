@@ -1,4 +1,4 @@
-import classes from "@/app/components/Listings/Forms/RealEstateForm/RealEstateForm.module.scss";
+import classes from "./Description.module.scss";
 import Hint from "@/app/components/Listings/Hint/Hint";
 
 export default function Description({
@@ -27,6 +27,7 @@ export default function Description({
                         placeholder={lang === 'en' ? 'Listing Title' : 'عنوان القائمة'}
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
+                        autoComplete={'off'}
                     />
                     <span className={'hint'}>0-100</span>
                 </div>
@@ -37,6 +38,7 @@ export default function Description({
                         placeholder={lang === 'en' ? 'Listing Description' : 'وصف القائمة'}
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
+                        autoComplete={'off'}
                     />
                     <span className={'hint'}>0-5000</span>
                 </div>

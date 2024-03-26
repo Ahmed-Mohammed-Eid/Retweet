@@ -3,6 +3,8 @@
 import {useState, useEffect} from "react";
 import {useSearchParams} from "next/navigation";
 import RealEstateForm from "@/app/components/Listings/Forms/RealEstateForm/RealEstateForm";
+import CarsForm from "@/app/components/Listings/Forms/Cars/Cars";
+import MobileForm from "@/app/components/Listings/Forms/Mobile/Mobile";
 import classes from "./SelectSpecs.module.scss";
 import toast from "react-hot-toast";
 import axios from "axios";
@@ -124,6 +126,52 @@ export default function SelectSpecs({lang}) {
                     lang={lang}
                     categoryName={"Real Estate"}
                     subCategoryName={"Apartments"}
+                    submit={(values) => {
+                        handleSubmit(
+                            values.description.title,
+                            searchParamsValue.item,
+                            values.description.description,
+                            searchParamsValue.category,
+                            searchParamsValue.subCategory,
+                            values.listingDetails,
+                            values.location.city,
+                            values.location.neighborhood,
+                            values.price.price,
+                            values.price.currency,
+                            `${values.contact.code}${values.contact.phone}`,
+                            searchParamsValue.imagesId
+                        );
+                    }}
+                />
+            )}
+            {selectedCategory === "cars" && (
+                <CarsForm
+                    lang={lang}
+                    categoryName={"Cars"}
+                    subCategoryName={"Cars"}
+                    submit={(values) => {
+                        handleSubmit(
+                            values.description.title,
+                            searchParamsValue.item,
+                            values.description.description,
+                            searchParamsValue.category,
+                            searchParamsValue.subCategory,
+                            values.listingDetails,
+                            values.location.city,
+                            values.location.neighborhood,
+                            values.price.price,
+                            values.price.currency,
+                            `${values.contact.code}${values.contact.phone}`,
+                            searchParamsValue.imagesId
+                        );
+                    }}
+                />
+            )}
+            {selectedCategory === "mobiles-tablets" && (
+                <MobileForm
+                    lang={lang}
+                    categoryName={"Mobile"}
+                    subCategoryName={"Mobile"}
                     submit={(values) => {
                         handleSubmit(
                             values.description.title,

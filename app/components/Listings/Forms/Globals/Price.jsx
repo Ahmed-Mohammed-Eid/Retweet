@@ -1,7 +1,7 @@
 "use client";
 
-
-import classes from "@/app/components/Listings/Forms/RealEstateForm/RealEstateForm.module.scss";
+import React from 'react';
+import classes from "./Price.module.scss";
 
 import Hint from "@/app/components/Listings/Hint/Hint";
 import DropDown from "@/app/components/Listings/DropDown/DropDown";
@@ -12,13 +12,18 @@ import {useSelector} from "react-redux";
 export default function Price({
                                     lang,
                                     price,
-                                    setPrice = () => {},
+                                    setPrice = value => {},
                                     currency,
-                                    setCurrency = () => {},
+                                    setCurrency = currency => {},
                               }) {
 
     // REDUX
     const userCountryInformation = useSelector(state => state.mainLayout.userCountryInformation);
+
+    // EFFECT HOOK TO SET CURRENCY
+    React.useEffect(() => {
+        setCurrency(userCountryInformation?.currency);
+    }, [userCountryInformation?.currency]);
 
     return (
         <div className={`${classes.PricePart} p-12 rounded bg-white`}>
@@ -34,11 +39,11 @@ export default function Price({
                 <div className={'flex flex-col gap-2'}>
                     <label htmlFor={'currency'}>{lang === 'en' ? 'Currency' : 'عملة'}</label>
                     <DropDown
-                        value={userCountryInformation.currency || ''}
+                        value={currency || ''}
                         disabled={true}
-                        options={[{label: userCountryInformation.currency, value: userCountryInformation.currency}]}
+                        options={[{label: currency, value: currency}]}
                         onChange={(e) => {
-                            setCurrency(e.value);
+                            setCurrency(userCountryInformation?.currency);
                         }}
                         placeholder={lang === 'en' ? 'Select Currency' : 'حدد العملة'}
                     />
@@ -53,6 +58,7 @@ export default function Price({
                         onChange={(e) => {
                             setPrice(e.target.value);
                         }}
+                        autoComplete={'off'}
                     />
                 </div>
             </div>

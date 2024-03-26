@@ -40,6 +40,11 @@ export default function SelectSubcategory({lang}) {
             .then(response => {
                 const categories = response.data.subCategories;
                 const formType = response.data.formType;
+
+                if(categories.length === 0) {
+                    router.push(`/listings/select-item?category=${categoryId}&subCategory=&formType=${formType}&item=`);
+                }
+
                 // SET THE CATEGORIES
                 setCategories(categories || []);
                 setFilteredCategories(categories || []);

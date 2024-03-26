@@ -33,6 +33,10 @@ export default function SelectSubcategoryItem({lang}) {
         const subCategoryId = searchParams.get('subCategory');
         const formType = searchParams.get('formType');
 
+        if(!subCategoryId && formType){
+            router.push(`/listings/select-images?category=${categoryId}&subCategory=${subCategoryId}&formType=${formType}&item=`);
+        }
+
         // SET THE SUBCATEGORY ID AND FORM TYPE
         setSubCategoryId(subCategoryId);
         setFormType(formType);

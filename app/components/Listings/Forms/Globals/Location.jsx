@@ -1,10 +1,10 @@
 "use client";
 
-import classes from "@/app/components/Listings/Forms/RealEstateForm/RealEstateForm.module.scss";
+import classes from "./Location.module.scss";
 import Hint from "@/app/components/Listings/Hint/Hint";
 
 // REDUX
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {Dropdown} from "primereact/dropdown";
 
 
@@ -43,6 +43,7 @@ export default function Location({
                             setCity(e.value);
                         }}
                         placeholder={lang === 'en' ? 'City' : 'مدينة'}
+                        autoComplete={'off'}
                     />
                 </div>
                 <div className={'flex flex-col gap-2'}>
@@ -55,6 +56,7 @@ export default function Location({
                         onChange={(e) => {
                             setNeighborhood(e.target.value);
                         }}
+                        autoComplete={'off'}
                     />
                 </div>
             </div>

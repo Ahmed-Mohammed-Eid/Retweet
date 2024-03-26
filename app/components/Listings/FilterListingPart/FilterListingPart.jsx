@@ -26,10 +26,10 @@ export default function FilterListingPart({lang}) {
     const [categoryId, setCategoryId] = useState('');
     const [subCategoryId, setSubCategoryId] = useState('');
     const [subCategories, setSubCategories] = useState([]);
+    const [selectedLocation, setSelectedLocation] = useState({});
 
     // REDUX
     const userCountryInformation = useSelector((state) => state.mainLayout.userCountryInformation);
-
 
     // HANDLER
     function getCategories(categoryId) {
@@ -227,6 +227,25 @@ export default function FilterListingPart({lang}) {
                         value={8}
                     />
                 </div>
+            </div>
+
+            <span className={`${classes.border__bottom} my-4`}></span>
+
+            {/*  LOCATION  */}
+            <div className={`${classes.Location} flex flex-col gap-5`}>
+                <h3 className="text-l font-bold leading-6 text-zinc-800 uppercase">
+                    {lang === "en" ? "Location" : "الموقع"}
+                </h3>
+
+                <Dropdown
+                    placeholder={lang === "en" ? "Select a Location" : "اختر الموقع"}
+                    options={userCountryInformation?.cities || []}
+                    className="w-full"
+                    value={selectedLocation}
+                    onChange={(e) => {
+                        setSelectedLocation(e.value);
+                    }}
+                />
             </div>
         </div>
     );

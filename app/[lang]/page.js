@@ -9,12 +9,13 @@ import SaveGoogleToken from "@/app/components/AuthenticationComponents/SaveGoogl
 
 
 export const metadata = {
-    title: 'ريتويت : سوق : سيارات للبيع : عقارات : بيوت : للبيع : خدمات : وظائف',
-    description: 'ريتويت : سوق : سيارات للبيع : عقارات : بيوت : للبيع : خدمات : وظائف',
-    keywords: 'ريتويت : سوق : سيارات للبيع : عقارات : بيوت : للبيع : خدمات : وظائف, ريتويت, سوق, سيارات للبيع, عقارات, بيوت, للبيع, خدمات, وظائف',
+    title: 'ريتويت : إعلانات : سيارات للبيع : عقارات : بيوت : للبيع : خدمات : وظائف',
+    description: 'ريتويت : إعلانات : سيارات للبيع : عقارات : بيوت : للبيع : خدمات : وظائف',
+    keywords: 'ريتويت : إعلانات : سيارات للبيع : عقارات : بيوت : للبيع : خدمات : وظائف, ريتويت, سوق, سيارات للبيع, عقارات, بيوت, للبيع, خدمات, وظائف',
 };
 
 export default async function Home({params: {lang}}) {
+
     const dictionary = await getDictionary(lang);
 
     if(!dictionary) return
@@ -31,3 +32,4 @@ export default async function Home({params: {lang}}) {
         </>
     );
 }
+

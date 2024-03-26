@@ -118,7 +118,8 @@ function ListingCard({ product, lang }) {
 function ContactButton({ phone }) {
     return (
         <a
-            href={`tel:${phone}`}
+            href={`https://wa.me/${phone}`}
+            target={"_blank"}
             className="flex gap-2.5 justify-center px-8 py-4 bg-amber-400 rounded-md text-neutral-50 max-md:px-5 button--effect"
         >
             <Image

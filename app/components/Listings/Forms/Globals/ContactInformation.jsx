@@ -1,4 +1,4 @@
-import classes from "@/app/components/Listings/Forms/RealEstateForm/RealEstateForm.module.scss";
+import classes from "./ContactInformation.module.scss";
 import Hint from "@/app/components/Listings/Hint/Hint";
 
 export default function ContactInformation({
@@ -30,6 +30,7 @@ export default function ContactInformation({
                         onChange={(e) => {
                             setCountryCode(e.target.value);
                         }}
+                        autoComplete={'off'}
                     />
                 </div>
                 <div className={'flex flex-col col-span-7'}>
@@ -42,6 +43,7 @@ export default function ContactInformation({
                         onChange={(e) => {
                             setPhoneNumber(e.target.value);
                         }}
+                        autoComplete={'off'}
                     />
                 </div>
             </div>
