@@ -1,34 +1,15 @@
+"use client";
+
 import classes from "./CarsAndBikes.module.scss";
 import CarsCard from "@/app/components/LayoutAndHomeComponents/CarsCard/CarsCard";
 
-export default function CarsAndBikes({dictionary}) {
-    const data = [
-        {
-            img: '/assets/home/testImg.png',
-            title: 'CANON EOS DSLR Camera',
-            price: '$500',
-            model: 'BMW 2019',
-        },
-        {
-            img: '/assets/home/testImg.png',
-            title: 'Lorem Ipsum',
-            price: '$500',
-            model: 'SUV 2019',
-        },
-        {
-            img: '/assets/home/testImg.png',
-            title: 'Lorem Ipsum',
-            price: '$500',
-            model: 'BMW 2019',
-        },
-        {
-            img: '/assets/home/testImg.png',
-            title: 'Lorem Ipsum',
-            price: '$500',
-            model: 'BMW 2019',
-        },
-    ];
+// REDUX
+import {useSelector} from "react-redux";
 
+export default function CarsAndBikes({dictionary}) {
+
+    // REDUX
+    const data = useSelector(state => state.home.advertisements.cars) || [];
 
     return (
         <section className={classes.RealEstate}>

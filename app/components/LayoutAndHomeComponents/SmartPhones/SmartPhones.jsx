@@ -1,30 +1,15 @@
+"use client";
+
 import classes from "./SmartPhones.module.scss";
 import Card from "@/app/components/LayoutAndHomeComponents/Card/Card";
 
-export default function SmartPhones({dictionary}) {
-    const data = [
-        {
-            img: '/assets/home/testImg.png',
-            title: 'CANON EOS DSLR Camera',
-            price: '$500',
-        },
-        {
-            img: '/assets/home/testImg.png',
-            title: 'Lorem Ipsum',
-            price: '$500',
-        },
-        {
-            img: '/assets/home/testImg.png',
-            title: 'Lorem Ipsum',
-            price: '$500',
-        },
-        {
-            img: '/assets/home/testImg.png',
-            title: 'Lorem Ipsum',
-            price: '$500',
-        },
-    ];
+// REDUX
+import {useSelector} from "react-redux";
 
+export default function SmartPhones({dictionary}) {
+
+    // REDUX
+    const data = useSelector(state => state.home.advertisements.mobiles) || [];
 
     return (
         <section className={classes.RealEstate}>

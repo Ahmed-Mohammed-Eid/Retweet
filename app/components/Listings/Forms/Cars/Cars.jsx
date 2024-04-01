@@ -145,7 +145,7 @@ export default function CarsForm({
                 {/*  CAR TYPE  */}
                 <div className={`${classes.CarType} rounded bg-white mt-4`}>
                     <h3>
-                        {lang === 'en' ? 'Type' : 'النوع'}
+                        {lang === 'en' ? 'Brand' : 'الماركة'}
                     </h3>
                     <CarsDropdown
                         lang={lang}

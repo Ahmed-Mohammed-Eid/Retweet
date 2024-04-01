@@ -4,8 +4,14 @@ import classes from './HomeCategories.module.scss';
 import HomeCategory from '@/app/components/LayoutAndHomeComponents/HomeCategories/Category';
 import Image from 'next/image';
 import axios from 'axios';
+import {useRouter} from "next/navigation";
 
 export default function HomeCategories({ dictionary, lang }) {
+
+    // Router
+    const router = useRouter();
+
+    // State
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
@@ -21,6 +27,11 @@ export default function HomeCategories({ dictionary, lang }) {
         fetchCategories();
     }, []);
 
+    // redirect to listings page
+    const redirectToAllListings = () => {
+        router.push(`/listings?categoryId=&subcategoryId=&item=&location=&minPrice=&maxPrice=&page=`);
+    };
+
     return (
         <section className={classes.HomeCategories}>
             <div className={classes.HomeCategories__Top}>
@@ -29,7 +40,7 @@ export default function HomeCategories({ dictionary, lang }) {
                     <p>Browse By Category</p>
                 </div>
                 <div>
-                    <button>View All <span>&rarr;</span></button>
+                    <button onClick={redirectToAllListings}>View All <span>&rarr;</span></button>
                 </div>
             </div>
             <div className={classes.HomeCategories__Container}>

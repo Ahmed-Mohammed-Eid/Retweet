@@ -6,31 +6,14 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import Image from "next/image";
 
+// REDUX
+import {useSelector} from "react-redux";
+
 export default function RealEstate({dictionary}) {
-    const data = [
-        {
-            img: '/assets/home/testImg.png',
-            title: 'CANON EOS DSLR Camera',
-            price: '$500',
-        },
-        {
-            img: '/assets/home/testImg.png',
-            title: 'Lorem Ipsum',
-            price: '$500',
-        },
-        {
-            img: '/assets/home/testImg.png',
-            title: 'Lorem Ipsum',
-            price: '$500',
-        },
-        {
-            img: '/assets/home/testImg.png',
-            title: 'Lorem Ipsum',
-            price: '$500',
-        },
-    ];
-    // State
-    const [ads, setAds] = useState([]);
+
+    // REDUX
+    const realEstate = useSelector(state => state.home.advertisements.realestates) || [];
+    const clientsAds = useSelector(state => state.home.clientsAds.thirdAd) || [];
 
     // Fetch latest ads from server
     function getRealAds() {
@@ -68,7 +51,7 @@ export default function RealEstate({dictionary}) {
             </div>
             <div className={classes.RealEstate__Container}>
                 {
-                    data.map((item, index) => {
+                    realEstate.map((item, index) => {
                         return (
                             <Card key={index} dictionary={dictionary} data={item}/>
                         )
@@ -76,7 +59,7 @@ export default function RealEstate({dictionary}) {
                 }
             </div>
             <div className={classes.RealEstate__Bottom}>
-                <Image src={ads} alt={'Ads Banner'} width={1920} height={300}/>
+                <Image src={clientsAds} alt={'Ads Banner'} width={1920} height={300}/>
             </div>
         </section>
     )

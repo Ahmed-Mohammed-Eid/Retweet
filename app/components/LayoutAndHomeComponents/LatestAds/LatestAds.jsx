@@ -2,15 +2,20 @@
 
 import classes from "./LatestAds.module.scss";
 import Card from "@/app/components/LayoutAndHomeComponents/Card/Card";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import axios from "axios";
 import Image from "next/image";
 
+// REDUX
+import {useDispatch, useSelector} from "react-redux";
+import {updateAdvertisements, updateClientsAds} from "@/redux/Slices/homeSlice";
+
 export default function LatestAds({dictionary, lang}) {
 
-    // State
-    const [ads, setAds] = useState([]);
-    const [latestAds, setLatestAds] = useState([]); // [img, title, price
+    // REDUX
+    const dispatch = useDispatch();
+    const latestAds = useSelector(state => state.home.advertisements.latest) || [];
+    const clientsAds = useSelector(state => state.home.clientsAds.secondAd) || [];
 
     // Fetch latest ads from server
     function getLatestAds() {
@@ -18,8 +23,9 @@ export default function LatestAds({dictionary, lang}) {
         try {
             axios.get(`${process.env.BASE_URL}/latest/listings`)
                 .then(response => {
-                    const data = response.data.latest;
-                    setLatestAds(data);
+                    const data = response.data;
+                    // Update redux store
+                    dispatch(updateAdvertisements(data));
                 })
                 .catch(error => {
                     console.log(error);
@@ -32,8 +38,9 @@ export default function LatestAds({dictionary, lang}) {
         // Fetch data from server
         axios.get(`${process.env.BASE_URL}/all/home/ads`)
             .then(response => {
-                const ads = response.data.homeAds.secondAd;
-                setAds(ads);
+                const ads = response.data.homeAds;
+                // Update redux store
+                dispatch(updateClientsAds(ads));
             })
             .catch(error => {
                 console.log(error);
@@ -60,7 +67,7 @@ export default function LatestAds({dictionary, lang}) {
             </div>
             <div className={classes.LatestAds__Container}>
                 {
-                    latestAds.map((item, index) => {
+                    latestAds.length > 0 && latestAds.map((item, index) => {
                         return (
                             <Card key={index} dictionary={dictionary} data={item} lang={lang} />
                         )
@@ -68,7 +75,7 @@ export default function LatestAds({dictionary, lang}) {
                 }
             </div>
             <div className={classes.LatestAds__Bottom}>
-                <Image src={ads} alt={'Ads Banner'} width={1920} height={300}/>
+                <Image src={clientsAds} alt={'Ads Banner'} width={1920} height={300}/>
             </div>
         </section>
     )

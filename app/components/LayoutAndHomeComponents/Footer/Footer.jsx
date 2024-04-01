@@ -25,24 +25,10 @@ export default function Footer() {
                         </ul>
                     </div>
                     <div className="w-full md:w-1/5 text-center md:text-left py-6">
-                        <h2 className="font-bold text-xl text-white">TOP CATEGORY</h2>
-                        <ul className="list-reset text-gray-500 text-sm pt-3 flex flex-col">
-                            <li className="inline-block py-2 px-1">
-                                <a href="#" className="text-gray-500 no-underline hover:underline">Computer & Laptop</a>
-                            </li>
-                            <li className="inline-block py-2 px-1">
-                                <a href="#" className="text-gray-500 no-underline hover:underline">SmartPhone</a>
-                            </li>
-                            <li className="inline-block py-2 px-1">
-                                <a href="#" className="text-gray-500 no-underline hover:underline">Headphone</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="w-full md:w-1/5 text-center md:text-left py-6">
                         <h2 className="font-bold text-xl text-white uppercase">Quick links</h2>
                         <ul className="list-reset text-gray-500 text-sm pt-3 flex flex-col">
                             <li className="inline-block py-2 px-1">
-                                <a href="#" className="text-gray-500 no-underline hover:underline">Home</a>
+                                <a href="/" className="text-gray-500 no-underline hover:underline">Home</a>
                             </li>
                             <li className="inline-block py-2 px-1">
                                 <a href="/about" className="text-gray-500 no-underline hover:underline">About Us</a>
@@ -51,7 +37,7 @@ export default function Footer() {
                                 <a href="/contact" className="text-gray-500 no-underline hover:underline">Contact Us</a>
                             </li>
                             <li className="inline-block py-2 px-1">
-                                <a href="#" className="text-gray-500 no-underline hover:underline">Notification</a>
+                                <a href="/profile/notifications" className="text-gray-500 no-underline hover:underline">Notification</a>
                             </li>
                             <li className="inline-block py-2 px-1">
                                 <a href="#" className="text-gray-500 no-underline hover:underline">Chats</a>

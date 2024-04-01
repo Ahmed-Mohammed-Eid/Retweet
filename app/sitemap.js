@@ -8,7 +8,7 @@ export default function sitemap() {
             return {
                 url: `https://retweet.com/${lang}${page}`,
                 lastModified: new Date(),
-                changeFrequency: 'monthly',
+                changeFrequency: 'weekly',
                 priority: 0.8
             }
         })
@@ -16,7 +16,6 @@ export default function sitemap() {
 
     // FLATTEN THE ARRAY OF ARRAYS INTO A SINGLE ARRAY OF OBJECTS
     const flatSiteMap = [].concat.apply([], staticSiteMap);
-
 
     return [
         ...flatSiteMap

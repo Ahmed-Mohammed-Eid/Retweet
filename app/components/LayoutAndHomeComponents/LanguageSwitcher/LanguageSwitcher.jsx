@@ -4,12 +4,13 @@ import React, {useEffect, useState} from "react";
 import {Dropdown} from 'primereact/dropdown';
 import {ChevronDownIcon} from 'primereact/icons/chevrondown';
 import {ChevronRightIcon} from 'primereact/icons/chevronright';
-import {useRouter, usePathname} from "next/navigation";
+import {useRouter, usePathname, useSearchParams} from "next/navigation";
 import Image from "next/image";
 
 function LanguageSwitcher({className, lang}) {
     const router = useRouter();
     const pathname = usePathname();
+    const searchParams = useSearchParams();
 
     const [selectedLanguage, setSelectedLanguage] = useState();
     const languages = [
@@ -53,6 +54,18 @@ function LanguageSwitcher({className, lang}) {
         // get the path without the language
         const parts = pathname.split("/");
         parts[1] = lang;
+
+        // GET ALL THE SEARCH PARAMS
+        const search = new URLSearchParams(searchParams);
+        const searchParamsArray = [];
+        for (let [key, value] of search) {
+            searchParamsArray.push(`${key}=${value}`);
+        }
+        // add the search params to the path
+        if (searchParamsArray.length > 0) {
+            parts.push("?" + searchParamsArray.join("&"));
+        }
+
         // redirect to the new path
         router.push(parts.join("/"));
         const timer = setTimeout(() => {

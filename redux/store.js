@@ -1,9 +1,13 @@
 "use client";
 import { combineReducers, configureStore  } from "@reduxjs/toolkit";
 import mainLayoutSlice from "@/redux/Slices/mainLayoutSlice";
+import homeSlice from "@/redux/Slices/homeSlice";
+import listingsSlice from "@/redux/Slices/listingsSlice";
 
 const rootReducer = combineReducers({
     mainLayout: mainLayoutSlice,
+    home: homeSlice,
+    listings: listingsSlice,
     //add all your reducers here
 },);
 

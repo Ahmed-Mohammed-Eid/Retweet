@@ -3,7 +3,7 @@
 import React, {useState} from "react";
 import {Slider} from "primereact/slider";
 
-export default function PriceRange({range = [0, 100], change = () => {}}) {
+export default function PriceRange({max, range = [0, 100], change = () => {}}) {
     return (
         <div className="card flex justify-content-center">
             <Slider
@@ -17,7 +17,7 @@ export default function PriceRange({range = [0, 100], change = () => {}}) {
                 }}
                 range
                 min={0}
-                max={100}
+                max={max}
                 style={{width: "100%"}}
                 pt={{
                     root: { className: 'w-14rem' },
