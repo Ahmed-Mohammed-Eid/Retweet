@@ -1,8 +1,7 @@
 import React from 'react';
 import axios from "axios";
 import MainDetails from "@/app/components/Listings/ListingsView/MainDetails/MainDetails";
-
-
+import InfoDetails from "@/app/components/Listings/ListingsView/InfoDetails/InfoDetails";
 
 
 // ASYNC FUNCTION WITH NO CACHE TO GET DATA FROM API BASED ON ID
@@ -22,7 +21,16 @@ export default async function ListingsPage({params: {id, lang}}) {
 
     return (
         <div>
-            <MainDetails listing={data?.listing}/>
+            {/*Title*/}
+            <h1
+                className={`text-3xl font-bold ${lang === "en" ? "text-left" : "text-right"} mt-8 mb-4`}
+            >
+                {data?.listing?.listingTitle}
+            </h1>
+            {/*Main Details*/}
+            <MainDetails listing={data?.listing} lang={lang}/>
+            {/*MAIN DETAILS*/}
+            <InfoDetails listing={data?.listing} lang={lang}/>
         </div>
     );
 }

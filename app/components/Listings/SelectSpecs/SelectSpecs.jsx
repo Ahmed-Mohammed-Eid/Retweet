@@ -5,11 +5,16 @@ import {useSearchParams} from "next/navigation";
 import RealEstateForm from "@/app/components/Listings/Forms/RealEstateForm/RealEstateForm";
 import CarsForm from "@/app/components/Listings/Forms/Cars/Cars";
 import MobileForm from "@/app/components/Listings/Forms/Mobile/Mobile";
+import General from "@/app/components/Listings/Forms/General/General";
 import classes from "./SelectSpecs.module.scss";
 import toast from "react-hot-toast";
 import axios from "axios";
 
 export default function SelectSpecs({lang}) {
+
+    // STATIC EXISTS FORM TYPES
+    const formTypes = ["real-estate", "cars", "mobiles-tablets"];
+
     // ROUTER
     const searchParams = useSearchParams();
 
@@ -190,10 +195,28 @@ export default function SelectSpecs({lang}) {
                     }}
                 />
             )}
-            {!selectedCategory && (
-                <p className={"text-center text-gray-500"}>
-                    This Category Form is Under Development
-                </p>
+            {(!selectedCategory || !formTypes.includes(selectedCategory)) && (
+                <General
+                    lang={lang}
+                    categoryName={"General"}
+                    subCategoryName={"General"}
+                    submit={(values) => {
+                        handleSubmit(
+                            values.description.title,
+                            searchParamsValue.item,
+                            values.description.description,
+                            searchParamsValue.category,
+                            searchParamsValue.subCategory,
+                            values.listingDetails,
+                            values.location.city,
+                            values.location.neighborhood,
+                            values.price.price,
+                            values.price.currency,
+                            `${values.contact.code}${values.contact.phone}`,
+                            searchParamsValue.imagesId
+                        );
+                    }}
+                />
             )}
         </div>
     );
