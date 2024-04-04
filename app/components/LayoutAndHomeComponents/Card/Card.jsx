@@ -10,7 +10,7 @@ export default function Card({dictionary, data, lang}) {
     return (
         <div className={classes.Card}>
             <div className={classes.Card__Img}>
-                <Link href={`/${lang}/listings/${data?._id}`} passHref>
+                <Link href={`/listings/${data?._id}`} passHref>
                     <Image src={data?.listingImages[0] || '/assets/listings/no-image.jpeg'} alt={'brands'} width={200}
                            height={200}/>
                 </Link>
@@ -25,7 +25,7 @@ export default function Card({dictionary, data, lang}) {
             </div>
             <div className={classes.Card__Info}>
                 <h3 title={data.listingTitle}>
-                    <Link href={`/${lang}/listings/${data?._id}`} passHref
+                    <Link href={`/listings/${data?._id}`} passHref
                           className={`text-lg font-bold leading-6 text-zinc-900 max-md:max-w-full`}>
                         {data.listingTitle}
                     </Link>
