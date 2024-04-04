@@ -37,8 +37,6 @@ async function getSEOData() {
 
 export default async function Home({params: {lang}}) {
 
-    await getSEOData(lang)
-
     const dictionary = await getDictionary(lang);
 
     if (!dictionary) return

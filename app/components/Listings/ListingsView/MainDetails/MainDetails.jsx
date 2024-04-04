@@ -165,11 +165,11 @@ export default function MainDetails({lang, listing}) {
                     <button
                         className={"button--effect"}
                         onClick={() => {
-                            window.open(`https://twitter.com/intent/tweet?text=${listing?.listingTitle}&url=${window.location.href}`);
+                            window.open(`https://twitter.com/intent/tweet?text=${listing?.listingTitle}&url=${window.location.href}&hashtags=retweet,ريتويت&via=Retweet___com`);
                         }}
                     >
                         <Image
-                            src="/assets/listings/x_twitter.svg"
+                            src="/assets/listings/twitter.png"
                             alt="Twitter"
                             width={20}
                             height={20}

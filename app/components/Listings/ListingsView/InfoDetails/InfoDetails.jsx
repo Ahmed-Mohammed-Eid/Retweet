@@ -27,6 +27,10 @@ export default function InfoDetails({listing, lang}) {
                         // Determine the color based on the current index
                         let color = index % 4 === 0 || index % 4 === 3 ? firstColor : secondColor;
 
+                        // CHECK IF THE INFO IS {} || [] || VALUE
+                        const isObject = typeof info?.value === "object";
+                        const isArray = Array.isArray(info?.value);
+
                         return (
                             <div
                                 key={index}
@@ -39,7 +43,7 @@ export default function InfoDetails({listing, lang}) {
                                     {lang === "en" ? info?.labelEn : info?.labelAr}
                                 </p>
                                 <p className="text-base font-normal text-right">
-                                    {info?.value}
+                                    {isArray ? info?.value.join(", ") : (isObject ? "" : info?.value)}
                                 </p>
                             </div>
                         );

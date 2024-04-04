@@ -12,7 +12,6 @@ import Price from "@/app/components/Listings/Forms/Globals/Price";
 import ContactInformation from "@/app/components/Listings/Forms/Globals/ContactInformation";
 import CategoryInfo from "@/app/components/Listings/Forms/Globals/CategoryInfo";
 
-
 export default function RealEstateForm({
                                            lang,
                                            categoryName,
@@ -117,6 +116,9 @@ export default function RealEstateForm({
             contact
         });
     }
+
+    // MAIN AMENITIES OPTIONS
+
 
     return (
         <div className={`${classes.RealEstateForm} rounded p-4`}>
@@ -609,67 +611,60 @@ export default function RealEstateForm({
                                 setListingDetails({...listingDetails, mainAmenities: {...listingDetails.mainAmenities, value: e.value}});
                             }}
                             options={[
-                                {name: lang === 'en' ? 'Air Conditioning' : 'تكييف', code: 'AC'},
-                                {name: lang === 'en' ? 'Balcony' : 'شرفة', code: 'B'},
-                                {name: lang === 'en' ? 'Built in Wardrobes' : 'خزائن مدمجة', code: 'BW'},
-                                {name: lang === 'en' ? 'Central A/C' : 'تكييف مركزي', code: 'CAC'},
-                                {name: lang === 'en' ? 'Concierge' : 'كونسيرج', code: 'C'},
-                                {name: lang === 'en' ? 'Covered Parking' : 'موقف سيارات مغطى', code: 'CP'},
-                                {name: lang === 'en' ? 'Kitchen Appliances' : 'أجهزة المطبخ', code: 'KA'},
-                                {name: lang === 'en' ? 'Maid Service' : 'خدمة الغرف', code: 'MS'},
-                                {name: lang === 'en' ? 'Networked' : 'متصل بالشبكة', code: 'N'},
-                                {name: lang === 'en' ? 'Pets Allowed' : 'يسمح بالحيوانات الأليفة', code: 'PA'},
-                                {name: lang === 'en' ? 'Security' : 'أمان', code: 'S'},
-                                {name: lang === 'en' ? 'Shared Gym' : 'صالة رياضية مشتركة', code: 'SG'},
-                                {name: lang === 'en' ? 'Shared Pool' : 'حمام سباحة مشترك', code: 'SP'},
-                                {name: lang === 'en' ? 'View of Landmark' : 'إطلالة على معلم', code: 'VOL'},
-                                {name: lang === 'en' ? 'View of Water' : 'إطلالة على الماء', code: 'VOW'},
-                                {name: lang === 'en' ? 'Walk-in Closet' : 'خزانة ملابس', code: 'WC'},
-                                {name: lang === 'en' ? 'Waste Disposal' : 'تخلص من النفايات', code: 'WD'},
-                                {name: lang === 'en' ? 'Laundry Room' : 'غرفة غسيل', code: 'LR'},
-                                {name: lang === 'en' ? 'Private Pool' : 'حمام سباحة خاص', code: 'PP'},
-                                {name: lang === 'en' ? 'Private Gym' : 'صالة رياضية خاصة', code: 'PG'},
-                                {name: lang === 'en' ? 'Private Garden' : 'حديقة خاصة', code: 'PG'},
-                                {name: lang === 'en' ? 'Private Jacuzzi' : 'جاكوزي خاص', code: 'PJ'},
-                                {name: lang === 'en' ? 'Private Sauna' : 'ساونا خاصة', code: 'PS'},
-                                {name: lang === 'en' ? 'Private Steam Room' : 'غرفة بخار خاصة', code: 'PSR'},
-                                {name: lang === 'en' ? 'Barbecue Area' : 'منطقة شواء', code: 'BA'},
-                                {name: lang === 'en' ? 'Kids Play Area' : 'منطقة لعب الأطفال', code: 'KPA'},
-                                {name: lang === 'en' ? 'Lawn or Garden' : 'عشب أو حديقة', code: 'LG'},
-                                {name: lang === 'en' ? 'CCTV Security' : 'أمان CCTV', code: 'CS'},
-                                {name: lang === 'en' ? 'Intercom' : 'التحدث الداخلي', code: 'I'},
-                                {
-                                    name: lang === 'en' ? 'Satellite/Cable TV' : 'تلفزيون الكابل / الأقمار الصناعية',
-                                    code: 'SCTV'
-                                },
-                                {name: lang === 'en' ? 'Double Glazed Windows' : 'نوافذ مزدوجة الزجاج', code: 'DGW'},
-                                {name: lang === 'en' ? 'Maintenance Staff' : 'طاقم الصيانة', code: 'MS'},
-                                {name: lang === 'en' ? 'Cleaning Services' : 'خدمات التنظيف', code: 'CS'},
-                                {name: lang === 'en' ? 'Marble' : 'رخام', code: 'M'},
-                                {name: lang === 'en' ? 'Tiles' : 'بلاط', code: 'T'},
-                                {name: lang === 'en' ? 'Wood Flooring' : 'أرضيات خشبية', code: 'WF'},
-                                {name: lang === 'en' ? 'Balcony' : 'شرفة', code: 'B'},
-                                {name: lang === 'en' ? 'Bar' : 'بار', code: 'B'},
-                                {name: lang === 'en' ? 'Laundry Room' : 'غرفة غسيل', code: 'LR'},
-                                {name: lang === 'en' ? 'Laundry in Building' : 'غسيل في المبنى', code: 'LIB'},
-                                {name: lang === 'en' ? 'Service Elevators' : 'مصاعد الخدمة', code: 'SE'},
-                                {name: lang === 'en' ? 'Prayer Room' : 'غرفة الصلاة', code: 'PR'},
-                                {
-                                    name: lang === 'en' ? 'Reception/Waiting Room' : 'غرفة الاستقبال / الانتظار',
-                                    code: 'RWR'
-                                },
-                                {name: lang === 'en' ? 'Conference Room' : 'غرفة المؤتمرات', code: 'CR'},
-                                {name: lang === 'en' ? 'Security Staff' : 'طاقم الأمان', code: 'SS'},
-                                {name: lang === 'en' ? 'Cafeteria or Canteen' : 'كافتيريا أو منتزه', code: 'CC'},
-                                {name: lang === 'en' ? 'Freehold' : 'ملكية حرة', code: 'F'},
-                                {name: lang === 'en' ? 'Maids Room' : 'غرفة الخادمة', code: 'MR'},
-                                {name: lang === 'en' ? 'Storage Areas' : 'مناطق التخزين', code: 'SA'},
-                                {name: lang === 'en' ? 'Study Room' : 'غرفة دراسة', code: 'SR'},
-                                {name: lang === 'en' ? 'Waste Disposal' : 'تخلص من النفايات', code: 'WD'},
-                                {name: lang === 'en' ? 'Conference Room' : 'غرفة المؤتمرات', code: 'CR'},
-                                {name: lang === 'en' ? 'Conference Room' : 'غرفة المؤتمرات', code: 'CR'},
+                                lang === 'en' ? 'Air Conditioning' : 'تكييف',
+                                lang === 'en' ? 'Balcony' : 'شرفة',
+                                lang === 'en' ? 'Built in Wardrobes' : 'خزائن مدمجة',
+                                lang === 'en' ? 'Central A/C' : 'تكييف مركزي',
+                                lang === 'en' ? 'Concierge' : 'كونسيرج',
+                                lang === 'en' ? 'Covered Parking' : 'موقف سيارات مغطى',
+                                lang === 'en' ? 'Kitchen Appliances' : 'أجهزة المطبخ',
+                                lang === 'en' ? 'Maid Service' : 'خدمة الغرف',
+                                lang === 'en' ? 'Networked' : 'متصل بالشبكة',
+                                lang === 'en' ? 'Pets Allowed' : 'يسمح بالحيوانات الأليفة',
+                                lang === 'en' ? 'Security' : 'أمان',
+                                lang === 'en' ? 'Shared Gym' : 'صالة رياضية مشتركة',
+                                lang === 'en' ? 'Shared Pool' : 'حمام سباحة مشترك',
+                                lang === 'en' ? 'View of Landmark' : 'إطلالة على معلم',
+                                lang === 'en' ? 'View of Water' : 'إطلالة على الماء',
+                                lang === 'en' ? 'Walk-in Closet' : 'خزانة ملابس',
+                                lang === 'en' ? 'Waste Disposal' : 'تخلص من النفايات',
+                                lang === 'en' ? 'Laundry Room' : 'غرفة غسيل',
+                                lang === 'en' ? 'Private Pool' : 'حمام سباحة خاص',
+                                lang === 'en' ? 'Private Gym' : 'صالة رياضية خاصة',
+                                lang === 'en' ? 'Private Garden' : 'حديقة خاصة',
+                                lang === 'en' ? 'Private Jacuzzi' : 'جاكوزي خاص',
+                                lang === 'en' ? 'Private Sauna' : 'ساونا خاصة',
+                                lang === 'en' ? 'Private Steam Room' : 'غرفة بخار خاصة',
+                                lang === 'en' ? 'Barbecue Area' : 'منطقة شواء',
+                                lang === 'en' ? 'Kids Play Area' : 'منطقة لعب الأطفال',
+                                lang === 'en' ? 'Lawn or Garden' : 'عشب أو حديقة',
+                                lang === 'en' ? 'CCTV Security' : 'أمان CCTV',
+                                lang === 'en' ? 'Intercom' : 'التحدث الداخلي',
+                                lang === 'en' ? 'Satellite/Cable TV' : 'تلفزيون الكابل / الأقمار الصناعية',
+                                lang === 'en' ? 'Double Glazed Windows' : 'نوافذ مزدوجة الزجاج',
+                                lang === 'en' ? 'Maintenance Staff' : 'طاقم الصيانة',
+                                lang === 'en' ? 'Cleaning Services' : 'خدمات التنظيف',
+                                lang === 'en' ? 'Marble' : 'رخام',
+                                lang === 'en' ? 'Tiles' : 'بلاط',
+                                lang === 'en' ? 'Wood Flooring' : 'أرضيات خشبية',
+                                lang === 'en' ? 'Balcony' : 'شرفة',
+                                lang === 'en' ? 'Bar' : 'بار',
+                                lang === 'en' ? 'Laundry Room' : 'غرفة غسيل',
+                                lang === 'en' ? 'Laundry in Building' : 'غسيل في المبنى',
+                                lang === 'en' ? 'Service Elevators' : 'مصاعد الخدمة',
+                                lang === 'en' ? 'Prayer Room' : 'غرفة الصلاة',
+                                lang === 'en' ? 'Reception/Waiting Room' : 'غرفة الاستقبال / الانتظار',
+                                lang === 'en' ? 'Conference Room' : 'غرفة المؤتمرات',
+                                lang === 'en' ? 'Security Staff' : 'طاقم الأمان',
+                                lang === 'en' ? 'Cafeteria or Canteen' : 'كافتيريا أو منتزه',
+                                lang === 'en' ? 'Freehold' : 'ملكية حرة',
+                                lang === 'en' ? 'Maids Room' : 'غرفة الخادمة',
+                                lang === 'en' ? 'Storage Areas' : 'مناطق التخزين',
+                                lang === 'en' ? 'Study Room' : 'غرفة دراسة',
+                                lang === 'en' ? 'Waste Disposal' : 'تخلص من النفايات',
+                                lang === 'en' ? 'Conference Room' : 'غرفة المؤتمرات',
+                                lang === 'en' ? 'Conference Room' : 'غرفة المؤتمرات',
                             ]}
-                            optionLabel="name"
                             display="chip"
                             placeholder="Select Cities"
                             maxSelectedLabels={20}

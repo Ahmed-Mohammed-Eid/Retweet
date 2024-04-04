@@ -15,6 +15,22 @@ async function getListing(id) {
         });
 }
 
+// CREATE DYNAMIC PAGE SEO OPTIMIZATION
+
+export async function generateMetadata({params}) {
+    // GET SEO DATA
+    const seoData = await getListing(params.id);
+    const listing = seoData?.listing;
+
+    // RETURN METADATA
+    return {
+        title: listing?.listingTitle,
+        description: listing?.listingDescription,
+        keywords: listing?.listingTitle + " " + listing?.listingDescription
+    }
+}
+
+
 
 export default async function ListingsPage({params: {id, lang}}) {
     const data = await getListing(id);

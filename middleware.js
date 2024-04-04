@@ -25,6 +25,9 @@ export async function middleware(request) {
     // IF THE PATHNAME INCLUDES SITEMAP OR ROBOTS, DO NOT RUN THIS MIDDLEWARE
     if (request.nextUrl.pathname.includes('sitemap') || request.nextUrl.pathname.includes('robots')) return;
 
+    // IF THE FILE IS A FAVICON, DO NOT RUN THIS MIDDLEWARE
+    if (request.nextUrl.pathname.includes('favicon')) return;
+
     // IF THE PATHNAME INCLUDES data && .json, DO NOT RUN THIS MIDDLEWARE
     if (request.nextUrl.pathname.includes('data') && request.nextUrl.pathname.includes('.json')) return;
 

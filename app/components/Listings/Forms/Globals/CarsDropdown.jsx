@@ -53,6 +53,7 @@ export default function CarsDropdown({
                 options={cars}
                 filter={true}
                 optionLabel={'name'}
+                optionValue={'name'}
                 placeholder="Select a Car Type"
                 valueTemplate={selectedCarTemplate}
                 itemTemplate={countryOptionTemplate}
