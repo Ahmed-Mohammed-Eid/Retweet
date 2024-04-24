@@ -42,7 +42,7 @@ export default function SelectSubcategory({lang}) {
                 const formType = response.data.formType;
 
                 if(categories.length === 0) {
-                    router.push(`/listings/select-item?category=${categoryId}&subCategory=&formType=${formType}&item=`);
+                    router.push(`/listings/select-item?category=${categoryId}&subCategory=&formType=${'noOptions'}&item=`);
                 }
 
                 // SET THE CATEGORIES
@@ -97,7 +97,7 @@ export default function SelectSubcategory({lang}) {
                                 }
                                 icon={'/assets/listings/RightArrow.svg'}
                                 clicked={() => {
-                                    router.push(`/listings/select-item?category=${categoryIdFromUrl}&subCategory=${category._id}&formType=${formType}`)
+                                    router.push(`/listings/select-item?category=${categoryIdFromUrl}&subCategory=${category._id}&formType=${category.formType}`);
                                 }}
                             />
                         )

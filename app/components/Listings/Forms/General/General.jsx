@@ -47,7 +47,7 @@ export default function General({
         },
         attachedAccessories: {
             labelAr: 'الملحقات المرفقة',
-            labelEn: 'Attached Accessories',
+            labelEn: 'Attached VideoGames',
             value: '',
         },
         deviceAge: {
@@ -236,10 +236,10 @@ export default function General({
                 {/*  ATTACHED ACCESSORIES  */}
                 <div className={`${classes.AttachedAccessories} rounded bg-white mt-4`}>
                     <h3>
-                        {lang === 'en' ? 'Attached Accessories' : 'الملحقات المرفقة'}
+                        {lang === 'en' ? 'Attached VideoGames' : 'الملحقات المرفقة'}
                     </h3>
                     <textarea
-                        placeholder={lang === 'en' ? 'Attached Accessories' : 'الملحقات المرفقة'}
+                        placeholder={lang === 'en' ? 'Attached VideoGames' : 'الملحقات المرفقة'}
                         value={listingDetails.attachedAccessories.value}
                         onChange={(e) => {
                             setListingDetails({

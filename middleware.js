@@ -44,7 +44,6 @@ export async function middleware(request) {
 
     if (pathnameHasLocale) return
 
-    console.log('lang', lang)
     // Redirect if there is no locale
     let locale = locales.includes(lang?.value) ? lang.value : getLocale(request);
     // Set the language cookie

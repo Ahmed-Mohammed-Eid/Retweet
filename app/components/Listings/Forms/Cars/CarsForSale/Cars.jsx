@@ -168,11 +168,11 @@ export default function CarsForm({
                         <input
                             type="text"
                             placeholder={'Model'}
+                            autoComplete={'off'}
                             value={listingDetails?.model.value || ''}
                             onChange={(e) => {
                                 setListingDetails({...listingDetails, model: {...listingDetails.model, value: e.target.value}})
                             }}
-                            autoComplete={'off'}
                         />
                     </div>
                 </div>

@@ -15,11 +15,21 @@ async function getListing(id) {
         });
 }
 
+async function getSeo(id) {
+    return await axios.get(`${process.env.BASE_URL}/listing/title/description?listingId=${id}`)
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => {
+            return error;
+        });
+}
+
 // CREATE DYNAMIC PAGE SEO OPTIMIZATION
 
 export async function generateMetadata({params}) {
     // GET SEO DATA
-    const seoData = await getListing(params.id);
+    const seoData = await getSeo(params.id);
     const listing = seoData?.listing;
 
     // RETURN METADATA

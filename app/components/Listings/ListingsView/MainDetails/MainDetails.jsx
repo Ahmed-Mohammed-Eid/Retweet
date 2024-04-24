@@ -118,7 +118,7 @@ export default function MainDetails({lang, listing}) {
 
                     <div className={classes.hints}>
                         <h2 className={classes.title}>
-                            {lang === "en" ? "General Tips:" : "نصائح عامة:"}
+                            {lang === "en" ? "NoOptions Tips:" : "نصائح عامة:"}
                         </h2>
                         <ol className={classes.hintsList}>
                             <li className={classes.hint}>

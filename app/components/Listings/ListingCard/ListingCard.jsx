@@ -1,15 +1,74 @@
 "use client";
 
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import Image from "next/image";
 import {formatePrice} from "@/helpers/formatePrice";
 import classes from "./ListingCard.module.scss";
 import Link from "next/link";
+import axios from "axios";
 
-function ListingCard({product, lang}) {
+function ListingCard({product, lang, authenticated, removeOnly}) {
+
+    console.log(authenticated)
 
     // STATES
     const [isFavourite, setIsFavourite] = useState(false);
+
+    // HANDLER FUNCTION TO TOGGLE FAVOURITE
+    const toggleFavouriteHandler = () => {
+        // GET THE TOKEN FROM LOCAL STORAGE
+        const token = localStorage.getItem('retweet-token')
+
+        // URLS ADD AND REMOVE FAVOURITE
+        const addUrl = `${process.env.BASE_URL}/add/favorite`;
+        const removeUrl = `${process.env.BASE_URL}/remove/favorite`;
+
+        // CHECK IF THE PRODUCT IS FAVOURITE
+
+        
+        // SEND THE REQUEST TO ADD OR REMOVE FAVOURITE
+        if (!isFavourite && !removeOnly) {
+            axios.post(addUrl, {
+                listingId: product?._id
+            }, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            .then(response => {
+                console.log(response)
+                setIsFavourite(true)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+        } else {
+            axios.delete(removeUrl, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                },
+                params:{
+                    listingId: product?._id
+                }
+            })
+            .then(response => {
+                console.log(response)
+                setIsFavourite(false)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+        }
+
+    }
+
+    // EFFECT TO CHECK IF THE PRODUCT IS FAVOURITE
+    useEffect(() => {
+        if(removeOnly) {
+            setIsFavourite(true)
+        }
+    }, [])
+
 
     return (
         <article className="px-6 py-5 bg-white rounded-md border border-gray-200 border-solid max-md:pr-5">
@@ -34,14 +93,16 @@ function ListingCard({product, lang}) {
                                     {product?.listingTitle}
                                 </Link>
                             </h2>
-                            <svg
+                            {authenticated && (<svg
                                 width="30"
                                 height="28"
                                 viewBox="0 0 30 28"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="cursor-pointer button--effect"
-                                onClick={() => setIsFavourite(!isFavourite)}
+                                onClick={() => {
+                                    toggleFavouriteHandler()
+                                }}
                             >
                                 <g>
                                     <path
@@ -97,7 +158,7 @@ function ListingCard({product, lang}) {
                                         />
                                     </filter>
                                 </defs>
-                            </svg>
+                            </svg>)}
                         </div>
                         <p className={`${classes.listingDescription} mt-2 text-sm capitalize font-medium leading-5 text-zinc-800 max-md:max-w-full`}>
                             {product?.listingDescription}
@@ -111,7 +172,7 @@ function ListingCard({product, lang}) {
                                 <ChatButton id={product?._id}/>
                             </div>
                             <div className="my-auto text-xl font-bold leading-6 text-sky-500">
-                                {product?.listingCurrency} {formatePrice(product?.listingPrice)}
+                                {product?.listingCurrency} {formatePrice(product?.listingPrice || 0)}
                             </div>
                         </div>
                     </div>

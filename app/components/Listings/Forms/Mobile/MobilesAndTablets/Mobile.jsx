@@ -57,7 +57,7 @@ export default function MobileForm({
         },
         attachedAccessories: {
             labelAr: 'الملحقات المرفقة',
-            labelEn: 'Attached Accessories',
+            labelEn: 'Attached VideoGames',
             value: [],
         },
         deviceAge: {
@@ -461,7 +461,7 @@ export default function MobileForm({
                 {/*  ATTACHED ACCESSORIES  */}
                 <div className={`${classes.Attached} rounded bg-white mt-4`}>
                     <h3>
-                        {lang === 'en' ? 'Attached Accessories' : 'الملحقات المرفقة'}
+                        {lang === 'en' ? 'Attached VideoGames' : 'الملحقات المرفقة'}
                     </h3>
                     <div className={'flex justify-start gap-2 flex-wrap'}>
                         <CheckBoxComponent
@@ -495,7 +495,7 @@ export default function MobileForm({
                         <CheckBoxComponent
                             lang={lang}
                             textAr={'سماعات'}
-                            textEn={'Headphones'}
+                            textEn={'VideoGames'}
                             value={'headphones'}
                             name={'attachedAccessories'}
                             checked={listingDetails.attachedAccessories.value.includes('headphones')}

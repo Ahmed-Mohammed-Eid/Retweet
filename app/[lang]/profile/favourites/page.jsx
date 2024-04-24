@@ -1,7 +1,17 @@
 import SecondaryNavigation from "@/app/components/LayoutAndHomeComponents/SecondaryNavigation/SecondaryNavigation";
+import FavouriteContent from "@/app/components/UserProfileComponents/FavouriteContent/FavouriteContent";
+import useAuthentication from "@/hooks/useAuthentication";
+import {cookies} from "next/headers";
 
-export default function Ads({params: {lang}}) {
-    console.log(lang)
+export default async function Ads({params: {lang}}) {
+        
+    // GET THE TOKEN FROM COOKIES
+    const token = cookies().get('retweet-token')?.value;
+
+    // AUTHENTICATION
+    const {authenticated, error, userData} = await useAuthentication(token);
+
+
     return (
         <div className={'w-full min-h-screen'}>
             <SecondaryNavigation arrayOfLinks={[
@@ -17,6 +27,7 @@ export default function Ads({params: {lang}}) {
                 },
             ]}/>
             {/*  CONTENT  */}
+            <FavouriteContent authenticated={authenticated} />
         </div>
     )
 }

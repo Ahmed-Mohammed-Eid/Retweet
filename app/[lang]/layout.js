@@ -78,7 +78,10 @@ export const metadata = {
     }
 ;
 
-export default async function RootLayout({children, params: {lang}}) {
+export default async function RootLayout({children, params}) {
+
+    // GET THE LANGUAGE FROM PARAMS
+    const {lang} = params;
 
     // GET THE TOKEN FROM COOKIES
     const token = cookies().get('retweet-token')?.value;

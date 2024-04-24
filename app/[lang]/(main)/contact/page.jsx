@@ -1,5 +1,19 @@
 import SecondaryNavigation from "@/app/components/LayoutAndHomeComponents/SecondaryNavigation/SecondaryNavigation";
 import ContactPage from "@/app/components/LayoutAndHomeComponents/ContactPage/ContactPage";
+
+
+// SEO OPTIMIZATION
+export async function generateMetadata({params}) {
+    // LANGUAGE
+    const lang = params.lang;
+    // RETURN METADATA
+    return {
+        title: lang === "en" ? "Contact Us" : "تواصل معنا",
+        description: lang === "en" ? "Contact Us" : "تواصل معنا",
+        keywords: lang === "en" ? "Contact Us" : "تواصل معنا"
+    }
+}
+
 export default function VerifyEmailAddress(){
     return (
         <div className={'w-full'}>

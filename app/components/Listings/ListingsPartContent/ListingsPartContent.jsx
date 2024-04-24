@@ -10,7 +10,7 @@ import axios from 'axios';
 import {useSelector, useDispatch} from 'react-redux';
 import {setListings, setPagination, setPaginationKey} from "@/redux/Slices/listingsSlice";
 
-export default function ListingsPartContent({lang}) {
+export default function ListingsPartContent({lang, authenticated}) {
 
     // ROUTER
     const router = useRouter();
@@ -73,7 +73,7 @@ export default function ListingsPartContent({lang}) {
     const itemTemplate = (product) => {
         return (
             <div className="col-12 sm:col-6 lg:col-12 xl:col-4 p-2" key={product.id}>
-                <ListingCard product={product} lang={lang}/>
+                <ListingCard product={product} lang={lang} authenticated={authenticated}/>
             </div>
         );
     };

@@ -36,7 +36,7 @@ export default function HomeCategories({ dictionary, lang }) {
         <section className={classes.HomeCategories}>
             <div className={classes.HomeCategories__Top}>
                 <div>
-                    <h2>CATEGORIES</h2>
+                    <h1>CATEGORIES</h1>
                     <p>Browse By Category</p>
                 </div>
                 <div>
