@@ -1,5 +1,5 @@
 "use client";
-import classes from "./TvAndMonitors.module.scss";
+import classes from "./Bags.module.scss";
 import Hint from "@/app/components/Listings/Hint/Hint";
 import RadioComponent from "@/app/components/Listings/RadioComponent/RadioComponent";
 import DropDown from "@/app/components/Listings/DropDown/DropDown";
@@ -15,9 +15,9 @@ import ColorDropDown from "@/app/components/Listings/Forms/Globals/ColorDropDown
 import { Calendar } from "primereact/calendar";
 
 // JSON DATA
-import TvAndMonitorsJson from "@/Json_Data/Electronics/TvAndMonitors.json";
+import BagsJson from "@/Json_Data/Women'sFashion/Bags.json";
 
-export default function TvAndMonitors({
+export default function Bags({
 	lang,
 	categoryName,
 	subCategoryName,
@@ -25,29 +25,29 @@ export default function TvAndMonitors({
 }) {
 	// LISTING DETAILS PART
 	const [listingDetails, setListingDetails] = useState({
-		[String(TvAndMonitorsJson[0].labelEn).toLocaleLowerCase()]: {
-			labelAr: TvAndMonitorsJson[0].labelAr,
-			labelEn: TvAndMonitorsJson[0].labelEn,
+		[String(BagsJson[0].labelEn).toLocaleLowerCase()]: {
+			labelAr: BagsJson[0].labelAr,
+			labelEn: BagsJson[0].labelEn,
 			value: "",
 		},
-		[String(TvAndMonitorsJson[1].labelEn).toLocaleLowerCase()]: {
-			labelAr: TvAndMonitorsJson[1].labelAr,
-			labelEn: TvAndMonitorsJson[1].labelEn,
+		[String(BagsJson[1].labelEn).toLocaleLowerCase()]: {
+			labelAr: BagsJson[1].labelAr,
+			labelEn: BagsJson[1].labelEn,
 			value: "",
 		},
-		[String(TvAndMonitorsJson[2].labelEn).toLocaleLowerCase()]: {
-			labelAr: TvAndMonitorsJson[2].labelAr,
-			labelEn: TvAndMonitorsJson[2].labelEn,
+		[String(BagsJson[2].labelEn).toLocaleLowerCase()]: {
+			labelAr: BagsJson[2].labelAr,
+			labelEn: BagsJson[2].labelEn,
 			value: "",
 		},
-		[String(TvAndMonitorsJson[3].labelEn).toLocaleLowerCase()]: {
-			labelAr: TvAndMonitorsJson[3].labelAr,
-			labelEn: TvAndMonitorsJson[3].labelEn,
+		[String(BagsJson[3].labelEn).toLocaleLowerCase()]: {
+			labelAr: BagsJson[3].labelAr,
+			labelEn: BagsJson[3].labelEn,
 			value: "",
 		},
-		[String(TvAndMonitorsJson[4].labelEn).toLocaleLowerCase()]: {
-			labelAr: TvAndMonitorsJson[4].labelAr,
-			labelEn: TvAndMonitorsJson[4].labelEn,
+		[String(BagsJson[4].labelEn).toLocaleLowerCase()]: {
+			labelAr: BagsJson[4].labelAr,
+			labelEn: BagsJson[4].labelEn,
 			value: "",
 		},
 	});
@@ -87,14 +87,21 @@ export default function TvAndMonitors({
 		});
 	};
 
-	const modelsOptions = TvAndMonitorsJson[0].Values.map((value) => {
+	const modelsOptions = BagsJson[0].Values.map((value) => {
 		return {
 			label: lang === "en" ? value.labelEn : value.labelAr,
 			value: value.labelEn,
 		};
 	});
 
-	const modelsOptions2 = TvAndMonitorsJson[1].Values.map((value) => {
+	const modelsOptions2 = BagsJson[1].Values.map((value) => {
+		return {
+			label: lang === "en" ? value.labelEn : value.labelAr,
+			value: value.labelEn,
+		};
+	});
+
+	const modelsOptions3 = BagsJson[2].Values.map((value) => {
 		return {
 			label: lang === "en" ? value.labelEn : value.labelAr,
 			value: value.labelEn,
@@ -134,15 +141,15 @@ export default function TvAndMonitors({
 				<div className={`${classes.Type} rounded bg-white mt-4`}>
 					<h3>
 						{lang === "en"
-							? TvAndMonitorsJson[0].labelEn
-							: TvAndMonitorsJson[0].labelAr}
+							? BagsJson[0].labelEn
+							: BagsJson[0].labelAr}
 					</h3>
 					<div className={"flex justify-start gap-2 flex-wrap"}>
 						<DropDown
 							value={
 								listingDetails[
 									String(
-										TvAndMonitorsJson[0].labelEn
+										BagsJson[0].labelEn
 									).toLocaleLowerCase()
 								].value
 							}
@@ -150,11 +157,11 @@ export default function TvAndMonitors({
 								setListingDetails({
 									...listingDetails,
 									[String(
-										TvAndMonitorsJson[0].labelEn
+										BagsJson[0].labelEn
 									).toLocaleLowerCase()]: {
 										...listingDetails[
 											String(
-												TvAndMonitorsJson[0].labelEn
+												BagsJson[0].labelEn
 											).toLocaleLowerCase()
 										],
 										value: value.value,
@@ -165,8 +172,8 @@ export default function TvAndMonitors({
 							filter={true}
 							placeholder={
 								lang === "en"
-									? TvAndMonitorsJson[0].labelEn
-									: TvAndMonitorsJson[0].labelAr
+									? BagsJson[0].labelEn
+									: BagsJson[0].labelAr
 							}
 						/>
 					</div>
@@ -175,15 +182,15 @@ export default function TvAndMonitors({
 				<div className={`${classes.Type} rounded bg-white mt-4`}>
 					<h3>
 						{lang === "en"
-							? TvAndMonitorsJson[1].labelEn
-							: TvAndMonitorsJson[1].labelAr}
+							? BagsJson[1].labelEn
+							: BagsJson[1].labelAr}
 					</h3>
 					<div className={"flex justify-start gap-2 flex-wrap"}>
 						<DropDown
 							value={
 								listingDetails[
 									String(
-										TvAndMonitorsJson[1].labelEn
+										BagsJson[1].labelEn
 									).toLocaleLowerCase()
 								].value
 							}
@@ -191,11 +198,11 @@ export default function TvAndMonitors({
 								setListingDetails({
 									...listingDetails,
 									[String(
-										TvAndMonitorsJson[1].labelEn
+										BagsJson[1].labelEn
 									).toLocaleLowerCase()]: {
 										...listingDetails[
 											String(
-												TvAndMonitorsJson[1].labelEn
+												BagsJson[1].labelEn
 											).toLocaleLowerCase()
 										],
 										value: value.value,
@@ -206,49 +213,49 @@ export default function TvAndMonitors({
 							filter={true}
 							placeholder={
 								lang === "en"
-									? TvAndMonitorsJson[1].labelEn
-									: TvAndMonitorsJson[1].labelAr
+									? BagsJson[1].labelEn
+									: BagsJson[1].labelAr
 							}
 						/>
 					</div>
 				</div>
 
-				{/*  Category  */}
 				<div className={`${classes.Type} rounded bg-white mt-4`}>
 					<h3>
 						{lang === "en"
-							? TvAndMonitorsJson[2].labelEn
-							: TvAndMonitorsJson[2].labelAr}
+							? BagsJson[2].labelEn
+							: BagsJson[2].labelAr}
 					</h3>
 					<div className={"flex justify-start gap-2 flex-wrap"}>
-						<input
-							type="text"
+						<DropDown
 							value={
 								listingDetails[
 									String(
-										TvAndMonitorsJson[2].labelEn
+										BagsJson[2].labelEn
 									).toLocaleLowerCase()
 								].value
 							}
-							onChange={(e) => {
+							onChange={(value) => {
 								setListingDetails({
 									...listingDetails,
 									[String(
-										TvAndMonitorsJson[2].labelEn
+										BagsJson[2].labelEn
 									).toLocaleLowerCase()]: {
 										...listingDetails[
 											String(
-												TvAndMonitorsJson[2].labelEn
+												BagsJson[2].labelEn
 											).toLocaleLowerCase()
 										],
-										value: e.target.value,
+										value: value.value,
 									},
 								});
 							}}
+							options={modelsOptions3}
+							filter={true}
 							placeholder={
 								lang === "en"
-									? TvAndMonitorsJson[2].labelEn
-									: TvAndMonitorsJson[2].labelAr
+									? BagsJson[2].labelEn
+									: BagsJson[2].labelAr
 							}
 						/>
 					</div>
@@ -258,11 +265,11 @@ export default function TvAndMonitors({
 				<div className={`${classes.Type} rounded bg-white mt-4`}>
 					<h3>
 						{lang === "en"
-							? TvAndMonitorsJson[3].labelEn
-							: TvAndMonitorsJson[3].labelAr}
+							? BagsJson[3].labelEn
+							: BagsJson[3].labelAr}
 					</h3>
 					<div className={"flex justify-start gap-2 flex-wrap"}>
-						{TvAndMonitorsJson[3].Values.map((value, index) => {
+						{BagsJson[3].Values.map((value, index) => {
 							return (
 								<RadioComponent
 									key={index}
@@ -270,16 +277,16 @@ export default function TvAndMonitors({
 									value={value.labelEn}
 									textAr={value.labelAr}
 									textEn={value.labelEn}
-									name={String(TvAndMonitorsJson[3].labelEn)}
+									name={String(BagsJson[3].labelEn)}
 									onChange={(event) => {
 										setListingDetails({
 											...listingDetails,
 											[String(
-												TvAndMonitorsJson[3].labelEn
+												BagsJson[3].labelEn
 											).toLocaleLowerCase()]: {
 												...listingDetails[
 													String(
-														TvAndMonitorsJson[3].labelEn
+														BagsJson[3].labelEn
 													).toLocaleLowerCase()
 												],
 												value: event.target.value,
@@ -296,11 +303,11 @@ export default function TvAndMonitors({
 				<div className={`${classes.Type} rounded bg-white mt-4`}>
 					<h3>
 						{lang === "en"
-							? TvAndMonitorsJson[4].labelEn
-							: TvAndMonitorsJson[4].labelAr}
+							? BagsJson[4].labelEn
+							: BagsJson[4].labelAr}
 					</h3>
 					<div className={"flex justify-start gap-2 flex-wrap"}>
-						{TvAndMonitorsJson[4].Values.map((value, index) => {
+						{BagsJson[4].Values.map((value, index) => {
 							return (
 								<RadioComponent
 									key={index}
@@ -308,16 +315,16 @@ export default function TvAndMonitors({
 									value={value.labelEn}
 									textAr={value.labelAr}
 									textEn={value.labelEn}
-									name={String(TvAndMonitorsJson[4].labelEn)}
+									name={String(BagsJson[4].labelEn)}
 									onChange={(event) => {
 										setListingDetails({
 											...listingDetails,
 											[String(
-												TvAndMonitorsJson[4].labelEn
+												BagsJson[4].labelEn
 											).toLocaleLowerCase()]: {
 												...listingDetails[
 													String(
-														TvAndMonitorsJson[4].labelEn
+														BagsJson[4].labelEn
 													).toLocaleLowerCase()
 												],
 												value: event.target.value,

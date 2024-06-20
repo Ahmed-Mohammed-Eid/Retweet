@@ -2,52 +2,170 @@
     {
         "labelAr" : "النوع" ,
         "labelEn" : "type" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "مع كعب" ,
-                "labelEn" : "with heels" 
+                "labelEn" : "with heels"
             },
             {
                 "labelAr" : "أحذية مريحة" ,
-                "labelEn" : "comfort shoes" 
+                "labelEn" : "comfort shoes"
             },
             {
                 "labelAr" : "جزم رياضية - سبورت" ,
-                "labelEn" : "sport shoes" 
+                "labelEn" : "sport shoes"
             },
             {
                 "labelAr" : "صنادل" ,
-                "labelEn" : "sandals" 
+                "labelEn" : "sandals"
             },
             {
                 "labelAr" : "أحذية طويلة" ,
-                "labelEn" : "boots" 
+                "labelEn" : "boots"
             },
             {
                 "labelAr" : "فليب فلوب" ,
-                "labelEn" : "slippers & flip flops" 
+                "labelEn" : "slippers & flip flops"
             },
             {
                 "labelAr" : "أخرى" ,
-                "labelEn" : "others" 
+                "labelEn" : "others"
             }
         ]
     },
     {
         "labelAr" : "اللون" ,
         "labelEn" : "color" ,
-        "Values" : ""
+        "Values" : [
+            {
+                "labelAr" : "أسود" ,
+                "labelEn" : "black"
+            },
+            {
+                "labelAr" : "أزرق" ,
+                "labelEn" : "blue"
+            },
+            {
+                "labelAr" : "بني" ,
+                "labelEn" : "brown"
+            },
+            {
+                "labelAr" : "ذهبي" ,
+                "labelEn" : "gold"
+            },
+            {
+                "labelAr" : "رمادي" ,
+                "labelEn" : "gray"
+            },
+            {
+                "labelAr" : "أخضر" ,
+                "labelEn" : "green"
+            },
+            {
+                "labelAr" : "أحمر" ,
+                "labelEn" : "red"
+            },
+            {
+                "labelAr" : "فضي" ,
+                "labelEn" : "silver"
+            },
+            {
+                "labelAr" : "أبيض" ,
+                "labelEn" : "white"
+            },
+            {
+                "labelAr" : "أصفر" ,
+                "labelEn" : "yellow"
+            },
+            {
+                "labelAr" : "أخرى" ,
+                "labelEn" : "other"
+            },
+            {
+                "labelAr" : "متعدد الألوان" ,
+                "labelEn" : "multi-color"
+            }
+        ]
     },
     {
         "labelAr" : "القياس" ,
         "labelEn" : "size" ,
-        "Values" : ""
+        "Values" : [
+            {
+                "labelAr" : "35" ,
+                "labelEn" : "35"
+            },
+            {
+                "labelAr" : "36" ,
+                "labelEn" : "36"
+            },
+            {
+                "labelAr" : "37" ,
+                "labelEn" : "37"
+            },
+            {
+                "labelAr" : "38" ,
+                "labelEn" : "38"
+            },
+            {
+                "labelAr" : "39" ,
+                "labelEn" : "39"
+            },
+            {
+                "labelAr" : "40" ,
+                "labelEn" : "40"
+            },
+            {
+                "labelAr" : "41" ,
+                "labelEn" : "41"
+            },
+            {
+                "labelAr" : "42" ,
+                "labelEn" : "42"
+            },
+            {
+                "labelAr" : "43" ,
+                "labelEn" : "43"
+            },
+            {
+                "labelAr" : "44" ,
+                "labelEn" : "44"
+            },
+            {
+                "labelAr" : "45" ,
+                "labelEn" : "45"
+            },
+            {
+                "labelAr" : "46" ,
+                "labelEn" : "46"
+            },
+            {
+                "labelAr" : "47" ,
+                "labelEn" : "47"
+            },
+            {
+                "labelAr" : "48" ,
+                "labelEn" : "48"
+            },
+            {
+                "labelAr" : "49" ,
+                "labelEn" : "49"
+            },
+            {
+                "labelAr" : "50" ,
+                "labelEn" : "50"
+            },
+            {
+                "labelAr" : "أخرى" ,
+                "labelEn" : "other"
+            }
+        ]
     },
     {
         "labelAr" : "الماركة" ,
         "labelEn" : "brand" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "اديداس" ,
@@ -206,7 +324,7 @@
     {
         "labelAr" : "هل لديك خدمة توصيل؟" ,
         "labelEn" : "Do you have delivery service?" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "نعم" ,
@@ -221,7 +339,7 @@
     {
         "labelAr" : "الحالة" ,
         "labelEn" : "condition" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "جديد" ,

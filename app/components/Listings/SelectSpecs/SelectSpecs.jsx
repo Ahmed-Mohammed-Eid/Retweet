@@ -74,6 +74,21 @@ import Cameras from "../Forms/Electronics/Cameras/Cameras";
 import AirConditions from "../Forms/Electronics/AirConditions/AirConditions";
 import Receiver from "../Forms/Electronics/Receiver/Receiver";
 
+// WOMEN'S FASHION
+import WomensWear from "../Forms/Women'sFashion/Wear/Wear";
+import Shoes from "../Forms/Women'sFashion/Shoes/Shoes";
+import Bags from "../Forms/Women'sFashion/Bags/Bags";
+
+// MEN'S FASHION
+import MensWear from "../Forms/Mes'sFashion/Wear/Wear";
+import MenShoes from "../Forms/Mes'sFashion/Shoes/Shoes";
+import MenWatches from "../Forms/Mes'sFashion/Watches/Watches";
+
+// BABY AND KIDS
+import BabyAndDidsWear from "../Forms/BabyAndKids/Wear/Wear";
+import KidsBedroomFurniture from "../Forms/BabyAndKids/Bedrooms/Bedrooms";
+import KidsAccessories from "../Forms/BabyAndKids/Accessories/Accessories";
+
 // STYLES
 // import classes from "./SelectSpecs.module.scss";
 
@@ -136,10 +151,19 @@ export default function SelectSpecs({ lang }) {
 		"dishWashers",
 		"microwave",
 		"washers",
-        "furneces",
-        "cameras",
-        "airConditions",
-        "electronicRecievers"
+		"furneces",
+		"cameras",
+		"airConditions",
+		"electronicRecievers",
+		"women'sWear",
+		"women'sShoes",
+		"women'sBags",
+		"men'sWear",
+        "men'sShoes",
+        "men'sWatches",
+		"babyAndKidsWear",
+		"kidsBedrooms",
+		"kidsAccessories",
 	];
 
 	// ROUTER
@@ -1449,77 +1473,309 @@ export default function SelectSpecs({ lang }) {
 				/>
 			)}
 
-            {selectedCategory === "cameras" && (
-                <Cameras
-                    lang={lang}
-                    categoryName={"Electronics"}
-                    subCategoryName={"Cameras"}
-                    submit={(values) => {
-                        handleSubmit(
-                            values.description.title,
-                            searchParamsValue.item,
-                            values.description.description,
-                            searchParamsValue.category,
-                            searchParamsValue.subCategory,
-                            values.listingDetails,
-                            values.location.city,
-                            values.location.neighborhood,
-                            values.price.price,
-                            values.price.currency,
-                            `${values.contact.code}${values.contact.phone}`,
-                            searchParamsValue.imagesId
-                        );
-                    }}
-                />
-            )}
+			{selectedCategory === "cameras" && (
+				<Cameras
+					lang={lang}
+					categoryName={"Electronics"}
+					subCategoryName={"Cameras"}
+					submit={(values) => {
+						handleSubmit(
+							values.description.title,
+							searchParamsValue.item,
+							values.description.description,
+							searchParamsValue.category,
+							searchParamsValue.subCategory,
+							values.listingDetails,
+							values.location.city,
+							values.location.neighborhood,
+							values.price.price,
+							values.price.currency,
+							`${values.contact.code}${values.contact.phone}`,
+							searchParamsValue.imagesId
+						);
+					}}
+				/>
+			)}
 
-            {selectedCategory === "airConditioners" && (
-                <AirConditions
-                    lang={lang}
-                    categoryName={"Electronics"}
-                    subCategoryName={"Air Conditioners"}
-                    submit={(values) => {
-                        handleSubmit(
-                            values.description.title,
-                            searchParamsValue.item,
-                            values.description.description,
-                            searchParamsValue.category,
-                            searchParamsValue.subCategory,
-                            values.listingDetails,
-                            values.location.city,
-                            values.location.neighborhood,
-                            values.price.price,
-                            values.price.currency,
-                            `${values.contact.code}${values.contact.phone}`,
-                            searchParamsValue.imagesId
-                        );
-                    }}
-                />
-            )}
+			{selectedCategory === "airConditioners" && (
+				<AirConditions
+					lang={lang}
+					categoryName={"Electronics"}
+					subCategoryName={"Air Conditioners"}
+					submit={(values) => {
+						handleSubmit(
+							values.description.title,
+							searchParamsValue.item,
+							values.description.description,
+							searchParamsValue.category,
+							searchParamsValue.subCategory,
+							values.listingDetails,
+							values.location.city,
+							values.location.neighborhood,
+							values.price.price,
+							values.price.currency,
+							`${values.contact.code}${values.contact.phone}`,
+							searchParamsValue.imagesId
+						);
+					}}
+				/>
+			)}
 
-            {selectedCategory === "electronicRecievers" && (
-                <Receiver
-                    lang={lang}
-                    categoryName={"Electronics"}
-                    subCategoryName={"Electronic Recievers"}
-                    submit={(values) => {
-                        handleSubmit(
-                            values.description.title,
-                            searchParamsValue.item,
-                            values.description.description,
-                            searchParamsValue.category,
-                            searchParamsValue.subCategory,
-                            values.listingDetails,
-                            values.location.city,
-                            values.location.neighborhood,
-                            values.price.price,
-                            values.price.currency,
-                            `${values.contact.code}${values.contact.phone}`,
-                            searchParamsValue.imagesId
-                        );
-                    }}
-                />
-            )}
+			{selectedCategory === "electronicRecievers" && (
+				<Receiver
+					lang={lang}
+					categoryName={"Electronics"}
+					subCategoryName={"Electronic Recievers"}
+					submit={(values) => {
+						handleSubmit(
+							values.description.title,
+							searchParamsValue.item,
+							values.description.description,
+							searchParamsValue.category,
+							searchParamsValue.subCategory,
+							values.listingDetails,
+							values.location.city,
+							values.location.neighborhood,
+							values.price.price,
+							values.price.currency,
+							`${values.contact.code}${values.contact.phone}`,
+							searchParamsValue.imagesId
+						);
+					}}
+				/>
+			)}
+
+			{/* WOMEN'S FASHION */}
+
+			{/* SHOES */}
+			{selectedCategory === "women'sWear" && (
+				<WomensWear
+					lang={lang}
+					categoryName={"Women's Fashion"}
+					subCategoryName={"Wear"}
+					submit={(values) => {
+						handleSubmit(
+							values.description.title,
+							searchParamsValue.item,
+							values.description.description,
+							searchParamsValue.category,
+							searchParamsValue.subCategory,
+							values.listingDetails,
+							values.location.city,
+							values.location.neighborhood,
+							values.price.price,
+							values.price.currency,
+							`${values.contact.code}${values.contact.phone}`,
+							searchParamsValue.imagesId
+						);
+					}}
+				/>
+			)}
+
+			{/* SHOES */}
+			{selectedCategory === "women'sShoes" && (
+				<Shoes
+					lang={lang}
+					categoryName={"Women's Fashion"}
+					subCategoryName={"Shoes"}
+					submit={(values) => {
+						handleSubmit(
+							values.description.title,
+							searchParamsValue.item,
+							values.description.description,
+							searchParamsValue.category,
+							searchParamsValue.subCategory,
+							values.listingDetails,
+							values.location.city,
+							values.location.neighborhood,
+							values.price.price,
+							values.price.currency,
+							`${values.contact.code}${values.contact.phone}`,
+							searchParamsValue.imagesId
+						);
+					}}
+				/>
+			)}
+
+			{/* BAGS */}
+			{selectedCategory === "women'sBags" && (
+				<Bags
+					lang={lang}
+					categoryName={"Women's Fashion"}
+					subCategoryName={"Bags"}
+					submit={(values) => {
+						handleSubmit(
+							values.description.title,
+							searchParamsValue.item,
+							values.description.description,
+							searchParamsValue.category,
+							searchParamsValue.subCategory,
+							values.listingDetails,
+							values.location.city,
+							values.location.neighborhood,
+							values.price.price,
+							values.price.currency,
+							`${values.contact.code}${values.contact.phone}`,
+							searchParamsValue.imagesId
+						);
+					}}
+				/>
+			)}
+
+			{/* MEN'S FASHION */}
+			{/* WEAR */}
+			{selectedCategory === "men'sWear" && (
+				<MensWear
+					lang={lang}
+					categoryName={"Men's Fashion"}
+					subCategoryName={"Wear"}
+					submit={(values) => {
+						handleSubmit(
+							values.description.title,
+							searchParamsValue.item,
+							values.description.description,
+							searchParamsValue.category,
+							searchParamsValue.subCategory,
+							values.listingDetails,
+							values.location.city,
+							values.location.neighborhood,
+							values.price.price,
+							values.price.currency,
+							`${values.contact.code}${values.contact.phone}`,
+							searchParamsValue.imagesId
+						);
+					}}
+				/>
+			)}
+
+			{/* SHOES */}
+			{selectedCategory === "men'sShoes" && (
+				<MenShoes
+					lang={lang}
+					categoryName={"Men's Fashion"}
+					subCategoryName={"Shoes"}
+					submit={(values) => {
+						handleSubmit(
+							values.description.title,
+							searchParamsValue.item,
+							values.description.description,
+							searchParamsValue.category,
+							searchParamsValue.subCategory,
+							values.listingDetails,
+							values.location.city,
+							values.location.neighborhood,
+							values.price.price,
+							values.price.currency,
+							`${values.contact.code}${values.contact.phone}`,
+							searchParamsValue.imagesId
+						);
+					}}
+				/>
+			)}
+
+			{/* WATCHES */}
+			{selectedCategory === "men'sWatches" && (
+				<MenWatches
+					lang={lang}
+					categoryName={"Men's Fashion"}
+					subCategoryName={"Watches"}
+					submit={(values) => {
+						handleSubmit(
+							values.description.title,
+							searchParamsValue.item,
+							values.description.description,
+							searchParamsValue.category,
+							searchParamsValue.subCategory,
+							values.listingDetails,
+							values.location.city,
+							values.location.neighborhood,
+							values.price.price,
+							values.price.currency,
+							`${values.contact.code}${values.contact.phone}`,
+							searchParamsValue.imagesId
+						);
+					}}
+				/>
+			)}
+
+			{/* KIDS FASHION */}
+			{/* WEAR */}
+			{selectedCategory === "babyAndKidsWear" && (
+				<BabyAndDidsWear
+					lang={lang}
+					categoryName={"Kids Fashion"}
+					subCategoryName={"Wear"}
+					submit={(values) => {
+						handleSubmit(
+							values.description.title,
+							searchParamsValue.item,
+							values.description.description,
+							searchParamsValue.category,
+							searchParamsValue.subCategory,
+							values.listingDetails,
+							values.location.city,
+							values.location.neighborhood,
+							values.price.price,
+							values.price.currency,
+							`${values.contact.code}${values.contact.phone}`,
+							searchParamsValue.imagesId
+						);
+					}}
+				/>
+			)}
+
+			{/* BEDROOMS */}
+			{selectedCategory === "kidsBedrooms" && (
+				<KidsBedroomFurniture
+					lang={lang}
+					categoryName={"Kids Fashion"}
+					subCategoryName={"Bedrooms and Furniture"}
+					submit={(values) => {
+						handleSubmit(
+							values.description.title,
+							searchParamsValue.item,
+							values.description.description,
+							searchParamsValue.category,
+							searchParamsValue.subCategory,
+							values.listingDetails,
+							values.location.city,
+							values.location.neighborhood,
+							values.price.price,
+							values.price.currency,
+							`${values.contact.code}${values.contact.phone}`,
+							searchParamsValue.imagesId
+						);
+					}}
+				/>
+			)}
+
+			{/* KIDS ACCESSORIES */}
+			{selectedCategory === "kidsAccessories" && (
+				<KidsAccessories
+					lang={lang}
+					categoryName={"Kids Fashion"}
+					subCategoryName={"Accessories"}
+					submit={(values) => {
+						handleSubmit(
+							values.description.title,
+							searchParamsValue.item,
+							values.description.description,
+							searchParamsValue.category,
+							searchParamsValue.subCategory,
+							values.listingDetails,
+							values.location.city,
+							values.location.neighborhood,
+							values.price.price,
+							values.price.currency,
+							`${values.contact.code}${values.contact.phone}`,
+							searchParamsValue.imagesId
+						);
+					}}
+				/>
+			)}
+
+
+
 
 
 

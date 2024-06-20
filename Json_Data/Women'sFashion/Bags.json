@@ -2,222 +2,267 @@
     {
         "labelAr" : "اللون" ,
         "labelEn" : "color" ,
-        "Values" : ""
+        "Values" : [
+            {
+                "labelAr" : "أسود" ,
+                "labelEn" : "black"
+            },
+            {
+                "labelAr" : "أزرق" ,
+                "labelEn" : "blue"
+            },
+            {
+                "labelAr" : "بني" ,
+                "labelEn" : "brown"
+            },
+            {
+                "labelAr" : "ذهبي" ,
+                "labelEn" : "gold"
+            },
+            {
+                "labelAr" : "رمادي" ,
+                "labelEn" : "gray"
+            },
+            {
+                "labelAr" : "أخضر" ,
+                "labelEn" : "green"
+            },
+            {
+                "labelAr" : "أحمر" ,
+                "labelEn" : "red"
+            },
+            {
+                "labelAr" : "فضي" ,
+                "labelEn" : "silver"
+            },
+            {
+                "labelAr" : "أبيض" ,
+                "labelEn" : "white"
+            },
+            {
+                "labelAr" : "أصفر" ,
+                "labelEn" : "yellow"
+            },
+            {
+                "labelAr" : "أخرى" ,
+                "labelEn" : "others"
+            }
+        ]
     },
     {
         "labelAr" : "الماركة" ,
         "labelEn" : "brand" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "اديداس" ,
-                "labelEn" : "adidas" 
+                "labelEn" : "adidas"
             },
             {
                 "labelAr" : "آلدو" ,
-                "labelEn" : "aldo" 
+                "labelEn" : "aldo"
             },
             {
                 "labelAr" : "امازونبيسيكس" ,
-                "labelEn" : "amazonbasics" 
+                "labelEn" : "amazonbasics"
             },
             {
                 "labelAr" : "آرماني" ,
-                "labelEn" : "armani" 
+                "labelEn" : "armani"
             },
             {
                 "labelAr" : "بيربيري" ,
-                "labelEn" : "burberry" 
+                "labelEn" : "burberry"
             },
             {
                 "labelAr" : "كالفين كلاين" ,
-                "labelEn" : "calvin klein" 
+                "labelEn" : "calvin klein"
             },
             {
                 "labelAr" : "تشامبيون" ,
-                "labelEn" : "champion" 
+                "labelEn" : "champion"
             },
             {
                 "labelAr" : "تشارلز & كيث" ,
-                "labelEn" : "charles & keith" 
+                "labelEn" : "charles & keith"
             },
             {
                 "labelAr" : "DKNY" ,
-                "labelEn" : "DKNY" 
+                "labelEn" : "DKNY"
             },
             {
                 "labelAr" : "جوتشي" ,
-                "labelEn" : "gucci" 
+                "labelEn" : "gucci"
             },
             {
                 "labelAr" : "جيس" ,
-                "labelEn" : "guess" 
+                "labelEn" : "guess"
             },
             {
                 "labelAr" : "هيرشل" ,
-                "labelEn" : "herschel" 
+                "labelEn" : "herschel"
             },
             {
                 "labelAr" : "جانسبورت" ,
-                "labelEn" : "jansport" 
+                "labelEn" : "jansport"
             },
             {
                 "labelAr" : "جيسيكا سمبسون" ,
-                "labelEn" : "jessica simpson" 
+                "labelEn" : "jessica simpson"
             },
             {
                 "labelAr" : "لاكوست" ,
-                "labelEn" : "lacost" 
+                "labelEn" : "lacost"
             },
             {
                 "labelAr" : "لينز" ,
-                "labelEn" : "lenz" 
+                "labelEn" : "lenz"
             },
             {
                 "labelAr" : "لويس فيتون" ,
-                "labelEn" : "louis vuitton" 
+                "labelEn" : "louis vuitton"
             },
             {
                 "labelAr" : "مارك جيكوبس" ,
-                "labelEn" : "marc jacobs" 
+                "labelEn" : "marc jacobs"
             },
             {
                 "labelAr" : "مايكل كورس" ,
-                "labelEn" : "michael kors" 
+                "labelEn" : "michael kors"
             },
             {
                 "labelAr" : "نايكي" ,
-                "labelEn" : "nike" 
+                "labelEn" : "nike"
             },
             {
                 "labelAr" : "ناين ويست" ,
-                "labelEn" : "nine west" 
+                "labelEn" : "nine west"
             },
             {
                 "labelAr" : "بارفوا" ,
-                "labelEn" : "parfois" 
+                "labelEn" : "parfois"
             },
             {
                 "labelAr" : "برادا" ,
-                "labelEn" : "prada" 
+                "labelEn" : "prada"
             },
             {
                 "labelAr" : "بوما" ,
-                "labelEn" : "puma" 
+                "labelEn" : "puma"
             },
             {
                 "labelAr" : "رالف لورين" ,
-                "labelEn" : "ralph lauren" 
+                "labelEn" : "ralph lauren"
             },
             {
                 "labelAr" : "ريبوك" ,
-                "labelEn" : "reebok" 
+                "labelEn" : "reebok"
             },
             {
                 "labelAr" : "سكيتشرز" ,
-                "labelEn" : "skechers" 
+                "labelEn" : "skechers"
             },
             {
                 "labelAr" : "ستيف مادين" ,
-                "labelEn" : "steve madden" 
+                "labelEn" : "steve madden"
             },
             {
                 "labelAr" : "تيد بايكر" ,
-                "labelEn" : "ted baker" 
+                "labelEn" : "ted baker"
             },
             {
                 "labelAr" : "تومي هيلفيغر" ,
-                "labelEn" : "tommy hilfiger" 
+                "labelEn" : "tommy hilfiger"
             },
             {
                 "labelAr" : "يو اس بولو" ,
-                "labelEn" : "us polo" 
+                "labelEn" : "us polo"
             },
             {
                 "labelAr" : "فالنتينو" ,
-                "labelEn" : "valentino" 
+                "labelEn" : "valentino"
             },
             {
                 "labelAr" : "فانز" ,
-                "labelEn" : "vans" 
+                "labelEn" : "vans"
             },
             {
                 "labelAr" : "فيرا برادلي" ,
-                "labelEn" : "vera bradley" 
+                "labelEn" : "vera bradley"
             },
             {
                 "labelAr" : "فيرزاتشي" ,
-                "labelEn" : "versace" 
+                "labelEn" : "versace"
             },
             {
                 "labelAr" : "زينيف لندن" ,
-                "labelEn" : "zeneve london" 
+                "labelEn" : "zeneve london"
             },
             {
                 "labelAr" : "فندي" ,
-                "labelEn" : "fendi" 
+                "labelEn" : "fendi"
             },
             {
                 "labelAr" : "أخرى" ,
-                "labelEn" : "others" 
+                "labelEn" : "others"
             }
         ]
     },
     {
         "labelAr" : "النوع" ,
         "labelEn" : "type" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "شنط ظهر" ,
-                "labelEn" : "backpacks" 
+                "labelEn" : "backpacks"
             },
             {
                 "labelAr" : "شنط سفر" ,
-                "labelEn" : "travel bags" 
+                "labelEn" : "travel bags"
             },
             {
                 "labelAr" : "شنط يد" ,
-                "labelEn" : "hand bags" 
+                "labelEn" : "hand bags"
             },
             {
                 "labelAr" : "حقائب حول الجسم" ,
-                "labelEn" : "crossbody bags" 
+                "labelEn" : "crossbody bags"
             },
             {
                 "labelAr" : "حقائب بأحزمة" ,
-                "labelEn" : "tote bags" 
+                "labelEn" : "tote bags"
             },
             {
                 "labelAr" : "حقائب كتف" ,
-                "labelEn" : "shoulder bags" 
+                "labelEn" : "shoulder bags"
             },
             {
                 "labelAr" : "حقائب أدوات تجميل" ,
-                "labelEn" : "cosmetic bags" 
+                "labelEn" : "cosmetic bags"
             },
             {
                 "labelAr" : "حقائب صغيرة" ,
-                "labelEn" : "clutches" 
+                "labelEn" : "clutches"
             },
             {
                 "labelAr" : "حقائب خصر" ,
-                "labelEn" : "waist bags & fanny packs" 
+                "labelEn" : "waist bags & fanny packs"
             },
             {
                 "labelAr" : "محافظ نسائية" ,
-                "labelEn" : "purses" 
+                "labelEn" : "purses"
             },
             {
                 "labelAr" : "أخرى" ,
-                "labelEn" : "others" 
+                "labelEn" : "others"
             }
         ]
     },
     {
         "labelAr" : "هل لديك خدمة توصيل؟" ,
         "labelEn" : "Do you have delivery service?" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "نعم" ,
@@ -232,7 +277,7 @@
     {
         "labelAr" : "الحالة" ,
         "labelEn" : "condition" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "جديد" ,

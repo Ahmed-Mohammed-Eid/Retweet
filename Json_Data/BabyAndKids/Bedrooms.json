@@ -2,12 +2,21 @@
     {
         "labelAr" : "هل لديك خدمة توصيل؟" ,
         "labelEn" : "Do you have delivery service?" ,
-        "Values" : ""
+        "Values" : [
+            {
+                "labelAr" : "نعم" ,
+                "labelEn" : "yes"
+            },
+            {
+                "labelAr" : "لا" ,
+                "labelEn" : "no"
+            }
+        ]
     },
     {
         "labelAr" : "الحالة" ,
         "labelEn" : "condition" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "جديد" ,

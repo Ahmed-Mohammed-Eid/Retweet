@@ -2,35 +2,35 @@
     {
         "labelAr" : "النوع" ,
         "labelEn" : "type" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "مقاعد" ,
-                "labelEn" : "seats" 
+                "labelEn" : "seats"
             },
             {
                 "labelAr" : "عربايات اطفال" ,
-                "labelEn" : "strollers" 
+                "labelEn" : "strollers"
             },
             {
                 "labelAr" : "مشايات" ,
-                "labelEn" : "walkers" 
+                "labelEn" : "walkers"
             },
             {
                 "labelAr" : "مستلزمات إطعام" ,
-                "labelEn" : "feeding" 
+                "labelEn" : "feeding"
             },
             {
                 "labelAr" : "إكسسوارات" ,
-                "labelEn" : "accessories" 
+                "labelEn" : "accessories"
             },
             {
                 "labelAr" : "حرامات" ,
-                "labelEn" : "blankets" 
+                "labelEn" : "blankets"
             },
             {
                 "labelAr" : "أخرى" ,
-                "labelEn" : "others" 
+                "labelEn" : "others"
             }
         ]
     },
@@ -42,12 +42,21 @@
     {
         "labelAr" : "هل لديك خدمة توصيل؟" ,
         "labelEn" : "Do you have delivery service?" ,
-        "Values" : ""
+        "Values" : [
+            {
+                "labelAr" : "نعم" ,
+                "labelEn" : "yes"
+            },
+            {
+                "labelAr" : "لا" ,
+                "labelEn" : "no"
+            }
+        ]
     },
     {
         "labelAr" : "الحالة" ,
         "labelEn" : "condition" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "جديد" ,

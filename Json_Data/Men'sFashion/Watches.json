@@ -410,7 +410,60 @@
     {
         "labelAr" : "اللون" ,
         "labelEn" : "color" ,
-        "Values" : ""
+        "Values" : [
+            {
+                "labelAr" : "أسود" ,
+                "labelEn" : "black" 
+            },
+            {
+                "labelAr" : "أبيض" ,
+                "labelEn" : "white" 
+            },
+            {
+                "labelAr" : "أزرق" ,
+                "labelEn" : "blue" 
+            },
+            {
+                "labelAr" : "أحمر" ,
+                "labelEn" : "red" 
+            },
+            {
+                "labelAr" : "أصفر" ,
+                "labelEn" : "yellow" 
+            },
+            {
+                "labelAr" : "أخضر" ,
+                "labelEn" : "green" 
+            },
+            {
+                "labelAr" : "برتقالي" ,
+                "labelEn" : "orange" 
+            },
+            {
+                "labelAr" : "بني" ,
+                "labelEn" : "brown" 
+            },
+            {
+                "labelAr" : "بيج" ,
+                "labelEn" : "beige" 
+            },
+            {
+                "labelAr" : "ذهبي" ,
+                "labelEn" : "gold" 
+            },
+            {
+                "labelAr" : "فضي" ,
+                "labelEn" : "silver" 
+            },
+            {
+                "labelAr" : "رمادي" ,
+                "labelEn" : "gray" 
+            },
+            {
+                "labelAr" : "أخرى" ,
+                "labelEn" : "others" 
+            }
+        ]
     },
     {
         "labelAr" : "هل لديك خدمة توصيل؟" ,
