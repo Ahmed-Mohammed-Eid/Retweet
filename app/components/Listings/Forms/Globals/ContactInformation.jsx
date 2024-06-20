@@ -1,5 +1,10 @@
 import classes from "./ContactInformation.module.scss";
 import Hint from "@/app/components/Listings/Hint/Hint";
+import {Dropdown} from "primereact/dropdown";
+
+// IMPORT COUNTRY CODES JSON
+import countryCodes from "@/Json_Data/CountryCode/CountryCode.json";
+
 
 export default function ContactInformation({
                                                lang,
@@ -21,19 +26,36 @@ export default function ContactInformation({
             />
 
             <div className={'grid grid-cols-8 items-end gap-2 mt-8'}>
-                <div className={'flex flex-col'}>
+                <div className={'flex col-span-2 flex-col'}>
                     <label htmlFor={'country_code'}>{lang === 'en' ? 'Country Code' : 'كود الدولة'}</label>
-                    <input
-                        type="text"
+                    {/*<input*/}
+                    {/*    type="text"*/}
+                    {/*    id={'country_code'}*/}
+                    {/*    value={cuntryCode}*/}
+                    {/*    onChange={(e) => {*/}
+                    {/*        setCountryCode(e.target.value);*/}
+                    {/*    }}*/}
+                    {/*    autoComplete={'off'}*/}
+                    {/*/>*/}
+                    <Dropdown
                         id={'country_code'}
                         value={cuntryCode}
+                        options={countryCodes}
                         onChange={(e) => {
-                            setCountryCode(e.target.value);
+                            setCountryCode(e.value);
                         }}
-                        autoComplete={'off'}
+                        optionLabel="name"
+                        optionValue={'dial_code'}
+                        placeholder={lang === 'en' ? 'Country Code' : 'كود الدولة'}
+                        filter
+                        filterBy="name"
+                        style={{
+                            width: '100%',
+                            border: '1px solid #e5e7eb',
+                        }}
                     />
                 </div>
-                <div className={'flex flex-col col-span-7'}>
+                <div className={'flex flex-col col-span-6'}>
                     <label htmlFor={'phone'}>{lang === 'en' ? 'Mobile number' : 'رقم الهاتف'}</label>
                     <input
                         type="text"

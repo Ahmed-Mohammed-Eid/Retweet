@@ -9,3 +9,30 @@ body {
     background-color: #FFFFFF;
     font-family: 'Tajawal', sans-serif;
 }
+
+// LANGUAGES RTL STYLES
+html[lang="ar"] {
+
+    .p-menubar-root-list{
+        direction: rtl;
+        margin-left: auto;
+    }
+
+
+    .p-menubar .p-submenu-list > .p-menuitem-active > .p-submenu-list{
+        left: -100%;
+    }
+
+    .p-menubar .p-menuitem{
+        text-align: right;
+        direction: rtl;
+        margin-left: auto;
+    }
+
+    .p-menubar .p-submenu-list .p-menuitem .p-menuitem-content .p-menuitem-link .p-submenu-icon{
+        margin-left: initial;
+        margin-right: auto;
+        transform: rotate(180deg);
+    }
+
+}

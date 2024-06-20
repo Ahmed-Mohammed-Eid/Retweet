@@ -2,1325 +2,1325 @@
     {
         "labelAr" : "هل أنت شركة أم فرد؟" ,
         "labelEn" : "Are you a company or an individual?" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "شركة" ,
-                "labelEn" : "company" 
+                "labelEn" : "company"
             },
             {
                 "labelAr" : "شركة توظيف" ,
-                "labelEn" : "recruitment company" 
+                "labelEn" : "recruitment company"
             },
             {
                 "labelAr" : "فرد" ,
-                "labelEn" : "individual" 
+                "labelEn" : "individual"
             }
         ]
     },
     {
         "labelAr" : "ما المسمى الوظيفي؟" ,
         "labelEn" : "What is the job title?" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "أخصائي SEO" ,
-                "labelEn" : "seo specialist" 
+                "labelEn" : "seo specialist"
             },
             {
                 "labelAr" : "أخصائي بصريات" ,
-                "labelEn" : "optometrist" 
+                "labelEn" : "optometrist"
             },
             {
                 "labelAr" : "أخصائي تغذية" ,
-                "labelEn" : "nutritionist" 
+                "labelEn" : "nutritionist"
             },
             {
                 "labelAr" : "أخصائي سمع و نطق" ,
-                "labelEn" : "hearing & speech therapist" 
+                "labelEn" : "hearing & speech therapist"
             },
             {
                 "labelAr" : "أخصائي علم الأمراض" ,
-                "labelEn" : "pathologist" 
+                "labelEn" : "pathologist"
             },
             {
                 "labelAr" : "أعمال يدوية" ,
-                "labelEn" : "handcrafts" 
+                "labelEn" : "handcrafts"
             },
             {
                 "labelAr" : "أمين صندوق" ,
-                "labelEn" : "teller" 
+                "labelEn" : "teller"
             },
             {
                 "labelAr" : "أمين مكتبة" ,
-                "labelEn" : "librarian" 
+                "labelEn" : "librarian"
             },
             {
                 "labelAr" : "اخصائي الطب البديل" ,
-                "labelEn" : "alternative medicine specialist" 
+                "labelEn" : "alternative medicine specialist"
             },
             {
                 "labelAr" : "اخصائي تاهيل سلوكي" ,
-                "labelEn" : "behavioral rehabilitation specialist" 
+                "labelEn" : "behavioral rehabilitation specialist"
             },
             {
                 "labelAr" : "اخصائي تدليك صحي" ,
-                "labelEn" : "massage specialist" 
+                "labelEn" : "massage specialist"
             },
             {
                 "labelAr" : "اخصائي حجامة" ,
-                "labelEn" : "cupping specialist" 
+                "labelEn" : "cupping specialist"
             },
             {
                 "labelAr" : "اخصائي علاج طبيعي" ,
-                "labelEn" : "physiotherapist" 
+                "labelEn" : "physiotherapist"
             },
             {
                 "labelAr" : "اخصائي مختبرات وتحاليل طبية" ,
-                "labelEn" : "laboratory technician" 
+                "labelEn" : "laboratory technician"
             },
             {
                 "labelAr" : "بائع خضار وفواكه" ,
-                "labelEn" : "fruit & vegetables seller" 
+                "labelEn" : "fruit & vegetables seller"
             },
             {
                 "labelAr" : "بائع محمص" ,
-                "labelEn" : "roastery seller" 
+                "labelEn" : "roastery seller"
             },
             {
                 "labelAr" : "باريستا" ,
-                "labelEn" : "barista" 
+                "labelEn" : "barista"
             },
             {
                 "labelAr" : "بليط" ,
-                "labelEn" : "tile & marble work professional" 
+                "labelEn" : "tile & marble work professional"
             },
             {
                 "labelAr" : "جراح تجميلي" ,
-                "labelEn" : "plastic surgeon" 
+                "labelEn" : "plastic surgeon"
             },
             {
                 "labelAr" : "جراح عام" ,
-                "labelEn" : "general surgeon" 
+                "labelEn" : "general surgeon"
             },
             {
                 "labelAr" : "حارس" ,
-                "labelEn" : "guard" 
+                "labelEn" : "guard"
             },
             {
                 "labelAr" : "حارس شخصي" ,
-                "labelEn" : "body guard" 
+                "labelEn" : "body guard"
             },
             {
                 "labelAr" : "حداد" ,
-                "labelEn" : "welder" 
+                "labelEn" : "welder"
             },
             {
                 "labelAr" : "حراث" ,
-                "labelEn" : "plower" 
+                "labelEn" : "plower"
             },
             {
                 "labelAr" : "حلاق" ,
-                "labelEn" : "barber" 
+                "labelEn" : "barber"
             },
             {
                 "labelAr" : "خباز" ,
-                "labelEn" : "baker" 
+                "labelEn" : "baker"
             },
             {
                 "labelAr" : "خبير اقتصادي" ,
-                "labelEn" : "economist" 
+                "labelEn" : "economist"
             },
             {
                 "labelAr" : "خبيرة مكياج - ماكيير" ,
-                "labelEn" : "makeup artist" 
+                "labelEn" : "makeup artist"
             },
             {
                 "labelAr" : "خطاط" ,
-                "labelEn" : "calligrapher" 
+                "labelEn" : "calligrapher"
             },
             {
                 "labelAr" : "خياط" ,
-                "labelEn" : "tailor" 
+                "labelEn" : "tailor"
             },
             {
                 "labelAr" : "دهين - فني دهان" ,
-                "labelEn" : "painter" 
+                "labelEn" : "painter"
             },
             {
                 "labelAr" : "راعي مواشي" ,
-                "labelEn" : "shepherd" 
+                "labelEn" : "shepherd"
             },
             {
                 "labelAr" : "سائق باص" ,
-                "labelEn" : "bus driver" 
+                "labelEn" : "bus driver"
             },
             {
                 "labelAr" : "سائق توصيل" ,
-                "labelEn" : "delivery" 
+                "labelEn" : "delivery"
             },
             {
                 "labelAr" : "سائق خاص" ,
-                "labelEn" : "driver" 
+                "labelEn" : "driver"
             },
             {
                 "labelAr" : "سائق سكوتر" ,
-                "labelEn" : "scooter driver" 
+                "labelEn" : "scooter driver"
             },
             {
                 "labelAr" : "سائق شاحنة" ,
-                "labelEn" : "truck driver" 
+                "labelEn" : "truck driver"
             },
             {
                 "labelAr" : "سائق عمومي" ,
-                "labelEn" : "public driver" 
+                "labelEn" : "public driver"
             },
             {
                 "labelAr" : "سائق ونش واليات ثقيلة" ,
-                "labelEn" : "winch & heavy equipment driver" 
+                "labelEn" : "winch & heavy equipment driver"
             },
             {
                 "labelAr" : "ساعاتي" ,
-                "labelEn" : "watchmaker" 
+                "labelEn" : "watchmaker"
             },
             {
                 "labelAr" : "سكرتيرة" ,
-                "labelEn" : "secretary" 
+                "labelEn" : "secretary"
             },
             {
                 "labelAr" : "سمسار تأمين" ,
-                "labelEn" : "insurance broker" 
+                "labelEn" : "insurance broker"
             },
             {
                 "labelAr" : "شيف - طباخ" ,
-                "labelEn" : "chef - cook" 
+                "labelEn" : "chef - cook"
             },
             {
                 "labelAr" : "صائغ" ,
-                "labelEn" : "goldsmith" 
+                "labelEn" : "goldsmith"
             },
             {
                 "labelAr" : "صحفي" ,
-                "labelEn" : "journalist" 
+                "labelEn" : "journalist"
             },
             {
                 "labelAr" : "صيدلاني" ,
-                "labelEn" : "pharmacist" 
+                "labelEn" : "pharmacist"
             },
             {
                 "labelAr" : "طباعة" ,
-                "labelEn" : "copy typing" 
+                "labelEn" : "copy typing"
             },
             {
                 "labelAr" : "طبيب اسنان" ,
-                "labelEn" : "dentist" 
+                "labelEn" : "dentist"
             },
             {
                 "labelAr" : "طبيب اشعة" ,
-                "labelEn" : "radiologist" 
+                "labelEn" : "radiologist"
             },
             {
                 "labelAr" : "طبيب اطفال" ,
-                "labelEn" : "pediatrician" 
+                "labelEn" : "pediatrician"
             },
             {
                 "labelAr" : "طبيب اعصاب" ,
-                "labelEn" : "neurologist" 
+                "labelEn" : "neurologist"
             },
             {
                 "labelAr" : "طبيب الامراض الجلدية والتناسلية" ,
-                "labelEn" : "dermatologist" 
+                "labelEn" : "dermatologist"
             },
             {
                 "labelAr" : "طبيب الغدد الصماء والسكري" ,
-                "labelEn" : "endocrinologist" 
+                "labelEn" : "endocrinologist"
             },
             {
                 "labelAr" : "طبيب امراض الدم" ,
-                "labelEn" : "hematologist" 
+                "labelEn" : "hematologist"
             },
             {
                 "labelAr" : "طبيب امراض الكبد" ,
-                "labelEn" : "hepatologist" 
+                "labelEn" : "hepatologist"
             },
             {
                 "labelAr" : "طبيب انف واذن وحنجرة" ,
-                "labelEn" : "otolaryngologist" 
+                "labelEn" : "otolaryngologist"
             },
             {
                 "labelAr" : "طبيب اورام" ,
-                "labelEn" : "oncologist" 
+                "labelEn" : "oncologist"
             },
             {
                 "labelAr" : "طبيب باطنية" ,
-                "labelEn" : "internist" 
+                "labelEn" : "internist"
             },
             {
                 "labelAr" : "طبيب بيطري" ,
-                "labelEn" : "veterinarian" 
+                "labelEn" : "veterinarian"
             },
             {
                 "labelAr" : "طبيب تخدير" ,
-                "labelEn" : "anesthesiologist" 
+                "labelEn" : "anesthesiologist"
             },
             {
                 "labelAr" : "طبيب جهاز هضمي" ,
-                "labelEn" : "gastroenterologist" 
+                "labelEn" : "gastroenterologist"
             },
             {
                 "labelAr" : "طبيب حديثي الولادة" ,
-                "labelEn" : "neonatologost" 
+                "labelEn" : "neonatologost"
             },
             {
                 "labelAr" : "طبيب حساسية ومناعة" ,
-                "labelEn" : "allergist" 
+                "labelEn" : "allergist"
             },
             {
                 "labelAr" : "طبيب ذكورة وعقم" ,
-                "labelEn" : "andrologist" 
+                "labelEn" : "andrologist"
             },
             {
                 "labelAr" : "طبيب روماتيزم ومفاصل" ,
-                "labelEn" : "rheumatologist" 
+                "labelEn" : "rheumatologist"
             },
             {
                 "labelAr" : "طبيب شرعي" ,
-                "labelEn" : "forensics doctor" 
+                "labelEn" : "forensics doctor"
             },
             {
                 "labelAr" : "طبيب صدرية وجهاز تنفسي" ,
-                "labelEn" : "pulmonologist" 
+                "labelEn" : "pulmonologist"
             },
             {
                 "labelAr" : "طبيب طوارئ" ,
-                "labelEn" : "emergency doctor" 
+                "labelEn" : "emergency doctor"
             },
             {
                 "labelAr" : "طبيب عام" ,
-                "labelEn" : "general practitioner" 
+                "labelEn" : "general practitioner"
             },
             {
                 "labelAr" : "طبيب عظام" ,
-                "labelEn" : "orthopedist" 
+                "labelEn" : "orthopedist"
             },
             {
                 "labelAr" : "طبيب عيون" ,
-                "labelEn" : "ophthalmologist" 
+                "labelEn" : "ophthalmologist"
             },
             {
                 "labelAr" : "طبيب قلب واوعية دموية" ,
-                "labelEn" : "cardiologist" 
+                "labelEn" : "cardiologist"
             },
             {
                 "labelAr" : "طبيب مسالك بولية" ,
-                "labelEn" : "urologist" 
+                "labelEn" : "urologist"
             },
             {
                 "labelAr" : "طبيب نسائية وتوليد" ,
-                "labelEn" : "obstetrics - gynecologist" 
+                "labelEn" : "obstetrics - gynecologist"
             },
             {
                 "labelAr" : "طبيب نفسي" ,
-                "labelEn" : "psychiatrist" 
+                "labelEn" : "psychiatrist"
             },
             {
                 "labelAr" : "طحان" ,
-                "labelEn" : "miller" 
+                "labelEn" : "miller"
             },
             {
                 "labelAr" : "عامل إنتاج" ,
-                "labelEn" : "production worker" 
+                "labelEn" : "production worker"
             },
             {
                 "labelAr" : "عامل تجميع منتجات" ,
-                "labelEn" : "product assembly worker" 
+                "labelEn" : "product assembly worker"
             },
             {
                 "labelAr" : "عامل تحميل وتنزيل" ,
-                "labelEn" : "loading & unloading worker" 
+                "labelEn" : "loading & unloading worker"
             },
             {
                 "labelAr" : "عامل تعبئة وتغلبف" ,
-                "labelEn" : "packaging worker" 
+                "labelEn" : "packaging worker"
             },
             {
                 "labelAr" : "عامل تعبئة وقود" ,
-                "labelEn" : "gas filler" 
+                "labelEn" : "gas filler"
             },
             {
                 "labelAr" : "عامل تنظيف مكاتب" ,
-                "labelEn" : "office cleaning" 
+                "labelEn" : "office cleaning"
             },
             {
                 "labelAr" : "عامل تنظيف منازل" ,
-                "labelEn" : "house cleaning" 
+                "labelEn" : "house cleaning"
             },
             {
                 "labelAr" : "عامل دراي كلين" ,
-                "labelEn" : "dry clean worker" 
+                "labelEn" : "dry clean worker"
             },
             {
                 "labelAr" : "عامل غزل" ,
-                "labelEn" : "spinner" 
+                "labelEn" : "spinner"
             },
             {
                 "labelAr" : "عامل غسيل سيارات" ,
-                "labelEn" : "car wash worker" 
+                "labelEn" : "car wash worker"
             },
             {
                 "labelAr" : "عامل غيار زيت سيارات" ,
-                "labelEn" : "oil & filter technician" 
+                "labelEn" : "oil & filter technician"
             },
             {
                 "labelAr" : "عامل مطبخ" ,
-                "labelEn" : "kitchen worker" 
+                "labelEn" : "kitchen worker"
             },
             {
                 "labelAr" : "عامل نسيج" ,
-                "labelEn" : "weaver" 
+                "labelEn" : "weaver"
             },
             {
                 "labelAr" : "عناية الأظافر" ,
-                "labelEn" : "nail care" 
+                "labelEn" : "nail care"
             },
             {
                 "labelAr" : "عناية البشرة" ,
-                "labelEn" : "skin care" 
+                "labelEn" : "skin care"
             },
             {
                 "labelAr" : "فني أعمال زجاج" ,
-                "labelEn" : "glass works professional" 
+                "labelEn" : "glass works professional"
             },
             {
                 "labelAr" : "فني إلكترونيات طيران" ,
-                "labelEn" : "avionics technicians" 
+                "labelEn" : "avionics technicians"
             },
             {
                 "labelAr" : "فني اجهزة امان" ,
-                "labelEn" : "safety devices technician" 
+                "labelEn" : "safety devices technician"
             },
             {
                 "labelAr" : "فني اسنان" ,
-                "labelEn" : "dental technician" 
+                "labelEn" : "dental technician"
             },
             {
                 "labelAr" : "فني اشعة" ,
-                "labelEn" : "x-ray specialist" 
+                "labelEn" : "x-ray specialist"
             },
             {
                 "labelAr" : "فني المنيوم" ,
-                "labelEn" : "aluminium professional" 
+                "labelEn" : "aluminium professional"
             },
             {
                 "labelAr" : "فني بودي سيارات" ,
-                "labelEn" : "auto body mechanic" 
+                "labelEn" : "auto body mechanic"
             },
             {
                 "labelAr" : "فني تبريد وتكييف" ,
-                "labelEn" : "heating & air conditioning technician" 
+                "labelEn" : "heating & air conditioning technician"
             },
             {
                 "labelAr" : "فني تشغيل CNC" ,
-                "labelEn" : "cnc machine technician" 
+                "labelEn" : "cnc machine technician"
             },
             {
                 "labelAr" : "فني تشييد وبناء" ,
-                "labelEn" : "building & construction technician" 
+                "labelEn" : "building & construction technician"
             },
             {
                 "labelAr" : "فني تظليل سيارات" ,
-                "labelEn" : "auto shading technician" 
+                "labelEn" : "auto shading technician"
             },
             {
                 "labelAr" : "فني تنجيد" ,
-                "labelEn" : "auto upholsterer" 
+                "labelEn" : "auto upholsterer"
             },
             {
                 "labelAr" : "فني خراطة" ,
-                "labelEn" : "lathe technician" 
+                "labelEn" : "lathe technician"
             },
             {
                 "labelAr" : "فني دهان سيارات" ,
-                "labelEn" : "auto paint mechanic" 
+                "labelEn" : "auto paint mechanic"
             },
             {
                 "labelAr" : "فني ستالايت" ,
-                "labelEn" : "tv - satellite technician" 
+                "labelEn" : "tv - satellite technician"
             },
             {
                 "labelAr" : "فني صيانة عامة" ,
-                "labelEn" : "general maintenance - building maintenance" 
+                "labelEn" : "general maintenance - building maintenance"
             },
             {
                 "labelAr" : "فني صيانة كهرومنزلية" ,
-                "labelEn" : "appliance repair" 
+                "labelEn" : "appliance repair"
             },
             {
                 "labelAr" : "فني صيانة ماكينات" ,
-                "labelEn" : "mechanical maintenance technician" 
+                "labelEn" : "mechanical maintenance technician"
             },
             {
                 "labelAr" : "فني فحص سيارات" ,
-                "labelEn" : "car inspection mechanic" 
+                "labelEn" : "car inspection mechanic"
             },
             {
                 "labelAr" : "فني مصاعد" ,
-                "labelEn" : "elevators installation & maintenance technician" 
+                "labelEn" : "elevators installation & maintenance technician"
             },
             {
                 "labelAr" : "فني هايبرد" ,
-                "labelEn" : "hybrid mechanic" 
+                "labelEn" : "hybrid mechanic"
             },
             {
                 "labelAr" : "قابلة قانونية" ,
-                "labelEn" : "midwife" 
+                "labelEn" : "midwife"
             },
             {
                 "labelAr" : "كاتب" ,
-                "labelEn" : "writer" 
+                "labelEn" : "writer"
             },
             {
                 "labelAr" : "كاتب ابحاث" ,
-                "labelEn" : "research writer" 
+                "labelEn" : "research writer"
             },
             {
                 "labelAr" : "كاتب السيرة الذاتية" ,
-                "labelEn" : "resumes writer" 
+                "labelEn" : "resumes writer"
             },
             {
                 "labelAr" : "كاتب محتوى" ,
-                "labelEn" : "content writer" 
+                "labelEn" : "content writer"
             },
             {
                 "labelAr" : "كاشير" ,
-                "labelEn" : "cashier" 
+                "labelEn" : "cashier"
             },
             {
                 "labelAr" : "كهربائي" ,
-                "labelEn" : "electrician" 
+                "labelEn" : "electrician"
             },
             {
                 "labelAr" : "كهربائي سيارات" ,
-                "labelEn" : "auto electrician" 
+                "labelEn" : "auto electrician"
             },
             {
                 "labelAr" : "كوافير - كوافيرة" ,
-                "labelEn" : "beautician" 
+                "labelEn" : "beautician"
             },
             {
                 "labelAr" : "لحام - جزار" ,
-                "labelEn" : "butcher" 
+                "labelEn" : "butcher"
             },
             {
                 "labelAr" : "مبرمج العاب الكترونية" ,
-                "labelEn" : "video games programmer" 
+                "labelEn" : "video games programmer"
             },
             {
                 "labelAr" : "مبرمج تطبيقات" ,
-                "labelEn" : "application developer" 
+                "labelEn" : "application developer"
             },
             {
                 "labelAr" : "مبرمج تطبيقات الموبايل" ,
-                "labelEn" : "mobile application developer" 
+                "labelEn" : "mobile application developer"
             },
             {
                 "labelAr" : "مبرمج قاعدة بيانات" ,
-                "labelEn" : "database developer" 
+                "labelEn" : "database developer"
             },
             {
                 "labelAr" : "مبرمج ويب" ,
-                "labelEn" : "web developer" 
+                "labelEn" : "web developer"
             },
             {
                 "labelAr" : "مترجم" ,
-                "labelEn" : "translator" 
+                "labelEn" : "translator"
             },
             {
                 "labelAr" : "مترجم فوري" ,
-                "labelEn" : "interpreter" 
+                "labelEn" : "interpreter"
             },
             {
                 "labelAr" : "مترجم قانوني" ,
-                "labelEn" : "legal translator" 
+                "labelEn" : "legal translator"
             },
             {
                 "labelAr" : "مترجم قضائي" ,
-                "labelEn" : "judicial translator" 
+                "labelEn" : "judicial translator"
             },
             {
                 "labelAr" : "مترجم معتمد" ,
-                "labelEn" : "certified translator" 
+                "labelEn" : "certified translator"
             },
             {
                 "labelAr" : "محاسب" ,
-                "labelEn" : "accountant" 
+                "labelEn" : "accountant"
             },
             {
                 "labelAr" : "محاسب التأمين" ,
-                "labelEn" : "insurance accountant" 
+                "labelEn" : "insurance accountant"
             },
             {
                 "labelAr" : "محاسب تكاليف" ,
-                "labelEn" : "cost accountant" 
+                "labelEn" : "cost accountant"
             },
             {
                 "labelAr" : "محامي جنائي" ,
-                "labelEn" : "criminal lawyer" 
+                "labelEn" : "criminal lawyer"
             },
             {
                 "labelAr" : "محامي شرعي" ,
-                "labelEn" : "family lawyer" 
+                "labelEn" : "family lawyer"
             },
             {
                 "labelAr" : "محامي شركات" ,
-                "labelEn" : "corporate lawyer" 
+                "labelEn" : "corporate lawyer"
             },
             {
                 "labelAr" : "محامي عام" ,
-                "labelEn" : "general practice lawyer" 
+                "labelEn" : "general practice lawyer"
             },
             {
                 "labelAr" : "محامي متدرب" ,
-                "labelEn" : "trainee lawyer" 
+                "labelEn" : "trainee lawyer"
             },
             {
                 "labelAr" : "محامي مدني" ,
-                "labelEn" : "civil lawyer" 
+                "labelEn" : "civil lawyer"
             },
             {
                 "labelAr" : "محامي هجرة" ,
-                "labelEn" : "immigration lawyer" 
+                "labelEn" : "immigration lawyer"
             },
             {
                 "labelAr" : "محرر" ,
-                "labelEn" : "editor" 
+                "labelEn" : "editor"
             },
             {
                 "labelAr" : "محلل ائتمان" ,
-                "labelEn" : "credit analyst" 
+                "labelEn" : "credit analyst"
             },
             {
                 "labelAr" : "محلل اقتصادي" ,
-                "labelEn" : "economic analyst" 
+                "labelEn" : "economic analyst"
             },
             {
                 "labelAr" : "محلل بيانات" ,
-                "labelEn" : "data analyst" 
+                "labelEn" : "data analyst"
             },
             {
                 "labelAr" : "محلل مالي" ,
-                "labelEn" : "financial analyst" 
+                "labelEn" : "financial analyst"
             },
             {
                 "labelAr" : "محلل نظم أعمال" ,
-                "labelEn" : "systems analyst" 
+                "labelEn" : "systems analyst"
             },
             {
                 "labelAr" : "مخرج" ,
-                "labelEn" : "director" 
+                "labelEn" : "director"
             },
             {
                 "labelAr" : "مخطط مالي" ,
-                "labelEn" : "financial planner" 
+                "labelEn" : "financial planner"
             },
             {
                 "labelAr" : "مخمن" ,
-                "labelEn" : "assessment officer" 
+                "labelEn" : "assessment officer"
             },
             {
                 "labelAr" : "مدرب تصميم مواقع الكترونية" ,
-                "labelEn" : "web design instructor" 
+                "labelEn" : "web design instructor"
             },
             {
                 "labelAr" : "مدرب دورات ادارة سلسلة التوريد" ,
-                "labelEn" : "supply chain management courses instructor" 
+                "labelEn" : "supply chain management courses instructor"
             },
             {
                 "labelAr" : "مدرب دورات الشبكات" ,
-                "labelEn" : "networks courses instructor" 
+                "labelEn" : "networks courses instructor"
             },
             {
                 "labelAr" : "مدرب دورات الموارد البشرية" ,
-                "labelEn" : "human resources courses instructor" 
+                "labelEn" : "human resources courses instructor"
             },
             {
                 "labelAr" : "مدرب دورات برمجة" ,
-                "labelEn" : "web development instructor" 
+                "labelEn" : "web development instructor"
             },
             {
                 "labelAr" : "مدرب دورات برمجة التطبيقات" ,
-                "labelEn" : "applications development courses instructor" 
+                "labelEn" : "applications development courses instructor"
             },
             {
                 "labelAr" : "مدرب دورات تصميم جرافيكي" ,
-                "labelEn" : "graphic design courses instructor" 
+                "labelEn" : "graphic design courses instructor"
             },
             {
                 "labelAr" : "مدرب دورات قاعدة البيانات" ,
-                "labelEn" : "database courses instructors" 
+                "labelEn" : "database courses instructors"
             },
             {
                 "labelAr" : "مدرب دورات لغة اسبانية" ,
-                "labelEn" : "spanish language courses instructor" 
+                "labelEn" : "spanish language courses instructor"
             },
             {
                 "labelAr" : "مدرب دورات لغة المانية" ,
-                "labelEn" : "german language courses instructor" 
+                "labelEn" : "german language courses instructor"
             },
             {
                 "labelAr" : "مدرب دورات لغة انجليزية" ,
-                "labelEn" : "english language courses instructor" 
+                "labelEn" : "english language courses instructor"
             },
             {
                 "labelAr" : "مدرب دورات لغة ايطالية" ,
-                "labelEn" : "italian language courses instructor" 
+                "labelEn" : "italian language courses instructor"
             },
             {
                 "labelAr" : "مدرب دورات لغة تركية" ,
-                "labelEn" : "turkish language courses instructor" 
+                "labelEn" : "turkish language courses instructor"
             },
             {
                 "labelAr" : "مدرب دورات لغة صينية" ,
-                "labelEn" : "chinses courses instructor" 
+                "labelEn" : "chinses courses instructor"
             },
             {
                 "labelAr" : "مدرب دورات هندسة عمارة" ,
-                "labelEn" : "architectural design courses instructor" 
+                "labelEn" : "architectural design courses instructor"
             },
             {
                 "labelAr" : "مدرب دورات هندسة كهرباء" ,
-                "labelEn" : "electrical engineering courses instructor" 
+                "labelEn" : "electrical engineering courses instructor"
             },
             {
                 "labelAr" : "مدرب دورات هندسة مدنية" ,
-                "labelEn" : "civil engineering courses instructor" 
+                "labelEn" : "civil engineering courses instructor"
             },
             {
                 "labelAr" : "مدرب دورات هندسة ميكانيك" ,
-                "labelEn" : "mechanical engineering courses instructor" 
+                "labelEn" : "mechanical engineering courses instructor"
             },
             {
                 "labelAr" : "مدرب لياقة بدنية" ,
-                "labelEn" : "sports instructor" 
+                "labelEn" : "sports instructor"
             },
             {
                 "labelAr" : "مدرس IB" ,
-                "labelEn" : "ib teacher" 
+                "labelEn" : "ib teacher"
             },
             {
                 "labelAr" : "مدرس IGCSE" ,
-                "labelEn" : "igcse teacher" 
+                "labelEn" : "igcse teacher"
             },
             {
                 "labelAr" : "مدرس SAT" ,
-                "labelEn" : "sat teacher" 
+                "labelEn" : "sat teacher"
             },
             {
                 "labelAr" : "مدرس ابتدائي" ,
-                "labelEn" : "elementary teacher" 
+                "labelEn" : "elementary teacher"
             },
             {
                 "labelAr" : "مدرس انجليزي" ,
-                "labelEn" : "english teacher" 
+                "labelEn" : "english teacher"
             },
             {
                 "labelAr" : "مدرس تربية اسلامية" ,
-                "labelEn" : "religion teacher" 
+                "labelEn" : "religion teacher"
             },
             {
                 "labelAr" : "مدرس تربية خاصة" ,
-                "labelEn" : "special education teacher" 
+                "labelEn" : "special education teacher"
             },
             {
                 "labelAr" : "مدرس ثانوي" ,
-                "labelEn" : "secendory teacher" 
+                "labelEn" : "secendory teacher"
             },
             {
                 "labelAr" : "مدرس حاسوب" ,
-                "labelEn" : "computer teacher" 
+                "labelEn" : "computer teacher"
             },
             {
                 "labelAr" : "مدرس روضة" ,
-                "labelEn" : "kindergarten teacher" 
+                "labelEn" : "kindergarten teacher"
             },
             {
                 "labelAr" : "مدرس رياضيات" ,
-                "labelEn" : "math teacher" 
+                "labelEn" : "math teacher"
             },
             {
                 "labelAr" : "مدرس عربي" ,
-                "labelEn" : "arabic teacher" 
+                "labelEn" : "arabic teacher"
             },
             {
                 "labelAr" : "مدرس فرنسي" ,
-                "labelEn" : "french teacher" 
+                "labelEn" : "french teacher"
             },
             {
                 "labelAr" : "مدرس فيزياء" ,
-                "labelEn" : "physics teacher" 
+                "labelEn" : "physics teacher"
             },
             {
                 "labelAr" : "مدرس كيمياء" ,
-                "labelEn" : "chemistry teacher" 
+                "labelEn" : "chemistry teacher"
             },
             {
                 "labelAr" : "مدقق" ,
-                "labelEn" : "proofreader" 
+                "labelEn" : "proofreader"
             },
             {
                 "labelAr" : "مدقق حسابات" ,
-                "labelEn" : "auditor" 
+                "labelEn" : "auditor"
             },
             {
                 "labelAr" : "مدير الميزانية" ,
-                "labelEn" : "budget manager" 
+                "labelEn" : "budget manager"
             },
             {
                 "labelAr" : "مدير حساب" ,
-                "labelEn" : "account manager" 
+                "labelEn" : "account manager"
             },
             {
                 "labelAr" : "مدير خدمة عملاء" ,
-                "labelEn" : "customer care manager" 
+                "labelEn" : "customer care manager"
             },
             {
                 "labelAr" : "مدير صندوق" ,
-                "labelEn" : "fund administrator" 
+                "labelEn" : "fund administrator"
             },
             {
                 "labelAr" : "مدير فرع" ,
-                "labelEn" : "branch manager" 
+                "labelEn" : "branch manager"
             },
             {
                 "labelAr" : "مدير مالي" ,
-                "labelEn" : "financial manager" 
+                "labelEn" : "financial manager"
             },
             {
                 "labelAr" : "مدير مبيعات" ,
-                "labelEn" : "sales manager" 
+                "labelEn" : "sales manager"
             },
             {
                 "labelAr" : "مدير مدرسة" ,
-                "labelEn" : "school principal" 
+                "labelEn" : "school principal"
             },
             {
                 "labelAr" : "مدير مركز اتصال" ,
-                "labelEn" : "call center manager" 
+                "labelEn" : "call center manager"
             },
             {
                 "labelAr" : "مدير مستودع" ,
-                "labelEn" : "warehouse - inventory manager" 
+                "labelEn" : "warehouse - inventory manager"
             },
             {
                 "labelAr" : "مدير مشروع" ,
-                "labelEn" : "project manager" 
+                "labelEn" : "project manager"
             },
             {
                 "labelAr" : "مدير مطعم" ,
-                "labelEn" : "restaurant manager" 
+                "labelEn" : "restaurant manager"
             },
             {
                 "labelAr" : "مدير مكتب" ,
-                "labelEn" : "office manager" 
+                "labelEn" : "office manager"
             },
             {
                 "labelAr" : "مدير منتج" ,
-                "labelEn" : "product manager" 
+                "labelEn" : "product manager"
             },
             {
                 "labelAr" : "مدير موارد بشرية" ,
-                "labelEn" : "human resource manager" 
+                "labelEn" : "human resource manager"
             },
             {
                 "labelAr" : "مذيع" ,
-                "labelEn" : "broadcaster" 
+                "labelEn" : "broadcaster"
             },
             {
                 "labelAr" : "مراسل" ,
-                "labelEn" : "office boy" 
+                "labelEn" : "office boy"
             },
             {
                 "labelAr" : "مراسل صحفي" ,
-                "labelEn" : "reporter" 
+                "labelEn" : "reporter"
             },
             {
                 "labelAr" : "مراقب التكلفة" ,
-                "labelEn" : "cost controller" 
+                "labelEn" : "cost controller"
             },
             {
                 "labelAr" : "مراقب مالي" ,
-                "labelEn" : "financial controller" 
+                "labelEn" : "financial controller"
             },
             {
                 "labelAr" : "مرحل جوي" ,
-                "labelEn" : "flight dispatcher" 
+                "labelEn" : "flight dispatcher"
             },
             {
                 "labelAr" : "مرسل" ,
-                "labelEn" : "dispatcher" 
+                "labelEn" : "dispatcher"
             },
             {
                 "labelAr" : "مرشد سياحي" ,
-                "labelEn" : "tour guide" 
+                "labelEn" : "tour guide"
             },
             {
                 "labelAr" : "مزارع" ,
-                "labelEn" : "gardener" 
+                "labelEn" : "gardener"
             },
             {
                 "labelAr" : "مسؤول تخطيط الطلب" ,
-                "labelEn" : "demand planning officer" 
+                "labelEn" : "demand planning officer"
             },
             {
                 "labelAr" : "مسؤول توظيف" ,
-                "labelEn" : "recruitment officer" 
+                "labelEn" : "recruitment officer"
             },
             {
                 "labelAr" : "مساح أراضي" ,
-                "labelEn" : "surveyor" 
+                "labelEn" : "surveyor"
             },
             {
                 "labelAr" : "مساعد صيدلاني" ,
-                "labelEn" : "pharmacist assistant" 
+                "labelEn" : "pharmacist assistant"
             },
             {
                 "labelAr" : "مساعد طباخ" ,
-                "labelEn" : "help chef" 
+                "labelEn" : "help chef"
             },
             {
                 "labelAr" : "مساعد مدير" ,
-                "labelEn" : "administrative assistant" 
+                "labelEn" : "administrative assistant"
             },
             {
                 "labelAr" : "مستشار قانون دولي" ,
-                "labelEn" : "international law advisor" 
+                "labelEn" : "international law advisor"
             },
             {
                 "labelAr" : "مستشار قانوني" ,
-                "labelEn" : "legal advisor" 
+                "labelEn" : "legal advisor"
             },
             {
                 "labelAr" : "مستشار مالي" ,
-                "labelEn" : "financial consultant" 
+                "labelEn" : "financial consultant"
             },
             {
                 "labelAr" : "مستشار مخاطر" ,
-                "labelEn" : "risk consultant" 
+                "labelEn" : "risk consultant"
             },
             {
                 "labelAr" : "مشرف خرسانة" ,
-                "labelEn" : "concrete supervisor" 
+                "labelEn" : "concrete supervisor"
             },
             {
                 "labelAr" : "مشرف سلامة عامة" ,
-                "labelEn" : "safety supervisor" 
+                "labelEn" : "safety supervisor"
             },
             {
                 "labelAr" : "مصمم 3D",
-                "labelEn" : "3d designer" 
+                "labelEn" : "3d designer"
             },
             {
                 "labelAr" : "مصمم UI / UX" ,
-                "labelEn" : "ui / ux designer" 
+                "labelEn" : "ui / ux designer"
             },
             {
                 "labelAr" : "مصمم أزياء" ,
-                "labelEn" : "fashion designer" 
+                "labelEn" : "fashion designer"
             },
             {
                 "labelAr" : "مصمم تطبيقات الموبايل" ,
-                "labelEn" : "mobile application designer" 
+                "labelEn" : "mobile application designer"
             },
             {
                 "labelAr" : "مصمم جرافيك" ,
-                "labelEn" : "graphic designer" 
+                "labelEn" : "graphic designer"
             },
             {
                 "labelAr" : "مصمم حدائق" ,
-                "labelEn" : "landscape designer" 
+                "labelEn" : "landscape designer"
             },
             {
                 "labelAr" : "مصمم داخلي" ,
-                "labelEn" : "interior designer" 
+                "labelEn" : "interior designer"
             },
             {
                 "labelAr" : "مصمم مجوهرات" ,
-                "labelEn" : "jewelry designer" 
+                "labelEn" : "jewelry designer"
             },
             {
                 "labelAr" : "مصمم مواقع الكترونية" ,
-                "labelEn" : "web designer" 
+                "labelEn" : "web designer"
             },
             {
                 "labelAr" : "مصور فوتوغرافي" ,
-                "labelEn" : "photographer" 
+                "labelEn" : "photographer"
             },
             {
                 "labelAr" : "مصور فيديو" ,
-                "labelEn" : "videographer" 
+                "labelEn" : "videographer"
             },
             {
                 "labelAr" : "مضيف - مضيفة" ,
-                "labelEn" : "flight attendant" 
+                "labelEn" : "flight attendant"
             },
             {
                 "labelAr" : "مضيف محطة المطار" ,
-                "labelEn" : "airport station attendant" 
+                "labelEn" : "airport station attendant"
             },
             {
                 "labelAr" : "مطور بلوك تشين" ,
-                "labelEn" : "blockchain developer" 
+                "labelEn" : "blockchain developer"
             },
             {
                 "labelAr" : "معالج وظيفي" ,
-                "labelEn" : "occupational therapist" 
+                "labelEn" : "occupational therapist"
             },
             {
                 "labelAr" : "معلم بوفيه" ,
-                "labelEn" : "coffee & tea maker" 
+                "labelEn" : "coffee & tea maker"
             },
             {
                 "labelAr" : "معلم حلويات" ,
-                "labelEn" : "desserts cook" 
+                "labelEn" : "desserts cook"
             },
             {
                 "labelAr" : "معلم سناكات" ,
-                "labelEn" : "snacks cook" 
+                "labelEn" : "snacks cook"
             },
             {
                 "labelAr" : "معلم شاورما" ,
-                "labelEn" : "shawerma cook" 
+                "labelEn" : "shawerma cook"
             },
             {
                 "labelAr" : "معلم فلافل" ,
-                "labelEn" : "falafel cook" 
+                "labelEn" : "falafel cook"
             },
             {
                 "labelAr" : "معلم كوكتيل" ,
-                "labelEn" : "cocktail maker" 
+                "labelEn" : "cocktail maker"
             },
             {
                 "labelAr" : "معلم معجنات" ,
-                "labelEn" : "pastries chef" 
+                "labelEn" : "pastries chef"
             },
             {
                 "labelAr" : "مقاول" ,
-                "labelEn" : "constructor" 
+                "labelEn" : "constructor"
             },
             {
                 "labelAr" : "ممرض - ممرضة" ,
-                "labelEn" : "nurse" 
+                "labelEn" : "nurse"
             },
             {
                 "labelAr" : "منتج" ,
-                "labelEn" : "producer" 
+                "labelEn" : "producer"
             },
             {
                 "labelAr" : "منتج صوت" ,
-                "labelEn" : "audio producer" 
+                "labelEn" : "audio producer"
             },
             {
                 "labelAr" : "مندوب اعلانات" ,
-                "labelEn" : "advertising agent" 
+                "labelEn" : "advertising agent"
             },
             {
                 "labelAr" : "مندوب مبيعات" ,
-                "labelEn" : "sales agent" 
+                "labelEn" : "sales agent"
             },
             {
                 "labelAr" : "مندوب مبيعات التجزئة" ,
-                "labelEn" : "retail sales agent" 
+                "labelEn" : "retail sales agent"
             },
             {
                 "labelAr" : "مندوب مبيعات طبي" ,
-                "labelEn" : "medical representative" 
+                "labelEn" : "medical representative"
             },
             {
                 "labelAr" : "مندوب مبيعات هاتفي" ,
-                "labelEn" : "telesales agent" 
+                "labelEn" : "telesales agent"
             },
             {
                 "labelAr" : "منسق بضائع" ,
-                "labelEn" : "merchandiser" 
+                "labelEn" : "merchandiser"
             },
             {
                 "labelAr" : "منسق زهور" ,
-                "labelEn" : "florist" 
+                "labelEn" : "florist"
             },
             {
                 "labelAr" : "منقذ سباحة" ,
-                "labelEn" : "lifeguard" 
+                "labelEn" : "lifeguard"
             },
             {
                 "labelAr" : "مهندس إنتاج" ,
-                "labelEn" : "production engineer" 
+                "labelEn" : "production engineer"
             },
             {
                 "labelAr" : "مهندس اتصالات" ,
-                "labelEn" : "telecommunication engineer" 
+                "labelEn" : "telecommunication engineer"
             },
             {
                 "labelAr" : "مهندس الملاحة الجوية" ,
-                "labelEn" : "air traffic controller" 
+                "labelEn" : "air traffic controller"
             },
             {
                 "labelAr" : "مهندس بترول وتعدين" ,
-                "labelEn" : "petroleum and natural gas engineer" 
+                "labelEn" : "petroleum and natural gas engineer"
             },
             {
                 "labelAr" : "مهندس بحري" ,
-                "labelEn" : "marine engineer" 
+                "labelEn" : "marine engineer"
             },
             {
                 "labelAr" : "مهندس برمجيات" ,
-                "labelEn" : "software engineer" 
+                "labelEn" : "software engineer"
             },
             {
                 "labelAr" : "مهندس بيولوجي" ,
-                "labelEn" : "biological engineer" 
+                "labelEn" : "biological engineer"
             },
             {
                 "labelAr" : "مهندس تخطيط ومتابعة" ,
-                "labelEn" : "planning engineer" 
+                "labelEn" : "planning engineer"
             },
             {
                 "labelAr" : "مهندس زراعي" ,
-                "labelEn" : "agricultural engineer" 
+                "labelEn" : "agricultural engineer"
             },
             {
                 "labelAr" : "مهندس سلامة عامة" ,
-                "labelEn" : "safety engineer" 
+                "labelEn" : "safety engineer"
             },
             {
                 "labelAr" : "مهندس شبكات" ,
-                "labelEn" : "network engineer" 
+                "labelEn" : "network engineer"
             },
             {
                 "labelAr" : "مهندس صناعي" ,
-                "labelEn" : "industrial engineer" 
+                "labelEn" : "industrial engineer"
             },
             {
                 "labelAr" : "مهندس صيانة" ,
-                "labelEn" : "maintenance engineer" 
+                "labelEn" : "maintenance engineer"
             },
             {
                 "labelAr" : "مهندس ضبط الجودة" ,
-                "labelEn" : "quality control engineer" 
+                "labelEn" : "quality control engineer"
             },
             {
                 "labelAr" : "مهندس طرق" ,
-                "labelEn" : "roads engineer" 
+                "labelEn" : "roads engineer"
             },
             {
                 "labelAr" : "مهندس طيران" ,
-                "labelEn" : "flight engineer" 
+                "labelEn" : "flight engineer"
             },
             {
                 "labelAr" : "مهندس عمارة وديكور" ,
-                "labelEn" : "architectural engineer" 
+                "labelEn" : "architectural engineer"
             },
             {
                 "labelAr" : "مهندس كمبيوتر" ,
-                "labelEn" : "computer engineer" 
+                "labelEn" : "computer engineer"
             },
             {
                 "labelAr" : "مهندس كهرباء" ,
-                "labelEn" : "electrical engineer" 
+                "labelEn" : "electrical engineer"
             },
             {
                 "labelAr" : "مهندس كيمياء" ,
-                "labelEn" : "chemical engineer" 
+                "labelEn" : "chemical engineer"
             },
             {
                 "labelAr" : "مهندس مدني" ,
-                "labelEn" : "civil engineer" 
+                "labelEn" : "civil engineer"
             },
             {
                 "labelAr" : "مهندس مساحة" ,
-                "labelEn" : "survey engineer" 
+                "labelEn" : "survey engineer"
             },
             {
                 "labelAr" : "مهندس مشروعات" ,
-                "labelEn" : "project engineer" 
+                "labelEn" : "project engineer"
             },
             {
                 "labelAr" : "مهندس معدات طبية" ,
-                "labelEn" : "medical equipments engineer" 
+                "labelEn" : "medical equipments engineer"
             },
             {
                 "labelAr" : "مهندس ميكاترونكس" ,
-                "labelEn" : "mechatronics engineer" 
+                "labelEn" : "mechatronics engineer"
             },
             {
                 "labelAr" : "مهندس ميكانيك" ,
-                "labelEn" : "mechanical engineer" 
+                "labelEn" : "mechanical engineer"
             },
             {
                 "labelAr" : "مهندس نسيج" ,
-                "labelEn" : "textile engineer" 
+                "labelEn" : "textile engineer"
             },
             {
                 "labelAr" : "مهندس نظم حاسوبية" ,
-                "labelEn" : "systems architect" 
+                "labelEn" : "systems architect"
             },
             {
                 "labelAr" : "مهندس نووي" ,
-                "labelEn" : "nuclear engineer" 
+                "labelEn" : "nuclear engineer"
             },
             {
                 "labelAr" : "مهندس هيدروليكي" ,
-                "labelEn" : "hydraulic engineer" 
+                "labelEn" : "hydraulic engineer"
             },
             {
                 "labelAr" : "مواسرجي - فني سباكة" ,
-                "labelEn" : "plumber" 
+                "labelEn" : "plumber"
             },
             {
                 "labelAr" : "موظف أمن" ,
-                "labelEn" : "security officer" 
+                "labelEn" : "security officer"
             },
             {
                 "labelAr" : "موظف إدخال بيانات" ,
-                "labelEn" : "data entry clerk" 
+                "labelEn" : "data entry clerk"
             },
             {
                 "labelAr" : "موظف استقبال" ,
-                "labelEn" : "receptionist" 
+                "labelEn" : "receptionist"
             },
             {
                 "labelAr" : "موظف استيراد و تصدير" ,
-                "labelEn" : "import & export officer" 
+                "labelEn" : "import & export officer"
             },
             {
                 "labelAr" : "موظف اصطفاف سيارات" ,
-                "labelEn" : "valet" 
+                "labelEn" : "valet"
             },
             {
                 "labelAr" : "موظف اكتتاب" ,
-                "labelEn" : "underwriting officer" 
+                "labelEn" : "underwriting officer"
             },
             {
                 "labelAr" : "موظف الحجوزات" ,
-                "labelEn" : "reservations officer" 
+                "labelEn" : "reservations officer"
             },
             {
                 "labelAr" : "موظف تاشيرات" ,
-                "labelEn" : "visa officer" 
+                "labelEn" : "visa officer"
             },
             {
                 "labelAr" : "موظف تذاكر وحجوزات" ,
-                "labelEn" : "ticketing & reservation agent" 
+                "labelEn" : "ticketing & reservation agent"
             },
             {
                 "labelAr" : "موظف تسويق رقمي" ,
-                "labelEn" : "digital marketing specialist" 
+                "labelEn" : "digital marketing specialist"
             },
             {
                 "labelAr" : "موظف تسويق هاتفي" ,
-                "labelEn" : "telemarketing agent" 
+                "labelEn" : "telemarketing agent"
             },
             {
                 "labelAr" : "موظف تقديم الاطعمة والمشروبات" ,
-                "labelEn" : "waiter - waitress" 
+                "labelEn" : "waiter - waitress"
             },
             {
                 "labelAr" : "موظف توزيع" ,
-                "labelEn" : "distibution officer" 
+                "labelEn" : "distibution officer"
             },
             {
                 "labelAr" : "موظف خدمات لوجستية" ,
-                "labelEn" : "logistics officer" 
+                "labelEn" : "logistics officer"
             },
             {
                 "labelAr" : "موظف خدمة عملاء" ,
-                "labelEn" : "customer care representative" 
+                "labelEn" : "customer care representative"
             },
             {
                 "labelAr" : "موظف دعم فني" ,
-                "labelEn" : "technical support officer" 
+                "labelEn" : "technical support officer"
             },
             {
                 "labelAr" : "موظف سوشال ميديا" ,
-                "labelEn" : "social media specialist" 
+                "labelEn" : "social media specialist"
             },
             {
                 "labelAr" : "موظف ضبط جودة" ,
-                "labelEn" : "quality control officer" 
+                "labelEn" : "quality control officer"
             },
             {
                 "labelAr" : "موظف طباعة" ,
-                "labelEn" : "printing agent" 
+                "labelEn" : "printing agent"
             },
             {
                 "labelAr" : "موظف عمليات" ,
-                "labelEn" : "operations officer" 
+                "labelEn" : "operations officer"
             },
             {
                 "labelAr" : "موظف عمليات" ,
-                "labelEn" : "operations agent" 
+                "labelEn" : "operations agent"
             },
             {
                 "labelAr" : "موظف قروض" ,
-                "labelEn" : "loan officer" 
+                "labelEn" : "loan officer"
             },
             {
                 "labelAr" : "موظف قسم الديلي" ,
-                "labelEn" : "deli" 
+                "labelEn" : "deli"
             },
             {
                 "labelAr" : "موظف مركز اتصال" ,
-                "labelEn" : "call center representative" 
+                "labelEn" : "call center representative"
             },
             {
                 "labelAr" : "موظف مساعدة ودعم فني" ,
-                "labelEn" : "help desk & it support" 
+                "labelEn" : "help desk & it support"
             },
             {
                 "labelAr" : "موظف مطالبات" ,
-                "labelEn" : "claims officer" 
+                "labelEn" : "claims officer"
             },
             {
                 "labelAr" : "موظف موارد بشرية" ,
-                "labelEn" : "human resource officer" 
+                "labelEn" : "human resource officer"
             },
             {
                 "labelAr" : "موظف نظافة وإشراف داخلي" ,
-                "labelEn" : "housekeeping" 
+                "labelEn" : "housekeeping"
             },
             {
                 "labelAr" : "ميكانيكي إطارات وترصيص" ,
-                "labelEn" : "tires and alignment mechanic" 
+                "labelEn" : "tires and alignment mechanic"
             },
             {
                 "labelAr" : "ميكانيكي اليات ثقيلة" ,
-                "labelEn" : "heavy machinery mechanic" 
+                "labelEn" : "heavy machinery mechanic"
             },
             {
                 "labelAr" : "ميكانيكي سيارات" ,
-                "labelEn" : "auto mechanic" 
+                "labelEn" : "auto mechanic"
             },
             {
                 "labelAr" : "ميكانيكي شاحنات" ,
-                "labelEn" : "trucks mechanic" 
+                "labelEn" : "trucks mechanic"
             },
             {
                 "labelAr" : "نجار" ,
-                "labelEn" : "carpenter" 
+                "labelEn" : "carpenter"
             },
             {
                 "labelAr" : "نحات" ,
-                "labelEn" : "sculptor" 
+                "labelEn" : "sculptor"
             },
             {
                 "labelAr" : "وكيل سفر" ,
-                "labelEn" : "travel agent" 
+                "labelEn" : "travel agent"
             }
         ]
     },
     {
         "labelAr" : "ما المسمى الوظيفي؟" ,
         "labelEn" : "What is the job title?" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "مالية ومحاسبة" ,
@@ -1443,7 +1443,7 @@
     {
         "labelAr" : "ما نوع عقد التوظيف؟" ,
         "labelEn" : "What type of employment contract?" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "عقد دائم" ,
@@ -1474,7 +1474,7 @@
     {
         "labelAr" : "ما عدد أيام العمل؟" ,
         "labelEn" : "How many working days?" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "1" ,
@@ -1509,7 +1509,7 @@
     {
         "labelAr" : "هل تسمح بالعمل من المنزل؟" ,
         "labelEn" : "Do you allow working from home?" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "نعم" ,
@@ -1524,7 +1524,7 @@
     {
         "labelAr" : "ما عدد ساعات العمل؟" ,
         "labelEn" : "How many working hours?" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "ساعات عمل محددة" ,
@@ -1543,7 +1543,7 @@
     {
         "labelAr" : "ما الراتب الشهري المتوقع؟" ,
         "labelEn" : "What is the expected monthly salary?" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "دولار" ,
@@ -1566,7 +1566,7 @@
     {
         "labelAr" : "ما المزايا الاضافية للوظيفة؟" ,
         "labelEn" : "What are the additional benefits of the job?" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "عمولة" ,
@@ -1601,7 +1601,7 @@
     {
         "labelAr" : "ما درجة التعليم المطلوبة؟" ,
         "labelEn" : "What degree of education is required?" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "لا تهم درجة التعليم" ,
@@ -1644,7 +1644,7 @@
     {
         "labelAr" : "ما مستوى الخبرة المطلوبة؟" ,
         "labelEn" : "What level of experience is required?" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "الخبرة غير مطلوبة" ,
@@ -1679,7 +1679,7 @@
     {
         "labelAr" : "هل الوظيفة تتطلب مركبة؟" ,
         "labelEn" : "Does the job require a vehicle?" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "نعم" ,
@@ -1694,7 +1694,7 @@
     {
         "labelAr" : "هل الوظيفة تتطلب رخصة قيادة؟" ,
         "labelEn" : "Does the job require a driver's license?" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "نعم" ,
@@ -1709,7 +1709,7 @@
     {
         "labelAr" : "الجنس" ,
         "labelEn" : "sex" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "لا يهم" ,
@@ -1728,7 +1728,7 @@
     {
         "labelAr" : "ما اللغات المطلوبة للوظيفة؟" ,
         "labelEn" : "What languages are required for the job?" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "عربي" ,
@@ -1771,7 +1771,7 @@
     {
         "labelAr" : "ما الجنسية المطلوبة؟" ,
         "labelEn" : "What nationality is required?" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "لا يهم" ,
@@ -1790,7 +1790,7 @@
     {
         "labelAr" : "ما المهارات المطلوبة للوظيفة؟" ,
         "labelEn" : "What skills are required for the job?" ,
-        "Values" : 
+        "Values" :
         [
             {
                 "labelAr" : "استخدام الكمبيوتر" ,

@@ -30,7 +30,7 @@ export default function RealEstateForm({
         },
         bathrooms: {
             labelAr: 'الحمامات',
-            labelEn: 'Bathrooms',
+            labelEn: 'HouseLighting',
             value: '',
         },
         furnished: {
