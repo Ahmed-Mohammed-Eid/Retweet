@@ -1,12 +1,12 @@
 "use client";
-import classes from "./Wear.module.scss";
+import classes from "./Bags.module.scss";
 import Hint from "@/app/components/Listings/Hint/Hint";
 import RadioComponent from "@/app/components/Listings/RadioComponent/RadioComponent";
 import DropDown from "@/app/components/Listings/DropDown/DropDown";
 import Location from "@/app/components/Listings/Forms/Globals/Location";
 import Description from "@/app/components/Listings/Forms/Globals/Description";
 import { MultiSelect } from "primereact/multiselect";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Price from "@/app/components/Listings/Forms/Globals/Price";
 import ContactInformation from "@/app/components/Listings/Forms/Globals/ContactInformation";
 import CategoryInfo from "@/app/components/Listings/Forms/Globals/CategoryInfo";
@@ -15,50 +15,39 @@ import ColorDropDown from "@/app/components/Listings/Forms/Globals/ColorDropDown
 import { Calendar } from "primereact/calendar";
 
 // JSON DATA
-import WearJson from "@/Json_Data/Men'sFashion/Wear.json";
+import BagsJson from "@/Json_Data/WomensFashion/Bags.json";
 
-export default function MensWear({
+export default function Bags({
 	lang,
 	categoryName,
 	subCategoryName,
 	submit = () => {},
 }) {
-	const [modelOptionsOptions, setModelOptionsOptions] = useState([]);
 	// LISTING DETAILS PART
 	const [listingDetails, setListingDetails] = useState({
-		[String(WearJson[0].labelEn).toLocaleLowerCase()]: {
-			labelAr: WearJson[0].labelAr,
-			labelEn: WearJson[0].labelEn,
+		[String(BagsJson[0].labelEn).toLocaleLowerCase()]: {
+			labelAr: BagsJson[0].labelAr,
+			labelEn: BagsJson[0].labelEn,
 			value: "",
 		},
-		[String(WearJson[1].labelEn).toLocaleLowerCase()]: {
-			labelAr: WearJson[1].labelAr,
-			labelEn: WearJson[1].labelEn,
+		[String(BagsJson[1].labelEn).toLocaleLowerCase()]: {
+			labelAr: BagsJson[1].labelAr,
+			labelEn: BagsJson[1].labelEn,
 			value: "",
 		},
-		[String(WearJson[2].labelEn).toLocaleLowerCase()]: {
-			labelAr: WearJson[2].labelAr,
-			labelEn: WearJson[2].labelEn,
+		[String(BagsJson[2].labelEn).toLocaleLowerCase()]: {
+			labelAr: BagsJson[2].labelAr,
+			labelEn: BagsJson[2].labelEn,
 			value: "",
 		},
-		[String(WearJson[3].labelEn).toLocaleLowerCase()]: {
-			labelAr: WearJson[3].labelAr,
-			labelEn: WearJson[3].labelEn,
+		[String(BagsJson[3].labelEn).toLocaleLowerCase()]: {
+			labelAr: BagsJson[3].labelAr,
+			labelEn: BagsJson[3].labelEn,
 			value: "",
 		},
-		[String(WearJson[4].labelEn).toLocaleLowerCase()]: {
-			labelAr: WearJson[4].labelAr,
-			labelEn: WearJson[4].labelEn,
-			value: "",
-		},
-		[String(WearJson[5].labelEn).toLocaleLowerCase()]: {
-			labelAr: WearJson[5].labelAr,
-			labelEn: WearJson[5].labelEn,
-			value: "",
-		},
-		[String(WearJson[6].labelEn).toLocaleLowerCase()]: {
-			labelAr: WearJson[6].labelAr,
-			labelEn: WearJson[6].labelEn,
+		[String(BagsJson[4].labelEn).toLocaleLowerCase()]: {
+			labelAr: BagsJson[4].labelAr,
+			labelEn: BagsJson[4].labelEn,
 			value: "",
 		},
 	});
@@ -98,57 +87,21 @@ export default function MensWear({
 		});
 	};
 
-	const modelsOptions = WearJson[0].Values.map((value) => {
+	const modelsOptions = BagsJson[0].Values.map((value) => {
 		return {
 			label: lang === "en" ? value.labelEn : value.labelAr,
 			value: value.labelEn,
 		};
 	});
 
-	// GET THE LISTING DETAILS[0] KEY AND VALUEs
-
-	useEffect(() => {
-		if (
-			listingDetails[String(WearJson[0].labelEn).toLocaleLowerCase()]?.value
-		) {
-			WearJson[0].Values.map((value) => {
-				if (
-					value.labelEn ===
-					listingDetails[String(WearJson[0].labelEn).toLocaleLowerCase()]
-						?.value
-				) {
-					const options = [
-						...value.options.map((value) => {
-							return {
-								label:
-									lang === "en" ? value.labelEn : value.labelAr,
-								value: value.labelEn,
-							};
-						}),
-					];
-
-					setModelOptionsOptions(options);
-				}
-			});
-		}
-	}, [listingDetails]);
-
-
-	const modelsOptions3 = WearJson[2].Values.map((value) => {
+	const modelsOptions2 = BagsJson[1].Values.map((value) => {
 		return {
 			label: lang === "en" ? value.labelEn : value.labelAr,
 			value: value.labelEn,
 		};
 	});
 
-	const modelsOptions4 = WearJson[3].Values.map((value) => {
-		return {
-			label: lang === "en" ? value.labelEn : value.labelAr,
-			value: value.labelEn,
-		};
-	});
-
-	const modelsOptions5 = WearJson[4].Values.map((value) => {
+	const modelsOptions3 = BagsJson[2].Values.map((value) => {
 		return {
 			label: lang === "en" ? value.labelEn : value.labelAr,
 			value: value.labelEn,
@@ -188,15 +141,15 @@ export default function MensWear({
 				<div className={`${classes.Type} rounded bg-white mt-4`}>
 					<h3>
 						{lang === "en"
-							? WearJson[0].labelEn
-							: WearJson[0].labelAr}
+							? BagsJson[0].labelEn
+							: BagsJson[0].labelAr}
 					</h3>
 					<div className={"flex justify-start gap-2 flex-wrap"}>
 						<DropDown
 							value={
 								listingDetails[
 									String(
-										WearJson[0].labelEn
+										BagsJson[0].labelEn
 									).toLocaleLowerCase()
 								].value
 							}
@@ -204,22 +157,14 @@ export default function MensWear({
 								setListingDetails({
 									...listingDetails,
 									[String(
-										WearJson[0].labelEn
+										BagsJson[0].labelEn
 									).toLocaleLowerCase()]: {
 										...listingDetails[
 											String(
-												WearJson[0].labelEn
+												BagsJson[0].labelEn
 											).toLocaleLowerCase()
 										],
 										value: value.value,
-									},
-									[String(WearJson[1].labelEn).toLocaleLowerCase()]: {
-										...listingDetails[
-											String(
-												WearJson[1].labelEn
-											).toLocaleLowerCase()
-										],
-										value: "",
 									},
 								});
 							}}
@@ -227,8 +172,8 @@ export default function MensWear({
 							filter={true}
 							placeholder={
 								lang === "en"
-									? WearJson[0].labelEn
-									: WearJson[0].labelAr
+									? BagsJson[0].labelEn
+									: BagsJson[0].labelAr
 							}
 						/>
 					</div>
@@ -237,15 +182,15 @@ export default function MensWear({
 				<div className={`${classes.Type} rounded bg-white mt-4`}>
 					<h3>
 						{lang === "en"
-							? WearJson[1].labelEn
-							: WearJson[1].labelAr}
+							? BagsJson[1].labelEn
+							: BagsJson[1].labelAr}
 					</h3>
 					<div className={"flex justify-start gap-2 flex-wrap"}>
 						<DropDown
 							value={
 								listingDetails[
 									String(
-										WearJson[1].labelEn
+										BagsJson[1].labelEn
 									).toLocaleLowerCase()
 								].value
 							}
@@ -253,23 +198,23 @@ export default function MensWear({
 								setListingDetails({
 									...listingDetails,
 									[String(
-										WearJson[1].labelEn
+										BagsJson[1].labelEn
 									).toLocaleLowerCase()]: {
 										...listingDetails[
 											String(
-												WearJson[1].labelEn
+												BagsJson[1].labelEn
 											).toLocaleLowerCase()
 										],
 										value: value.value,
 									},
 								});
 							}}
-							options={modelOptionsOptions || []}
+							options={modelsOptions2}
 							filter={true}
 							placeholder={
 								lang === "en"
-									? WearJson[1].labelEn
-									: WearJson[1].labelAr
+									? BagsJson[1].labelEn
+									: BagsJson[1].labelAr
 							}
 						/>
 					</div>
@@ -278,15 +223,15 @@ export default function MensWear({
 				<div className={`${classes.Type} rounded bg-white mt-4`}>
 					<h3>
 						{lang === "en"
-							? WearJson[2].labelEn
-							: WearJson[2].labelAr}
+							? BagsJson[2].labelEn
+							: BagsJson[2].labelAr}
 					</h3>
 					<div className={"flex justify-start gap-2 flex-wrap"}>
 						<DropDown
 							value={
 								listingDetails[
 									String(
-										WearJson[2].labelEn
+										BagsJson[2].labelEn
 									).toLocaleLowerCase()
 								].value
 							}
@@ -294,11 +239,11 @@ export default function MensWear({
 								setListingDetails({
 									...listingDetails,
 									[String(
-										WearJson[2].labelEn
+										BagsJson[2].labelEn
 									).toLocaleLowerCase()]: {
 										...listingDetails[
 											String(
-												WearJson[2].labelEn
+												BagsJson[2].labelEn
 											).toLocaleLowerCase()
 										],
 										value: value.value,
@@ -309,90 +254,8 @@ export default function MensWear({
 							filter={true}
 							placeholder={
 								lang === "en"
-									? WearJson[2].labelEn
-									: WearJson[2].labelAr
-							}
-						/>
-					</div>
-				</div>
-
-				<div className={`${classes.Type} rounded bg-white mt-4`}>
-					<h3>
-						{lang === "en"
-							? WearJson[3].labelEn
-							: WearJson[3].labelAr}
-					</h3>
-					<div className={"flex justify-start gap-2 flex-wrap"}>
-						<DropDown
-							value={
-								listingDetails[
-									String(
-										WearJson[3].labelEn
-									).toLocaleLowerCase()
-								].value
-							}
-							onChange={(value) => {
-								setListingDetails({
-									...listingDetails,
-									[String(
-										WearJson[3].labelEn
-									).toLocaleLowerCase()]: {
-										...listingDetails[
-											String(
-												WearJson[3].labelEn
-											).toLocaleLowerCase()
-										],
-										value: value.value,
-									},
-								});
-							}}
-							options={modelsOptions4}
-							filter={true}
-							placeholder={
-								lang === "en"
-									? WearJson[3].labelEn
-									: WearJson[3].labelAr
-							}
-						/>
-					</div>
-				</div>
-
-				<div className={`${classes.Type} rounded bg-white mt-4`}>
-					<h3>
-						{lang === "en"
-							? WearJson[4].labelEn
-							: WearJson[4].labelAr}
-					</h3>
-					<div className={"flex justify-start gap-2 flex-wrap"}>
-						<DropDown
-							value={
-								listingDetails[
-									String(
-										WearJson[4].labelEn
-									).toLocaleLowerCase()
-								].value
-							}
-							onChange={(value) => {
-								setListingDetails({
-									...listingDetails,
-									[String(
-										WearJson[4].labelEn
-									).toLocaleLowerCase()]: {
-										...listingDetails[
-											String(
-												WearJson[4].labelEn
-											).toLocaleLowerCase()
-										],
-										value: value.value,
-									},
-								});
-							}}
-							options={modelsOptions5}
-							filter={true}
-							placeholder={
-								lang === "en"
-									? WearJson[4].labelEn
-									: WearJson[4].labelAr
+									? BagsJson[2].labelEn
+									: BagsJson[2].labelAr
 							}
 						/>
 					</div>
@@ -402,11 +265,11 @@ export default function MensWear({
 				<div className={`${classes.Type} rounded bg-white mt-4`}>
 					<h3>
 						{lang === "en"
-							? WearJson[5].labelEn
-							: WearJson[5].labelAr}
+							? BagsJson[3].labelEn
+							: BagsJson[3].labelAr}
 					</h3>
 					<div className={"flex justify-start gap-2 flex-wrap"}>
-						{WearJson[5].Values.map((value, index) => {
+						{BagsJson[3].Values.map((value, index) => {
 							return (
 								<RadioComponent
 									key={index}
@@ -414,16 +277,16 @@ export default function MensWear({
 									value={value.labelEn}
 									textAr={value.labelAr}
 									textEn={value.labelEn}
-									name={String(WearJson[5].labelEn)}
+									name={String(BagsJson[3].labelEn)}
 									onChange={(event) => {
 										setListingDetails({
 											...listingDetails,
 											[String(
-												WearJson[5].labelEn
+												BagsJson[3].labelEn
 											).toLocaleLowerCase()]: {
 												...listingDetails[
 													String(
-														WearJson[5].labelEn
+														BagsJson[3].labelEn
 													).toLocaleLowerCase()
 												],
 												value: event.target.value,
@@ -440,11 +303,11 @@ export default function MensWear({
 				<div className={`${classes.Type} rounded bg-white mt-4`}>
 					<h3>
 						{lang === "en"
-							? WearJson[6].labelEn
-							: WearJson[6].labelAr}
+							? BagsJson[4].labelEn
+							: BagsJson[4].labelAr}
 					</h3>
 					<div className={"flex justify-start gap-2 flex-wrap"}>
-						{WearJson[6].Values.map((value, index) => {
+						{BagsJson[4].Values.map((value, index) => {
 							return (
 								<RadioComponent
 									key={index}
@@ -452,16 +315,16 @@ export default function MensWear({
 									value={value.labelEn}
 									textAr={value.labelAr}
 									textEn={value.labelEn}
-									name={String(WearJson[6].labelEn)}
+									name={String(BagsJson[4].labelEn)}
 									onChange={(event) => {
 										setListingDetails({
 											...listingDetails,
 											[String(
-												WearJson[6].labelEn
+												BagsJson[4].labelEn
 											).toLocaleLowerCase()]: {
 												...listingDetails[
 													String(
-														WearJson[6].labelEn
+														BagsJson[4].labelEn
 													).toLocaleLowerCase()
 												],
 												value: event.target.value,

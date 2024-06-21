@@ -15,7 +15,7 @@ import ColorDropDown from "@/app/components/Listings/Forms/Globals/ColorDropDown
 import { Calendar } from "primereact/calendar";
 
 // JSON DATA
-import ShoesJson from "@/Json_Data/Women'sFashion/Shoes.json";
+import ShoesJson from "@/Json_Data/WomensFashion/Shoes.json";
 
 export default function Shoes({
 	lang,

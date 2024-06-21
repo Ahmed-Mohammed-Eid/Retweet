@@ -1,28 +1,79 @@
+"use client";
+
 import FilterListingPart from "@/app/components/Listings/FilterListingPart/FilterListingPart";
 import ListingsPartContent from "@/app/components/Listings/ListingsPartContent/ListingsPartContent";
-import useAuthentication from "@/hooks/useAuthentication";
 import classes from "./listings.module.scss";
+import {useEffect, useState} from "react";
 
-
-
-
-import {cookies} from "next/headers";
 
 
 export default async function Listings({params: {lang}}) {
-    // GET THE TOKEN FROM COOKIES
-    const token = cookies().get('retweet-token')?.value;
+    const [authenticated, setAuthenticated] = useState(false);
+    const [error, setError] = useState(null);
+    const [isFilterHidden, setIsFilterHidden] = useState(false);
 
-    // AUTHENTICATION
-    const {authenticated, error, userData} = await useAuthentication(token);
+    useEffect(() => {
+        // GET THE TOKEN FROM LOCAL STORAGE
+        const token = localStorage.getItem("retweet-token");
+
+        const authenticate = async () => {
+            try {
+                // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
+                const response = await fetch(`${process.env.BASE_URL}/get/verify/token?token=${token}`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    setAuthenticated(true);
+                    setError(null);
+                } else {
+                    setAuthenticated(false);
+                    setError('Authentication failed');
+                }
+            } catch (error) {
+                console.error('Error authenticating:', error);
+                setAuthenticated(false);
+                setError('An error occurred while authenticating');
+            }
+        };
+
+        // Only authenticate if a token is provided
+        if (token) {
+            authenticate();
+        }
+    }, []);
+
+    const handleMediaQueryChange = (e) => {
+        if (e.matches) {
+            setIsFilterHidden(true);
+        } else {
+            setIsFilterHidden(false);
+        }
+    }
+
+    // EFFECT TO LISTEN ON SCREEN WIDTH 1200px
+    useEffect(() => {
+        // check at the beginning
+        if (window.innerWidth <= 1200) {
+            setIsFilterHidden(true);
+        }
+
+        const mediaQuery = window.matchMedia('(max-width: 1200px)');
+        mediaQuery.addEventListener('change', handleMediaQueryChange);
+        return () => mediaQuery.removeEventListener('change', handleMediaQueryChange);
+    }, []);
 
     return (
         <div className={`${classes.ContentContainer}`}>
             <div className={`${classes.Filter}`}>
-                <FilterListingPart lang={lang}/>
+                {isFilterHidden ? null : <FilterListingPart lang={lang}/> }
             </div>
             <div className={`${classes.Cards}`}>
-                <ListingsPartContent lang={lang} authenticated={authenticated}/>
+                <ListingsPartContent lang={lang} authenticated={authenticated} isMainFilterHidden={isFilterHidden}/>
             </div>
         </div>
     )

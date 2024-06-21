@@ -40,7 +40,7 @@ export default function MainSearchBox({ lang }) {
 
 		// MAKE THE SEARCH REQUEST
 		axios
-			.get(`${process.env.BASE_URL}//search?searchTerm=${searchQuery}`, {
+			.get(`${process.env.BASE_URL}/search?searchTerm=${searchQuery}`, {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},
@@ -49,7 +49,7 @@ export default function MainSearchBox({ lang }) {
 				const listings = response.data?.data?.listings || [];
 
                 new Promise((resolve, reject) => {
-                    router.push('/listings')
+                    router.push('/listings/search')
                     resolve()
                 }).then(() =>{
                     dispatch(setListings(listings));
@@ -70,6 +70,11 @@ export default function MainSearchBox({ lang }) {
 				className={classes.SearchBox__input}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+				onKeyPress={(e) => {
+					if (e.key === "Enter") {
+						handleSearch();
+					}
+				}}
 			/>
 			<Button className={classes.SearchBox__button} onClick={handleSearch}>
 				{lang === "en" ? "Search" : "بحث"}

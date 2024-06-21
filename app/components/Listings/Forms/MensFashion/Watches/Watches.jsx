@@ -1,12 +1,12 @@
 "use client";
-import classes from "./Wear.module.scss";
+import classes from "./Watches.module.scss";
 import Hint from "@/app/components/Listings/Hint/Hint";
 import RadioComponent from "@/app/components/Listings/RadioComponent/RadioComponent";
 import DropDown from "@/app/components/Listings/DropDown/DropDown";
 import Location from "@/app/components/Listings/Forms/Globals/Location";
 import Description from "@/app/components/Listings/Forms/Globals/Description";
 import { MultiSelect } from "primereact/multiselect";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Price from "@/app/components/Listings/Forms/Globals/Price";
 import ContactInformation from "@/app/components/Listings/Forms/Globals/ContactInformation";
 import CategoryInfo from "@/app/components/Listings/Forms/Globals/CategoryInfo";
@@ -15,50 +15,49 @@ import ColorDropDown from "@/app/components/Listings/Forms/Globals/ColorDropDown
 import { Calendar } from "primereact/calendar";
 
 // JSON DATA
-import WearJson from "@/Json_Data/Women'sFashion/Wear.json";
+import WatchesJson from "@/Json_Data/MensFashion/Watches.json";
 
-export default function WomensWear({
+export default function MenWatches({
 	lang,
 	categoryName,
 	subCategoryName,
 	submit = () => {},
 }) {
-	const [modelOptionsOptions, setModelOptionsOptions] = useState([]);
 	// LISTING DETAILS PART
 	const [listingDetails, setListingDetails] = useState({
-		[String(WearJson[0].labelEn).toLocaleLowerCase()]: {
-			labelAr: WearJson[0].labelAr,
-			labelEn: WearJson[0].labelEn,
+		[String(WatchesJson[0].labelEn).toLocaleLowerCase()]: {
+			labelAr: WatchesJson[0].labelAr,
+			labelEn: WatchesJson[0].labelEn,
 			value: "",
 		},
-		[String(WearJson[1].labelEn).toLocaleLowerCase()]: {
-			labelAr: WearJson[1].labelAr,
-			labelEn: WearJson[1].labelEn,
+		[String(WatchesJson[1].labelEn).toLocaleLowerCase()]: {
+			labelAr: WatchesJson[1].labelAr,
+			labelEn: WatchesJson[1].labelEn,
 			value: "",
 		},
-		[String(WearJson[2].labelEn).toLocaleLowerCase()]: {
-			labelAr: WearJson[2].labelAr,
-			labelEn: WearJson[2].labelEn,
+		[String(WatchesJson[2].labelEn).toLocaleLowerCase()]: {
+			labelAr: WatchesJson[2].labelAr,
+			labelEn: WatchesJson[2].labelEn,
 			value: "",
 		},
-		[String(WearJson[3].labelEn).toLocaleLowerCase()]: {
-			labelAr: WearJson[3].labelAr,
-			labelEn: WearJson[3].labelEn,
+		[String(WatchesJson[3].labelEn).toLocaleLowerCase()]: {
+			labelAr: WatchesJson[3].labelAr,
+			labelEn: WatchesJson[3].labelEn,
 			value: "",
 		},
-		[String(WearJson[4].labelEn).toLocaleLowerCase()]: {
-			labelAr: WearJson[4].labelAr,
-			labelEn: WearJson[4].labelEn,
+		[String(WatchesJson[4].labelEn).toLocaleLowerCase()]: {
+			labelAr: WatchesJson[4].labelAr,
+			labelEn: WatchesJson[4].labelEn,
 			value: "",
 		},
-		[String(WearJson[5].labelEn).toLocaleLowerCase()]: {
-			labelAr: WearJson[5].labelAr,
-			labelEn: WearJson[5].labelEn,
+		[String(WatchesJson[5].labelEn).toLocaleLowerCase()]: {
+			labelAr: WatchesJson[5].labelAr,
+			labelEn: WatchesJson[5].labelEn,
 			value: "",
 		},
-		[String(WearJson[6].labelEn).toLocaleLowerCase()]: {
-			labelAr: WearJson[6].labelAr,
-			labelEn: WearJson[6].labelEn,
+		[String(WatchesJson[6].labelEn).toLocaleLowerCase()]: {
+			labelAr: WatchesJson[6].labelAr,
+			labelEn: WatchesJson[6].labelEn,
 			value: "",
 		},
 	});
@@ -98,57 +97,35 @@ export default function WomensWear({
 		});
 	};
 
-	const modelsOptions = WearJson[0].Values.map((value) => {
+	const modelsOptions = WatchesJson[0].Values.map((value) => {
 		return {
 			label: lang === "en" ? value.labelEn : value.labelAr,
 			value: value.labelEn,
 		};
 	});
 
-	// GET THE LISTING DETAILS[0] KEY AND VALUEs
-
-	useEffect(() => {
-		if (
-			listingDetails[String(WearJson[0].labelEn).toLocaleLowerCase()]?.value
-		) {
-			WearJson[0].Values.map((value) => {
-				if (
-					value.labelEn ===
-					listingDetails[String(WearJson[0].labelEn).toLocaleLowerCase()]
-						?.value
-				) {
-					const options = [
-						...value.options.map((value) => {
-							return {
-								label:
-									lang === "en" ? value.labelEn : value.labelAr,
-								value: value.labelEn,
-							};
-						}),
-					];
-
-					setModelOptionsOptions(options);
-				}
-			});
-		}
-	}, [listingDetails]);
-
-
-	const modelsOptions3 = WearJson[2].Values.map((value) => {
+	const modelsOptions2 = WatchesJson[1].Values.map((value) => {
 		return {
 			label: lang === "en" ? value.labelEn : value.labelAr,
 			value: value.labelEn,
 		};
 	});
 
-	const modelsOptions4 = WearJson[3].Values.map((value) => {
+	const modelsOptions3 = WatchesJson[2].Values.map((value) => {
 		return {
 			label: lang === "en" ? value.labelEn : value.labelAr,
 			value: value.labelEn,
 		};
 	});
 
-	const modelsOptions5 = WearJson[4].Values.map((value) => {
+	const modelsOptions4 = WatchesJson[3].Values.map((value) => {
+		return {
+			label: lang === "en" ? value.labelEn : value.labelAr,
+			value: value.labelEn,
+		};
+	});
+
+	const modelsOptions5 = WatchesJson[4].Values.map((value) => {
 		return {
 			label: lang === "en" ? value.labelEn : value.labelAr,
 			value: value.labelEn,
@@ -188,15 +165,15 @@ export default function WomensWear({
 				<div className={`${classes.Type} rounded bg-white mt-4`}>
 					<h3>
 						{lang === "en"
-							? WearJson[0].labelEn
-							: WearJson[0].labelAr}
+							? WatchesJson[0].labelEn
+							: WatchesJson[0].labelAr}
 					</h3>
 					<div className={"flex justify-start gap-2 flex-wrap"}>
 						<DropDown
 							value={
 								listingDetails[
 									String(
-										WearJson[0].labelEn
+										WatchesJson[0].labelEn
 									).toLocaleLowerCase()
 								].value
 							}
@@ -204,22 +181,14 @@ export default function WomensWear({
 								setListingDetails({
 									...listingDetails,
 									[String(
-										WearJson[0].labelEn
+										WatchesJson[0].labelEn
 									).toLocaleLowerCase()]: {
 										...listingDetails[
 											String(
-												WearJson[0].labelEn
+												WatchesJson[0].labelEn
 											).toLocaleLowerCase()
 										],
 										value: value.value,
-									},
-									[String(WearJson[1].labelEn).toLocaleLowerCase()]: {
-										...listingDetails[
-											String(
-												WearJson[1].labelEn
-											).toLocaleLowerCase()
-										],
-										value: "",
 									},
 								});
 							}}
@@ -227,8 +196,8 @@ export default function WomensWear({
 							filter={true}
 							placeholder={
 								lang === "en"
-									? WearJson[0].labelEn
-									: WearJson[0].labelAr
+									? WatchesJson[0].labelEn
+									: WatchesJson[0].labelAr
 							}
 						/>
 					</div>
@@ -237,15 +206,15 @@ export default function WomensWear({
 				<div className={`${classes.Type} rounded bg-white mt-4`}>
 					<h3>
 						{lang === "en"
-							? WearJson[1].labelEn
-							: WearJson[1].labelAr}
+							? WatchesJson[1].labelEn
+							: WatchesJson[1].labelAr}
 					</h3>
 					<div className={"flex justify-start gap-2 flex-wrap"}>
 						<DropDown
 							value={
 								listingDetails[
 									String(
-										WearJson[1].labelEn
+										WatchesJson[1].labelEn
 									).toLocaleLowerCase()
 								].value
 							}
@@ -253,23 +222,23 @@ export default function WomensWear({
 								setListingDetails({
 									...listingDetails,
 									[String(
-										WearJson[1].labelEn
+										WatchesJson[1].labelEn
 									).toLocaleLowerCase()]: {
 										...listingDetails[
 											String(
-												WearJson[1].labelEn
+												WatchesJson[1].labelEn
 											).toLocaleLowerCase()
 										],
 										value: value.value,
 									},
 								});
 							}}
-							options={modelOptionsOptions || []}
+							options={modelsOptions2}
 							filter={true}
 							placeholder={
 								lang === "en"
-									? WearJson[1].labelEn
-									: WearJson[1].labelAr
+									? WatchesJson[1].labelEn
+									: WatchesJson[1].labelAr
 							}
 						/>
 					</div>
@@ -278,15 +247,15 @@ export default function WomensWear({
 				<div className={`${classes.Type} rounded bg-white mt-4`}>
 					<h3>
 						{lang === "en"
-							? WearJson[2].labelEn
-							: WearJson[2].labelAr}
+							? WatchesJson[2].labelEn
+							: WatchesJson[2].labelAr}
 					</h3>
 					<div className={"flex justify-start gap-2 flex-wrap"}>
 						<DropDown
 							value={
 								listingDetails[
 									String(
-										WearJson[2].labelEn
+										WatchesJson[2].labelEn
 									).toLocaleLowerCase()
 								].value
 							}
@@ -294,11 +263,11 @@ export default function WomensWear({
 								setListingDetails({
 									...listingDetails,
 									[String(
-										WearJson[2].labelEn
+										WatchesJson[2].labelEn
 									).toLocaleLowerCase()]: {
 										...listingDetails[
 											String(
-												WearJson[2].labelEn
+												WatchesJson[2].labelEn
 											).toLocaleLowerCase()
 										],
 										value: value.value,
@@ -309,8 +278,8 @@ export default function WomensWear({
 							filter={true}
 							placeholder={
 								lang === "en"
-									? WearJson[2].labelEn
-									: WearJson[2].labelAr
+									? WatchesJson[2].labelEn
+									: WatchesJson[2].labelAr
 							}
 						/>
 					</div>
@@ -319,15 +288,15 @@ export default function WomensWear({
 				<div className={`${classes.Type} rounded bg-white mt-4`}>
 					<h3>
 						{lang === "en"
-							? WearJson[3].labelEn
-							: WearJson[3].labelAr}
+							? WatchesJson[3].labelEn
+							: WatchesJson[3].labelAr}
 					</h3>
 					<div className={"flex justify-start gap-2 flex-wrap"}>
 						<DropDown
 							value={
 								listingDetails[
 									String(
-										WearJson[3].labelEn
+										WatchesJson[3].labelEn
 									).toLocaleLowerCase()
 								].value
 							}
@@ -335,11 +304,11 @@ export default function WomensWear({
 								setListingDetails({
 									...listingDetails,
 									[String(
-										WearJson[3].labelEn
+										WatchesJson[3].labelEn
 									).toLocaleLowerCase()]: {
 										...listingDetails[
 											String(
-												WearJson[3].labelEn
+												WatchesJson[3].labelEn
 											).toLocaleLowerCase()
 										],
 										value: value.value,
@@ -350,8 +319,8 @@ export default function WomensWear({
 							filter={true}
 							placeholder={
 								lang === "en"
-									? WearJson[3].labelEn
-									: WearJson[3].labelAr
+									? WatchesJson[3].labelEn
+									: WatchesJson[3].labelAr
 							}
 						/>
 					</div>
@@ -360,15 +329,15 @@ export default function WomensWear({
 				<div className={`${classes.Type} rounded bg-white mt-4`}>
 					<h3>
 						{lang === "en"
-							? WearJson[4].labelEn
-							: WearJson[4].labelAr}
+							? WatchesJson[4].labelEn
+							: WatchesJson[4].labelAr}
 					</h3>
 					<div className={"flex justify-start gap-2 flex-wrap"}>
 						<DropDown
 							value={
 								listingDetails[
 									String(
-										WearJson[4].labelEn
+										WatchesJson[4].labelEn
 									).toLocaleLowerCase()
 								].value
 							}
@@ -376,23 +345,23 @@ export default function WomensWear({
 								setListingDetails({
 									...listingDetails,
 									[String(
-										WearJson[4].labelEn
+										WatchesJson[4].labelEn
 									).toLocaleLowerCase()]: {
 										...listingDetails[
 											String(
-												WearJson[4].labelEn
+												WatchesJson[4].labelEn
 											).toLocaleLowerCase()
 										],
 										value: value.value,
 									},
 								});
 							}}
-							options={modelsOptions5}
+							options={modelsOptions4}
 							filter={true}
 							placeholder={
 								lang === "en"
-									? WearJson[4].labelEn
-									: WearJson[4].labelAr
+									? WatchesJson[4].labelEn
+									: WatchesJson[4].labelAr
 							}
 						/>
 					</div>
@@ -402,11 +371,11 @@ export default function WomensWear({
 				<div className={`${classes.Type} rounded bg-white mt-4`}>
 					<h3>
 						{lang === "en"
-							? WearJson[5].labelEn
-							: WearJson[5].labelAr}
+							? WatchesJson[5].labelEn
+							: WatchesJson[5].labelAr}
 					</h3>
 					<div className={"flex justify-start gap-2 flex-wrap"}>
-						{WearJson[5].Values.map((value, index) => {
+						{WatchesJson[5].Values.map((value, index) => {
 							return (
 								<RadioComponent
 									key={index}
@@ -414,16 +383,16 @@ export default function WomensWear({
 									value={value.labelEn}
 									textAr={value.labelAr}
 									textEn={value.labelEn}
-									name={String(WearJson[5].labelEn)}
+									name={String(WatchesJson[5].labelEn)}
 									onChange={(event) => {
 										setListingDetails({
 											...listingDetails,
 											[String(
-												WearJson[5].labelEn
+												WatchesJson[5].labelEn
 											).toLocaleLowerCase()]: {
 												...listingDetails[
 													String(
-														WearJson[5].labelEn
+														WatchesJson[5].labelEn
 													).toLocaleLowerCase()
 												],
 												value: event.target.value,
@@ -440,11 +409,11 @@ export default function WomensWear({
 				<div className={`${classes.Type} rounded bg-white mt-4`}>
 					<h3>
 						{lang === "en"
-							? WearJson[6].labelEn
-							: WearJson[6].labelAr}
+							? WatchesJson[6].labelEn
+							: WatchesJson[6].labelAr}
 					</h3>
 					<div className={"flex justify-start gap-2 flex-wrap"}>
-						{WearJson[6].Values.map((value, index) => {
+						{WatchesJson[6].Values.map((value, index) => {
 							return (
 								<RadioComponent
 									key={index}
@@ -452,16 +421,16 @@ export default function WomensWear({
 									value={value.labelEn}
 									textAr={value.labelAr}
 									textEn={value.labelEn}
-									name={String(WearJson[6].labelEn)}
+									name={String(WatchesJson[6].labelEn)}
 									onChange={(event) => {
 										setListingDetails({
 											...listingDetails,
 											[String(
-												WearJson[6].labelEn
+												WatchesJson[6].labelEn
 											).toLocaleLowerCase()]: {
 												...listingDetails[
 													String(
-														WearJson[6].labelEn
+														WatchesJson[6].labelEn
 													).toLocaleLowerCase()
 												],
 												value: event.target.value,

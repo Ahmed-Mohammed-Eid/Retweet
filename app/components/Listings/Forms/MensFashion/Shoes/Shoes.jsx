@@ -1,5 +1,5 @@
 "use client";
-import classes from "./Watches.module.scss";
+import classes from "./Shoes.module.scss";
 import Hint from "@/app/components/Listings/Hint/Hint";
 import RadioComponent from "@/app/components/Listings/RadioComponent/RadioComponent";
 import DropDown from "@/app/components/Listings/DropDown/DropDown";
@@ -15,9 +15,9 @@ import ColorDropDown from "@/app/components/Listings/Forms/Globals/ColorDropDown
 import { Calendar } from "primereact/calendar";
 
 // JSON DATA
-import WatchesJson from "@/Json_Data/Men'sFashion/Watches.json";
+import ShoesJson from "@/Json_Data/MensFashion/Shoes.json";
 
-export default function MenWatches({
+export default function MenShoes({
 	lang,
 	categoryName,
 	subCategoryName,
@@ -25,39 +25,34 @@ export default function MenWatches({
 }) {
 	// LISTING DETAILS PART
 	const [listingDetails, setListingDetails] = useState({
-		[String(WatchesJson[0].labelEn).toLocaleLowerCase()]: {
-			labelAr: WatchesJson[0].labelAr,
-			labelEn: WatchesJson[0].labelEn,
+		[String(ShoesJson[0].labelEn).toLocaleLowerCase()]: {
+			labelAr: ShoesJson[0].labelAr,
+			labelEn: ShoesJson[0].labelEn,
 			value: "",
 		},
-		[String(WatchesJson[1].labelEn).toLocaleLowerCase()]: {
-			labelAr: WatchesJson[1].labelAr,
-			labelEn: WatchesJson[1].labelEn,
+		[String(ShoesJson[1].labelEn).toLocaleLowerCase()]: {
+			labelAr: ShoesJson[1].labelAr,
+			labelEn: ShoesJson[1].labelEn,
 			value: "",
 		},
-		[String(WatchesJson[2].labelEn).toLocaleLowerCase()]: {
-			labelAr: WatchesJson[2].labelAr,
-			labelEn: WatchesJson[2].labelEn,
+		[String(ShoesJson[2].labelEn).toLocaleLowerCase()]: {
+			labelAr: ShoesJson[2].labelAr,
+			labelEn: ShoesJson[2].labelEn,
 			value: "",
 		},
-		[String(WatchesJson[3].labelEn).toLocaleLowerCase()]: {
-			labelAr: WatchesJson[3].labelAr,
-			labelEn: WatchesJson[3].labelEn,
+		[String(ShoesJson[3].labelEn).toLocaleLowerCase()]: {
+			labelAr: ShoesJson[3].labelAr,
+			labelEn: ShoesJson[3].labelEn,
 			value: "",
 		},
-		[String(WatchesJson[4].labelEn).toLocaleLowerCase()]: {
-			labelAr: WatchesJson[4].labelAr,
-			labelEn: WatchesJson[4].labelEn,
+		[String(ShoesJson[4].labelEn).toLocaleLowerCase()]: {
+			labelAr: ShoesJson[4].labelAr,
+			labelEn: ShoesJson[4].labelEn,
 			value: "",
 		},
-		[String(WatchesJson[5].labelEn).toLocaleLowerCase()]: {
-			labelAr: WatchesJson[5].labelAr,
-			labelEn: WatchesJson[5].labelEn,
-			value: "",
-		},
-		[String(WatchesJson[6].labelEn).toLocaleLowerCase()]: {
-			labelAr: WatchesJson[6].labelAr,
-			labelEn: WatchesJson[6].labelEn,
+		[String(ShoesJson[5].labelEn).toLocaleLowerCase()]: {
+			labelAr: ShoesJson[5].labelAr,
+			labelEn: ShoesJson[5].labelEn,
 			value: "",
 		},
 	});
@@ -97,35 +92,28 @@ export default function MenWatches({
 		});
 	};
 
-	const modelsOptions = WatchesJson[0].Values.map((value) => {
+	const modelsOptions = ShoesJson[0].Values.map((value) => {
 		return {
 			label: lang === "en" ? value.labelEn : value.labelAr,
 			value: value.labelEn,
 		};
 	});
 
-	const modelsOptions2 = WatchesJson[1].Values.map((value) => {
+	const modelsOptions2 = ShoesJson[1].Values.map((value) => {
 		return {
 			label: lang === "en" ? value.labelEn : value.labelAr,
 			value: value.labelEn,
 		};
 	});
 
-	const modelsOptions3 = WatchesJson[2].Values.map((value) => {
+	const modelsOptions3 = ShoesJson[2].Values.map((value) => {
 		return {
 			label: lang === "en" ? value.labelEn : value.labelAr,
 			value: value.labelEn,
 		};
 	});
 
-	const modelsOptions4 = WatchesJson[3].Values.map((value) => {
-		return {
-			label: lang === "en" ? value.labelEn : value.labelAr,
-			value: value.labelEn,
-		};
-	});
-
-	const modelsOptions5 = WatchesJson[4].Values.map((value) => {
+	const modelsOptions4 = ShoesJson[3].Values.map((value) => {
 		return {
 			label: lang === "en" ? value.labelEn : value.labelAr,
 			value: value.labelEn,
@@ -165,15 +153,15 @@ export default function MenWatches({
 				<div className={`${classes.Type} rounded bg-white mt-4`}>
 					<h3>
 						{lang === "en"
-							? WatchesJson[0].labelEn
-							: WatchesJson[0].labelAr}
+							? ShoesJson[0].labelEn
+							: ShoesJson[0].labelAr}
 					</h3>
 					<div className={"flex justify-start gap-2 flex-wrap"}>
 						<DropDown
 							value={
 								listingDetails[
 									String(
-										WatchesJson[0].labelEn
+										ShoesJson[0].labelEn
 									).toLocaleLowerCase()
 								].value
 							}
@@ -181,11 +169,11 @@ export default function MenWatches({
 								setListingDetails({
 									...listingDetails,
 									[String(
-										WatchesJson[0].labelEn
+										ShoesJson[0].labelEn
 									).toLocaleLowerCase()]: {
 										...listingDetails[
 											String(
-												WatchesJson[0].labelEn
+												ShoesJson[0].labelEn
 											).toLocaleLowerCase()
 										],
 										value: value.value,
@@ -196,8 +184,8 @@ export default function MenWatches({
 							filter={true}
 							placeholder={
 								lang === "en"
-									? WatchesJson[0].labelEn
-									: WatchesJson[0].labelAr
+									? ShoesJson[0].labelEn
+									: ShoesJson[0].labelAr
 							}
 						/>
 					</div>
@@ -206,15 +194,15 @@ export default function MenWatches({
 				<div className={`${classes.Type} rounded bg-white mt-4`}>
 					<h3>
 						{lang === "en"
-							? WatchesJson[1].labelEn
-							: WatchesJson[1].labelAr}
+							? ShoesJson[1].labelEn
+							: ShoesJson[1].labelAr}
 					</h3>
 					<div className={"flex justify-start gap-2 flex-wrap"}>
 						<DropDown
 							value={
 								listingDetails[
 									String(
-										WatchesJson[1].labelEn
+										ShoesJson[1].labelEn
 									).toLocaleLowerCase()
 								].value
 							}
@@ -222,11 +210,11 @@ export default function MenWatches({
 								setListingDetails({
 									...listingDetails,
 									[String(
-										WatchesJson[1].labelEn
+										ShoesJson[1].labelEn
 									).toLocaleLowerCase()]: {
 										...listingDetails[
 											String(
-												WatchesJson[1].labelEn
+												ShoesJson[1].labelEn
 											).toLocaleLowerCase()
 										],
 										value: value.value,
@@ -237,8 +225,8 @@ export default function MenWatches({
 							filter={true}
 							placeholder={
 								lang === "en"
-									? WatchesJson[1].labelEn
-									: WatchesJson[1].labelAr
+									? ShoesJson[1].labelEn
+									: ShoesJson[1].labelAr
 							}
 						/>
 					</div>
@@ -247,15 +235,15 @@ export default function MenWatches({
 				<div className={`${classes.Type} rounded bg-white mt-4`}>
 					<h3>
 						{lang === "en"
-							? WatchesJson[2].labelEn
-							: WatchesJson[2].labelAr}
+							? ShoesJson[2].labelEn
+							: ShoesJson[2].labelAr}
 					</h3>
 					<div className={"flex justify-start gap-2 flex-wrap"}>
 						<DropDown
 							value={
 								listingDetails[
 									String(
-										WatchesJson[2].labelEn
+										ShoesJson[2].labelEn
 									).toLocaleLowerCase()
 								].value
 							}
@@ -263,11 +251,11 @@ export default function MenWatches({
 								setListingDetails({
 									...listingDetails,
 									[String(
-										WatchesJson[2].labelEn
+										ShoesJson[2].labelEn
 									).toLocaleLowerCase()]: {
 										...listingDetails[
 											String(
-												WatchesJson[2].labelEn
+												ShoesJson[2].labelEn
 											).toLocaleLowerCase()
 										],
 										value: value.value,
@@ -278,8 +266,8 @@ export default function MenWatches({
 							filter={true}
 							placeholder={
 								lang === "en"
-									? WatchesJson[2].labelEn
-									: WatchesJson[2].labelAr
+									? ShoesJson[2].labelEn
+									: ShoesJson[2].labelAr
 							}
 						/>
 					</div>
@@ -288,15 +276,15 @@ export default function MenWatches({
 				<div className={`${classes.Type} rounded bg-white mt-4`}>
 					<h3>
 						{lang === "en"
-							? WatchesJson[3].labelEn
-							: WatchesJson[3].labelAr}
+							? ShoesJson[3].labelEn
+							: ShoesJson[3].labelAr}
 					</h3>
 					<div className={"flex justify-start gap-2 flex-wrap"}>
 						<DropDown
 							value={
 								listingDetails[
 									String(
-										WatchesJson[3].labelEn
+										ShoesJson[3].labelEn
 									).toLocaleLowerCase()
 								].value
 							}
@@ -304,11 +292,11 @@ export default function MenWatches({
 								setListingDetails({
 									...listingDetails,
 									[String(
-										WatchesJson[3].labelEn
+										ShoesJson[3].labelEn
 									).toLocaleLowerCase()]: {
 										...listingDetails[
 											String(
-												WatchesJson[3].labelEn
+												ShoesJson[3].labelEn
 											).toLocaleLowerCase()
 										],
 										value: value.value,
@@ -319,49 +307,8 @@ export default function MenWatches({
 							filter={true}
 							placeholder={
 								lang === "en"
-									? WatchesJson[3].labelEn
-									: WatchesJson[3].labelAr
-							}
-						/>
-					</div>
-				</div>
-
-				<div className={`${classes.Type} rounded bg-white mt-4`}>
-					<h3>
-						{lang === "en"
-							? WatchesJson[4].labelEn
-							: WatchesJson[4].labelAr}
-					</h3>
-					<div className={"flex justify-start gap-2 flex-wrap"}>
-						<DropDown
-							value={
-								listingDetails[
-									String(
-										WatchesJson[4].labelEn
-									).toLocaleLowerCase()
-								].value
-							}
-							onChange={(value) => {
-								setListingDetails({
-									...listingDetails,
-									[String(
-										WatchesJson[4].labelEn
-									).toLocaleLowerCase()]: {
-										...listingDetails[
-											String(
-												WatchesJson[4].labelEn
-											).toLocaleLowerCase()
-										],
-										value: value.value,
-									},
-								});
-							}}
-							options={modelsOptions4}
-							filter={true}
-							placeholder={
-								lang === "en"
-									? WatchesJson[4].labelEn
-									: WatchesJson[4].labelAr
+									? ShoesJson[3].labelEn
+									: ShoesJson[3].labelAr
 							}
 						/>
 					</div>
@@ -371,11 +318,11 @@ export default function MenWatches({
 				<div className={`${classes.Type} rounded bg-white mt-4`}>
 					<h3>
 						{lang === "en"
-							? WatchesJson[5].labelEn
-							: WatchesJson[5].labelAr}
+							? ShoesJson[4].labelEn
+							: ShoesJson[4].labelAr}
 					</h3>
 					<div className={"flex justify-start gap-2 flex-wrap"}>
-						{WatchesJson[5].Values.map((value, index) => {
+						{ShoesJson[4].Values.map((value, index) => {
 							return (
 								<RadioComponent
 									key={index}
@@ -383,16 +330,16 @@ export default function MenWatches({
 									value={value.labelEn}
 									textAr={value.labelAr}
 									textEn={value.labelEn}
-									name={String(WatchesJson[5].labelEn)}
+									name={String(ShoesJson[4].labelEn)}
 									onChange={(event) => {
 										setListingDetails({
 											...listingDetails,
 											[String(
-												WatchesJson[5].labelEn
+												ShoesJson[4].labelEn
 											).toLocaleLowerCase()]: {
 												...listingDetails[
 													String(
-														WatchesJson[5].labelEn
+														ShoesJson[4].labelEn
 													).toLocaleLowerCase()
 												],
 												value: event.target.value,
@@ -409,11 +356,11 @@ export default function MenWatches({
 				<div className={`${classes.Type} rounded bg-white mt-4`}>
 					<h3>
 						{lang === "en"
-							? WatchesJson[6].labelEn
-							: WatchesJson[6].labelAr}
+							? ShoesJson[5].labelEn
+							: ShoesJson[5].labelAr}
 					</h3>
 					<div className={"flex justify-start gap-2 flex-wrap"}>
-						{WatchesJson[6].Values.map((value, index) => {
+						{ShoesJson[5].Values.map((value, index) => {
 							return (
 								<RadioComponent
 									key={index}
@@ -421,16 +368,16 @@ export default function MenWatches({
 									value={value.labelEn}
 									textAr={value.labelAr}
 									textEn={value.labelEn}
-									name={String(WatchesJson[6].labelEn)}
+									name={String(ShoesJson[5].labelEn)}
 									onChange={(event) => {
 										setListingDetails({
 											...listingDetails,
 											[String(
-												WatchesJson[6].labelEn
+												ShoesJson[5].labelEn
 											).toLocaleLowerCase()]: {
 												...listingDetails[
 													String(
-														WatchesJson[6].labelEn
+														ShoesJson[5].labelEn
 													).toLocaleLowerCase()
 												],
 												value: event.target.value,

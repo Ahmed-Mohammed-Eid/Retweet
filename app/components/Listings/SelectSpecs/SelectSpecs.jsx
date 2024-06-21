@@ -75,14 +75,14 @@ import AirConditions from "../Forms/Electronics/AirConditions/AirConditions";
 import Receiver from "../Forms/Electronics/Receiver/Receiver";
 
 // WOMEN'S FASHION
-import WomensWear from "../Forms/Women'sFashion/Wear/Wear";
-import Shoes from "../Forms/Women'sFashion/Shoes/Shoes";
-import Bags from "../Forms/Women'sFashion/Bags/Bags";
+import WomensWear from "@/app/components/Listings/Forms/WomensFashion/Wear/Wear";
+import Shoes from "@/app/components/Listings/Forms/WomensFashion/Shoes/Shoes";
+import Bags from "@/app/components/Listings/Forms/WomensFashion/Bags/Bags";
 
 // MEN'S FASHION
-import MensWear from "../Forms/Mes'sFashion/Wear/Wear";
-import MenShoes from "../Forms/Mes'sFashion/Shoes/Shoes";
-import MenWatches from "../Forms/Mes'sFashion/Watches/Watches";
+import MensWear from "@/app/components/Listings/Forms/MensFashion/Wear/Wear";
+import MenShoes from "@/app/components/Listings/Forms/MensFashion/Shoes/Shoes";
+import MenWatches from "@/app/components/Listings/Forms/MensFashion/Watches/Watches";
 
 // BABY AND KIDS
 import BabyAndDidsWear from "../Forms/BabyAndKids/Wear/Wear";
