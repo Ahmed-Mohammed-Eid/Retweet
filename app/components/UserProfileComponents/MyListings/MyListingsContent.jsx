@@ -8,34 +8,33 @@ import ListingCard from "../../Listings/ListingCard/ListingCard"
 import axios from "axios";
 import toast from 'react-hot-toast';
 
-export default function FavouriteContent({lang, authenticated}) {
+export default function MyListingContent({lang, authenticated}) {
 
-    const [favourites, setFavourites] = useState([]);
+    const [myListings, setMyListings] = useState([]);
 
-    // Effect to fetch user's favourites
+    // Effect to fetch user's myListings
     useEffect(() => {
-        // Fetch user's favourites
-        fetchFavourites()
-        // setFavourites(response.data)
-
+        // Fetch user's myListings
+        fetchmyListings()
+        // setMyListings(response.data)
     }, []);
 
-    // GET request to fetch user's favourites from the server
-    async function fetchFavourites() {
+    // GET request to fetch user's myListings from the server
+    async function fetchmyListings() {
         // GET THE TOKEN FROM LOCAL STORAGE
         const token = localStorage.getItem('retweet-token')
 
-        await axios.get(`${process.env.BASE_URL}/my/favorites`, {
+        await axios.get(`${process.env.BASE_URL}/get/user/listings`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         })
         .then(response => {
-            setFavourites(response.data?.favorites?.listings || [])
+            setMyListings(response.data?.listings || [])
         })
         .catch(error => {
             console.log(error)
-            toast.error(lang === 'en' ? 'An error occurred while fetching your favourites' : 'حدث خطأ أثناء جلب المفضلة الخاصة بك')
+            toast.error(lang === 'en' ? 'An error occurred while fetching your myListings' : 'حدث خطأ أثناء جلب المفضلة الخاصة بك')
         })
     }
 
@@ -43,7 +42,7 @@ export default function FavouriteContent({lang, authenticated}) {
     return (
         <div className={'w-full min-h-screen bg-white flex flex-col gap-2 py-6'}>
             {/*  CONTENT  */}
-            {favourites.length > 0 && favourites.map((product, index) => {
+            {myListings.length > 0 && myListings.map((product, index) => {
                 return (
                     <ListingCard key={index} product={product} authenticated={authenticated} removeOnly={true} lang={lang}/>
                 )

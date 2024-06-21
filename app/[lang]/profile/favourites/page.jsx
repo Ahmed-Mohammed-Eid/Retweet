@@ -4,7 +4,7 @@ import useAuthentication from "@/hooks/useAuthentication";
 import {cookies} from "next/headers";
 
 export default async function Ads({params: {lang}}) {
-        
+
     // GET THE TOKEN FROM COOKIES
     const token = cookies().get('retweet-token')?.value;
 
@@ -27,7 +27,7 @@ export default async function Ads({params: {lang}}) {
                 },
             ]}/>
             {/*  CONTENT  */}
-            <FavouriteContent authenticated={authenticated} />
+            <FavouriteContent authenticated={authenticated} lang={lang} />
         </div>
     )
 }

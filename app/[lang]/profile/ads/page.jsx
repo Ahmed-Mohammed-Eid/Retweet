@@ -1,5 +1,5 @@
 import SecondaryNavigation from "@/app/components/LayoutAndHomeComponents/SecondaryNavigation/SecondaryNavigation";
-import AccountHome from "@/app/components/UserProfileComponents/AccountHome/AccountHome";
+import MyListingContent from "@/app/components/UserProfileComponents/MyListings/MyListingsContent";
 
 export default function Ads({params: {lang}}) {
     console.log(lang)
@@ -18,7 +18,7 @@ export default function Ads({params: {lang}}) {
                 },
             ]}/>
             {/*  CONTENT  */}
-            <AccountHome lang={lang}/>
+            <MyListingContent lang={lang}/>
         </div>
     )
 }

@@ -1,124 +1,178 @@
 "use client";
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 import ListingCard from "@/app/components/Listings/ListingCard/ListingCard";
-import {DataView, DataViewLayoutOptions} from 'primereact/dataview';
-import {Paginator} from 'primereact/paginator';
-import {useSearchParams, useRouter} from 'next/navigation';
-import axios from 'axios';
+import { DataView, DataViewLayoutOptions } from "primereact/dataview";
+import { Paginator } from "primereact/paginator";
+import { useSearchParams, useRouter } from "next/navigation";
+import axios from "axios";
+import classes from "./ListingsPartContent.module.scss";
+
+import FilterListingPart from "../FilterListingPart/FilterListingPart";
+import { Dialog } from "primereact/dialog";
 
 // REDUX
-import {useSelector, useDispatch} from 'react-redux';
-import {setListings, setPagination, setPaginationKey} from "@/redux/Slices/listingsSlice";
+import { useSelector, useDispatch } from "react-redux";
+import {
+	setListings,
+	setPagination,
+	setPaginationKey,
+} from "@/redux/Slices/listingsSlice";
+import { Button } from "primereact/button";
+import Image from "next/image";
 
-export default function ListingsPartContent({lang, authenticated}) {
+export default function ListingsPartContent({ lang, authenticated }) {
+	// ROUTER
+	const router = useRouter();
 
-    // ROUTER
-    const router = useRouter();
+	// REDUX
+	const dispatch = useDispatch();
+	const listings = useSelector((state) => state.listings.listings);
+	const { currentPage, itemsPerPage, totalListings } = useSelector(
+		(state) => state.listings.pagination
+	);
 
-    // REDUX
-    const dispatch = useDispatch();
-    const listings = useSelector((state) => state.listings.listings);
-    const {
-        currentPage,
-        itemsPerPage,
-        totalListings,
-    } = useSelector((state) => state.listings.pagination);
+	const [filterDialog, setFilterDialog] = useState(false);
 
-    // STATES
-    const [layout, setLayout] = useState('grid');
+	// SEARCH PARAMS
+	const searchParams = useSearchParams();
 
-    // SEARCH PARAMS
-    const searchParams = useSearchParams();
+	// HANDLERS TO GET THE DATA
+	function getListings(
+		categoryId,
+		subCategoryId,
+		item,
+		location,
+		minPrice,
+		maxPrice,
+		page
+	) {
+		// GET THE TOKEN FROM LOCAL STORAGE
+		const token = localStorage.getItem("retweet-token");
 
-    // HANDLERS TO GET THE DATA
-    function getListings(categoryId, subCategoryId, item, location, minPrice, maxPrice, page) {
-        // GET THE DATA
-        axios.get(`${process.env.BASE_URL}/filtered/listings?categoryId=${categoryId || ''}&subCategoryId=${subCategoryId || ''}&minPrice=${minPrice || ''}&maxPrice=${maxPrice || ''}&city=${location || ''}&page=${page || 1}&item=${item || ''}`)
-            .then((response) => {
-                // SET THE DATA
-                dispatch(setListings(response.data?.data?.listings || []));
-                dispatch(setPagination({
-                    currentPage: response.data?.data?.currentPage,
-                    hasNextPage: response.data?.data?.hasNextPage,
-                    hasPreviousPage: response.data?.data?.hasPreviousPage,
-                    itemsPerPage: response.data?.data?.itemsPerPage,
-                    lastPage: response.data?.data?.lastPage,
-                    maxPrice: response.data?.data?.maxPrice,
-                    nextPage: response.data?.data?.nextPage,
-                    previousPage: response.data?.data?.previousPage,
-                    totalListings: response.data?.data?.totalListings,
-                }));
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }
+		// GET THE DATA
+		axios
+			.get(
+				`${process.env.BASE_URL}/filtered/listings?categoryId=${
+					categoryId || ""
+				}&subCategoryId=${subCategoryId || ""}&minPrice=${
+					minPrice || ""
+				}&maxPrice=${maxPrice || ""}&city=${location || ""}&page=${
+					page || 1
+				}&item=${item || ""}`,
+				{
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: `Bearer ${token}`,
+					},
+				}
+			)
+			.then((response) => {
+				// SET THE DATA
+				dispatch(setListings(response.data?.data?.listings || []));
+				dispatch(
+					setPagination({
+						currentPage: response.data?.data?.currentPage,
+						hasNextPage: response.data?.data?.hasNextPage,
+						hasPreviousPage: response.data?.data?.hasPreviousPage,
+						itemsPerPage: response.data?.data?.itemsPerPage,
+						lastPage: response.data?.data?.lastPage,
+						maxPrice: response.data?.data?.maxPrice,
+						nextPage: response.data?.data?.nextPage,
+						previousPage: response.data?.data?.previousPage,
+						totalListings: response.data?.data?.totalListings,
+					})
+				);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}
 
+	useEffect(() => {
+		// GET THE SEARCH PARAMS
+		const categoryId = searchParams.get("categoryId");
+		const subCategoryId = searchParams.get("subcategoryId");
+		const item = searchParams.get("item");
+		const location = searchParams.get("location");
+		const minPrice = searchParams.get("minPrice");
+		const maxPrice = searchParams.get("maxPrice");
+		const page = searchParams.get("page");
 
-    useEffect(() => {
-        // GET THE SEARCH PARAMS
-        const categoryId = searchParams.get('categoryId');
-        const subCategoryId = searchParams.get('subcategoryId');
-        const item = searchParams.get('item');
-        const location = searchParams.get('location');
-        const minPrice = searchParams.get('minPrice');
-        const maxPrice = searchParams.get('maxPrice');
-        const page = searchParams.get('page');
+		// GET THE PRODUCTS
+		getListings(
+			categoryId,
+			subCategoryId,
+			item,
+			location,
+			minPrice,
+			maxPrice,
+			page
+		);
+	}, [searchParams]);
 
-        // GET THE PRODUCTS
-        getListings(categoryId, subCategoryId, item, location, minPrice, maxPrice, page);
-    }, [searchParams]);
+	return (
+		<div className="card">
+			{/* FILTER ICON BUTTON */}
+			<button
+				className={`${classes.FilterButton}`}
+				onClick={() => setFilterDialog(true)}
+			>
+				<Image
+					src={"/assets/filter.svg"}
+					alt="filter"
+					width={20}
+					height={20}
+				/>
+				Filter
+			</button>
 
+			<div className="grid grid-nogutter">
+				{listings.map((product) => (
+					<div
+						className="col-12 sm:col-6 lg:col-12 xl:col-4 p-2"
+						key={product.id}
+					>
+						<ListingCard
+							product={product}
+							lang={lang}
+							authenticated={authenticated}
+						/>
+					</div>
+				))}
+			</div>
 
-    const itemTemplate = (product) => {
-        return (
-            <div className="col-12 sm:col-6 lg:col-12 xl:col-4 p-2" key={product.id}>
-                <ListingCard product={product} lang={lang} authenticated={authenticated}/>
-            </div>
-        );
-    };
+			<Paginator
+				first={currentPage || 0}
+				rows={itemsPerPage}
+				totalRecords={totalListings}
+				rowsPerPageOptions={[itemsPerPage]}
+				// Next and Previous Buttons are disables if there is no next or previous page
+				alwaysShow={false}
+				onPageChange={(e) => {
+					// CHANGE THE SEARCH PARAMS ADD THE PAGE NUMBER
+					// GET ALL THE SEARCH PARAMS
+					const categoryId = searchParams.get("categoryId");
+					const subcategoryId = searchParams.get("subcategoryId");
+					const item = searchParams.get("item");
+					const location = searchParams.get("location");
+					const minPrice = searchParams.get("minPrice");
+					const maxPrice = searchParams.get("maxPrice");
+					const page = e.page + 1;
+					// UPDATE THE SEARCH PARAMS IN THE URL
+					router.push(
+						`/listings?categoryId=${categoryId}&subcategoryId=${subcategoryId}&item=${item}&location=${location}&minPrice=${minPrice}&maxPrice=${maxPrice}&page=${page}`
+					);
+				}}
+			/>
 
-    const listTemplate = (products) => {
-        return <div className="grid grid-nogutter">{products.map((product) => itemTemplate(product))}</div>;
-    };
-
-    const header = () => {
-        return (
-            <div className="flex justify-content-end">
-                <DataViewLayoutOptions
-                    layout={layout}
-                    onChange={(e) => setLayout(e.value)}
-                    options={[{icon: 'pi pi-th-large', value: 'grid'}, {icon: 'pi pi-bars', value: 'list'}]}
-                    style={{marginLeft: 'auto'}}
-                />
-            </div>
-        );
-    };
-
-    return (
-        <div className="card">
-            <DataView value={listings} listTemplate={listTemplate} layout={layout} header={header()}/>
-            <Paginator
-                first={currentPage || 0}
-                rows={itemsPerPage}
-                totalRecords={totalListings}
-                rowsPerPageOptions={[itemsPerPage]}
-                // Next and Previous Buttons are disables if there is no next or previous page
-                alwaysShow={false}
-                onPageChange={(e) => {
-                    // CHANGE THE SEARCH PARAMS ADD THE PAGE NUMBER
-                    // GET ALL THE SEARCH PARAMS
-                    const categoryId = searchParams.get('categoryId');
-                    const subcategoryId = searchParams.get('subcategoryId');
-                    const item = searchParams.get('item');
-                    const location = searchParams.get('location');
-                    const minPrice = searchParams.get('minPrice');
-                    const maxPrice = searchParams.get('maxPrice');
-                    const page = e.page + 1;
-                    // UPDATE THE SEARCH PARAMS IN THE URL
-                    router.push(`/listings?categoryId=${categoryId}&subcategoryId=${subcategoryId}&item=${item}&location=${location}&minPrice=${minPrice}&maxPrice=${maxPrice}&page=${page}`);
-                }}
-            />
-        </div>
-    );
+			<Dialog
+				header="Filter"
+				visible={filterDialog}
+				style={{ width: "90vw", minWidth: "350px" }}
+				onHide={() => setFilterDialog(false)}
+			>
+				<FilterListingPart lang={lang} />
+			</Dialog>
+		</div>
+	);
 }
