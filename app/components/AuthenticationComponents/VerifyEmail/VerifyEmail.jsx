@@ -57,7 +57,6 @@ export default function VerifyEmail() {
             .then(response => {
                 // Handle the response here
                 const {data} = response;
-                console.log(data);
 
                 if(data?.success) {
                     if(data?.message){

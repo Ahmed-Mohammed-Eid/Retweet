@@ -9,7 +9,6 @@ import {useSearchParams, useRouter} from "next/navigation";
 // REDUX
 import {useSelector} from "react-redux";
 import axios from "axios";
-import {Button} from "primereact/button";
 
 export default function FilterListingPart({lang}) {
 
@@ -70,7 +69,6 @@ export default function FilterListingPart({lang}) {
 
     // EFFECT TO GET THE CATEGORY LIST FROM THE API
     useEffect(() => {
-        console.log("FilterListingPart useEffect");
         // SET THE PRICE RANGE
         setPriceRange([0, maxPrice]);
 
@@ -85,7 +83,6 @@ export default function FilterListingPart({lang}) {
     
     // EFFECT TO UPDATE THE URL SEARCH PARAMS
     useEffect(() => {
-        console.log("FilterListingPart useEffect priceRange");
         // GET THE ITEM
         const item = searchParams.get("item");
 

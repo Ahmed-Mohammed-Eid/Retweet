@@ -3,7 +3,6 @@ import {useEffect} from "react";
 import {useRouter, useSearchParams} from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
-import RedirectAndReload from "@/helpers/redirectAndReload";
 
 export default function SaveGoogleToken() {
 
@@ -67,10 +66,8 @@ export default function SaveGoogleToken() {
                                         setTimeout(() => {
                                             // REDIRECT TO HOME AFTER 1 SECOND
                                             if (hasProfile === 'true') {
-                                                console.log('BEFORE REDIRECT TO HOME');
                                                 router.push('/?redirected=true');
                                             } else {
-                                                console.log('BEFORE REDIRECT TO PROFILE');
                                                 router.push('/profile/settings?redirected=true');
                                             }
                                             // SHOW A SUCCESS MESSAGE

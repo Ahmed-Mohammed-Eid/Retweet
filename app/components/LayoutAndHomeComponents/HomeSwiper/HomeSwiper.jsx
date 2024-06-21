@@ -1,7 +1,5 @@
 "use client";
 
-"use client"
-
 // import Swiper core and required modules
 import {Navigation, Pagination, A11y, Autoplay} from 'swiper/modules';
 import {Swiper, SwiperSlide} from 'swiper/react';

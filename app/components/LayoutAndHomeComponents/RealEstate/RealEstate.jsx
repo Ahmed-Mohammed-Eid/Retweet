@@ -2,7 +2,7 @@
 
 import classes from "./RealEstate.module.scss";
 import Card from "@/app/components/LayoutAndHomeComponents/Card/Card";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import axios from "axios";
 import Image from "next/image";
 
@@ -15,16 +15,13 @@ export default function RealEstate({dictionary}) {
     const realEstate = useSelector(state => state.home.advertisements.realestates) || [];
     const clientsAds = useSelector(state => state.home.clientsAds.thirdAd) || [];
 
-    // Fetch latest ads from server
-    function getRealAds() {
 
-    }
     function getBottomAd() {
         // Fetch data from server
         axios.get(`${process.env.BASE_URL}/all/home/ads`)
             .then(response => {
-                const ads = response.data.homeAds.thirdAd;
-                setAds(ads);
+                // const ads = response.data.homeAds.thirdAd;
+                // setAds(ads);
             })
             .catch(error => {
                 console.log(error);
@@ -34,7 +31,6 @@ export default function RealEstate({dictionary}) {
     // Fetch latest ads on component mount
     useEffect(() => {
         getBottomAd();
-        getRealAds();
     }, []);
 
 

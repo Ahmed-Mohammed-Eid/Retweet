@@ -2,6 +2,10 @@
     width: 270px;
     height: 322px;
 
+    @media screen and (max-width: 584px){
+        margin: auto;
+    }
+
     &__Img{
         position: relative;
         display: flex;

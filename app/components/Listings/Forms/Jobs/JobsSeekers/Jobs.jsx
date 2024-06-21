@@ -1,18 +1,13 @@
 "use client";
 import classes from "./Jobs.module.scss";
 import Hint from "@/app/components/Listings/Hint/Hint";
-import RadioComponent from "@/app/components/Listings/RadioComponent/RadioComponent";
 import DropDown from "@/app/components/Listings/DropDown/DropDown";
 import Location from "@/app/components/Listings/Forms/Globals/Location";
 import Description from "@/app/components/Listings/Forms/Globals/Description";
-import { MultiSelect } from "primereact/multiselect";
 import { useState } from "react";
 import Price from "@/app/components/Listings/Forms/Globals/Price";
 import ContactInformation from "@/app/components/Listings/Forms/Globals/ContactInformation";
 import CategoryInfo from "@/app/components/Listings/Forms/Globals/CategoryInfo";
-import CarsDropdown from "@/app/components/Listings/Forms/Globals/CarsDropdown";
-import ColorDropDown from "@/app/components/Listings/Forms/Globals/ColorDropDown";
-import { Calendar } from "primereact/calendar";
 
 // JSON DATA
 import JobsSeekersJson from "@/Json_Data/Jobs/JobsSeekers.json";

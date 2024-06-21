@@ -46,7 +46,6 @@ export default function AccountSettingsContent({lang, user}) {
     const handleImageChange = (e) => {
         e.preventDefault();
 
-        console.log(e.target.files[0]);
 
         let reader = new FileReader();
         let file = e.target.files[0];

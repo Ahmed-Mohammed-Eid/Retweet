@@ -2,7 +2,6 @@ import SecondaryNavigation from "@/app/components/LayoutAndHomeComponents/Second
 import MyListingContent from "@/app/components/UserProfileComponents/MyListings/MyListingsContent";
 
 export default function Ads({params: {lang}}) {
-    console.log(lang)
     return (
         <div className={'w-full min-h-screen'}>
             <SecondaryNavigation arrayOfLinks={[

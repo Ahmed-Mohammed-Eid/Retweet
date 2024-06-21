@@ -44,7 +44,6 @@ export default function Card({ dictionary, data, lang }) {
 					}
 				)
 				.then((response) => {
-					console.log(response);
 					setIsFavourite(true);
 				})
 				.catch((error) => {
@@ -61,7 +60,6 @@ export default function Card({ dictionary, data, lang }) {
 					},
 				})
 				.then((response) => {
-					console.log(response);
 					setIsFavourite(false);
 				})
 				.catch((error) => {

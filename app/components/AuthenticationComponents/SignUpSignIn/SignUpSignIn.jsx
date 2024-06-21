@@ -79,8 +79,6 @@ export default function SignUpSignIn({lang}) {
                         formType: 'login'
                     })
                         .then(res => {
-                            console.log(res.data)
-
                             // SAVE THE TOKEN IN LOCAL STORAGE AND COOKIES
                             localStorage.setItem('retweet-token', data.token);
                             // SAVE THE USER ID IN LOCAL STORAGE AND COOKIES
@@ -148,7 +146,6 @@ export default function SignUpSignIn({lang}) {
             .then(async response => {
                 // GET THE DATA
                 const data = response.data;
-                // CONSOLE LOG DATA
                 if (data?.success) {
 
                     await axios.post(`/api/setLoginCookies`, {
@@ -157,7 +154,6 @@ export default function SignUpSignIn({lang}) {
                         formType: 'signup'
                     })
                         .then(res => {
-                            console.log(res.data)
                         })
                         .catch(error => {
                             console.log(error);

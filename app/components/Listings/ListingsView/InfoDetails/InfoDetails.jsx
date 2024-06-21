@@ -20,7 +20,7 @@ export default function InfoDetails({listing, lang}) {
                 <h2 className="text-2xl font-bold text-left mt-8 mb-4">
                     {lang === "en" ? "Information" : "معلومات"}
                 </h2>
-                <div className="grid grid-cols-2 gap-2 mb-8">
+                <div className="grid grid-cols-1 gap-2 mb-8 md:grid-cols-2">
                     {ArrayListingSpecs?.map((info, index) => {
                         const firstColor = "#3A9BB630";
                         const secondColor = "#FFFFFF";

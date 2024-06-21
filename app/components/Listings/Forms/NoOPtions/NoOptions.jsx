@@ -1,14 +1,11 @@
 "use client";
 import classes from "./NoOptions.module.scss";
-import Hint from "@/app/components/Listings/Hint/Hint";
-import RadioComponent from "@/app/components/Listings/RadioComponent/RadioComponent";
 import Location from "@/app/components/Listings/Forms/Globals/Location";
 import Description from "@/app/components/Listings/Forms/Globals/Description";
 import {useState} from "react";
 import Price from "@/app/components/Listings/Forms/Globals/Price";
 import ContactInformation from "@/app/components/Listings/Forms/Globals/ContactInformation";
 import CategoryInfo from "@/app/components/Listings/Forms/Globals/CategoryInfo";
-import ColorDropDown from "@/app/components/Listings/Forms/Globals/ColorDropDown";
 
 export default function NoOptions({
                                        lang,

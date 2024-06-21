@@ -36,8 +36,7 @@ function ListingCard({ product, lang, authenticated, removeOnly }) {
 						},
 					}
 				)
-				.then((response) => {
-					console.log(response);
+				.then((_) => {
 					setIsFavourite(true);
 				})
 				.catch((error) => {
@@ -54,7 +53,6 @@ function ListingCard({ product, lang, authenticated, removeOnly }) {
 					},
 				})
 				.then((response) => {
-					console.log(response);
 					setIsFavourite(false);
 				})
 				.catch((error) => {

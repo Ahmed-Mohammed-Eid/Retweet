@@ -12,7 +12,7 @@ import {useRouter} from "next/navigation";
 import {Sidebar} from 'primereact/sidebar';
 
 // REDUX
-import {useSelector, useDispatch} from "react-redux";
+import {useDispatch} from "react-redux";
 import {updateUserInformation, updateUserCountryInformation} from "@/redux/Slices/mainLayoutSlice";
 
 function Navbar({lang, auth, country, userData}) {
@@ -226,7 +226,7 @@ function Navbar({lang, auth, country, userData}) {
                 {/* LOGOUT */}
                 {auth && (<div className={`${subClasses.Sidebar__logout} mb-4`}>
                     <Button onClick={onLogout}>
-                        <Image src={'/assets/home/logout.svg'} alt={'logout'} width={19} height={19}/>
+                        <Image src={'/assets/home/Logout.svg'} alt={'logout'} width={19} height={19}/>
                         <span>{lang === 'en' ? 'Logout' : 'تسجيل الخروج'}</span>
                     </Button>
                 </div>)}

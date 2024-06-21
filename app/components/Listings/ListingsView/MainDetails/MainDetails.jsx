@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import classes from './MainDetails.module.scss';
 import Image from 'next/image';
 
@@ -11,7 +11,6 @@ export default function MainDetails({lang, listing}) {
     // EFFECT TO SET MAIN IMAGE
     useEffect(() => {
         if (listing) {
-            console.log(listing);
             setMainImage(listing.listingImages[0]);
         }
     }, [listing]);

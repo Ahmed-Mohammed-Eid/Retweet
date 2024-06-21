@@ -2,7 +2,6 @@ import SecondaryNavigation from "@/app/components/LayoutAndHomeComponents/Second
 import AccountHome from "@/app/components/UserProfileComponents/AccountHome/AccountHome";
 
 export default function Account({params: {lang}}) {
-    console.log(lang)
     return (
         <div className={'w-full min-h-screen'}>
             <SecondaryNavigation arrayOfLinks={[

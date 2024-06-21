@@ -45,7 +45,6 @@ export default function CarsCard({ dictionary, data }) {
 					}
 				)
 				.then((response) => {
-					console.log(response);
 					setIsFavourite(true);
 				})
 				.catch((error) => {
@@ -62,7 +61,6 @@ export default function CarsCard({ dictionary, data }) {
 					},
 				})
 				.then((response) => {
-					console.log(response);
 					setIsFavourite(false);
 				})
 				.catch((error) => {

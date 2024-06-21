@@ -10,9 +10,6 @@ import { useState } from "react";
 import Price from "@/app/components/Listings/Forms/Globals/Price";
 import ContactInformation from "@/app/components/Listings/Forms/Globals/ContactInformation";
 import CategoryInfo from "@/app/components/Listings/Forms/Globals/CategoryInfo";
-import CarsDropdown from "@/app/components/Listings/Forms/Globals/CarsDropdown";
-import ColorDropDown from "@/app/components/Listings/Forms/Globals/ColorDropDown";
-import { Calendar } from "primereact/calendar";
 
 // JSON DATA
 import VacanciesJson from "@/Json_Data/Jobs/vacancies.json";

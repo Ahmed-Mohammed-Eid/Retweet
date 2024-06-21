@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useState} from "react";
+import React from "react";
 import {Slider} from "primereact/slider";
 
 export default function PriceRange({max, range = [0, 100], change = () => {}}) {

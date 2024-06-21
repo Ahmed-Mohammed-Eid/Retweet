@@ -1,7 +1,6 @@
 "use client";
 import React, {useState, useEffect} from "react";
 import ListingCard from "@/app/components/Listings/ListingCard/ListingCard";
-import {DataView, DataViewLayoutOptions} from "primereact/dataview";
 import {Paginator} from "primereact/paginator";
 import {useSearchParams, useRouter} from "next/navigation";
 import axios from "axios";
@@ -15,9 +14,7 @@ import {useSelector, useDispatch} from "react-redux";
 import {
     setListings,
     setPagination,
-    setPaginationKey,
 } from "@/redux/Slices/listingsSlice";
-import {Button} from "primereact/button";
 import Image from "next/image";
 
 export default function ListingsPartContent({lang, authenticated, isMainFilterHidden}) {

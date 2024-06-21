@@ -1,6 +1,5 @@
 "use client";
 import classes from "./LoadingPageContent.module.scss";
-import Script from "next/script";
 import Image from "next/image";
 
 const LoadingPageContent = () => {
