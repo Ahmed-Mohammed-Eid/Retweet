@@ -963,7 +963,7 @@ export default function SelectSpecs({ lang }) {
 				<Bathrooms
 					lang={lang}
 					categoryName={"Home & Garden"}
-					subCategoryName={"HouseLighting"}
+					subCategoryName={"Bathrooms"}
 					submit={(values) => {
 						handleSubmit(
 							values.description.title,
@@ -988,7 +988,7 @@ export default function SelectSpecs({ lang }) {
 				<TilesFlooring
 					lang={lang}
 					categoryName={"Home & Garden"}
-					subCategoryName={"HouseLighting"}
+					subCategoryName={"Tiles Flooring"}
 					submit={(values) => {
 						handleSubmit(
 							values.description.title,
@@ -1013,7 +1013,7 @@ export default function SelectSpecs({ lang }) {
 				<HouseLighting
 					lang={lang}
 					categoryName={"Home & Garden"}
-					subCategoryName={"HouseLighting"}
+					subCategoryName={"House Lighting"}
 					submit={(values) => {
 						handleSubmit(
 							values.description.title,
@@ -1182,7 +1182,7 @@ export default function SelectSpecs({ lang }) {
 				/>
 			)}
 
-			{/* MOTROCYCLES */}
+			{/* MOTORCYCLES */}
 			{selectedCategory === "bikes" && (
 				<Bikes
 					lang={lang}
@@ -1453,7 +1453,7 @@ export default function SelectSpecs({ lang }) {
 				<Furneces
 					lang={lang}
 					categoryName={"Electronics"}
-					subCategoryName={"Furneces & Heaters"}
+					subCategoryName={"Furnaces & Heaters"}
 					submit={(values) => {
 						handleSubmit(
 							values.description.title,
@@ -1525,7 +1525,7 @@ export default function SelectSpecs({ lang }) {
 				<Receiver
 					lang={lang}
 					categoryName={"Electronics"}
-					subCategoryName={"Electronic Recievers"}
+					subCategoryName={"Electronic Receivers"}
 					submit={(values) => {
 						handleSubmit(
 							values.description.title,
@@ -1548,7 +1548,7 @@ export default function SelectSpecs({ lang }) {
 			{/* WOMEN'S FASHION */}
 
 			{/* SHOES */}
-			{selectedCategory === "women'sWear" && (
+			{selectedCategory === "womenWear" && (
 				<WomensWear
 					lang={lang}
 					categoryName={"Women's Fashion"}
@@ -1573,7 +1573,7 @@ export default function SelectSpecs({ lang }) {
 			)}
 
 			{/* SHOES */}
-			{selectedCategory === "women'sShoes" && (
+			{selectedCategory === "womenShoes" && (
 				<Shoes
 					lang={lang}
 					categoryName={"Women's Fashion"}
@@ -1598,7 +1598,7 @@ export default function SelectSpecs({ lang }) {
 			)}
 
 			{/* BAGS */}
-			{selectedCategory === "women'sBags" && (
+			{selectedCategory === "womenBags" && (
 				<Bags
 					lang={lang}
 					categoryName={"Women's Fashion"}
@@ -1624,7 +1624,7 @@ export default function SelectSpecs({ lang }) {
 
 			{/* MEN'S FASHION */}
 			{/* WEAR */}
-			{selectedCategory === "men'sWear" && (
+			{selectedCategory === "menWear" && (
 				<MensWear
 					lang={lang}
 					categoryName={"Men's Fashion"}
@@ -1649,7 +1649,7 @@ export default function SelectSpecs({ lang }) {
 			)}
 
 			{/* SHOES */}
-			{selectedCategory === "men'sShoes" && (
+			{selectedCategory === "menShoes" && (
 				<MenShoes
 					lang={lang}
 					categoryName={"Men's Fashion"}
@@ -1674,7 +1674,7 @@ export default function SelectSpecs({ lang }) {
 			)}
 
 			{/* WATCHES */}
-			{selectedCategory === "men'sWatches" && (
+			{selectedCategory === "menWatches" && (
 				<MenWatches
 					lang={lang}
 					categoryName={"Men's Fashion"}
@@ -1773,11 +1773,7 @@ export default function SelectSpecs({ lang }) {
 					}}
 				/>
 			)}
-
-
-
-
-
+			
 
 			{/* GENERAL*/}
 			{selectedCategory === "general" && (
