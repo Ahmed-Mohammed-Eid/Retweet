@@ -13,4 +13,13 @@
     &__Item:nth-child(even) {
         background-color: #FFFFFF;
     }
+
+    @media screen and (max-width: 768px) {
+        padding: 20px;
+
+
+        &__Item{
+            width: 100%;
+        }
+    }
 }

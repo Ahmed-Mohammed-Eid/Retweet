@@ -2,9 +2,9 @@
 
 import FilterListingPart from "@/app/components/Listings/FilterListingPart/FilterListingPart";
 import ListingsPartContent from "@/app/components/Listings/ListingsPartContent/ListingsPartContent";
+import SecondaryNavigation from "@/app/components/LayoutAndHomeComponents/SecondaryNavigation/SecondaryNavigation";
 import classes from "./listings.module.scss";
 import {useEffect, useState} from "react";
-
 
 
 export default async function Listings({params: {lang}}) {
@@ -68,13 +68,31 @@ export default async function Listings({params: {lang}}) {
     }, []);
 
     return (
-        <div className={`${classes.ContentContainer}`}>
-            <div className={`${classes.Filter}`}>
-                {isFilterHidden ? null : <FilterListingPart lang={lang}/> }
+        <>
+            <div className={"mb-2"}>
+                <SecondaryNavigation
+                    arrayOfLinks={[
+                        {
+                            text: 'Home',
+                            icon: '/assets/home/House.svg',
+                            href: '/',
+                            arrow: true,
+                        },
+                        {
+                            href: '/listings',
+                            text: 'Listings'
+                        }
+                    ]}
+                />
             </div>
-            <div className={`${classes.Cards}`}>
-                <ListingsPartContent lang={lang} authenticated={authenticated} isMainFilterHidden={isFilterHidden}/>
+            <div className={`${classes.ContentContainer}`}>
+                <div className={`${classes.Filter}`}>
+                    {isFilterHidden ? null : <FilterListingPart lang={lang}/>}
+                </div>
+                <div className={`${classes.Cards}`}>
+                    <ListingsPartContent lang={lang} authenticated={authenticated} isMainFilterHidden={isFilterHidden}/>
+                </div>
             </div>
-        </div>
+        </>
     )
 }

@@ -34,12 +34,12 @@ export default function InfoDetails({listing, lang}) {
                         return (
                             <div
                                 key={index}
-                                className={`flex items-center justify-between p-4 border border-gray-200 rounded-lg ${(index + 1 === ArrayListingSpecs.length && (index + 1) % 2 !== 0) ? "col-span-2" : ""}`}
+                                className={`col-span-2 md:col-span-1 flex items-center flex-wrap justify-between p-4 border border-gray-200 rounded-lg ${(index + 1 === ArrayListingSpecs.length && (index + 1) % 2 !== 0) ? "md:col-span-2" : ""}`}
                                 style={{
                                     backgroundColor: color, // Apply the background color here
                                 }}
                             >
-                                <p className="text-base font-medium text-left">
+                                <p className="text-base text-left uppercase font-bold">
                                     {lang === "en" ? info?.labelEn : info?.labelAr}
                                 </p>
                                 <p className="text-base font-normal text-right">
