@@ -289,7 +289,7 @@ export default function SignUpSignIn({lang}) {
                 <div className={`${classes.ContentContainer__FormContainer__SocialMedia}`}>
                     <button
                         className={`${classes.ContentContainer__FormContainer__SocialMedia__Button}`}
-                        onClick={onLoginClick}
+                        onClick={onGoogleSignIn}
                     >
                         <Image src="/assets/authentication/Google.png" width={20} height={20} alt="google"/>
                         <span>Sign Up with Google</span>

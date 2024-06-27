@@ -5,6 +5,8 @@ import {defaultLocale} from "@/middleware";
 import {Toaster} from 'react-hot-toast';
 import {cookies} from "next/headers";
 
+// NEXT REQUEST
+import {NextRequest} from "next/server";
 
 // CUSTOM COMPONENTS
 import ClientLayout from "@/app/[lang]/ClientLayout";
@@ -75,8 +77,7 @@ export const metadata = {
         icons: {
             icon: '/assets/home/favicon.ico',
         }
-    }
-;
+    };
 
 export default async function RootLayout({children, params}) {
 

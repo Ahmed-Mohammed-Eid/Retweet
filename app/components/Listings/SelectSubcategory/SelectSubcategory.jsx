@@ -38,8 +38,8 @@ export default function SelectSubcategory({lang}) {
             }
         })
             .then(response => {
-                const categories = response.data.subCategories;
-                const formType = response.data.formType;
+                const categories = response.data?.subCategories;
+                const formType = response.data?.formType;
 
                 if(categories.length === 0) {
                     router.push(`/listings/select-item?category=${categoryId}&subCategory=&formType=${'noOptions'}&item=`);
@@ -51,7 +51,8 @@ export default function SelectSubcategory({lang}) {
                 setFormType(formType || '')
             })
             .catch(error => {
-                toast.error(lang === 'en' ? 'An error occurred' : 'حذث خطأ ما أثناء تحميل البيانات');
+                console.error(error);
+                toast.error(lang === 'en' ? error.response?.data?.message : 'حذث خطأ ما أثناء تحميل البيانات');
             })
     }, [lang]);
 
