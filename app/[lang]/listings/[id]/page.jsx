@@ -32,15 +32,36 @@ export async function generateMetadata({params}) {
     const seoData = await getSeo(params.id);
     const listing = seoData?.listing;
 
+    // CONSOLE THE IMAGE
+    console.log(listing?.listingImages[0]);
+
     // RETURN METADATA
     return {
         title: listing?.listingTitle,
         description: listing?.listingDescription,
         keywords: listing?.listingTitle + " " + listing?.listingDescription,
         type: "article",
-        url: `${process.env.BASE_URL}/en/listing/${params.id}`,
+        url: `https://retweet.com/en/listing/${params.id}`,
         site_name: "retweet",
-        image: listing?.listingImages[0]?.listingImageUrl,
+        openGraph: {
+            type: "website",
+            locale: "en_US",
+            url: `https://retweet.com/en/listing/${params.id}`,
+            title: listing?.listingTitle,
+            description: listing?.listingDescription,
+            image: listing?.listingImages[0],
+            site_name: "retweet",
+            imageWidth: 1200,
+            imageHeight: 630,
+        },
+        twitter: {
+            handle: "@retweet",
+            site: "@retweet",
+            cardType: "summary_large_image",
+            title: listing?.listingTitle,
+            description: listing?.listingDescription,
+            image: listing?.listingImages[0],
+        },
     }
 }
 

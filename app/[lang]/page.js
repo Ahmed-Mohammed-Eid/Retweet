@@ -22,6 +22,28 @@ export async function generateMetadata({params}) {
         title: lang === 'en' ? seo.pageTitleEn : seo.pageTitleAr,
         description: lang === 'en' ? seo.descriptionEn : seo.descriptionAr,
         keywords: lang === 'en' ? seo.keywordsEn : seo.keywordsAr,
+        type: "website",
+        url: `https://retweet.com/${lang}`,
+        site_name: "retweet",
+        openGraph: {
+            type: "website",
+            locale: lang === 'en' ? "en_US" : "ar_AR",
+            url: `https://retweet.com/${lang}`,
+            title: lang === 'en' ? seo.pageTitleEn : seo.pageTitleAr,
+            description: lang === 'en' ? seo.descriptionEn : seo.descriptionAr,
+            image: seo.image,
+            site_name: "retweet",
+            imageWidth: 1200,
+            imageHeight: 630,
+        },
+        twitter: {
+            handle: "@retweet",
+            site: "@retweet",
+            cardType: "summary_large_image",
+            title: lang === 'en' ? seo.pageTitleEn : seo.pageTitleAr,
+            description: lang === 'en' ? seo.descriptionEn : seo.descriptionAr,
+            image: seo.image,
+        },
     }
 }
 
