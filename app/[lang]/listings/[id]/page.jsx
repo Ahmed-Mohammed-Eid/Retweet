@@ -36,7 +36,11 @@ export async function generateMetadata({params}) {
     return {
         title: listing?.listingTitle,
         description: listing?.listingDescription,
-        keywords: listing?.listingTitle + " " + listing?.listingDescription
+        keywords: listing?.listingTitle + " " + listing?.listingDescription,
+        type: "article",
+        url: `${process.env.BASE_URL}/en/listing/${params.id}`,
+        site_name: "retweet",
+        image: listing?.listingImages[0]?.listingImageUrl,
     }
 }
 

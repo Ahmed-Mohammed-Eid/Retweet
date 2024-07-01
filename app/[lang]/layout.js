@@ -15,9 +15,7 @@ import Footer from "@/app/components/LayoutAndHomeComponents/Footer/Footer";
 // CUSTOM HOOKS
 import useAuthentication from "@/hooks/useAuthentication";
 
-
 // METADATA
-
 export const metadata = {
         generator: "Retweet",
         title: "ريتويت | اعلانات مبوبة مجانية",

@@ -5,6 +5,8 @@ import classes from './MainDetails.module.scss';
 import Image from 'next/image';
 
 
+
+
 export default function MainDetails({lang, listing}) {
     const [mainImage, setMainImage] = useState();
 
