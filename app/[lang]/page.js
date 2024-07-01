@@ -42,7 +42,11 @@ export async function generateMetadata({params}) {
             cardType: "summary_large_image",
             title: lang === 'en' ? seo.pageTitleEn : seo.pageTitleAr,
             description: lang === 'en' ? seo.descriptionEn : seo.descriptionAr,
-            image: seo.image,
+            images: [{
+                url: seo.image,
+                width: 1200,
+                height: 630
+            }]
         },
     }
 }

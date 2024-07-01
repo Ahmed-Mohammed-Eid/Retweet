@@ -31,10 +31,7 @@ export async function generateMetadata({params}) {
     // GET SEO DATA
     const seoData = await getSeo(params.id);
     const listing = seoData?.listing;
-
-    // CONSOLE THE IMAGE
-    console.log(listing?.listingImages[0]);
-
+    
     // RETURN METADATA
     return {
         title: listing?.listingTitle,
@@ -60,7 +57,11 @@ export async function generateMetadata({params}) {
             cardType: "summary_large_image",
             title: listing?.listingTitle,
             description: listing?.listingDescription,
-            image: listing?.listingImages[0],
+            images: [{
+                url: listing?.listingImages[0],
+                width: 1200,
+                height: 630
+            }]
         },
     }
 }
