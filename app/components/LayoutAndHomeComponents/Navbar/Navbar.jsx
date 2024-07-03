@@ -13,7 +13,7 @@ import {Sidebar} from 'primereact/sidebar';
 
 // REDUX
 import {useDispatch} from "react-redux";
-import {updateUserInformation, updateUserCountryInformation} from "@/redux/Slices/mainLayoutSlice";
+import {updateUserInformation, updateUserCountryInformation, setIsAuthenticated} from "@/redux/Slices/mainLayoutSlice";
 
 function Navbar({lang, auth, country, userData}) {
 
@@ -31,6 +31,9 @@ function Navbar({lang, auth, country, userData}) {
 
     // UPDATE USER COUNTRY INFORMATION
     dispatch(updateUserCountryInformation(country));
+
+    // SET AUTHENTICATED
+    dispatch(setIsAuthenticated(auth));
 
     // LOGOUT
     const onLogout = (event) => {

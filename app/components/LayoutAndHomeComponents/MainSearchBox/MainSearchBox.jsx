@@ -8,8 +8,8 @@ import toast from "react-hot-toast";
 import axios from "axios";
 
 // REDUX
-import {useDispatch} from 'react-redux';
-import {setListings} from "@/redux/Slices/listingsSlice";
+import {useDispatch, useSelector} from 'react-redux';
+import {setSearchListings, setSearchPagination, setSearchQuery} from "@/redux/Slices/listingsSlice";
 
 // ROUTER
 import {useRouter} from 'next/navigation';
@@ -23,7 +23,7 @@ export default function MainSearchBox({ lang }) {
     const dispatch = useDispatch();
 
     // STATES
-	const [searchQuery, setSearchQuery] = React.useState("");
+	const searchQuery = useSelector((state) => state.listings.searchQuery);
 
 	function handleSearch() {
 		// GET THE TOKEN FROM LOCAL STORAGE
@@ -46,13 +46,24 @@ export default function MainSearchBox({ lang }) {
 				},
 			})
 			.then((response) => {
-				const listings = response.data?.data?.listings || [];
+				const data = response?.data?.data;
+				const listings = data?.listings || [];
+				const pagination = {
+					currentPage: data?.currentPage || null,
+					hasNextPage: data?.hasNextPage || false,
+					hasPreviousPage: data?.hasPreviousPage || false,
+					itemsPerPage: data?.itemsPerPage || 20,
+					lastPage: data?.lastPage || 1,
+					nextPage: data?.nextPage || null,
+					previousPage: data?.previousPage || null,
+				};
 
                 new Promise((resolve, reject) => {
                     router.push('/listings/search')
                     resolve()
                 }).then(() =>{
-                    dispatch(setListings(listings));
+                    dispatch(setSearchListings(listings));
+					dispatch(setSearchPagination(pagination));
                 })
 			})
 			.catch((error) => {
@@ -69,7 +80,7 @@ export default function MainSearchBox({ lang }) {
 				}
 				className={classes.SearchBox__input}
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => dispatch(setSearchQuery({query: e.target.value}))}
 				onKeyPress={(e) => {
 					if (e.key === "Enter") {
 						handleSearch();

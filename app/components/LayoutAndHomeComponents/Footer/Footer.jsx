@@ -11,16 +11,16 @@ export default function Footer() {
                         </div>
                         <ul className="list-reset text-gray-500 text-sm pt-3 flex flex-col">
                             <li className="inline-block py-2 px-1">
-                                <a href="#" className="text-gray-500 no-underline hover:underline">Account</a>
+                                <a href="/profile/account" className="text-gray-500 no-underline hover:underline">Account</a>
                             </li>
                             <li className="inline-block py-2 px-1">
-                                <a href="#" className="text-gray-500 no-underline hover:underline">My Account</a>
+                                <a href="/profile/ads" className="text-gray-500 no-underline hover:underline">My Account</a>
                             </li>
                             <li className="inline-block py-2 px-1">
-                                <a href="#" className="text-gray-500 no-underline hover:underline">Login/Register</a>
+                                <a href="/auth/login" className="text-gray-500 no-underline hover:underline">Login/Register</a>
                             </li>
                             <li className="inline-block py-2 px-1">
-                                <a href="#" className="text-gray-500 no-underline hover:underline">Cart</a>
+                                <a href="/profile/favourites" className="text-gray-500 no-underline hover:underline">Favourites</a>
                             </li>
                         </ul>
                     </div>
@@ -56,7 +56,7 @@ export default function Footer() {
                                     {/*  TEXT  */}
                                     <div className={"grow flex flex-col text-white"}>
                                         <span>Whats App</span>
-                                        <a href="tel:0123456789">0123456789</a>
+                                        <a href="https://wa.me/96550563399" target={"_blank"}>+965 505 63399</a>
                                     </div>
                                 </div>
                             </li>
@@ -69,7 +69,7 @@ export default function Footer() {
                                     {/*  TEXT  */}
                                     <div className={"grow flex flex-col text-white"}>
                                         <span>Call Us</span>
-                                        <a href="tel:0123456789">0123456789</a>
+                                        <a href="tel:+96550563399">+965 505 63399</a>
                                     </div>
                                 </div>
                             </li>
@@ -82,7 +82,7 @@ export default function Footer() {
                                     {/*  TEXT  */}
                                     <div className={"grow flex flex-col text-white"}>
                                         <span>Email</span>
-                                        <a href="tel:0123456789">Mr.sni9er@gmail.com</a>
+                                        <a href="mailto:like50563399@gmail.com">like50563399@gmail.com</a>
                                     </div>
                                 </div>
                             </li>

@@ -14,7 +14,8 @@ const initialState = {
     },
     userCountryInformation: {
 
-    }
+    },
+    isAuthenticated: false,
 };
 
 export const counterSlice = createSlice({
@@ -26,10 +27,13 @@ export const counterSlice = createSlice({
         },
         updateUserCountryInformation: (state, action) => {
             state.userCountryInformation = action.payload;
+        },
+        setIsAuthenticated: (state, action) => {
+            state.isAuthenticated = action.payload;
         }
     },
 });
 
-export const { updateUserInformation, updateUserCountryInformation } = counterSlice.actions
+export const { updateUserInformation, updateUserCountryInformation, setIsAuthenticated } = counterSlice.actions
 
 export default counterSlice.reducer;
