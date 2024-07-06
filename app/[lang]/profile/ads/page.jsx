@@ -11,6 +11,11 @@ export default function Ads({params: {lang}}) {
                     arrow: true
                 },
                 {
+                    href: '/profile/account',
+                    text: 'Profile',
+                    arrow: true
+                },
+                {
                     href: '/profile/ads',
                     text: 'Ads',
                     arrow: false

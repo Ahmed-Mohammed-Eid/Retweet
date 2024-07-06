@@ -18,7 +18,7 @@ export default function CarsAndBikes({dictionary}) {
                     <h2>Cars And Bikes</h2>
                 </div>
                 <div>
-                    <button>View All <span>&rarr;</span></button>
+                    {/*<button>View All <span>&rarr;</span></button>*/}
                 </div>
             </div>
             <div className={classes.RealEstate__Container}>

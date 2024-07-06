@@ -11,6 +11,7 @@ import Price from "@/app/components/Listings/Forms/Globals/Price";
 import ContactInformation from "@/app/components/Listings/Forms/Globals/ContactInformation";
 import CategoryInfo from "@/app/components/Listings/Forms/Globals/CategoryInfo";
 import ColorDropDown from "@/app/components/Listings/Forms/Globals/ColorDropDown";
+import Spinner from "@/app/components/LayoutAndHomeComponents/Spinner/Spinner";
 
 // IMPORT MOBILE BRANDS
 import mobiles from '@/public/assets/json/tecjnologyBrands.json';
@@ -20,7 +21,8 @@ export default function MobileForm({
                                        categoryName,
                                        subCategoryName,
                                        submit = () => {
-                                       }
+                                       },
+                                       loading = false,
                                    }) {
 
     // LISTING DETAILS PART
@@ -857,7 +859,9 @@ export default function MobileForm({
                 <button
                     className={'bg-primary text-white p-4 rounded w-full mr-auto button--effect-small flex justify-center items-center gap-2'}
                     onClick={handleSubmit}
+                    disabled={loading}
                 >
+                    {loading && <Spinner/>}
                     <span
                         className={'uppercase'}>{lang === 'en' ? 'Save and PUBLISH listing' : 'حفظ ونشر القائمة'}</span>
                     <span>{lang === 'en' ? '→' : '←'}</span>

@@ -9,6 +9,7 @@ import { useState } from "react";
 import Price from "@/app/components/Listings/Forms/Globals/Price";
 import ContactInformation from "@/app/components/Listings/Forms/Globals/ContactInformation";
 import CategoryInfo from "@/app/components/Listings/Forms/Globals/CategoryInfo";
+import Spinner from "@/app/components/LayoutAndHomeComponents/Spinner/Spinner";
 
 // JSON DATA
 import AccessoriesJson from "@/Json_Data/BabyAndKids/Accessories.json";
@@ -18,6 +19,7 @@ export default function KidsAccessories({
 	categoryName,
 	subCategoryName,
 	submit = () => {},
+	loading = false,
 }) {
 	// LISTING DETAILS PART
 	const [listingDetails, setListingDetails] = useState({
@@ -329,6 +331,7 @@ export default function KidsAccessories({
 					}
 					onClick={handleSubmit}
 				>
+					{loading ? <Spinner /> : null}
 					<span className={"uppercase"}>
 						{lang === "en"
 							? "Save and PUBLISH listing"

@@ -42,7 +42,7 @@ export default function RealEstate({dictionary}) {
                     <h2>Real Estate for Rent</h2>
                 </div>
                 <div>
-                    <button>View All <span>&rarr;</span></button>
+                    {/*<button>View All <span>&rarr;</span></button>*/}
                 </div>
             </div>
             <div className={classes.RealEstate__Container}>

@@ -10,6 +10,7 @@ import Price from "@/app/components/Listings/Forms/Globals/Price";
 import ContactInformation from "@/app/components/Listings/Forms/Globals/ContactInformation";
 import CategoryInfo from "@/app/components/Listings/Forms/Globals/CategoryInfo";
 import { Calendar } from "primereact/calendar";
+import Spinner from "@/app/components/LayoutAndHomeComponents/Spinner/Spinner";
 
 // JSON DATA
 import TrucksTrailersJson from "@/Json_Data/Cars/TrucksTrailers.json";
@@ -19,6 +20,7 @@ export default function TrucksTrailers({
     categoryName,
     subCategoryName,
     submit = () => {},
+    loading = false,
 }) {
     // LISTING DETAILS PART
     const [listingDetails, setListingDetails] = useState({
@@ -330,7 +332,9 @@ export default function TrucksTrailers({
                         "bg-primary text-white p-4 rounded w-full mr-auto button--effect-small flex justify-center items-center gap-2"
                     }
                     onClick={handleSubmit}
+                    disabled={loading}
                 >
+                    {loading ? <Spinner /> : null}
                     <span className={"uppercase"}>
                         {lang === "en"
                             ? "Save and PUBLISH listing"

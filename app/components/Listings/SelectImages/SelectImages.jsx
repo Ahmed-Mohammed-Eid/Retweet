@@ -7,6 +7,7 @@ import ContactUsCard from "@/app/components/Listings/ContactUsCard/ContactUsCard
 import toast from "react-hot-toast";
 import axios from "axios";
 import {useRouter, useSearchParams} from "next/navigation";
+import Spinner from "@/app/components/LayoutAndHomeComponents/Spinner/Spinner";
 
 export default function SelectImages({lang}) {
 
@@ -15,6 +16,7 @@ export default function SelectImages({lang}) {
     const searchParams = useSearchParams();
 
     // STATES
+    const [loading, setLoading] = useState(false);
     const [files, setFiles] = useState([]);
     const [searchParamsValues, setSearchParamsValues] = useState({});
 
@@ -45,13 +47,19 @@ export default function SelectImages({lang}) {
         const subCategory = searchParams.get('subCategory');
         const formType = searchParams.get('formType');
         const item = searchParams.get('item');
+        const flag = searchParams.get('flag');
+        const imagesId = searchParams.get('imagesId');
+        const listingId = searchParams.get('listingId');
 
         // SET THE SEARCH PARAMS VALUES
         setSearchParamsValues({
             category,
             subCategory,
             formType,
-            item
+            item,
+            flag,
+            imagesId,
+            listingId
         });
 
     }, [searchParams]);
@@ -60,8 +68,14 @@ export default function SelectImages({lang}) {
     // UPLOAD MEDIA HANDLER
     function uploadMediaHandler() {
         // VALIDATE THE FILES AT LEAST 3 FILES
-        if (files.length < 3) {
+        if (files.length < 3 && searchParamsValues.flag !== 'edit') {
             return toast.error(lang === 'en' ? 'Please add at least 3 pictures' : 'يرجى إضافة 3 صور على الأقل');
+        }
+
+        if(files.length < 1 && searchParamsValues.flag === 'edit') {
+            // REDIRECT TO THE NEXT PAGE
+            router.push(`/listings/select-specs?imagesId=${searchParamsValues.imagesId}&category=${searchParamsValues.category}&subCategory=${searchParamsValues.subCategory}&formType=${searchParamsValues.formType}&item=${searchParamsValues.item}&listingId=${searchParamsValues.listingId}&flag=edit`);
+            return ;
         }
 
         // GET THE TOKEN
@@ -84,6 +98,8 @@ export default function SelectImages({lang}) {
 
         formData.append('urls', JSON.stringify([]));
 
+        // SHOW THE SPINNER
+        setLoading(true);
 
         // UPLOAD THE FILES
         axios.post(`${process.env.BASE_URL}/upload/listing/images`, formData, {
@@ -93,15 +109,29 @@ export default function SelectImages({lang}) {
             }
         })
             .then(res => {
+                // HIDE THE SPINNER
+                setLoading(false);
+
+
                 const imagesId = res.data?.imagesId
                 if (!imagesId) {
                     return toast.error(lang === 'en' ? 'Something went wrong' : 'حدث خطأ ما');
+                }
+
+                // REDIRECT TO THE NEXT PAGE IF THE FLAG IS EDIT
+                if (searchParamsValues.flag === 'edit') {
+                    // REDIRECT TO THE NEXT PAGE
+                    router.push(`/listings/select-specs?imagesId=${imagesId}&category=${searchParamsValues.category}&subCategory=${searchParamsValues.subCategory}&formType=${searchParamsValues.formType}&item=${searchParamsValues.item}&listingId=${searchParamsValues.listingId}&flag=edit`);
+                    return ;
                 }
 
                 // REDIRECT TO THE NEXT PAGE
                 router.push(`/listings/select-specs?imagesId=${imagesId}&category=${searchParamsValues.category}&subCategory=${searchParamsValues.subCategory}&formType=${searchParamsValues.formType}&item=${searchParamsValues.item}`);
             })
             .catch(err => {
+                // HIDE THE SPINNER
+                setLoading(false);
+
                 console.log(err);
                 toast.error(lang === 'en' ? 'Something went wrong' : 'حدث خطأ ما');
             })
@@ -246,12 +276,14 @@ export default function SelectImages({lang}) {
 
             <button
                 className={`${classes.Button}`}
+                disabled={loading}
                 onClick={() => {
                     uploadMediaHandler();
                 }}
             >
-                <span>{lang === 'en' ? 'Next' : 'التالي'}</span>
-                <span>{lang === 'en' ? '→' : '←'}</span>
+                {loading ? <Spinner/> : null}
+                {loading ? 'Loading...' : lang === 'en' ? 'Next' : 'التالي'}
+                <span>→</span>
             </button>
 
             <div className={`${classes.ContactUs} mt-8`}>

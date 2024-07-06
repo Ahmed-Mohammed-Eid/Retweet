@@ -9,14 +9,16 @@ import Price from "@/app/components/Listings/Forms/Globals/Price";
 import ContactInformation from "@/app/components/Listings/Forms/Globals/ContactInformation";
 import CategoryInfo from "@/app/components/Listings/Forms/Globals/CategoryInfo";
 import ColorDropDown from "@/app/components/Listings/Forms/Globals/ColorDropDown";
+import Spinner from "@/app/components/LayoutAndHomeComponents/Spinner/Spinner";
 
 export default function General({
-                                       lang,
-                                       categoryName,
-                                       subCategoryName,
-                                       submit = () => {
-                                       }
-                                   }) {
+                                    lang,
+                                    categoryName,
+                                    subCategoryName,
+                                    submit = () => {
+                                    },
+                                    loading = false,
+                                }) {
 
     // LISTING DETAILS PART
     const [listingDetails, setListingDetails] = useState({
@@ -123,7 +125,10 @@ export default function General({
                         placeholder={lang === 'en' ? 'Brand' : 'الماركة'}
                         value={listingDetails.brand.value}
                         onChange={(e) => {
-                            setListingDetails({...listingDetails, brand: {...listingDetails.brand, value: e.target.value}});
+                            setListingDetails({
+                                ...listingDetails,
+                                brand: {...listingDetails.brand, value: e.target.value}
+                            });
                         }}
                     />
                 </div>
@@ -138,7 +143,10 @@ export default function General({
                         placeholder={lang === 'en' ? 'Model' : 'الموديل'}
                         value={listingDetails.model.value}
                         onChange={(e) => {
-                            setListingDetails({...listingDetails, model: {...listingDetails.model, value: e.target.value}});
+                            setListingDetails({
+                                ...listingDetails,
+                                model: {...listingDetails.model, value: e.target.value}
+                            });
                         }}
                     />
                 </div>
@@ -482,7 +490,9 @@ export default function General({
                 <button
                     className={'bg-primary text-white p-4 rounded w-full mr-auto button--effect-small flex justify-center items-center gap-2'}
                     onClick={handleSubmit}
+                    disabled={loading}
                 >
+                    {loading ? <Spinner/> : null}
                     <span
                         className={'uppercase'}>{lang === 'en' ? 'Save and PUBLISH listing' : 'حفظ ونشر القائمة'}</span>
                     <span>{lang === 'en' ? '→' : '←'}</span>

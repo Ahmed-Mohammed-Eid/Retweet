@@ -1,12 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import ListingCard from "@/app/components/Listings/ListingCard/ListingCard";
 import { Paginator } from "primereact/paginator";
 import { useSearchParams, useRouter } from "next/navigation";
 // import classes from "./ListingsPartContentSearch.module.scss";
 
 // REDUX
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import toast from "react-hot-toast";
 import axios from "axios";
 import {setSearchListings, setSearchPagination, setSearchQuery} from "@/redux/Slices/listingsSlice";
@@ -16,9 +16,10 @@ export default function ListingsPartContentSearch({ lang, authenticated }) {
 	const router = useRouter();
 
 	// REDUX
+	const dispatch = useDispatch();
 	const listings = useSelector((state) => state.listings.searchListings);
 	const searchQuery = useSelector((state) => state.listings.searchQuery);
-	const { currentPage, itemsPerPage, totalListings, hasNextPage, previousPage, nextPage, hasPreviousPage } = useSelector(
+	const { currentPage, itemsPerPage, totalListings, hasNextPage, previousPage, nextPage, hasPreviousPage, lastPage } = useSelector(
 		(state) => state.listings.searchPagination
 	);
 
@@ -26,7 +27,7 @@ export default function ListingsPartContentSearch({ lang, authenticated }) {
 	const searchParams = useSearchParams();
 
 
-	function handleSearch() {
+	function handleSearch(page) {
 		// GET THE TOKEN FROM LOCAL STORAGE
 		const token = localStorage.getItem("retweet-token");
 
@@ -41,7 +42,7 @@ export default function ListingsPartContentSearch({ lang, authenticated }) {
 
 		// MAKE THE SEARCH REQUEST
 		axios
-			.get(`${process.env.BASE_URL}/search?searchTerm=${searchQuery}`, {
+			.get(`${process.env.BASE_URL}/search?searchTerm=${searchQuery}&page=${page}`, {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},
@@ -71,6 +72,23 @@ export default function ListingsPartContentSearch({ lang, authenticated }) {
 				console.log(error);
 			});
 	}
+
+	// EFFECT
+	useEffect(() => {
+		// GET THE SEARCH QUERY
+		const searchQuery = searchParams.get("searchTerm");
+
+		// SET THE SEARCH QUERY
+		dispatch(setSearchQuery({query: searchQuery}));
+
+		if (searchQuery === null) {
+			return;
+		}
+
+		// HANDLE THE SEARCH
+		handleSearch();
+
+	}, []);
 
 
 	return (
@@ -104,12 +122,16 @@ export default function ListingsPartContentSearch({ lang, authenticated }) {
 			{/* IF THERE ARE LISTINGS */}
 			{(listings.length > 0 && (hasNextPage || hasPreviousPage)) && (
 				<Paginator
+					id={"paginator"}
+					template={"FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"}
+					totalRecords={itemsPerPage * lastPage}
 					rows={itemsPerPage}
-					totalRecords={totalListings}
-					first={currentPage}
+					pageLinkSize={3}
+					first={currentPage * itemsPerPage - itemsPerPage}
+					rowsPerPageOptions={[itemsPerPage]}
 					onPageChange={(e) => {
 						const page = e.page + 1;
-						router.push(`/listings/search?page=${page}&searchTerm=${searchQuery}`);
+						handleSearch(page);
 					}}
 				/>
 			 )}

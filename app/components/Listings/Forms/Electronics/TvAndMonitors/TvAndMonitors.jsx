@@ -9,6 +9,7 @@ import { useState } from "react";
 import Price from "@/app/components/Listings/Forms/Globals/Price";
 import ContactInformation from "@/app/components/Listings/Forms/Globals/ContactInformation";
 import CategoryInfo from "@/app/components/Listings/Forms/Globals/CategoryInfo";
+import Spinner from "@/app/components/LayoutAndHomeComponents/Spinner/Spinner";
 
 // JSON DATA
 import TvAndMonitorsJson from "@/Json_Data/Electronics/TvAndMonitors.json";
@@ -18,6 +19,7 @@ export default function TvAndMonitors({
 	categoryName,
 	subCategoryName,
 	submit = () => {},
+	loading = false,
 }) {
 	// LISTING DETAILS PART
 	const [listingDetails, setListingDetails] = useState({
@@ -381,7 +383,9 @@ export default function TvAndMonitors({
 						"bg-primary text-white p-4 rounded w-full mr-auto button--effect-small flex justify-center items-center gap-2"
 					}
 					onClick={handleSubmit}
+					disabled={loading}
 				>
+					{loading && <Spinner />}
 					<span className={"uppercase"}>
 						{lang === "en"
 							? "Save and PUBLISH listing"

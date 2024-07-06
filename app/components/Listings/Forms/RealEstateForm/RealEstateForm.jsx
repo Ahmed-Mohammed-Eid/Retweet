@@ -11,13 +11,15 @@ import {useState} from "react";
 import Price from "@/app/components/Listings/Forms/Globals/Price";
 import ContactInformation from "@/app/components/Listings/Forms/Globals/ContactInformation";
 import CategoryInfo from "@/app/components/Listings/Forms/Globals/CategoryInfo";
+import Spinner from "@/app/components/LayoutAndHomeComponents/Spinner/Spinner";
 
 export default function RealEstateForm({
                                            lang,
                                            categoryName,
                                            subCategoryName,
                                            submit = () => {
-                                           }
+                                           },
+                                           loading = false,
                                        }) {
 
 
@@ -153,7 +155,10 @@ export default function RealEstateForm({
                             textAr={'استديو'}
                             checked={listingDetails.rooms.value === 'studio'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, rooms: {...listingDetails.rooms, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    rooms: {...listingDetails.rooms, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -164,7 +169,10 @@ export default function RealEstateForm({
                             textAr={'1'}
                             checked={listingDetails.rooms.value === '1'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, rooms: {...listingDetails.rooms, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    rooms: {...listingDetails.rooms, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -175,7 +183,10 @@ export default function RealEstateForm({
                             textAr={'2'}
                             checked={listingDetails.rooms.value === '2'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, rooms: {...listingDetails.rooms, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    rooms: {...listingDetails.rooms, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -186,7 +197,10 @@ export default function RealEstateForm({
                             textAr={'3'}
                             checked={listingDetails.rooms.value === '3'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, rooms: {...listingDetails.rooms, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    rooms: {...listingDetails.rooms, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -197,7 +211,10 @@ export default function RealEstateForm({
                             textAr={'4'}
                             checked={listingDetails.rooms.value === '4'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, rooms: {...listingDetails.rooms, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    rooms: {...listingDetails.rooms, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -208,7 +225,10 @@ export default function RealEstateForm({
                             textAr={'5'}
                             checked={listingDetails.rooms.value === '5'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, rooms: {...listingDetails.rooms, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    rooms: {...listingDetails.rooms, value: e.target.value}
+                                });
                             }}
                         />
                     </div>
@@ -228,7 +248,10 @@ export default function RealEstateForm({
                             textAr={'1'}
                             checked={listingDetails.bathrooms.value === '1'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, bathrooms: {...listingDetails.bathrooms, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    bathrooms: {...listingDetails.bathrooms, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -239,7 +262,10 @@ export default function RealEstateForm({
                             textAr={'2'}
                             checked={listingDetails.bathrooms.value === '2'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, bathrooms: {...listingDetails.bathrooms, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    bathrooms: {...listingDetails.bathrooms, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -250,7 +276,10 @@ export default function RealEstateForm({
                             textAr={'3'}
                             checked={listingDetails.bathrooms.value === '3'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, bathrooms: {...listingDetails.bathrooms, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    bathrooms: {...listingDetails.bathrooms, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -261,7 +290,10 @@ export default function RealEstateForm({
                             textAr={'4'}
                             checked={listingDetails.bathrooms.value === '4'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, bathrooms: {...listingDetails.bathrooms, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    bathrooms: {...listingDetails.bathrooms, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -272,7 +304,10 @@ export default function RealEstateForm({
                             textAr={'5'}
                             checked={listingDetails.bathrooms.value === '5'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, bathrooms: {...listingDetails.bathrooms, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    bathrooms: {...listingDetails.bathrooms, value: e.target.value}
+                                });
                             }}
                         />
                     </div>
@@ -292,7 +327,10 @@ export default function RealEstateForm({
                             textAr={'مفروش'}
                             checked={listingDetails.furnished.value === 'furnished'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, furnished: {...listingDetails.furnished, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    furnished: {...listingDetails.furnished, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -303,7 +341,10 @@ export default function RealEstateForm({
                             textAr={'غير مفروش'}
                             checked={listingDetails.furnished.value === 'unfurnished'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, furnished: {...listingDetails.furnished, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    furnished: {...listingDetails.furnished, value: e.target.value}
+                                });
                             }}
                         />
                     </div>
@@ -323,7 +364,10 @@ export default function RealEstateForm({
                             ]}
                             placeholder={lang === 'en' ? 'Select Unit' : 'حدد الوحدة'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, surfaceAreaUnit: {...listingDetails.surfaceAreaUnit, value: e.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    surfaceAreaUnit: {...listingDetails.surfaceAreaUnit, value: e.value}
+                                });
                             }}
                         />
                         <input
@@ -332,7 +376,10 @@ export default function RealEstateForm({
                             className={'col-span-3'}
                             value={listingDetails?.surfaceArea.value || ''}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, surfaceArea: {...listingDetails.surfaceArea, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    surfaceArea: {...listingDetails.surfaceArea, value: e.target.value}
+                                });
                             }}
                             autoComplete={'off'}
                         />
@@ -353,7 +400,10 @@ export default function RealEstateForm({
                             textAr={'طابق القبو'}
                             checked={listingDetails.floor.value === 'Basement Floor'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    floor: {...listingDetails.floor, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -364,7 +414,10 @@ export default function RealEstateForm({
                             textAr={'طابق شبه الأرض'}
                             checked={listingDetails.floor.value === 'Semi Ground Floor'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    floor: {...listingDetails.floor, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -375,7 +428,10 @@ export default function RealEstateForm({
                             textAr={'الطابق الأرضي'}
                             checked={listingDetails.floor.value === 'Ground Floor'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    floor: {...listingDetails.floor, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -386,7 +442,10 @@ export default function RealEstateForm({
                             textAr={'1'}
                             checked={listingDetails.floor.value === '1'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    floor: {...listingDetails.floor, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -397,7 +456,10 @@ export default function RealEstateForm({
                             textAr={'2'}
                             checked={listingDetails.floor.value === '2'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    floor: {...listingDetails.floor, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -408,7 +470,10 @@ export default function RealEstateForm({
                             textAr={'3'}
                             checked={listingDetails.floor.value === '3'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    floor: {...listingDetails.floor, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -419,7 +484,10 @@ export default function RealEstateForm({
                             textAr={'4'}
                             checked={listingDetails.floor.value === '4'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    floor: {...listingDetails.floor, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -430,7 +498,10 @@ export default function RealEstateForm({
                             textAr={'5'}
                             checked={listingDetails.floor.value === '5'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    floor: {...listingDetails.floor, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -441,7 +512,10 @@ export default function RealEstateForm({
                             textAr={'6'}
                             checked={listingDetails.floor.value === '6'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    floor: {...listingDetails.floor, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -452,7 +526,10 @@ export default function RealEstateForm({
                             textAr={'7'}
                             checked={listingDetails.floor.value === '7'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    floor: {...listingDetails.floor, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -463,7 +540,10 @@ export default function RealEstateForm({
                             textAr={'8'}
                             checked={listingDetails.floor.value === '8'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    floor: {...listingDetails.floor, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -474,7 +554,10 @@ export default function RealEstateForm({
                             textAr={'الطابق الأخير مع الطابق'}
                             checked={listingDetails.floor.value === 'Last Floor With Floor'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, floor: {...listingDetails.floor, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    floor: {...listingDetails.floor, value: e.target.value}
+                                });
                             }}
                         />
                     </div>
@@ -494,7 +577,10 @@ export default function RealEstateForm({
                             textAr={'0-11 أشهر'}
                             checked={listingDetails.buildingAge.value === '0-11 Months'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, buildingAge: {...listingDetails.buildingAge, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    buildingAge: {...listingDetails.buildingAge, value: e.target.value}
+                                });
                             }}
                         />
 
@@ -506,7 +592,10 @@ export default function RealEstateForm({
                             textAr={'1-5 سنوات'}
                             checked={listingDetails.buildingAge.value === '1-5 Years'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, buildingAge: {...listingDetails.buildingAge, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    buildingAge: {...listingDetails.buildingAge, value: e.target.value}
+                                });
                             }}
                         />
 
@@ -518,7 +607,10 @@ export default function RealEstateForm({
                             textAr={'6-10 سنوات'}
                             checked={listingDetails.buildingAge.value === '6-10 Years'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, buildingAge: {...listingDetails.buildingAge, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    buildingAge: {...listingDetails.buildingAge, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -529,7 +621,10 @@ export default function RealEstateForm({
                             textAr={'11-20 سنوات'}
                             checked={listingDetails.buildingAge.value === '11-20 Years'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, buildingAge: {...listingDetails.buildingAge, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    buildingAge: {...listingDetails.buildingAge, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -540,7 +635,10 @@ export default function RealEstateForm({
                             textAr={'20+ سنوات'}
                             checked={listingDetails.buildingAge.value === '20+ Years'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, buildingAge: {...listingDetails.buildingAge, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    buildingAge: {...listingDetails.buildingAge, value: e.target.value}
+                                });
                             }}
                         />
                     </div>
@@ -560,7 +658,10 @@ export default function RealEstateForm({
                             textAr={'يومي'}
                             checked={listingDetails.rentalPeriod.value === 'Daily'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, rentalPeriod: {...listingDetails.rentalPeriod, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    rentalPeriod: {...listingDetails.rentalPeriod, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -571,7 +672,10 @@ export default function RealEstateForm({
                             textAr={'أسبوعي'}
                             checked={listingDetails.rentalPeriod.value === 'Weekly'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, rentalPeriod: {...listingDetails.rentalPeriod, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    rentalPeriod: {...listingDetails.rentalPeriod, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -582,7 +686,10 @@ export default function RealEstateForm({
                             textAr={'شهري'}
                             checked={listingDetails.rentalPeriod.value === 'Monthly'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, rentalPeriod: {...listingDetails.rentalPeriod, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    rentalPeriod: {...listingDetails.rentalPeriod, value: e.target.value}
+                                });
                             }}
                         />
                         <RadioComponent
@@ -593,7 +700,10 @@ export default function RealEstateForm({
                             textAr={'سنوي'}
                             checked={listingDetails.rentalPeriod.value === 'Yearly'}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, rentalPeriod: {...listingDetails.rentalPeriod, value: e.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    rentalPeriod: {...listingDetails.rentalPeriod, value: e.target.value}
+                                });
                             }}
                         />
                     </div>
@@ -608,7 +718,10 @@ export default function RealEstateForm({
                         <MultiSelect
                             value={listingDetails?.mainAmenities.value || []}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, mainAmenities: {...listingDetails.mainAmenities, value: e.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    mainAmenities: {...listingDetails.mainAmenities, value: e.value}
+                                });
                             }}
                             options={[
                                 lang === 'en' ? 'Air Conditioning' : 'تكييف',
@@ -699,13 +812,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: [...listingDetails.additionalAmenities.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -722,13 +841,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: [...listingDetails.additionalAmenities.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -745,13 +870,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: [...listingDetails.additionalAmenities.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -768,13 +899,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: [...listingDetails.additionalAmenities.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -791,13 +928,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: [...listingDetails.additionalAmenities.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -814,13 +957,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: [...listingDetails.additionalAmenities.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -837,13 +986,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: [...listingDetails.additionalAmenities.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -860,13 +1015,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: [...listingDetails.additionalAmenities.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -883,13 +1044,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: [...listingDetails.additionalAmenities.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -906,13 +1073,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: [...listingDetails.additionalAmenities.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -929,13 +1102,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: [...listingDetails.additionalAmenities.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -952,13 +1131,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: [...listingDetails.additionalAmenities.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -975,13 +1160,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: [...listingDetails.additionalAmenities.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -998,13 +1189,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: [...listingDetails.additionalAmenities.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -1021,13 +1218,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: [...listingDetails.additionalAmenities.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -1044,13 +1247,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: [...listingDetails.additionalAmenities.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -1067,13 +1276,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: [...listingDetails.additionalAmenities.value, e.target.value]}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: [...listingDetails.additionalAmenities.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        additionalAmenities: {...listingDetails.additionalAmenities, value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)}
+                                        additionalAmenities: {
+                                            ...listingDetails.additionalAmenities,
+                                            value: listingDetails.additionalAmenities.value.filter((amenity) => amenity !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -1099,13 +1314,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: {...listingDetails.nearbyLocations, value: [...listingDetails.nearbyLocations.value, e.target.value]}
+                                        nearbyLocations: {
+                                            ...listingDetails.nearbyLocations,
+                                            value: [...listingDetails.nearbyLocations.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: {...listingDetails.nearbyLocations, value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)}
+                                        nearbyLocations: {
+                                            ...listingDetails.nearbyLocations,
+                                            value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -1122,13 +1343,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: {...listingDetails.nearbyLocations, value: [...listingDetails.nearbyLocations.value, e.target.value]}
+                                        nearbyLocations: {
+                                            ...listingDetails.nearbyLocations,
+                                            value: [...listingDetails.nearbyLocations.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: {...listingDetails.nearbyLocations, value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)}
+                                        nearbyLocations: {
+                                            ...listingDetails.nearbyLocations,
+                                            value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -1145,13 +1372,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: {...listingDetails.nearbyLocations, value: [...listingDetails.nearbyLocations.value, e.target.value]}
+                                        nearbyLocations: {
+                                            ...listingDetails.nearbyLocations,
+                                            value: [...listingDetails.nearbyLocations.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: {...listingDetails.nearbyLocations, value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)}
+                                        nearbyLocations: {
+                                            ...listingDetails.nearbyLocations,
+                                            value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -1168,13 +1401,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: {...listingDetails.nearbyLocations, value: [...listingDetails.nearbyLocations.value, e.target.value]}
+                                        nearbyLocations: {
+                                            ...listingDetails.nearbyLocations,
+                                            value: [...listingDetails.nearbyLocations.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: {...listingDetails.nearbyLocations, value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)}
+                                        nearbyLocations: {
+                                            ...listingDetails.nearbyLocations,
+                                            value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -1191,13 +1430,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: {...listingDetails.nearbyLocations, value: [...listingDetails.nearbyLocations.value, e.target.value]}
+                                        nearbyLocations: {
+                                            ...listingDetails.nearbyLocations,
+                                            value: [...listingDetails.nearbyLocations.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: {...listingDetails.nearbyLocations, value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)}
+                                        nearbyLocations: {
+                                            ...listingDetails.nearbyLocations,
+                                            value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -1214,13 +1459,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: {...listingDetails.nearbyLocations, value: [...listingDetails.nearbyLocations.value, e.target.value]}
+                                        nearbyLocations: {
+                                            ...listingDetails.nearbyLocations,
+                                            value: [...listingDetails.nearbyLocations.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: {...listingDetails.nearbyLocations, value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)}
+                                        nearbyLocations: {
+                                            ...listingDetails.nearbyLocations,
+                                            value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -1237,13 +1488,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: {...listingDetails.nearbyLocations, value: [...listingDetails.nearbyLocations.value, e.target.value]}
+                                        nearbyLocations: {
+                                            ...listingDetails.nearbyLocations,
+                                            value: [...listingDetails.nearbyLocations.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: {...listingDetails.nearbyLocations, value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)}
+                                        nearbyLocations: {
+                                            ...listingDetails.nearbyLocations,
+                                            value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -1260,13 +1517,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: {...listingDetails.nearbyLocations, value: [...listingDetails.nearbyLocations.value, e.target.value]}
+                                        nearbyLocations: {
+                                            ...listingDetails.nearbyLocations,
+                                            value: [...listingDetails.nearbyLocations.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: {...listingDetails.nearbyLocations, value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)}
+                                        nearbyLocations: {
+                                            ...listingDetails.nearbyLocations,
+                                            value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -1283,13 +1546,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: {...listingDetails.nearbyLocations, value: [...listingDetails.nearbyLocations.value, e.target.value]}
+                                        nearbyLocations: {
+                                            ...listingDetails.nearbyLocations,
+                                            value: [...listingDetails.nearbyLocations.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: {...listingDetails.nearbyLocations, value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)}
+                                        nearbyLocations: {
+                                            ...listingDetails.nearbyLocations,
+                                            value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -1306,13 +1575,19 @@ export default function RealEstateForm({
                                 if (e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: {...listingDetails.nearbyLocations, value: [...listingDetails.nearbyLocations.value, e.target.value]}
+                                        nearbyLocations: {
+                                            ...listingDetails.nearbyLocations,
+                                            value: [...listingDetails.nearbyLocations.value, e.target.value]
+                                        }
                                     });
                                 }
                                 if (!e.target.checked) {
                                     setListingDetails({
                                         ...listingDetails,
-                                        nearbyLocations: {...listingDetails.nearbyLocations, value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)}
+                                        nearbyLocations: {
+                                            ...listingDetails.nearbyLocations,
+                                            value: listingDetails.nearbyLocations.value.filter((location) => location !== e.target.value)
+                                        }
                                     });
                                 }
                             }}
@@ -1429,7 +1704,9 @@ export default function RealEstateForm({
                 <button
                     className={'bg-primary text-white p-4 rounded w-full mr-auto button--effect-small flex justify-center items-center gap-2'}
                     onClick={handleSubmit}
+                    disabled={loading}
                 >
+                    {loading && <Spinner/>}
                     <span
                         className={'uppercase'}>{lang === 'en' ? 'Save and PUBLISH listing' : 'حفظ ونشر القائمة'}</span>
                     <span>{lang === 'en' ? '→' : '←'}</span>

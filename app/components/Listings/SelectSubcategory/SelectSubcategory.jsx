@@ -42,7 +42,7 @@ export default function SelectSubcategory({lang}) {
                 const formType = response.data?.formType;
 
                 if(categories.length === 0) {
-                    router.push(`/listings/select-item?category=${categoryId}&subCategory=&formType=${'noOptions'}&item=`);
+                    router.push(`/listings/select-images?category=${categoryId}&subCategory=&formType=${'noOptions'}&item=`);
                 }
 
                 // SET THE CATEGORIES

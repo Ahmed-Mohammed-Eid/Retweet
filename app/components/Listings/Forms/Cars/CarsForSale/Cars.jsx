@@ -13,14 +13,16 @@ import CategoryInfo from "@/app/components/Listings/Forms/Globals/CategoryInfo";
 import CarsDropdown from "@/app/components/Listings/Forms/Globals/CarsDropdown";
 import ColorDropDown from "@/app/components/Listings/Forms/Globals/ColorDropDown";
 import {Calendar} from "primereact/calendar";
+import Spinner from "@/app/components/LayoutAndHomeComponents/Spinner/Spinner";
 
 export default function CarsForm({
-                                           lang,
-                                           categoryName,
-                                           subCategoryName,
-                                           submit = () => {
-                                           }
-                                       }) {
+                                     lang,
+                                     categoryName,
+                                     subCategoryName,
+                                     submit = () => {
+                                     },
+                                     loading = false,
+                                 }) {
 
     // LISTING DETAILS PART
     const [listingDetails, setListingDetails] = useState({
@@ -150,10 +152,12 @@ export default function CarsForm({
                     <CarsDropdown
                         lang={lang}
                         setSelectedCar={(car) => {
-                            setListingDetails({...listingDetails, type: {
+                            setListingDetails({
+                                ...listingDetails, type: {
                                     ...listingDetails.type,
                                     value: car
-                                }});
+                                }
+                            });
                         }}
                         selectedCar={listingDetails.type.value}
                     />
@@ -171,7 +175,10 @@ export default function CarsForm({
                             autoComplete={'off'}
                             value={listingDetails?.model.value || ''}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, model: {...listingDetails.model, value: e.target.value}})
+                                setListingDetails({
+                                    ...listingDetails,
+                                    model: {...listingDetails.model, value: e.target.value}
+                                })
                             }}
                         />
                     </div>
@@ -213,7 +220,13 @@ export default function CarsForm({
                             value={"مواصفات خليجية"}
                             checked={listingDetails.regionalSpecifications.value === "مواصفات خليجية"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, regionalSpecifications: {...listingDetails.regionalSpecifications, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    regionalSpecifications: {
+                                        ...listingDetails.regionalSpecifications,
+                                        value: event.target.value
+                                    }
+                                });
                             }}
                         />
 
@@ -225,7 +238,13 @@ export default function CarsForm({
                             value={"مواصفات أمريكية"}
                             checked={listingDetails.regionalSpecifications.value === "مواصفات أمريكية"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, regionalSpecifications: {...listingDetails.regionalSpecifications, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    regionalSpecifications: {
+                                        ...listingDetails.regionalSpecifications,
+                                        value: event.target.value
+                                    }
+                                });
                             }}
                         />
 
@@ -237,7 +256,13 @@ export default function CarsForm({
                             value={"مواصفات أوروبية"}
                             checked={listingDetails.regionalSpecifications.value === "مواصفات أوروبية"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, regionalSpecifications: {...listingDetails.regionalSpecifications, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    regionalSpecifications: {
+                                        ...listingDetails.regionalSpecifications,
+                                        value: event.target.value
+                                    }
+                                });
                             }}
                         />
 
@@ -249,7 +274,13 @@ export default function CarsForm({
                             value={"مواصفات يابانية"}
                             checked={listingDetails.regionalSpecifications.value === "مواصفات يابانية"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, regionalSpecifications: {...listingDetails.regionalSpecifications, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    regionalSpecifications: {
+                                        ...listingDetails.regionalSpecifications,
+                                        value: event.target.value
+                                    }
+                                });
                             }}
                         />
 
@@ -261,7 +292,13 @@ export default function CarsForm({
                             value={"مواصفات كورية"}
                             checked={listingDetails.regionalSpecifications.value === "مواصفات كورية"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, regionalSpecifications: {...listingDetails.regionalSpecifications, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    regionalSpecifications: {
+                                        ...listingDetails.regionalSpecifications,
+                                        value: event.target.value
+                                    }
+                                });
                             }}
                         />
 
@@ -273,7 +310,13 @@ export default function CarsForm({
                             value={"مواصفات صينية"}
                             checked={listingDetails.regionalSpecifications.value === "مواصفات صينية"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, regionalSpecifications: {...listingDetails.regionalSpecifications, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    regionalSpecifications: {
+                                        ...listingDetails.regionalSpecifications,
+                                        value: event.target.value
+                                    }
+                                });
                             }}
                         />
 
@@ -285,7 +328,13 @@ export default function CarsForm({
                             value={"مواصفات أخرى"}
                             checked={listingDetails.regionalSpecifications.value === "مواصفات أخرى"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, regionalSpecifications: {...listingDetails.regionalSpecifications, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    regionalSpecifications: {
+                                        ...listingDetails.regionalSpecifications,
+                                        value: event.target.value
+                                    }
+                                });
                             }}
                         />
                     </div>
@@ -307,7 +356,10 @@ export default function CarsForm({
                             value={"جديد"}
                             checked={listingDetails.carStatus.value === "جديد"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, carStatus: {...listingDetails.carStatus, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    carStatus: {...listingDetails.carStatus, value: event.target.value}
+                                });
                             }}
                         />
 
@@ -319,7 +371,10 @@ export default function CarsForm({
                             value={"مستعمل"}
                             checked={listingDetails.carStatus.value === "مستعمل"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, carStatus: {...listingDetails.carStatus, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    carStatus: {...listingDetails.carStatus, value: event.target.value}
+                                });
                             }}
                         />
                     </div>
@@ -348,7 +403,10 @@ export default function CarsForm({
                         ]}
                         value={listingDetails.mileage.value}
                         onChange={(e) => {
-                            setListingDetails({...listingDetails, mileage: {...listingDetails.mileage, value: e.value}});
+                            setListingDetails({
+                                ...listingDetails,
+                                mileage: {...listingDetails.mileage, value: e.value}
+                            });
                         }}
                     />
                 </div>
@@ -368,7 +426,10 @@ export default function CarsForm({
                             value={"أوتوماتيك"}
                             checked={listingDetails.transmissionType.value === "أوتوماتيك"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, transmissionType: {...listingDetails.transmissionType, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    transmissionType: {...listingDetails.transmissionType, value: event.target.value}
+                                });
                             }}
                         />
 
@@ -380,7 +441,10 @@ export default function CarsForm({
                             value={"عادي"}
                             checked={listingDetails.transmissionType.value === "عادي"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, transmissionType: {...listingDetails.transmissionType, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    transmissionType: {...listingDetails.transmissionType, value: event.target.value}
+                                });
                             }}
                         />
                     </div>
@@ -400,7 +464,10 @@ export default function CarsForm({
                             value={"بنزين"}
                             checked={listingDetails.typeOfFuel.value === "بنزين"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, typeOfFuel: {...listingDetails.typeOfFuel, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    typeOfFuel: {...listingDetails.typeOfFuel, value: event.target.value}
+                                });
                             }}
                         />
 
@@ -412,7 +479,10 @@ export default function CarsForm({
                             value={"ديزل"}
                             checked={listingDetails.typeOfFuel.value === "ديزل"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, typeOfFuel: {...listingDetails.typeOfFuel, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    typeOfFuel: {...listingDetails.typeOfFuel, value: event.target.value}
+                                });
                             }}
                         />
 
@@ -424,7 +494,10 @@ export default function CarsForm({
                             value={"هجين"}
                             checked={listingDetails.typeOfFuel.value === "هجين"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, typeOfFuel: {...listingDetails.typeOfFuel, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    typeOfFuel: {...listingDetails.typeOfFuel, value: event.target.value}
+                                });
                             }}
                         />
 
@@ -436,7 +509,10 @@ export default function CarsForm({
                             value={"كهربائي"}
                             checked={listingDetails.typeOfFuel.value === "كهربائي"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, typeOfFuel: {...listingDetails.typeOfFuel, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    typeOfFuel: {...listingDetails.typeOfFuel, value: event.target.value}
+                                });
                             }}
                         />
 
@@ -448,7 +524,10 @@ export default function CarsForm({
                             value={"غاز"}
                             checked={listingDetails.typeOfFuel.value === "غاز"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, typeOfFuel: {...listingDetails.typeOfFuel, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    typeOfFuel: {...listingDetails.typeOfFuel, value: event.target.value}
+                                });
                             }}
                         />
 
@@ -460,7 +539,10 @@ export default function CarsForm({
                             value={"أخرى"}
                             checked={listingDetails.typeOfFuel.value === "أخرى"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, typeOfFuel: {...listingDetails.typeOfFuel, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    typeOfFuel: {...listingDetails.typeOfFuel, value: event.target.value}
+                                });
                             }}
                         />
                     </div>
@@ -495,14 +577,32 @@ export default function CarsForm({
                             {label: lang === 'en' ? 'Rear Camera' : 'كاميرا خلفية', value: 'Rear Camera'},
                             {label: lang === 'en' ? 'Front Camera' : 'كاميرا أمامية', value: 'Front Camera'},
                             {label: lang === 'en' ? '360 Camera' : 'كاميرا 360', value: '360 Camera'},
-                            {label: lang === 'en' ? 'Parking Sensors' : 'أجهزة استشعار الركن', value: 'Parking Sensors'},
-                            {label: lang === 'en' ? 'Blind Spot Detection' : 'كشف النقطة العمياء', value: 'Blind Spot Detection'},
-                            {label: lang === 'en' ? 'Lane Departure Warning' : 'تحذير مغادرة المسار', value: 'Lane Departure Warning'},
-                            {label: lang === 'en' ? 'Adaptive Cruise Control' : 'مثبت السرعة التكيفي', value: 'Adaptive Cruise Control'},
+                            {
+                                label: lang === 'en' ? 'Parking Sensors' : 'أجهزة استشعار الركن',
+                                value: 'Parking Sensors'
+                            },
+                            {
+                                label: lang === 'en' ? 'Blind Spot Detection' : 'كشف النقطة العمياء',
+                                value: 'Blind Spot Detection'
+                            },
+                            {
+                                label: lang === 'en' ? 'Lane Departure Warning' : 'تحذير مغادرة المسار',
+                                value: 'Lane Departure Warning'
+                            },
+                            {
+                                label: lang === 'en' ? 'Adaptive Cruise Control' : 'مثبت السرعة التكيفي',
+                                value: 'Adaptive Cruise Control'
+                            },
                             {label: lang === 'en' ? 'Collision Warning' : 'تحذير التصادم', value: 'Collision Warning'},
-                            {label: lang === 'en' ? 'Automatic Emergency Braking' : 'نظام الفرامل الطارئة التلقائي', value: 'Automatic Emergency Braking'},
+                            {
+                                label: lang === 'en' ? 'Automatic Emergency Braking' : 'نظام الفرامل الطارئة التلقائي',
+                                value: 'Automatic Emergency Braking'
+                            },
                             {label: lang === 'en' ? 'Traction Control' : 'التحكم في الجر', value: 'Traction Control'},
-                            {label: lang === 'en' ? 'Stability Control' : 'نظام التحكم في الاستقرار', value: 'Stability Control'},
+                            {
+                                label: lang === 'en' ? 'Stability Control' : 'نظام التحكم في الاستقرار',
+                                value: 'Stability Control'
+                            },
                             {label: lang === 'en' ? 'ABS' : 'نظام الفرامل المانعة للانغلاق', value: 'ABS'},
                             {label: lang === 'en' ? 'ESP' : 'ESP', value: 'ESP'},
                             {label: lang === 'en' ? 'Hill Assist' : 'مساعدة الهضم', value: 'Hill Assist'},
@@ -517,12 +617,18 @@ export default function CarsForm({
                             {label: lang === 'en' ? 'Memory Seats' : 'مقاعد الذاكرة', value: 'Memory Seats'},
                             {label: lang === 'en' ? 'Electric Seats' : 'مقاعد كهربائية', value: 'Electric Seats'},
                             {label: lang === 'en' ? 'Cooling Seats' : 'مقاعد التبريد', value: 'Cooling Seats'},
-                            {label: lang === 'en' ? 'Heated Steering Wheel' : 'عجلة القيادة المدفأة', value: 'Heated Steering Wheel'},
+                            {
+                                label: lang === 'en' ? 'Heated Steering Wheel' : 'عجلة القيادة المدفأة',
+                                value: 'Heated Steering Wheel'
+                            },
                             {label: lang === 'en' ? 'Panoramic Roof' : 'سقف بانورامي', value: 'Panoramic Roof'},
                             {label: lang === 'en' ? 'LED Headlights' : 'مصابيح LED', value: 'LED Headlights'},
                             {label: lang === 'en' ? 'Xenon Headlights' : 'مصابيح زينون', value: 'Xenon Headlights'},
                             {label: lang === 'en' ? 'Fog Lights' : 'أضواء الضباب', value: 'Fog Lights'},
-                            {label: lang === 'en' ? 'Daytime Running Lights' : 'أضواء النهار', value: 'Daytime Running Lights'},
+                            {
+                                label: lang === 'en' ? 'Daytime Running Lights' : 'أضواء النهار',
+                                value: 'Daytime Running Lights'
+                            },
                             {label: lang === 'en' ? 'Alloy Wheels' : 'عجلات سبيكة', value: 'Alloy Wheels'},
                             {label: lang === 'en' ? 'Steel Wheels' : 'عجلات فولاذية', value: 'Steel Wheels'},
                             {label: lang === 'en' ? 'Rear Spoiler' : 'جناح خلفي', value: 'Rear Spoiler'},
@@ -558,10 +664,13 @@ export default function CarsForm({
                             {label: lang === 'en' ? 'Car Wheels' : 'عجلات السيارة', value: 'Car Wheels'},
                             {label: lang === 'en' ? 'Car Lights' : 'أضواء السيارة', value: 'Car Lights'},
                             {label: lang === 'en' ? 'Car Windows' : 'نوافذ السيارة', value: 'Car Windows'},
-                            ]
+                        ]
                         }
                         onChange={(event) => {
-                            setListingDetails({...listingDetails, specs: {...listingDetails.specs, value: event.value}});
+                            setListingDetails({
+                                ...listingDetails,
+                                specs: {...listingDetails.specs, value: event.value}
+                            });
                         }}
                         placeholder={lang === 'en' ? 'Select Inner Specs' : 'اختر المواصفات الداخلية'}
                         className={'w-full border'}
@@ -582,7 +691,10 @@ export default function CarsForm({
                             value={"هاتشباك"}
                             checked={listingDetails.typeOfStructure.value === "هاتشباك"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, typeOfStructure: {...listingDetails.typeOfStructure, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    typeOfStructure: {...listingDetails.typeOfStructure, value: event.target.value}
+                                });
                             }}
                         />
 
@@ -594,7 +706,10 @@ export default function CarsForm({
                             value={"سيدان"}
                             checked={listingDetails.typeOfStructure.value === "سيدان"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, typeOfStructure: {...listingDetails.typeOfStructure, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    typeOfStructure: {...listingDetails.typeOfStructure, value: event.target.value}
+                                });
                             }}
                         />
 
@@ -606,7 +721,10 @@ export default function CarsForm({
                             value={"كوبيه"}
                             checked={listingDetails.typeOfStructure.value === "كوبيه"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, typeOfStructure: {...listingDetails.typeOfStructure, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    typeOfStructure: {...listingDetails.typeOfStructure, value: event.target.value}
+                                });
                             }}
                         />
 
@@ -618,7 +736,10 @@ export default function CarsForm({
                             value={"كروس أوفر"}
                             checked={listingDetails.typeOfStructure.value === "كروس أوفر"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, typeOfStructure: {...listingDetails.typeOfStructure, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    typeOfStructure: {...listingDetails.typeOfStructure, value: event.target.value}
+                                });
                             }}
                         />
 
@@ -630,7 +751,10 @@ export default function CarsForm({
                             value={"سيارة رياضية"}
                             checked={listingDetails.typeOfStructure.value === "سيارة رياضية"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, typeOfStructure: {...listingDetails.typeOfStructure, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    typeOfStructure: {...listingDetails.typeOfStructure, value: event.target.value}
+                                });
                             }}
                         />
 
@@ -642,7 +766,10 @@ export default function CarsForm({
                             value={"سيارة عائلية"}
                             checked={listingDetails.typeOfStructure.value === "سيارة عائلية"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, typeOfStructure: {...listingDetails.typeOfStructure, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    typeOfStructure: {...listingDetails.typeOfStructure, value: event.target.value}
+                                });
                             }}
                         />
 
@@ -654,7 +781,10 @@ export default function CarsForm({
                             value={"سيارة كهربائية"}
                             checked={listingDetails.typeOfStructure.value === "سيارة كهربائية"}
                             onChange={(event) => {
-                                setListingDetails({...listingDetails, typeOfStructure: {...listingDetails.typeOfStructure, value: event.target.value}});
+                                setListingDetails({
+                                    ...listingDetails,
+                                    typeOfStructure: {...listingDetails.typeOfStructure, value: event.target.value}
+                                });
                             }}
                         />
                     </div>
@@ -669,7 +799,10 @@ export default function CarsForm({
                         lang={lang}
                         selectedColor={listingDetails.outerColor.value}
                         setSelectedColor={(color) => {
-                            setListingDetails({...listingDetails, outerColor: {...listingDetails.outerColor, value: color}})
+                            setListingDetails({
+                                ...listingDetails,
+                                outerColor: {...listingDetails.outerColor, value: color}
+                            })
                         }}
                     />
                 </div>
@@ -683,7 +816,10 @@ export default function CarsForm({
                         lang={lang}
                         selectedColor={listingDetails.innerColor.value}
                         setSelectedColor={(color) => {
-                            setListingDetails({...listingDetails, innerColor: {...listingDetails.innerColor, value: color}})
+                            setListingDetails({
+                                ...listingDetails,
+                                innerColor: {...listingDetails.innerColor, value: color}
+                            })
                         }}
                     />
                 </div>
@@ -699,7 +835,10 @@ export default function CarsForm({
                             placeholder={'VIN'}
                             value={listingDetails?.vin.value || ''}
                             onChange={(e) => {
-                                setListingDetails({...listingDetails, vin: {...listingDetails.vin, value: e.target.value}})
+                                setListingDetails({
+                                    ...listingDetails,
+                                    vin: {...listingDetails.vin, value: e.target.value}
+                                })
                             }}
                             autoComplete={'off'}
                         />
@@ -748,7 +887,9 @@ export default function CarsForm({
                 <button
                     className={'bg-primary text-white p-4 rounded w-full mr-auto button--effect-small flex justify-center items-center gap-2'}
                     onClick={handleSubmit}
+                    disabled={loading}
                 >
+                    {loading ? <Spinner/> : null}
                     <span
                         className={'uppercase'}>{lang === 'en' ? 'Save and PUBLISH listing' : 'حفظ ونشر القائمة'}</span>
                     <span>{lang === 'en' ? '→' : '←'}</span>

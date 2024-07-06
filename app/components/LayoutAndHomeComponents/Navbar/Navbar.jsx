@@ -10,6 +10,7 @@ import SelectedArea from "@/app/components/LayoutAndHomeComponents/SelectedArea/
 import AuthenticatedProfile from "@/app/components/LayoutAndHomeComponents/AuthenticatedProfile/AuthenticatedProfile";
 import {useRouter} from "next/navigation";
 import {Sidebar} from 'primereact/sidebar';
+import CountrySwitcher from "@/app/components/LayoutAndHomeComponents/CountrySwitcher/CountrySwitcher";
 
 // REDUX
 import {useDispatch} from "react-redux";
@@ -65,7 +66,8 @@ function Navbar({lang, auth, country, userData}) {
                     </Link>
                 </div>
                 <div className={classes.Navbar__select__wrapper}>
-                    <SelectedArea className={classes.Navbar__select} country={country || {}}/>
+                    {/*<SelectedArea className={classes.Navbar__select} country={country || {}}/>*/}
+                    <CountrySwitcher lang={lang}/>
                 </div>
                 <div className={classes.Navbar_group}>
                     {auth && (<div className={classes.Navbar__icons}>
@@ -173,6 +175,12 @@ function Navbar({lang, auth, country, userData}) {
                 </div>
 
                 <div className={`${subClasses.Sidebar__lang} mb-4`}>
+                    <p style={lang === 'en' ? {textAlign: 'left', direction: 'ltr'} : {textAlign: 'right', direction: 'rtl'}} className={"mb-2"}>{lang === 'en' ? 'Location' : 'الموقع'}</p>
+                    <CountrySwitcher lang={lang} className={subClasses.Sidebar__lang__select}/>
+                </div>
+
+                <div className={`${subClasses.Sidebar__lang} mb-4`}>
+                    <p style={lang === 'en' ? {textAlign: 'left', direction: 'ltr'} : {textAlign: 'right', direction: 'rtl'}} className={"mb-2"}>{lang === 'en' ? 'Language' : 'اللغة'}</p>
                     <LanguageSwitcher className={subClasses.Sidebar__lang__select} lang={lang}/>
                 </div>
 

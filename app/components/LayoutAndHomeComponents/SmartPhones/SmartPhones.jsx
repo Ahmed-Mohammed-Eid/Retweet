@@ -18,7 +18,7 @@ export default function SmartPhones({dictionary}) {
                     <h2>Smart Phones</h2>
                 </div>
                 <div>
-                    <button>View All <span>&rarr;</span></button>
+                    {/*<button>View All <span>&rarr;</span></button>*/}
                 </div>
             </div>
             <div className={classes.RealEstate__Container}>

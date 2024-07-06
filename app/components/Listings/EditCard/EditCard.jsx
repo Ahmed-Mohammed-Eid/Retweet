@@ -1,8 +1,21 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+
+// Helpers
 import { formatePrice } from "@/helpers/formatePrice";
 
+// ROUTER
+import {useRouter} from "next/navigation";
+
+
 function EditCard({ product, lang, authenticated, onDelete }) {
+
+    // ROUTER
+    const router = useRouter();
+
+
     return (
         <div className="">
             <article className="border rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
@@ -35,14 +48,18 @@ function EditCard({ product, lang, authenticated, onDelete }) {
                         </div>
                     </div>
                     {authenticated && (
-                        <div className="flex justify-end space-x-2 mt-4">
-                            <button className="px-4 py-2 bg-blue-500 transition-transform text-white rounded hover:bg-blue-600 w-[50%] active:scale-95">
-                                Edit
+                        <div className="flex justify-end gap-2 mt-4">
+                            <button
+                                onClick={() => {
+                                    router.push(`/listings/select-images?category=${product?.categoryId}&subCategory=${product?.subCategoryId}&formType=${product?.formType}&imagesId=${product?.imagesId}&listingId=${product?._id}&flag=edit`)
+                                }}
+                                className="px-4 py-2 bg-blue-500 transition-transform text-white rounded hover:bg-blue-600 w-[50%] active:scale-95">
+                                {lang === 'en' ? 'Edit' : 'تعديل'}
                             </button>
                             <button
                                 onClick={onDelete}
                                 className="px-4 py-2 bg-red-500 transition-transform text-white rounded hover:bg-red-600 w-[50%] active:scale-95">
-                                Delete
+                                {lang === 'en' ? 'Delete' : 'حذف'}
                             </button>
                         </div>
                     )}
@@ -72,17 +89,20 @@ function ContactButton({ phone }) {
     );
 }
 
-function ChatButton({ id }) {
+function ChatButton({ id, lang}) {
     return (
-        <button className="flex items-center px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-transform active:scale-95">
+        <button className="flex items-center gap-2 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-transform active:scale-95"
+            style={{direction: lang === 'en' ? 'ltr' : 'rtl'}}
+        >
             <Image
                 src="/assets/listings/fluent_chat-12-regular.svg"
                 alt="Chat icon"
                 width={24}
                 height={24}
-                className="mr-2"
             />
-            <span>Chat</span>
+            <span>
+                {lang === 'en' ? 'Chat' : 'دردشة'}
+            </span>
         </button>
     );
 }

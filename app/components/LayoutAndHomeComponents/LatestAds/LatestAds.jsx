@@ -80,9 +80,9 @@ export default function LatestAds({ dictionary, lang }) {
 					<p>Explore Our Advertisements</p>
 				</div>
 				<div>
-					<button>
-						View All <span>&rarr;</span>
-					</button>
+					{/*<button>*/}
+					{/*	View All <span>&rarr;</span>*/}
+					{/*</button>*/}
 				</div>
 			</div>
 			<div className={classes.LatestAds__Container}>
