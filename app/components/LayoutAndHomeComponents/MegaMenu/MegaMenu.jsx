@@ -62,6 +62,12 @@ export default function MegaMenuComponent({ lang }) {
     const items = parentCategories.map((category) => ({
         label: lang === 'en' ? category.categoryNameEn : category.categoryName,
         items: getMenuItems(category),
+        command: () => {
+            dispatch(updateFilterStates({
+                categoryId: category._id,
+            }));
+            router.push('/listings');
+        },
     }));
 
     if (otherCategories.length > 0) {
@@ -70,7 +76,13 @@ export default function MegaMenuComponent({ lang }) {
             items: otherCategories.map((category) => ({
                 label: lang === 'en' ? category.categoryNameEn : category.categoryName,
                 items: getMenuItems(category),
-            })),
+                command: () => {
+                    dispatch(updateFilterStates({
+                        categoryId: category._id,
+                    }));
+                    router.push('/listings');
+                },
+            }))
         });
     }
 
