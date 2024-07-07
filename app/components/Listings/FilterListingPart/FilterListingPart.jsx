@@ -4,33 +4,27 @@ import classes from "./FilterListingPart.module.scss";
 import {Dropdown} from "primereact/dropdown";
 import PriceRange from "@/app/components/Listings/PriceRange/PriceRange";
 import FilterRadio from "./FilterRadio/FilterRadio";
-import {useSearchParams, useRouter} from "next/navigation";
 
 // REDUX
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import axios from "axios";
+import {updateFilterStates, clearSpecificFields} from "@/redux/Slices/filterSlice";
 
 export default function FilterListingPart({lang}) {
 
-    // ROUTER
-    const router = useRouter();
-    const searchParams = useSearchParams();
-
     // REDUX
+    const dispatch = useDispatch();
     const maxPrice = useSelector((state) => state.listings.pagination.maxPrice);
+    const {priceRange, categoryId, subCategoryId, selectedLocation} = useSelector((state) => state.filter);
 
     // STATES
-    const [priceRange, setPriceRange] = useState([]);
     // SHOW MORE CATEGORIES STATE
     const [showMoreCategories, setShowMoreCategories] = useState(false);
 
     // CATEGORIES AND SUBCATEGORIES STATE
     const [categories, setCategories] = useState([]);
     const [categoriesDropdown, setCategoriesDropdown] = useState([]);
-    const [categoryId, setCategoryId] = useState('');
-    const [subCategoryId, setSubCategoryId] = useState('');
     const [subCategories, setSubCategories] = useState([]);
-    const [selectedLocation, setSelectedLocation] = useState('');
 
     // REDUX
     const userCountryInformation = useSelector((state) => state.mainLayout.userCountryInformation);
@@ -52,10 +46,12 @@ export default function FilterListingPart({lang}) {
                     };
                 });
                 setCategoriesDropdown(categoriesForDropDown);
+
                 // SET THE CATEGORY ID
-                setCategoryId(categoryId);
-                // SET THE SUBCATEGORY ID
-                setSubCategoryId(subcategoryId);
+                dispatch(updateFilterStates({
+                    categoryId: categoryId,
+                    subCategoryId: subcategoryId
+                }));
 
                 // SET THE SUBCATEGORIES
                 const selectedCategory = mainCategories.find((category) => category._id === categoryId);
@@ -70,31 +66,13 @@ export default function FilterListingPart({lang}) {
     // EFFECT TO GET THE CATEGORY LIST FROM THE API
     useEffect(() => {
         // SET THE PRICE RANGE
-        setPriceRange([0, maxPrice]);
-
-        // GET THE CATEGORY ID FROM THE URL
-        const categoryId = searchParams.get("categoryId");
-        // GET THE SUBCATEGORY ID FROM THE URL
-        const subcategoryId = searchParams.get("subcategoryId");
-
+        dispatch(updateFilterStates({
+            priceRange: [0, maxPrice]
+        }));
+        
         // GET THE CATEGORIES
-        getCategories(categoryId, subcategoryId);
-    }, []);
-    
-    // EFFECT TO UPDATE THE URL SEARCH PARAMS
-    useEffect(() => {
-        // GET THE ITEM
-        const item = searchParams.get("item");
-
-        // GET THE PAGE
-        const page = searchParams.get("page");
-
-        let locationSearch = selectedLocation === "All Cities" ? "" : (selectedLocation || '');
-
-        // GO TO THE PAGE
-        router.push(`/listings?categoryId=${categoryId || ''}&subcategoryId=${subCategoryId || ''}&item=${item || ''}&page=${page || 1}&minPrice=${priceRange[0] || ''}&maxPrice=${priceRange[1] || ''}&location=${locationSearch}`);
-
-    }, [categoryId, subCategoryId, priceRange, selectedLocation, searchParams, router]);
+        getCategories(categoryId, subCategoryId);
+    }, [categoryId,subCategoryId, dispatch, maxPrice]);
 
     return (
         <div className={`${classes.FilterListingPart} p-8 rounded`}>
@@ -110,13 +88,13 @@ export default function FilterListingPart({lang}) {
                     className="w-full"
                     value={categoryId || ""}
                     onChange={(e) => {
-                        // SET THE CATEGORY ID
-                        setCategoryId(e.value);
-                        // SET THE SUBCATEGORY ID
-                        setSubCategoryId('');
                         // SET THE SUBCATEGORIES
                         const selectedCategory = categories.find((category) => category._id === e.value);
                         setSubCategories(selectedCategory?.subCategories || []);
+                        dispatch(updateFilterStates({
+                            categoryId: e.value,
+                        }));
+                        dispatch(clearSpecificFields(["subCategoryId"]));
                     }}
                 />
             </div>
@@ -142,7 +120,9 @@ export default function FilterListingPart({lang}) {
                             value={category._id}
                             change={(e) => {
                                 // SET THE SUBCATEGORY ID
-                                setSubCategoryId(e.target.value);
+                                dispatch(updateFilterStates({
+                                    subCategoryId: e.target.value
+                                }))
                             }}
                             checked={subCategoryId === category._id}
                         />
@@ -164,7 +144,6 @@ export default function FilterListingPart({lang}) {
             {subCategories.length > 0 && (<span className={`${classes.border__bottom} my-4`}></span>)}
 
             {/*  PRICE RANGE  */}
-
             <div className={`${classes.PriceRange} flex flex-col gap-5`}>
                 <h3 className="text-l font-bold leading-6 text-zinc-800 uppercase">
                     {lang === "en" ? "Price Range" : "نطاق السعر"}
@@ -174,7 +153,10 @@ export default function FilterListingPart({lang}) {
                     range={priceRange}
                     max={maxPrice}
                     change={(e) => {
-                        setPriceRange(e);
+                        // SET THE PRICE RANGE
+                        dispatch(updateFilterStates({
+                            priceRange: e
+                        }));
                     }}
                 />
 
@@ -187,11 +169,15 @@ export default function FilterListingPart({lang}) {
                         value={priceRange?.[0]}
                         onInput={(e) => {
                             if (e.target.value < 0) {
-                                setPriceRange([0, priceRange[1]])
+                                dispatch(updateFilterStates({
+                                    priceRange: [0, priceRange[1]]
+                                }))
                                 return;
                             }
                             // SET THE MIN PRICE AND IF THE MIN PRICE IS GREATER THAN MAX PRICE THEN SET THE MAX PRICE TO MIN PRICE
-                            setPriceRange([e.target.value, priceRange[1] <= e.target.value ? e.target.value : priceRange[1]]);
+                            dispatch(updateFilterStates({
+                                priceRange: [e.target.value, priceRange[1] <= e.target.value ? e.target.value : priceRange[1]]
+                            }))
                         }}
                     />
                     <input
@@ -201,10 +187,15 @@ export default function FilterListingPart({lang}) {
                         value={priceRange?.[1]}
                         onInput={(e) => {
                             if(e.target.value > maxPrice) {
-                                setPriceRange([priceRange[0], maxPrice])
+                                dispatch(updateFilterStates({
+                                    priceRange: [priceRange[0], maxPrice]
+                                }));
                                 return;
                             }
-                            setPriceRange([priceRange[0], e.target.value]);
+
+                            dispatch(updateFilterStates({
+                                priceRange: [priceRange[0], e.target.value]
+                            }))
                         }}
                     />
                 </div>
@@ -217,7 +208,9 @@ export default function FilterListingPart({lang}) {
                         value={1}
                         checked={priceRange[0] === 0 && priceRange[1] === maxPrice}
                         change={() => {
-                            setPriceRange([0, maxPrice]);
+                            dispatch(updateFilterStates({
+                                priceRange: [0, maxPrice]
+                            }));
                         }}
                     />
 
@@ -227,7 +220,9 @@ export default function FilterListingPart({lang}) {
                         value={2}
                         checked={priceRange[0] === 0 && priceRange[1] <= 20}
                         change={() => {
-                            setPriceRange([0, 20]);
+                            dispatch(updateFilterStates({
+                                priceRange: [0, 20]
+                            }));
                         }}
                     />
 
@@ -237,7 +232,9 @@ export default function FilterListingPart({lang}) {
                         value={3}
                         checked={priceRange[0] === 20 && priceRange[1] <= 100}
                         change={() => {
-                            setPriceRange([20, 100]);
+                            dispatch(updateFilterStates({
+                                priceRange: [20, 100]
+                            }));
                         }}
                     />
 
@@ -246,8 +243,10 @@ export default function FilterListingPart({lang}) {
                         text={`100 ${userCountryInformation?.currency || ''} to 300 ${userCountryInformation?.currency || ''}`}
                         value={4}
                         checked={priceRange[0] === 100 && priceRange[1] <= 300}
-                        change={(e) => {
-                            setPriceRange([100, 300]);
+                        change={(_) => {
+                            dispatch(updateFilterStates({
+                                priceRange: [100, 300]
+                            }))
                         }}
                     />
 
@@ -257,7 +256,9 @@ export default function FilterListingPart({lang}) {
                         value={5}
                         checked={priceRange[0] === 300 && priceRange[1] <= 500}
                         change={() => {
-                            setPriceRange([300, 500]);
+                            dispatch(updateFilterStates({
+                                priceRange: [300, 500]
+                            }))
                         }}
                     />
 
@@ -267,7 +268,9 @@ export default function FilterListingPart({lang}) {
                         value={6}
                         checked={priceRange[0] === 500 && priceRange[1] <= 1000}
                         change={() => {
-                            setPriceRange([500, 1000]);
+                            dispatch(updateFilterStates({
+                                priceRange: [500, 1000]
+                            }))
                         }}
                     />
 
@@ -277,7 +280,9 @@ export default function FilterListingPart({lang}) {
                         value={7}
                         checked={priceRange[0] === 1000 && priceRange[1] <= 10000}
                         change={() => {
-                            setPriceRange([1000, 10000]);
+                            dispatch(updateFilterStates({
+                                priceRange: [1000, 10000]
+                            }))
                         }}
                     />
 
@@ -287,7 +292,9 @@ export default function FilterListingPart({lang}) {
                         value={8}
                         checked={priceRange[0] === 10000 && priceRange[1] <= maxPrice}
                         change={() => {
-                            setPriceRange([10000, maxPrice]);
+                            dispatch(updateFilterStates({
+                                priceRange: [10000, maxPrice]
+                            }))
                         }}
                     />
                 </div>
@@ -308,7 +315,9 @@ export default function FilterListingPart({lang}) {
                     filter={true}
                     value={selectedLocation}
                     onChange={(e) => {
-                        setSelectedLocation(e.value);
+                        dispatch(updateFilterStates({
+                            selectedLocation: e.value
+                        }));
                     }}
                 />
 

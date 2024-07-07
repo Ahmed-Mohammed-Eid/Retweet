@@ -85,7 +85,7 @@ export default function SignUpSignIn({lang}) {
                             localStorage.setItem('retweet-user-id', data.user?._id);
                             // SAVE THE USER EMAIL IN LOCAL STORAGE AND COOKIES
                             localStorage.setItem('retweet-user-email', data.user?.email);
-                            // SAVE THE USER NAME IN LOCAL STORAGE AND COOKIES
+                            // SAVE THE USERNAME IN LOCAL STORAGE AND COOKIES
                             localStorage.setItem('retweet-user-name', data.user?.fullName);
                             // SAVE THE USER PHONE IN LOCAL STORAGE AND COOKIES
                             localStorage.setItem('retweet-user-phone', data.user?.phoneNumber);

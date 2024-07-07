@@ -79,7 +79,6 @@ function CountrySwitcher({className, lang}) {
 
     useEffect(() => {
         getCountry().then((country) => {
-            console.log(country)
             if(!country) {
                 return;
             }
@@ -92,7 +91,11 @@ function CountrySwitcher({className, lang}) {
             <Dropdown
                 value={selectedCountry}
                 onChange={(e) => {
-                    handleCountryChange(e.value.code);
+                    //VALIDATE THE COUNTRY
+                    if(!e.value) {
+                        return;
+                    }
+                    handleCountryChange(e.value?.code);
                     setSelectedCountry(e.value)
                 }}
                 options={countries}

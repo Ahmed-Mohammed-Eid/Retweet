@@ -11,6 +11,7 @@ import {Dialog} from "primereact/dialog";
 
 // REDUX
 import {useSelector, useDispatch} from "react-redux";
+import {returnToInitialState} from "@/redux/Slices/filterSlice";
 import {
     setListings,
     setPagination,
@@ -27,6 +28,7 @@ export default function ListingsPartContent({lang, authenticated, isMainFilterHi
     const {currentPage, itemsPerPage, totalListings} = useSelector(
         (state) => state.listings.pagination
     );
+    const {categoryId, subCategoryId, item, selectedLocation, priceRange, page} = useSelector((state) => state.filter);
 
     const [filterDialog, setFilterDialog] = useState(false);
 
@@ -49,13 +51,7 @@ export default function ListingsPartContent({lang, authenticated, isMainFilterHi
         // GET THE DATA
         axios
             .get(
-                `${process.env.BASE_URL}/filtered/listings?categoryId=${
-                    categoryId || ""
-                }&subCategoryId=${subCategoryId || ""}&minPrice=${
-                    minPrice || ""
-                }&maxPrice=${maxPrice || ""}&city=${location || ""}&page=${
-                    page || 1
-                }&item=${item || ""}`,
+                `${process.env.BASE_URL}/filtered/listings?categoryId=${categoryId || ""}&subCategoryId=${subCategoryId || ""}&minPrice=${minPrice || ""}&maxPrice=${maxPrice || ""}&city=${location || ""}&page=${page || 1}&item=${item || ""}`,
                 {
                     headers: {
                         "Content-Type": "application/json",
@@ -86,26 +82,27 @@ export default function ListingsPartContent({lang, authenticated, isMainFilterHi
     }
 
     useEffect(() => {
-        // GET THE SEARCH PARAMS
-        const categoryId = searchParams.get("categoryId");
-        const subCategoryId = searchParams.get("subcategoryId");
-        const item = searchParams.get("item");
-        const location = searchParams.get("location");
-        const minPrice = searchParams.get("minPrice");
-        const maxPrice = searchParams.get("maxPrice");
-        const page = searchParams.get("page");
-
         // GET THE PRODUCTS
         getListings(
             categoryId,
             subCategoryId,
             item,
-            location,
-            minPrice,
-            maxPrice,
+            selectedLocation === "All Cities" ? "" : selectedLocation,
+            priceRange[0] || "",
+            priceRange[1] || "",
             page
         );
-    }, [searchParams]);
+    }, [categoryId, item, page, priceRange, selectedLocation, subCategoryId]);
+
+    // EFFECT TO CLEAR THE FILTERS WHEN THE COMPONENT UNMOUNTS
+    useEffect(() => {
+        return () => {
+            // CLEAR THE FILTERS
+            dispatch(
+                returnToInitialState()
+            );
+        };
+    }, []);
 
 
     return (

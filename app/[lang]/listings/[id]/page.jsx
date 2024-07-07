@@ -74,9 +74,7 @@ export default async function ListingsPage({params: {id, lang}}) {
     return (
         <div>
             {/*Title*/}
-            <h1
-                className={`text-3xl font-bold ${lang === "en" ? "text-left" : "text-right"} mt-8 mb-4`}
-            >
+            <h1 className={`text-3xl font-bold ${lang === "en" ? "text-left" : "text-right"} mt-8 mb-4`}>
                 {data?.listing?.listingTitle}
             </h1>
             {/*Main Details*/}

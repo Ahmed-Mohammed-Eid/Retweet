@@ -5,7 +5,15 @@ import classes from './MegaMenu.module.scss';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 
+// REDUX
+import {useDispatch} from 'react-redux';
+import {updateFilterStates} from "@/redux/Slices/filterSlice";
+
 export default function MegaMenuComponent({ lang }) {
+
+    // REDUX
+    const dispatch = useDispatch();
+
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
@@ -29,11 +37,21 @@ export default function MegaMenuComponent({ lang }) {
             items: (lang === 'en' ? subCategory.itemsEn : subCategory.items).map((item) => ({
                 label: item,
                 command: () => {
-                    router.push(`/listings?categoryId=${category._id}&subcategoryId=${subCategory._id}&item=${item}`);
+                    dispatch(updateFilterStates({
+                        categoryId: category._id,
+                        subCategoryId: subCategory._id,
+                        item,
+                    }));
+
+                    router.push('/listings');
                 },
             })),
             command: () => {
-                router.push(`/listings?categoryId=${category._id}&subcategoryId=${subCategory._id}`);
+                dispatch(updateFilterStates({
+                    categoryId: category._id,
+                    subCategoryId: subCategory._id,
+                }));
+                router.push('/listings');
             },
         }));
     };

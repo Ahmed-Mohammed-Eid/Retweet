@@ -6,7 +6,15 @@ import Image from 'next/image';
 import axios from 'axios';
 import {useRouter} from "next/navigation";
 
+// REDUX
+import {useDispatch} from "react-redux";
+import {updateFilterStates} from "@/redux/Slices/filterSlice";
+
+
 export default function HomeCategories({ dictionary, lang }) {
+
+    // REDUX
+    const dispatch = useDispatch();
 
     // Router
     const router = useRouter();
@@ -29,7 +37,17 @@ export default function HomeCategories({ dictionary, lang }) {
 
     // redirect to listings page
     const redirectToAllListings = () => {
-        router.push(`/listings?categoryId=&subcategoryId=&item=&location=&minPrice=&maxPrice=&page=`);
+
+        dispatch(updateFilterStates({
+            categoryId: "",
+            subCategoryId: "",
+            item: "",
+            selectedLocation: "",
+            priceRange: [],
+            page: 1,
+        }));
+
+        router.push(`/listings`);
     };
 
     return (
