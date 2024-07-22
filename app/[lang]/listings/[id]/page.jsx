@@ -2,6 +2,7 @@ import React from 'react';
 import axios from "axios";
 import MainDetails from "@/app/components/Listings/ListingsView/MainDetails/MainDetails";
 import InfoDetails from "@/app/components/Listings/ListingsView/InfoDetails/InfoDetails";
+import SecondaryNavigation from "@/app/components/LayoutAndHomeComponents/SecondaryNavigation/SecondaryNavigation";
 
 
 // ASYNC FUNCTION WITH NO CACHE TO GET DATA FROM API BASED ON ID
@@ -31,7 +32,7 @@ export async function generateMetadata({params}) {
     // GET SEO DATA
     const seoData = await getSeo(params.id);
     const listing = seoData?.listing;
-    
+
     // RETURN METADATA
     return {
         title: listing?.listingTitle,
@@ -67,20 +68,42 @@ export async function generateMetadata({params}) {
 }
 
 
-
 export default async function ListingsPage({params: {id, lang}}) {
     const data = await getListing(id);
 
     return (
-        <div>
-            {/*Title*/}
-            <h1 className={`text-3xl font-bold ${lang === "en" ? "text-left" : "text-right"} mt-8 mb-4`}>
-                {data?.listing?.listingTitle}
-            </h1>
-            {/*Main Details*/}
-            <MainDetails listing={data?.listing} lang={lang}/>
-            {/*MAIN DETAILS*/}
-            <InfoDetails listing={data?.listing} lang={lang}/>
-        </div>
+        <>
+            <div className={"mb-2"}>
+                <SecondaryNavigation
+                    arrayOfLinks={[
+                        {
+                            text: 'Home',
+                            icon: '/assets/home/House.svg',
+                            href: '/',
+                            arrow: true,
+                        },
+                        {
+                            href: '/listings',
+                            text: 'Listings',
+                            arrow: true,
+                        },
+                        {
+                            text: data?.listing?.listingTitle,
+                            href: `/listings/${id}`,
+                        },
+                    ]}
+                />
+            </div>
+            <div>
+                {/*Title*/}
+                <h1 className={`text-3xl font-bold ${lang === "en" ? "text-left" : "text-right"} mt-8 mb-4`}>
+                    {data?.listing?.listingTitle}
+                </h1>
+                {/*Main Details*/}
+                <MainDetails listing={data?.listing} lang={lang}/>
+                {/*MAIN DETAILS*/}
+                <InfoDetails listing={data?.listing} lang={lang}/>
+            </div>
+        </>
     );
 }

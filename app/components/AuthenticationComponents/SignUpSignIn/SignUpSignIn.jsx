@@ -199,6 +199,45 @@ export default function SignUpSignIn({lang}) {
             })
     }
 
+    // ON FACEBOOK SIGN IN
+    const onFacebookSignIn = () => {
+        // ADD YOUR FACEBOOK SIGN IN CODE HERE
+        axios.get(`${process.env.BASE_URL}/auth/facebook`)
+            .then(response => {
+                console.log(response);
+                // HANDLE THE RESPONSE HERE
+                const data = response.data;
+                // CHECK IF THE REQUEST IS SUCCESSFUL
+                if (data?.success) {
+                    // OPEN THE LINK IN
+                    window.location.href = data?.url;
+                }
+            })
+            .catch(error => {
+                // HANDLE THE ERROR HERE
+                toast.error(error.response?.data?.message || 'Something went wrong');
+            })
+    }
+
+    // ON TWITTER SIGN IN
+    const onTwitterSignIn = () => {
+        // ADD YOUR TWITTER SIGN IN CODE HERE
+        axios.get(`${process.env.BASE_URL}/auth/twitter`)
+            .then(response => {
+                // HANDLE THE RESPONSE HERE
+                const data = response.data;
+                // CHECK IF THE REQUEST IS SUCCESSFUL
+                if (data?.success) {
+                    // OPEN THE LINK IN
+                    window.location.href = data?.url;
+                }
+            })
+            .catch(error => {
+                // HANDLE THE ERROR HERE
+                toast.error(error.response?.data?.message || 'Something went wrong');
+            })
+    }
+
     return (
         <div className={`${classes.ContentContainer}`}>
             <div className={`${classes.ContentContainer__Buttons}`}>
@@ -245,6 +284,20 @@ export default function SignUpSignIn({lang}) {
                         <Image src="/assets/authentication/Google.png" width={20} height={20} alt="google"/>
                         <span>Login with Google</span>
                     </button>
+                    {/*<button*/}
+                    {/*    className={`${classes.ContentContainer__FormContainer__SocialMedia__Button}`}*/}
+                    {/*    onClick={onFacebookSignIn}*/}
+                    {/*>*/}
+                    {/*    <Image src="/assets/authentication/Facebook.png" width={20} height={20} alt="facebook"/>*/}
+                    {/*    <span>Login with Facebook</span>*/}
+                    {/*</button>*/}
+                    {/*<button*/}
+                    {/*    className={`${classes.ContentContainer__FormContainer__SocialMedia__Button}`}*/}
+                    {/*    onClick={onTwitterSignIn}*/}
+                    {/*>*/}
+                    {/*    <Image src="/assets/authentication/twitter.png" width={20} height={20} alt="twitter"/>*/}
+                    {/*    <span>Login with Twitter</span>*/}
+                    {/*</button>*/}
                 </div>
             </div>)}
             {/*SIGN UP FORM*/}
@@ -294,6 +347,20 @@ export default function SignUpSignIn({lang}) {
                         <Image src="/assets/authentication/Google.png" width={20} height={20} alt="google"/>
                         <span>Sign Up with Google</span>
                     </button>
+                    {/*<button*/}
+                    {/*    className={`${classes.ContentContainer__FormContainer__SocialMedia__Button}`}*/}
+                    {/*    onClick={onFacebookSignIn}*/}
+                    {/*>*/}
+                    {/*    <Image src="/assets/authentication/Facebook.png" width={20} height={20} alt="facebook"/>*/}
+                    {/*    <span>Sign Up with Facebook</span>*/}
+                    {/*</button>*/}
+                    {/*<button*/}
+                    {/*    className={`${classes.ContentContainer__FormContainer__SocialMedia__Button}`}*/}
+                    {/*    onClick={onTwitterSignIn}*/}
+                    {/*>*/}
+                    {/*    <Image src="/assets/authentication/twitter.png" width={20} height={20} alt="twitter"/>*/}
+                    {/*    <span>Sign Up with Twitter</span>*/}
+                    {/*</button>*/}
                 </div>
             </div>)}
         </div>

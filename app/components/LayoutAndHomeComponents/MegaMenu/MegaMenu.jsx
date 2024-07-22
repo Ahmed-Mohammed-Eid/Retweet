@@ -7,7 +7,7 @@ import axios from 'axios';
 
 // REDUX
 import {useDispatch} from 'react-redux';
-import {updateFilterStates} from "@/redux/Slices/filterSlice";
+import {updateFilterStates, clearSpecificFields} from "@/redux/Slices/filterSlice";
 
 export default function MegaMenuComponent({ lang }) {
 
@@ -42,7 +42,7 @@ export default function MegaMenuComponent({ lang }) {
                         subCategoryId: subCategory._id,
                         item,
                     }));
-
+                    dispatch(clearSpecificFields(['item']))
                     router.push('/listings');
                 },
             })),
@@ -66,6 +66,7 @@ export default function MegaMenuComponent({ lang }) {
             dispatch(updateFilterStates({
                 categoryId: category._id,
             }));
+            dispatch(clearSpecificFields(['subCategoryId', 'item']));
             router.push('/listings');
         },
     }));
@@ -80,6 +81,7 @@ export default function MegaMenuComponent({ lang }) {
                     dispatch(updateFilterStates({
                         categoryId: category._id,
                     }));
+                    dispatch(clearSpecificFields(['subCategoryId', 'item']));
                     router.push('/listings');
                 },
             }))

@@ -179,6 +179,8 @@
 
         &__SocialMedia {
             display: flex;
+            flex-direction: column;
+            gap: 10px;
             justify-content: center;
             align-items: center;
             padding: 0 1rem 2rem;

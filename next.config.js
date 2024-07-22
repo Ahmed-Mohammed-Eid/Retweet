@@ -22,6 +22,22 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'twemoji.maxcdn.com',
             },
+            {
+                protocol: 'https',
+                hostname: 'pbs.twimg.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'abs.twimg.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'video.twimg.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'ton.twimg.com',
+            }
         ],
     },
     env: {

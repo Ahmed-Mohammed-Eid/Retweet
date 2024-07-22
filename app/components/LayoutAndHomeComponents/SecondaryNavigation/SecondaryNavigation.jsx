@@ -7,7 +7,7 @@ import classes from './SecondaryNavigation.module.scss';
 export default function SecondaryNavigation({arrayOfLinks}) {
     return (
         <div className={`flex flex-col items-center justify-center w-full ${classes.SecondaryNavigation} py-3 px-5`}>
-            <div className={'flex justify-items-start items-center gap-2 w-full'}>
+            <div className={'flex justify-items-start items-center gap-2 w-full flex-wrap'}>
                 {
                     arrayOfLinks.map((link, index) => {
                         return (
