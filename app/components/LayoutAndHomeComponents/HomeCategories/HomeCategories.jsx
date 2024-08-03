@@ -1,7 +1,6 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import classes from './HomeCategories.module.scss';
-import HomeCategory from '@/app/components/LayoutAndHomeComponents/HomeCategories/Category';
 import Image from 'next/image';
 import axios from 'axios';
 import {useRouter} from "next/navigation";
@@ -9,9 +8,13 @@ import {useRouter} from "next/navigation";
 // REDUX
 import {useDispatch} from "react-redux";
 import {updateFilterStates} from "@/redux/Slices/filterSlice";
+// IMPORTS
+import dynamic from "next/dynamic";
+// import HomeCategory from '@/app/components/LayoutAndHomeComponents/HomeCategories/Category';
+const HomeCategory = dynamic(() => import('@/app/components/LayoutAndHomeComponents/HomeCategories/Category'));
 
 
-export default function HomeCategories({ dictionary, lang }) {
+export default function HomeCategories({dictionary, lang}) {
 
     // REDUX
     const dispatch = useDispatch();
@@ -63,13 +66,14 @@ export default function HomeCategories({ dictionary, lang }) {
             </div>
             <div className={classes.HomeCategories__Container}>
                 {categories.slice(0, 14).map((category, index) => (
-                    <HomeCategory key={index} category={category} lang={lang} />
+                    <HomeCategory key={index} category={category} lang={lang}/>
                 ))}
             </div>
             <div className={classes.HomeCategories__Bottom}>
                 <div className={classes.HomeCategories__Bottom__Left}>
                     <div className={classes.HomeCategories__Bottom__Left__Img}>
-                        <Image src={'/assets/home/logo.png'} alt={'brands'} width={200} height={36} />
+                        <Image src={'/assets/home/logo.webp'} alt={'brands'} width={200} height={36}
+                               loading={"lazy"}/>
                     </div>
                     <h2>Get More Listings & Sell More Fast</h2>
                     <ul>
@@ -79,7 +83,8 @@ export default function HomeCategories({ dictionary, lang }) {
                     <button>View All Products <span>&rarr;</span></button>
                 </div>
                 <div className={classes.HomeCategories__Bottom__Right}>
-                    <Image src={'/assets/home/viewAllProducts.png'} alt={'brands'} width={505} height={427} />
+                    <Image src={'/assets/home/viewAllProducts.webp'} alt={'brands'} width={505} height={427}
+                           loading={"lazy"}/>
                 </div>
             </div>
         </section>

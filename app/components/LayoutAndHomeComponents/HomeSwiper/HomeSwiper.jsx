@@ -30,31 +30,40 @@ export default function HomeSwiper() {
     }, []);
 
     return (
-        <Swiper
-            modules={[Navigation, Pagination, A11y, Autoplay]}
-            spaceBetween={50}
-            navigation
-            pagination={{clickable: true}}
-            autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-            }}
-        >
-            {ads.map((ad, index) => (
-                <SwiperSlide key={index}>
-                    <div style={{ width: '100%', minHeight: '300px', maxHeight: '300px', overflow: 'hidden' }}>
-                        <Image
-                            src={ad.url}
-                            alt={'ADVERTISEMENT'}
-                            width={1920}
-                            height={300}
-                            layout="responsive" // Ensure responsive image sizing
-                            objectFit="cover"
-                            objectPosition="center"
-                        />
-                    </div>
-                </SwiperSlide>
-            ))}
-        </Swiper>
+        ads?.length > 0 && (
+            <Swiper
+                modules={[Navigation, Pagination, A11y, Autoplay]}
+                spaceBetween={50}
+                navigation
+                pagination={{clickable: true}}
+                autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                }}
+            >
+                {ads?.map((ad, index) => {
+                    if(!ad?.url) return null;
+                    return (
+                        <SwiperSlide key={index}>
+                            <div style={{width: '100%', minHeight: '300px', maxHeight: '300px', overflow: 'hidden'}}>
+                                <Image
+                                    src={ad?.url}
+                                    alt={'ADVERTISEMENT'}
+                                    width={1920}
+                                    height={300}
+                                    priority={true}
+                                    style={{
+                                        objectFit: 'cover',
+                                        objectPosition: 'center',
+                                        width: '100%',
+                                        height: '100%'
+                                    }}
+                                />
+                            </div>
+                        </SwiperSlide>
+                    )
+                })}
+            </Swiper>
+        )
     );
 }

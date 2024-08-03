@@ -1,10 +1,12 @@
 "use client";
 
 import classes from "./SmartPhones.module.scss";
-import Card from "@/app/components/LayoutAndHomeComponents/Card/Card";
 
 // REDUX
 import {useSelector} from "react-redux";
+
+// COMPONENTS
+import Card from "@/app/components/LayoutAndHomeComponents/Card/Card";
 
 export default function SmartPhones({dictionary}) {
 

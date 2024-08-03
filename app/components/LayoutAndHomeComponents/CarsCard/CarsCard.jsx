@@ -6,12 +6,9 @@ import Image from "next/image";
 import classes from "./CarsCard.module.scss";
 import { formatePrice } from "@/helpers/formatePrice";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import axios from "axios";
 
 export default function CarsCard({ dictionary, data }) {
-	// ROUTER
-	const router = useRouter();
 
 	// STATES
 	const [isFavourite, setIsFavourite] = useState(false);
@@ -44,7 +41,7 @@ export default function CarsCard({ dictionary, data }) {
 						},
 					}
 				)
-				.then((response) => {
+				.then((_) => {
 					setIsFavourite(true);
 				})
 				.catch((error) => {
@@ -81,6 +78,7 @@ export default function CarsCard({ dictionary, data }) {
 						alt={"brands"}
 						width={200}
 						height={200}
+						loading={"lazy"}
 					/>
 				</Link>
 				<div className={classes.Card__buttons}>

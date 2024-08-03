@@ -6,7 +6,6 @@ import {Toaster} from 'react-hot-toast';
 import {cookies} from "next/headers";
 
 // NEXT REQUEST
-import {NextRequest} from "next/server";
 
 // CUSTOM COMPONENTS
 import ClientLayout from "@/app/[lang]/ClientLayout";
@@ -64,6 +63,27 @@ export const metadata = {
             'en-IN': '/en',
         },
         robots: "index, follow",
+        // LOCALIZATION [ARABIC, ENGLISH]
+        lang: {
+            'ar': {
+                direction: 'rtl',
+                locale: 'ar-EG',
+                code: 'ar',
+                name: 'Arabic',
+                nativeName: 'العربية',
+                hrefLang: 'ar-EG',
+            },
+            'en': {
+                direction: 'ltr',
+                locale: 'en-US',
+                code: 'en',
+                name: 'English',
+                nativeName: 'English',
+                hrefLang: 'en-US',
+            }
+        },
+
+
         openGraph: {
             type: 'website',
             title: 'Retweet',
@@ -90,6 +110,13 @@ export default async function RootLayout({children, params}) {
 
     return (
         <html lang={lang || defaultLocale}>
+        <head>
+            <link rel="preload" href="/assets/fonts/Tajawal-Regular.ttf" as="font" type="font/ttf"/>
+            <link rel="preload" href="/assets/fonts/Tajawal-Bold.ttf" as="font" type="font/ttf"/>
+            <link rel="preload" href="/assets/fonts/Tajawal-ExtraBold.ttf" as="font" type="font/ttf"/>
+            <link rel="preload" href="/assets/fonts/Tajawal-Light.ttf" as="font" type="font/ttf"/>
+            <title>Retweet</title>
+        </head>
         <body>
         <PrimeReactProvider>
             <ClientLayout lang={lang} authenticated={authenticated} error={error} userData={userData}>

@@ -28,7 +28,7 @@ export default function SaveGoogleToken() {
                 hasProfile: hasProfile === 'true',
                 formType: 'google'
             })
-                .then(res => {
+                .then(_ => {
                     // SAVE THE USER ID IN LOCAL STORAGE AND COOKIES
                     localStorage.setItem('retweet-token', token);
                     localStorage.setItem('retweet-user-id', userId);
@@ -53,12 +53,12 @@ export default function SaveGoogleToken() {
                                     userPhone: data.user?.phoneNumber,
                                     formType: 'login'
                                 })
-                                    .then(response => {
+                                    .then(_ => {
                                         // SAVE THE USER ID IN LOCAL STORAGE AND COOKIES
                                         localStorage.setItem('retweet-user-id', data.user?._id);
                                         // SAVE THE USER EMAIL IN LOCAL STORAGE AND COOKIES
                                         localStorage.setItem('retweet-user-email', data.user?.email);
-                                        // SAVE THE USER NAME IN LOCAL STORAGE AND COOKIES
+                                        // SAVE THE USERNAME IN LOCAL STORAGE AND COOKIES
                                         localStorage.setItem('retweet-user-name', data.user?.fullName);
                                         // SAVE THE USER PHONE IN LOCAL STORAGE AND COOKIES
                                         localStorage.setItem('retweet-user-phone', data.user?.phoneNumber);

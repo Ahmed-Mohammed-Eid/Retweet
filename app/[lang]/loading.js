@@ -1,4 +1,6 @@
-import LoadingPageContent from "@/app/components/LayoutAndHomeComponents/LoadingPageContent/LoadingPageContent";
+import dynamic from 'next/dynamic';
+const LoadingPageContent = dynamic(() => import('@/app/components/LayoutAndHomeComponents/LoadingPageContent/LoadingPageContent'));
+
 
 const Loading = () => {
     return (

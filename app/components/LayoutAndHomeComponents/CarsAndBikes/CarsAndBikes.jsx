@@ -1,10 +1,12 @@
 "use client";
 
 import classes from "./CarsAndBikes.module.scss";
-import CarsCard from "@/app/components/LayoutAndHomeComponents/CarsCard/CarsCard";
 
 // REDUX
 import {useSelector} from "react-redux";
+
+// COMPONENTS
+import CarsCard from "@/app/components/LayoutAndHomeComponents/CarsCard/CarsCard";
 
 export default function CarsAndBikes({dictionary}) {
 

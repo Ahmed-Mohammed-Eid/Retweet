@@ -1,14 +1,16 @@
 import {getDictionary} from "./dictionaries/dictionaries";
-import HomeSwiper from "@/app/components/LayoutAndHomeComponents/HomeSwiper/HomeSwiper";
-import HomeCategories from "@/app/components/LayoutAndHomeComponents/HomeCategories/HomeCategories";
-import LatestAds from "@/app/components/LayoutAndHomeComponents/LatestAds/LatestAds";
-import RealEstate from "@/app/components/LayoutAndHomeComponents/RealEstate/RealEstate";
-import CarsAndBikes from "@/app/components/LayoutAndHomeComponents/CarsAndBikes/CarsAndBikes";
-import SmartPhones from "@/app/components/LayoutAndHomeComponents/SmartPhones/SmartPhones";
-import SaveGoogleToken from "@/app/components/AuthenticationComponents/SaveGoogleToken/SaveGoogleToken";
 import axios from "axios";
 import {console} from "next/dist/compiled/@edge-runtime/primitives";
 
+// DYNAMICALLY IMPORT COMPONENTS
+import dynamic from 'next/dynamic';
+const HomeSwiper = dynamic(() => import('@/app/components/LayoutAndHomeComponents/HomeSwiper/HomeSwiper'));
+const HomeCategories = dynamic(() => import('@/app/components/LayoutAndHomeComponents/HomeCategories/HomeCategories'));
+const LatestAds = dynamic(() => import('@/app/components/LayoutAndHomeComponents/LatestAds/LatestAds'));
+const RealEstate = dynamic(() => import('@/app/components/LayoutAndHomeComponents/RealEstate/RealEstate'));
+const CarsAndBikes = dynamic(() => import('@/app/components/LayoutAndHomeComponents/CarsAndBikes/CarsAndBikes'));
+const SmartPhones = dynamic(() => import('@/app/components/LayoutAndHomeComponents/SmartPhones/SmartPhones'));
+const SaveGoogleToken = dynamic(() => import('@/app/components/AuthenticationComponents/SaveGoogleToken/SaveGoogleToken'));
 
 export async function generateMetadata({params}) {
     // LANGUAGE
@@ -25,6 +27,7 @@ export async function generateMetadata({params}) {
         type: "website",
         url: `https://retweet.com/${lang}`,
         site_name: "retweet",
+        lang: lang,
         openGraph: {
             type: "website",
             locale: lang === 'en' ? "en_US" : "ar_AR",

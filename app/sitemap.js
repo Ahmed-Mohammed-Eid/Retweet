@@ -10,8 +10,8 @@ export default async function sitemap() {
             return {
                 url: `https://retweet.com/${lang}${page}`,
                 lastModified: new Date(),
-                changeFrequency: 'weekly',
-                priority: 0.8
+                changeFrequency: 'daily',
+                priority: 1,
             }
         })
     })
@@ -41,8 +41,8 @@ export default async function sitemap() {
             return {
                 url: `https://retweet.com/${lang}/listings/${listing}`,
                 lastModified: new Date(),
-                changeFrequency: 'weekly',
-                priority: 0.8
+                changeFrequency: 'daily',
+                priority: 1,
             }
         })
     })

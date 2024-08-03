@@ -40,7 +40,7 @@ export default function HomeCategory({category, lang}) {
     return (
         <Link className={classes.HomeCategory} onClick={handleClick} href={`/listings`}>
             <div className={classes.HomeCategory__Img}>
-                <Image src={category.categoryImage} alt={'category'} width={75} height={75}/>
+                <Image src={category.categoryImage} alt={'category'} width={75} height={75} loading={'eager'}/>
             </div>
             <h2>{lang === 'en'? category.categoryNameEn: category.categoryName}</h2>
         </Link>

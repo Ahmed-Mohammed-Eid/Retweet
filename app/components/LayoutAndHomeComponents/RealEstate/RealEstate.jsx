@@ -1,7 +1,6 @@
 "use client"
 
 import classes from "./RealEstate.module.scss";
-import Card from "@/app/components/LayoutAndHomeComponents/Card/Card";
 import {useEffect} from "react";
 import axios from "axios";
 import Image from "next/image";
@@ -9,7 +8,12 @@ import Image from "next/image";
 // REDUX
 import {useSelector} from "react-redux";
 
+// COMPONENTS
+import Card from "@/app/components/LayoutAndHomeComponents/Card/Card";
+
 export default function RealEstate({dictionary}) {
+
+
 
     // REDUX
     const realEstate = useSelector(state => state.home.advertisements.realestates) || [];
@@ -19,7 +23,7 @@ export default function RealEstate({dictionary}) {
     function getBottomAd() {
         // Fetch data from server
         axios.get(`${process.env.BASE_URL}/all/home/ads`)
-            .then(response => {
+            .then(_ => {
                 // const ads = response.data.homeAds.thirdAd;
                 // setAds(ads);
             })
@@ -32,7 +36,6 @@ export default function RealEstate({dictionary}) {
     useEffect(() => {
         getBottomAd();
     }, []);
-
 
 
     return (
@@ -55,7 +58,7 @@ export default function RealEstate({dictionary}) {
                 }
             </div>
             <div className={classes.RealEstate__Bottom}>
-                <Image src={clientsAds} alt={'Ads Banner'} width={1920} height={300}/>
+                <Image src={clientsAds} alt={'Ads Banner'} width={1920} height={300} loading={'lazy'}/>
             </div>
         </section>
     )

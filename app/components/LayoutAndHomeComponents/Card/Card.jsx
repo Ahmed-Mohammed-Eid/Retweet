@@ -80,6 +80,7 @@ export default function Card({ dictionary, data, lang }) {
 						alt={"brands"}
 						width={200}
 						height={200}
+						loading={"lazy"}
 					/>
 				</Link>
 				<div className={classes.Card__buttons}>
