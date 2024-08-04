@@ -32,6 +32,8 @@ export async function generateMetadata({params}) {
     // GET SEO DATA
     const seoData = await getSeo(params.id);
     const listing = seoData?.listing;
+    // GET THE LANGUAGE
+    const lang = params?.lang || "en";
 
     // RETURN METADATA
     return {
@@ -39,18 +41,26 @@ export async function generateMetadata({params}) {
         description: listing?.listingDescription,
         keywords: listing?.listingTitle + " " + listing?.listingDescription,
         type: "article",
-        url: `https://retweet.com/en/listing/${params.id}`,
-        site_name: "retweet",
+        url: `https://retweet.com/${lang}/listing/${params.id}`,
+        author: "Retweet",
         openGraph: {
-            type: "website",
+            type: "article",
             locale: "en_US",
-            url: `https://retweet.com/en/listing/${params.id}`,
+            url: `https://retweet.com/${lang}/listing/${params.id}`,
             title: listing?.listingTitle,
             description: listing?.listingDescription,
             image: listing?.listingImages[0],
-            site_name: "retweet",
+            siteName: "Retweet",
             imageWidth: 1200,
             imageHeight: 630,
+            // CANONICAL URL
+            images: [
+                {
+                    url: listing?.listingImages[0],
+                    width: 1200,
+                    height: 630
+                }
+            ]
         },
         twitter: {
             handle: "@retweet",
@@ -64,6 +74,9 @@ export async function generateMetadata({params}) {
                 height: 630
             }]
         },
+        alternates:{
+            canonical: `https://retweet.com/${lang}/listing/${params.id}`,
+        }
     }
 }
 
