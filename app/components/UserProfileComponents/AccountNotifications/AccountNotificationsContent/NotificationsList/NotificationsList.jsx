@@ -24,7 +24,7 @@ export default function NotificationsList() {
         })
             .then((response) => response.json())
             .then((data) => {
-                setNotifications(data.notifications);
+                setNotifications(data?.notifications || []);
             })
             .catch((error) => {
                 console.log(error);
@@ -36,7 +36,12 @@ export default function NotificationsList() {
     return (
         <div className={classes.NotificationsList}>
             {/*  NOTIFICATIONS  */}
-            {Array.from({length: 50}, (_, i) => <NotificationItem key={i}/>)}
+            {notifications.map((notification, index) => (
+                <NotificationItem
+                    key={index}
+                    notification={notification}
+                />
+            ))}
         </div>
     );
 }

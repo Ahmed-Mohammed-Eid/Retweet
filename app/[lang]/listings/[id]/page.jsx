@@ -117,9 +117,9 @@ export default async function ListingsPage({params: {id, lang}}) {
                     {data?.listing?.listingTitle}
                 </h1>
                 {/*Main Details*/}
-                <MainDetails listing={data?.listing} lang={lang}/>
+                <MainDetails listing={data?.listing} lang={lang} creatorId={data?.listing?.userId}/>
                 {/*MAIN DETAILS*/}
-                <InfoDetails listing={data?.listing} lang={lang}/>
+                <InfoDetails listing={data?.listing} lang={lang} creatorId={data?.listing?.userId}/>
             </div>
         </>
     );

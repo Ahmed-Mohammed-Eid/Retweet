@@ -1,20 +1,26 @@
 "use client"
-import React from "react";
+import React, {useEffect} from "react";
 import classes from "./Navbar.module.scss";
 import subClasses from "./Sidebar.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import {Button} from "primereact/button";
 import LanguageSwitcher from "@/app/components/LayoutAndHomeComponents/LanguageSwitcher/LanguageSwitcher";
-import SelectedArea from "@/app/components/LayoutAndHomeComponents/SelectedArea/SelectedArea";
 import AuthenticatedProfile from "@/app/components/LayoutAndHomeComponents/AuthenticatedProfile/AuthenticatedProfile";
 import {useRouter} from "next/navigation";
 import {Sidebar} from 'primereact/sidebar';
 import CountrySwitcher from "@/app/components/LayoutAndHomeComponents/CountrySwitcher/CountrySwitcher";
 
 // REDUX
-import {useDispatch} from "react-redux";
-import {updateUserInformation, updateUserCountryInformation, setIsAuthenticated} from "@/redux/Slices/mainLayoutSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {
+    updateUserInformation,
+    updateUserCountryInformation,
+    setIsAuthenticated,
+    updateNotifications
+} from "@/redux/Slices/mainLayoutSlice";
+import axios from "axios";
+import {Badge} from "primereact/badge";
 
 function Navbar({lang, auth, country, userData}) {
 
@@ -26,6 +32,7 @@ function Navbar({lang, auth, country, userData}) {
 
     // REDUX
     const dispatch = useDispatch();
+    const {notifications} = useSelector(state => state.mainLayout);
 
     // UPDATE USER INFORMATION
     dispatch(updateUserInformation(userData));
@@ -56,6 +63,35 @@ function Navbar({lang, auth, country, userData}) {
         router.push('/?redirected=true');
     }
 
+    // GET THE NOTIFICATIONS HANDLER
+    const getNotifications = () => {
+        // GET THE NOTIFICATIONS
+        axios.get(`${process.env.BASE_URL}/unseen/notifications`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("retweet-token")}`,
+            },
+        }).then(response => {
+            console.log(response.data);
+            dispatch(updateNotifications({
+                hasNotifications: response.data?.hasNotifications,
+                notificationCount: response.data?.notificationCount,
+            }));
+        }).catch(error => {
+            console.log(error);
+        });
+    }
+
+    // GET THE NOTIFICATIONS
+    useEffect(() => {
+        getNotifications();
+        
+        const interval = setInterval(() => {
+            getNotifications();
+        }, 10000);
+
+        return () => clearInterval(interval);
+    }, []);
+
 
     return (
         <>
@@ -79,16 +115,29 @@ function Navbar({lang, auth, country, userData}) {
 
                         <span className={classes.Navbar__breaker}></span>
 
-                        <Button className={classes.Navbar__icons__icon} tooltip={"Messages"}>
+                        <Button className={classes.Navbar__icons__icon} tooltip={"Messages"}
+                                onClick={() => router.push('/profile/messages#chat__box-hash')}
+                        >
                             <Image src={'/assets/home/bx_chat.svg'} alt={'bx_chat'} width={18} height={18}/>
                         </Button>
 
                         <span className={classes.Navbar__breaker}></span>
 
-                        <Button className={classes.Navbar__icons__icon} tooltip={"Notifications"} onClick={() => {
-                            router.push('/profile/notifications')
-                        }}>
+                        <Button
+                            className={classes.Navbar__icons__icon}
+                            tooltip={"Notifications"}
+                            onClick={() => {
+                                router.push('/profile/notifications')
+                            }}>
                             <Image src={'/assets/home/notification.svg'} alt={'notification'} width={18} height={18}/>
+                            {/* NOTIFICATIONS */}
+                            {notifications.hasNotifications && notifications.notificationCount > 0 && (
+                                <Badge
+                                    value={notifications.notificationCount}
+                                    severity="danger"
+                                    style={{marginLeft: '0'}}
+                                />
+                            )}
                         </Button>
 
                         <span className={classes.Navbar__breaker}></span>
@@ -158,7 +207,8 @@ function Navbar({lang, auth, country, userData}) {
 
                         <span className={subClasses.Sidebar__breaker}></span>
 
-                        <Button className={subClasses.Sidebar__icons__icon}>
+                        <Button className={subClasses.Sidebar__icons__icon}
+                                onClick={() => router.push('/profile/messages#chat__box-hash')}>
                             <Image src={'/assets/home/bx_chat.svg'} alt={'bx_chat'} width={18} height={18}/>
                             <span>{lang === 'en' ? 'Messages' : 'الرسائل'}</span>
                         </Button>
@@ -175,12 +225,18 @@ function Navbar({lang, auth, country, userData}) {
                 </div>
 
                 <div className={`${subClasses.Sidebar__lang} mb-4`}>
-                    <p style={lang === 'en' ? {textAlign: 'left', direction: 'ltr'} : {textAlign: 'right', direction: 'rtl'}} className={"mb-2"}>{lang === 'en' ? 'Location' : 'الموقع'}</p>
+                    <p style={lang === 'en' ? {textAlign: 'left', direction: 'ltr'} : {
+                        textAlign: 'right',
+                        direction: 'rtl'
+                    }} className={"mb-2"}>{lang === 'en' ? 'Location' : 'الموقع'}</p>
                     <CountrySwitcher lang={lang} className={subClasses.Sidebar__lang__select}/>
                 </div>
 
                 <div className={`${subClasses.Sidebar__lang} mb-4`}>
-                    <p style={lang === 'en' ? {textAlign: 'left', direction: 'ltr'} : {textAlign: 'right', direction: 'rtl'}} className={"mb-2"}>{lang === 'en' ? 'Language' : 'اللغة'}</p>
+                    <p style={lang === 'en' ? {textAlign: 'left', direction: 'ltr'} : {
+                        textAlign: 'right',
+                        direction: 'rtl'
+                    }} className={"mb-2"}>{lang === 'en' ? 'Language' : 'اللغة'}</p>
                     <LanguageSwitcher className={subClasses.Sidebar__lang__select} lang={lang}/>
                 </div>
 

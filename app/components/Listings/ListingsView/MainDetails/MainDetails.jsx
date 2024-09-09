@@ -4,11 +4,20 @@ import React, {useEffect, useState} from 'react';
 import classes from './MainDetails.module.scss';
 import Image from 'next/image';
 
+import {useRouter} from "next/navigation";
+// REDUX
+const {useDispatch} = require("react-redux");
+import {updateCreatorId} from "@/redux/Slices/chatSlice";
 
 
-
-export default function MainDetails({lang, listing}) {
+export default function MainDetails({lang, listing, creatorId}) {
     const [mainImage, setMainImage] = useState();
+
+    // REDUX
+    const dispatch = useDispatch();
+
+    // NEXT ROUTER
+    const router = useRouter();
 
     // EFFECT TO SET MAIN IMAGE
     useEffect(() => {
@@ -152,7 +161,8 @@ export default function MainDetails({lang, listing}) {
                     <button
                         className={"button--effect"}
                         onClick={() => {
-                            window.open(`https://wa.me/${listing?.contactPhone}`);
+                            dispatch(updateCreatorId(creatorId));
+                            router.push(`/profile/messages?creatorId=${creatorId}`);
                         }}
                     >
                         <Image

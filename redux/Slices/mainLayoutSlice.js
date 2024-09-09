@@ -1,7 +1,6 @@
-
 "use client"; //this is a client side component
 
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
     userInformation: {
@@ -12,10 +11,12 @@ const initialState = {
         userId: '',
         hasProfile: false,
     },
-    userCountryInformation: {
-
-    },
+    userCountryInformation: {},
     isAuthenticated: false,
+    notifications: {
+        hasNotifications: false,
+        notificationCount: 0,
+    },
 };
 
 export const counterSlice = createSlice({
@@ -30,10 +31,18 @@ export const counterSlice = createSlice({
         },
         setIsAuthenticated: (state, action) => {
             state.isAuthenticated = action.payload;
+        },
+        updateNotifications: (state, action) => {
+            state.notifications = action.payload;
         }
     },
 });
 
-export const { updateUserInformation, updateUserCountryInformation, setIsAuthenticated } = counterSlice.actions
+export const {
+    updateUserInformation,
+    updateUserCountryInformation,
+    setIsAuthenticated,
+    updateNotifications,
+} = counterSlice.actions
 
 export default counterSlice.reducer;

@@ -4,8 +4,6 @@ import React, {useEffect, useState} from "react";
 import {Dropdown} from 'primereact/dropdown';
 import {ChevronDownIcon} from 'primereact/icons/chevrondown';
 import {ChevronRightIcon} from 'primereact/icons/chevronright';
-import {useRouter, usePathname, useSearchParams} from "next/navigation";
-import Image from "next/image";
 
 import countries from "@/Json_Data/country-flag.json";
 import axios from "axios";
@@ -13,9 +11,6 @@ import toast from "react-hot-toast";
 
 
 function CountrySwitcher({className, lang}) {
-    const router = useRouter();
-    const pathname = usePathname();
-    const searchParams = useSearchParams();
 
     const [selectedCountry, setSelectedCountry] = useState();
 
@@ -23,7 +18,6 @@ function CountrySwitcher({className, lang}) {
         if (selectedCountry) {
             return (
                 <div className="flex align-items-center" style={{display: "flex", alignItems: 'center', gap: '5px'}}>
-                    <Image src={selectedCountry?.flag} alt={""} width={18} height={18}/>
                     <div>
                         {selectedCountry?.country}
                     </div>
@@ -37,7 +31,6 @@ function CountrySwitcher({className, lang}) {
     const countryOptionTemplate = (option) => {
         return (
             <div className="flex align-items-center" style={{display: "flex", alignItems: 'center', gap: "5px"}}>
-                <Image src={option?.flag} alt={""} width={18} height={18}/>
                 <div>
                     {option.country}
                 </div>
@@ -66,15 +59,13 @@ function CountrySwitcher({className, lang}) {
 
     // GET BROWSING COUNTRY
     const getCountry = async () => {
-        const country = await axios.get(`${process.env.BASE_URL}/browsing/country`)
+        return await axios.get(`${process.env.BASE_URL}/browsing/country`)
             .then((res) => {
                 return res.data?.country;
             })
             .catch((err) => {
                 console.log(err);
             });
-
-        return country;
     }
 
     useEffect(() => {

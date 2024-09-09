@@ -1,63 +1,56 @@
-import {match} from '@formatjs/intl-localematcher'
-import Negotiator from 'negotiator'
-import {cookies} from 'next/headers'
+import { cookies } from 'next/headers';
 
+export let defaultLocale = 'en';
+let locales = ['en', 'ar'];
 
-const routes = [];
-
-
-export let defaultLocale = 'en'
-let locales = ['en', 'ar']
-
-// Get the preferred locale, similar to the above or using a library
+// Get the preferred locale, dynamically fetching the 'accept-language' from the request
 function getLocale(request) {
-
-    let headers = {'accept-language': 'en-US,en;q=0.5'}
-    let languages = new Negotiator({headers}).languages()
-
-    return match(languages, locales, defaultLocale);
+    // GET THE LANGUAGES (NATIVELY SUPPORTED BY THE BROWSER) WITHOUT NAVIGATOR
+    const languages = request.headers.get('accept-language');
+    // GET THE LOCALES (SUPPORTED BY THE WEBSITE)
+    const locales = ['en', 'ar'];
+    // GET THE DEFAULT LOCALE
+    const defaultLocale = 'en';
+    // MATCH THE PREFERRED LOCALE
+    const matchedLocale = locales.find((locale) => languages.includes(locale));
+    // RETURN THE MATCHED LOCALE OR DEFAULT LOCALE
+    return matchedLocale || defaultLocale;
 }
 
 export async function middleware(request) {
-    // IF THE PATHNAME INCLUDES assets, DO NOT RUN THIS MIDDLEWARE
-    if (request.nextUrl.pathname.includes('assets')) return;
+    // Define conditions for skipping the middleware
+    const skipMiddleware = ['assets', 'sitemap', 'robots', 'favicon', 'api'].some(
+        (item) => request.nextUrl.pathname.includes(item)
+    );
 
-    // IF THE PATHNAME INCLUDES SITEMAP OR ROBOTS, DO NOT RUN THIS MIDDLEWARE
-    if (request.nextUrl.pathname.includes('sitemap') || request.nextUrl.pathname.includes('robots')) return;
+    if (skipMiddleware) return;
 
-    // IF THE FILE IS A FAVICON, DO NOT RUN THIS MIDDLEWARE
-    if (request.nextUrl.pathname.includes('favicon')) return;
+    // Get the 'lang' cookie from the request
+    const lang = cookies().get('lang');
 
-    // IF THE PATHNAME INCLUDES data && .json, DO NOT RUN THIS MIDDLEWARE
-    if (request.nextUrl.pathname.includes('data') && request.nextUrl.pathname.includes('.json')) return;
+    // Extract the pathname from the request URL
+    const { pathname } = request.nextUrl;
 
-    // IF THE PATHNAME INCLUDES api, DO NOT RUN THIS MIDDLEWARE
-    if (request.nextUrl.pathname.includes('api')) return;
-
-    // get the all cookies from the request
-    const lang = cookies(request.nextUrl).get('lang');
-    // Check if there is any supported locale in the pathname
-    const {pathname} = request.nextUrl
+    // Check if the pathname already includes a locale
     const pathnameHasLocale = locales.some(
         (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-    )
+    );
 
-    if (pathnameHasLocale) return
+    if (pathnameHasLocale) return;
 
-    // Redirect if there is no locale
+    // Determine the locale, checking cookie first, then using the negotiation method
     let locale = locales.includes(lang?.value) ? lang.value : getLocale(request);
-    // Set the language cookie
-    request.nextUrl.pathname = `/${locale}${pathname}`
-    // e.g. incoming request is /products
-    // The new URL is now /en-US/products
-    return Response.redirect(request.nextUrl)
+
+    // Update the request URL with the detected locale
+    request.nextUrl.pathname = `/${locale}${pathname}`;
+
+    // Redirect the user to the new URL with the correct locale
+    return Response.redirect(request.nextUrl);
 }
 
 export const config = {
     matcher: [
         // Skip all internal paths (_next)
         '/((?!_next).*)',
-        // Optional: only run on root (/) URL
-        // '/'
     ],
-}
+};
