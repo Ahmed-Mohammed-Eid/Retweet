@@ -21,6 +21,7 @@ import {
 } from "@/redux/Slices/mainLayoutSlice";
 import axios from "axios";
 import {Badge} from "primereact/badge";
+import toast from "react-hot-toast";
 
 function Navbar({lang, auth, country, userData}) {
 
@@ -65,26 +66,31 @@ function Navbar({lang, auth, country, userData}) {
 
     // GET THE NOTIFICATIONS HANDLER
     const getNotifications = () => {
+        // AUTHENTICATED VALIDATION
+        if (!auth) return;
+
         // GET THE NOTIFICATIONS
         axios.get(`${process.env.BASE_URL}/unseen/notifications`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("retweet-token")}`,
             },
         }).then(response => {
-            console.log(response.data);
             dispatch(updateNotifications({
                 hasNotifications: response.data?.hasNotifications,
                 notificationCount: response.data?.notificationCount,
             }));
         }).catch(error => {
-            console.log(error);
+            if(auth) {
+                console.log(error);
+                toast.error(error.response.data?.message || err.message);
+            }
         });
     }
 
     // GET THE NOTIFICATIONS
     useEffect(() => {
         getNotifications();
-        
+
         const interval = setInterval(() => {
             getNotifications();
         }, 10000);
@@ -207,7 +213,7 @@ function Navbar({lang, auth, country, userData}) {
 
                         <span className={subClasses.Sidebar__breaker}></span>
 
-                        <Button className={subClasses.Sidebar__icons__icon}
+                        <Button className={subClasses.Sidebar__icons__icon} style={{position: 'relative'}}
                                 onClick={() => router.push('/profile/messages#chat__box-hash')}>
                             <Image src={'/assets/home/bx_chat.svg'} alt={'bx_chat'} width={18} height={18}/>
                             <span>{lang === 'en' ? 'Messages' : 'الرسائل'}</span>
@@ -220,6 +226,21 @@ function Navbar({lang, auth, country, userData}) {
                         }}>
                             <Image src={'/assets/home/notification.svg'} alt={'notification'} width={18} height={18}/>
                             <span>{lang === 'en' ? 'Notifications' : 'الإشعارات'}</span>
+                            {
+                                auth && notifications.hasNotifications && notifications.notificationCount > 0 && (
+                                    <Badge
+                                        value={notifications.notificationCount}
+                                        severity="danger"
+                                        style={{
+                                            marginLeft: '0',
+                                            position: 'absolute',
+                                            top: '0',
+                                            right: '10px',
+                                            color: "#FFFFFF"
+                                        }}
+                                    />
+                                )
+                            }
                         </Button>
                     </div>)}
                 </div>
