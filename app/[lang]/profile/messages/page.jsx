@@ -200,6 +200,9 @@ export default function MessagesPage() {
                     dispatch(
                         updateSendersList(response?.data?.sendersList || [])
                     );
+                    // SET THE PARTNER ID TO THE FIRST USER IN THE LIST
+                    dispatch(updateCreatorId(response?.data?.sendersList[0]?._id));
+
                     // GET THE FIRST USER CHAT
                     const partner = response?.data?.sendersList[0];
                     const partnerFullName = partner?.senderDetails?.fullName;
