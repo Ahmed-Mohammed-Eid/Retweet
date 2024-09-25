@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default async function sitemap() {
     const langs = ['en', 'ar'];
-    const staticPages = ['/', '/about', '/contact', '/404', '/auth/login', '/auth/forgot-password', '/listings/select-category'];
+    const staticPages = ['/', '/about', '/contact'];
 
     // SITEMAP MULTI-LANGUAGE PAGES FOR EACH LANGUAGE AND STATIC PAGES
     const staticSiteMap = langs.map((lang) => {
