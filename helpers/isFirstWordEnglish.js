@@ -1,6 +1,6 @@
 export default function isFirstWordEnglish(text) {
     const firstWord = text.match(/^\s*\w+/);
-    if (!firstWord) return null; // No word found, returning null for undefined language
+    if (!firstWord) return null; // No word found, returning null for undefined localeuage
 
     const arabicPattern = /[\u0600-\u06FF]/;
     const englishPattern = /[a-zA-Z]/;

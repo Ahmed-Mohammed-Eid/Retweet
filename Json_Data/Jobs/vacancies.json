@@ -661,23 +661,23 @@
             },
             {
                 "labelAr" : "مدرب دورات لغة اسبانية" ,
-                "labelEn" : "spanish language courses instructor"
+                "labelEn" : "spanish localeuage courses instructor"
             },
             {
                 "labelAr" : "مدرب دورات لغة المانية" ,
-                "labelEn" : "german language courses instructor"
+                "labelEn" : "german localeuage courses instructor"
             },
             {
                 "labelAr" : "مدرب دورات لغة انجليزية" ,
-                "labelEn" : "english language courses instructor"
+                "labelEn" : "english localeuage courses instructor"
             },
             {
                 "labelAr" : "مدرب دورات لغة ايطالية" ,
-                "labelEn" : "italian language courses instructor"
+                "labelEn" : "italian localeuage courses instructor"
             },
             {
                 "labelAr" : "مدرب دورات لغة تركية" ,
-                "labelEn" : "turkish language courses instructor"
+                "labelEn" : "turkish localeuage courses instructor"
             },
             {
                 "labelAr" : "مدرب دورات لغة صينية" ,
@@ -1727,7 +1727,7 @@
     },
     {
         "labelAr" : "ما اللغات المطلوبة للوظيفة؟" ,
-        "labelEn" : "What languages are required for the job?" ,
+        "labelEn" : "What localeuages are required for the job?" ,
         "Values" :
         [
             {
